@@ -1,0 +1,21 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cabeceraTabla{
+    background-color:#2db3bf;
+    color: white;
+    font-size: 16px;
+}
+.itemTabla{
+    background-color: rgb(241, 238, 241);
+    color: black;
+}
+.hoverTr:hover{
+    background-color: #cdf0f3;
+}
+.imgMenu{
+    display: block;
+    margin: auto;
+    width: 30%;
+
+}

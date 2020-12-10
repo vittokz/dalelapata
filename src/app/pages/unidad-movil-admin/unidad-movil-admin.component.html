@@ -1,0 +1,155 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+   <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+  <div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">Registrar Visita Unidad Movil</h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="card-body">
+                   <form [formGroup]="registro">
+                        
+                    <div class="form-row">
+                          <div class="form-group col-md-2">
+                              <label for="municipio">Municipio</label>
+                              <select formControlName="municipio" class="custom-select mr-sm-2">
+                                  <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ ciudad.nombre}}</option>
+                              </select>
+                         
+                          </div>
+                         
+                          <div class="form-group col-md-10">
+                              <label for="proceso">Proceso</label>
+                              <input formControlName="proceso" type="text" class="form-control">
+                              <div *ngIf="registro.controls['proceso'].invalid && registro.controls['proceso'].dirty" class="alert alert-danger" role="alert">
+                                  Proceso es obligatorio
+                              </div>
+                          </div>
+                  </div>
+    
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="fecha inicial">Fecha Inicial</label>
+                            <input formControlName="fecha1" type="date" class="form-control">
+                            <div *ngIf="registro.controls['fecha1'].invalid && registro.controls['fecha1'].dirty" class="alert alert-danger" role="alert">
+                                Fecha Inicial es obligatoria
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="fecha Final">Fecha Final</label>
+                            <input formControlName="fecha2" type="date" class="form-control">
+                            <div *ngIf="registro.controls['fecha2'].invalid && registro.controls['fecha2'].dirty" class="alert alert-danger" role="alert">
+                            Fecha Final es obligatoria
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="Cantidad">Cantidad Atendida</label>
+                            <input formControlName="cantidad" type="text" class="form-control">
+                            <div *ngIf="registro.controls['cantidad'].invalid && registro.controls['cantidad'].dirty" class="alert alert-danger" role="alert">
+                            Cantidad Atendida es obligatoria
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="estado">Estado Visita</label>
+                            <select formControlName="estado" class="custom-select mr-sm-2">
+                                <option selected value="Visitado">VISITADO</option>
+                                <option value="Pendiente">PENDIENTE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <label for="fecha inicial">Imagen De la Visita</label>
+                          <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />  
+                         
+                      </div>
+                    </div>
+                    <div title="Registrar Visita" class="text-center">
+                        <button title="Registrar nueva visita" *ngIf="esNuevo" [disabled]="!registro.valid" (click)="agregarVisita()"  type="button" class="btn btn-primary my-4">Registrar</button>
+                        <button title="Modificar Visita" *ngIf="!esNuevo" [disabled]="!registro.valid" (click)="editarVisitaSeleccionada ()"  type="button" class="btn btn-success my-4">Editar</button>
+                    </div>
+                    <div *ngFor="let alert of alertsSeleccionar">
+                      <alert *ngIf="botonEditar" [type]="alert.type" [dismissible]="dismissibleSeleccionar" (onClosed)="onClosedSeleccionar(alert)">
+                        {{ alert.msg }}
+                      </alert>
+                    </div> 
+
+                       
+                </form> 
+                <hr>
+                  <div *ngFor="let alert of alerts">
+                    <alert *ngIf="envioForm" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+                      {{ alert.msg }}
+                    </alert>
+                  </div>       
+          </div><!-- fin card body-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-2">
+  <div class="row mt-4">
+    <div class="col">
+     
+      <div class="card shadow">
+         <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+              <div class="col-8"> <h2 class="mb-0">Lista de Visitas</h2> 
+              </div>
+              <div class="col-4 text-right">
+                <button (click)="generarExcel(listaVisitas,'listaVisitasUnidad')" title="Generar excel de Usuarios" class="btn btn-sm btn-primary">Generar Excel</button>
+              </div>
+              </div>
+          </div>
+
+        <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="listaVisitas" noDataText="No se encontraron Datos" [showBorders]="true">
+
+          <dxo-search-panel [visible]="true" [width]=540 placeholder="Buscar..."></dxo-search-panel>
+          <dxo-paging [pageSize]="10"></dxo-paging>
+
+          <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Visitas)" [showPageSizeSelector]="true">
+          </dxo-pager>
+
+          <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+          <dxi-column dataField="idMunicipio" alignment="center" caption="Municipio"></dxi-column>
+          <dxi-column dataField="cantidad" alignment="center" caption="Cantidad"></dxi-column>
+          <dxi-column dataField="proceso" alignment="center" caption="Proceso"></dxi-column>
+          <dxi-column dataField="fechaInicial" caption="Fecha Inicial"></dxi-column>
+          <dxi-column dataField="fechaFinal" caption="Fecha Final"></dxi-column>
+          <dxi-column dataField="estado" caption="Estado"></dxi-column>
+          <dxi-column dataField="urlFoto" caption="Imagen"></dxi-column>
+          <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+          <div *dxTemplate="let d of 'acciones'">
+            <button target=”_blank” class="btn btn-success" title="Editar información Visita" (click)="editarVisita(d.data);">
+              Editar</button>
+          </div>
+
+      </dx-data-grid> 
+      </div>
+    </div>
+  </div>
+</div>
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

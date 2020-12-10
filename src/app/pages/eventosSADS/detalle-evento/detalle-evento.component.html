@@ -1,0 +1,54 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+  <div class="container-fluid mt--7">
+    <div class="row">
+    
+      <div class="col-xl-12 order-xl-1" *ngFor="let evento of eventoDetalle">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">{{ eventoDetalle.nombre}}</h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card mb-3" style="max-width: 100%;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{url}}eventos/{{ evento.urlImagen}}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ evento.nombre}}</h5>
+                      <p class="card-text">{{ evento.descripcion}}</p>
+                      <p class="card-text"><small class="text-muted"><hr>Fecha de registro : {{ evento.fechaEvento}}</small></p>
+                      <button type="button" (click)="eliminarEvento(eventoDetalle.idEvento)" class="btn btn-danger">
+                        Eliminar Evento
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

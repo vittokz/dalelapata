@@ -1,0 +1,31 @@
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}.banner{
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    background-size: cover;
+}
+.titulo{
+    color: white; 
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+.imagen{
+    width: 100%;
+    height: 20%;
+
+}
+.foto{
+    margin: auto;
+    width: 100%;
+    height: 300px;
+}
+
+.modal.show{
+    display: block;
+    overflow-y: auto;
+}

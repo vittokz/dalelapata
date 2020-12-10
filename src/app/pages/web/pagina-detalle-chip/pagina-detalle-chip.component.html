@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-lg-12" style="padding: 40px;">
+          <app-menu></app-menu>
+  </div>
+  <div class="col-lg-12">
+      <app-banner></app-banner>
+  </div>
+</div>
+  <app-menu-flotante></app-menu-flotante>
+   
+   <div id="header">
+        <div id="nav">
+        <span class="titulo">Mascota Seleccionada</span>
+        </div>
+  </div>
+
+  <div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed;  opacity: 9;"> 
+  
+    <div class="container">
+
+  
+       <div class="row mt-4 mb-4">
+                    <div class="col-lg-2"></div>
+
+                    <div class="col-lg-4" *ngFor="let mas of mascotaSel">
+                      <div class="card" style="width: 100%; padding: 10px; border-color:#2db3bf ; background-color: rgb(245, 245, 245);">
+                        <img src="{{url}}mascotas/img/{{mas.urlFoto}}" style="margin: auto; height: 200px;" class="imgUrl" alt="...">
+                        <div class="card-body">
+                          <h3 style="text-align: center;" class="card-title">{{mas.nombre | uppercase}}</h3>     
+                            <p style="text-align: justify;">{{ mas.descripcion | uppercase}}, DEL MUNICIPIO DE
+                              {{ nomCiudad | uppercase}}, {{ mas.idEspecie | uppercase}}  {{ mas.idGenero | uppercase}}</p>
+                              <hr>
+                              <button disabled *ngIf="proceso=='2'" (click)="irAdoptame(mas)" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-lg btn-block">No esta para Adoptar</button>
+                              <button *ngIf="proceso=='4'" type="button" class="btn btn-danger btn-lg btn-block">Mascota Extraviada</button>
+                              <button *ngIf="proceso=='3'" type="button" class="btn btn-warning btn-lg btn-block">Mascota Encontrada</button>
+                              <button routerLink="/perfil-mascota/{{mas.idMascota}}" *ngIf="proceso=='5'" type="button" class="btn btn-primary btn-lg btn-block">Mascota MicroChip</button>
+                            
+                        </div>
+                      </div>
+                    </div> 
+        
+                    <div class="col-lg-4" style="border-color:#2db3bf !important" *ngFor="let mas of mascotaSel">      
+                      <div class="card" style="width: 100%; padding: 10px; border-color:#2db3bf ; background-color: rgb(245, 245, 245);">
+                          <div class="list-group" style="border-color:#2db3bf !important">
+                              <a style=" font-weight: 800; background-color: #2db3bf !important;color: #ffffff !important; text-align: center;" class="list-group-item list-group-item-action active">
+                                Características
+                              </a>
+                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">Nª CHIP: {{mas.numChip}}</a>
+                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">EDAD: {{mas.edad | uppercase}}  -   PESO {{mas.peso | uppercase}}</a>
+                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">COLOR: {{mas.color | uppercase}}</a>
+                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">RAZA: {{nomRaza | uppercase}}</a>
+                            </div>
+                            <div class="list-group" *ngFor="let usu of usuario">
+                              <a routerLink="/detalleUsuarioPag/{{usu.idUsuario}}/{{usu.idFundacion}}" style=" font-weight: 800; background-color: #af107a!important;color: #ffffff !important; text-align: center;" class="list-group-item list-group-item-action active">
+                                Contáctos Fundación
+                              </a>
+                              <a style="background-color: rgb(245, 245, 245) !important; font-size: 14px;" class="list-group-item list-group-item-action">
+                                {{ nomUsuario | uppercase}}
+                            </a> 
+                            <a style="background-color: rgb(245, 245, 245) !important; font-size: 14px;" class="list-group-item list-group-item-action">
+                              {{emailUsuario | uppercase}}<br><br>
+                            </a>     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2"></div>
+       </div>
+
+     
+
+  </div>
+</div>
+
+  <app-footer-paginas></app-footer-paginas>

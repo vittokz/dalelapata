@@ -1,0 +1,75 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  
+  <!-- Pages -->
+  <div class="header pb-6 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+  
+   <!-- Page content -->
+<div class="container-fluid mt--7">
+  
+    <!-- Table -->
+    <div class="row">
+        <div class="col-lg-12">
+          <form action="" class="form-group">
+            <input (input)="buscarUsuario($event.target.value)" placeholder="Buscar Usuario por Nombre" type="text" class="form-control"> 
+          </form>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+              <div class="col-8">
+                  <h3 class="mb-0">Lista de Usuarios</h3>
+              </div>
+              <div class="col-4 text-right">
+                  <a routerLink="/usuarios-sistema" class="btn btn-sm btn-primary">Registrar Usuario</a>
+              </div>
+              </div>
+          </div>
+        <div class="card shadow">
+         
+          <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="usuario" noDataText="No se encontraron Datos" [showBorders]="true">
+
+            <dxo-search-panel [visible]="true" [width]=240 placeholder="Buscar..."></dxo-search-panel>
+            <dxo-paging [pageSize]="10"></dxo-paging>
+
+            <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Usuarios)" [showPageSizeSelector]="true">
+            </dxo-pager>
+
+            <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+            <dxi-column dataField="identidad" alignment="center" caption="Identidad"></dxi-column>
+            <dxi-column dataField="municipio" caption="Municipio"></dxi-column>
+             <dxi-column dataField="nombre" caption="Nombre"></dxi-column>
+            <dxi-column dataField="email" caption="Emáil"></dxi-column>
+            <dxi-column dataField="telefono" caption="Teléfono"></dxi-column>
+            <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+            <div *dxTemplate="let d of 'acciones'">
+          
+              <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de noticia"
+              >
+                Ver</button>
+                <button class="btn btn-danger btn-sm" title="Eliminar Noticia">
+                  Eliminar</button>
+            </div>
+        </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

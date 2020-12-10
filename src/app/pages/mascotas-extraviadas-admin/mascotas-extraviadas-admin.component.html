@@ -1,0 +1,161 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row">
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-info" routerLink="/mascotas-admin"> ADOPTADAS</button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div> 
+              </div>
+            </div>
+          </div>  
+          
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button routerLink="/mascotasPorAdoptar-admin" class="btn btn-info">POR ADOPTAR </button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>  
+
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-danger" routerLink="/mascotasExtraviadas-admin"> EXTRAVIADAS</button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div> 
+              </div>
+            </div>
+          </div>  
+
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-info" routerLink="/mascotasEncontradas-admin"> ENCONTRADAS </button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>  
+        <div class="row">
+            <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col">
+                        <button class="btn btn-info"  routerLink="/mascotasMicroChip-Admin"> MICROCHIP </button>
+                        <span class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>  
+
+            <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col">
+                        <button class="btn btn-info"  routerLink="/mascotasEsterilizadas-admin"> ESTERILIZADAS </button>
+                        <span class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>  
+
+          
+        </div>  
+
+
+        
+
+      </div>
+    </div>
+  </div>
+
+   <!-- Page content -->
+<div class="container-fluid mt--7">
+      <div class="row mt-2">
+        <div class="col-lg-2 mb-2"> 
+          <a routerLink="/add-mascota"><img title="Agrega Mascota" src="assets/img/pagAdopcion/agregarMascota.png" class="imgMenu"></a>
+        </div>
+        <div class="col-lg-2 mb-2"> 
+          <a routerLink="/buscar-mascota"><img title="Buscar Mascota" src="assets/img/pagAdopcion/buscar.png" class="imgMenu"></a>
+        </div>
+        <div class="col-lg-2 mb-2"> 
+            <img (click)="generarExcel(mascotas,'mascotasAdoptadas')" title="Generar Excel" src="assets/img/pagAdopcion/excel.png" class="imgMenu">
+        </div>
+    </div>
+    <!-- Table -->
+    <div class="row mt-4">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Mascotas Extraviadas. Total : {{ cantidad }}</h3>
+          </div>
+
+                <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="mascotas" noDataText="No se encontraron Datos" [showBorders]="true">
+
+                  <dxo-search-panel [visible]="true" [width]=240 placeholder="Buscar..."></dxo-search-panel>
+                  <dxo-paging [pageSize]="10"></dxo-paging>
+
+                  <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Mascotas)" [showPageSizeSelector]="true">
+                  </dxo-pager>
+
+                  <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+                  <dxi-column dataField="idMascota" alignment="center" caption="idMascota"></dxi-column>
+                  <dxi-column dataField="idFundacion" alignment="center" caption="idFundación"></dxi-column>
+                  <dxi-column dataField="numChip" alignment="center" caption="numChip"></dxi-column>
+                  <dxi-column dataField="nombre" caption="Nombre"></dxi-column>
+                  <dxi-column dataField="edad" caption="Edad"></dxi-column>
+                  <dxi-column dataField="color" caption="Color"></dxi-column>
+                  <dxi-column dataField="idEspecie" caption="Especie"></dxi-column>
+                  <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+                  <div *dxTemplate="let d of 'acciones'">
+                    <button target=”_blank” class="btn btn-info" title="Ver información de Mascota" routerLink="/detalleMascotaWeb/{{d.data.idMascota}}">
+                      Ver</button>
+                  </div>
+
+              </dx-data-grid>
+          </div>
+      </div>
+    </div>
+  
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

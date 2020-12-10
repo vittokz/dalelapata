@@ -1,0 +1,209 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+        <app-menu-admin></app-menu-admin>
+    </div>
+</div>
+<hr>
+<div class="row" class="fondo"> 
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+      Modulo Contratos
+   </div>  
+</div>
+
+
+<div class="container">
+
+    
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <div class="alert alert-danger" role="alert">
+                <h3 style="color: white;"> FUNDACIÓN: {{ razonSocial | uppercase}} </h3>
+            </div>
+            <div class="row">
+               <div class="col-lg-12">
+                      <div class="form-group">
+                          <label>Identidad Usuario Adoptante</label>
+                          <input (input)="buscarContrato($event.target.value)" class="form-control" type="text" placeholder="Identidad de la persona que Adoptó la mascota">
+                      </div>
+               </div>
+            </div>
+            <div class="table-responsive">
+                    <table class="table table-info">
+                        <thead class="cabeceraTabla">
+                        <tr>
+                            <th scope="col">IDENTIDAD</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">MOVIL</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">GENERAR CONTRATO</th>
+                            <th scope="col">SUBIR</th>
+                            <th scope="col">VER CONTRATOS SUBIDOS</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody class="itemTabla">
+                            <tr class="hoverTr" *ngFor="let usu of usuarioBuscado">
+                                <td>{{ usu.identidad}}</td>
+                                <td>{{ usu.nombres}} {{usu.apellidos}}</td>
+                                <td>{{ usu.movil}}</td>
+                                <td>{{ usu.email}}</td>
+                                <td><button (click)="habilitarContratos(usu)" data-toggle="modal" data-target="#myModal" title="Generar contratos" class="btn btn-danger btn-sm">Ver Contratos</button></td>
+                                <td><button (click)="habilitarSubir(usu)" data-toggle="modal" data-target="#myModal" title="Ver contratos" class="btn btn-danger btn-sm">Subir Contrato</button></td>
+                                <td><button (click)="habilitarContratosSubidos(usu)" data-toggle="modal" data-target="#myModal" title="Ver contratos subidos" class="btn btn-danger btn-sm">Lista Contratos</button></td>
+                              </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- tabla contratos-->
+    <h3>Lista de Contratos Subidos</h3>
+    <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="listContratos" noDataText="No se encontraron Datos" [showBorders]="true">
+
+      <dxo-search-panel [visible]="true" [width]=640 placeholder="Buscar..."></dxo-search-panel>
+      <dxo-paging [pageSize]="10"></dxo-paging>
+
+      <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Contratos)" [showPageSizeSelector]="true">
+      </dxo-pager>
+
+      <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+      <dxi-column dataField="identidad" alignment="center" caption="Identidad"></dxi-column>
+      <dxi-column dataField="nombres" alignment="center" caption="Nombres"></dxi-column>
+      <dxi-column dataField="apellidos" alignment="center" caption="Apellidos"></dxi-column>
+      <dxi-column dataField="email" alignment="center" caption="Email"></dxi-column>
+      <dxi-column dataField="fechaAceptado" alignment="center" caption="Fecha Adopción"></dxi-column>
+      <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+      <div *dxTemplate="let d of 'acciones'">
+        <button (click)="habilitarContratosSubidos(d.data)" data-toggle="modal" data-target="#myModal" 
+        title="Ver contratos subidos" class="btn btn-danger btn-sm">Ver Contratos</button>
+                          
+        </div>
+    </dx-data-grid>
+
+    <!-- Div para mostrar contratos-->
+    <div class="row" *ngIf="contratos">
+       
+        <div class="col-lg-12 mt-2">
+            <h2>Contratos Mascotas</h2>
+            <div class="table-responsive">
+                    <table class="table table-info">
+                        <thead class="cabeceraTabla">
+                        <tr>
+                            <th scope="col">IDMASCOTA</th>
+                            <th scope="col">NOMBRE MASCOTA</th>
+                            <th scope="col">COLOR</th>
+                            <th scope="col">EDAD</th>
+                            <th scope="col">TAMAÑO</th>
+                            <th scope="col">FECHA ADOPCIÓN</th>
+                            <th scope="col">GENERAR CONTRATO</th>
+                        </tr>
+                        </thead>
+                        <tbody class="itemTabla">
+                            <tr class="hoverTr" *ngFor="let m of mascotasContratos">
+                                <td>{{ m.idMascota}}</td>
+                                <td>{{ m.nombre}}</td>
+                                <td>{{ m.color}}</td>
+                                <td>{{ m.edad}}</td>
+                                <td>{{ m.tamano}}</td>
+                                <td>{{ m.fechaAdopcion}}</td>
+                                <td><button (click)="generarContrato(m)" data-toggle="modal" data-target="#myModal" title="Generar contrato" class="btn btn-danger btn-sm">Generar Contrato</button></td>
+                              </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <!--Fin mostrar contratos-->
+
+  <!-- modal lista lectores-->
+ <div class="modal" id="myModal" [ngClass]="{ 'show' : showModal }">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+  
+          <!-- Modal Header -->
+          <div class="modal-header" style="background-color: #2db3bf; color: white;">
+            <h4 class="modal-title" style="font-size: 22px; color: white !important;">Subir Contrato de Usuario</h4>
+            <button type="button" class="close" (click)="cerrarModal2()" data-dismiss="modal">&times;</button>
+          </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body" >
+          <p>Información de Usuario: C.C {{idenUsuarioSelec}} Nombre :{{nombreUsuarioSelec }}</p>
+          <form [formGroup]="formSubir">
+             <div class="form-group">
+                <label>Archivo Contrato</label>
+                <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />     
+                <br><button type="button" [disabled]="!formSubir.valid" (click)="subirContrato()"
+                 class="btn btn-primary" style="background-color: #2db3bf; color: white;">Subir Contrato</button>
+              
+            </div>
+          </form>
+          <div *ngIf="cargando=='ok'">
+              <img src="assets/img/faunaSilvestre/loading.gif" width="15%">
+          </div>
+          <div *ngIf="contrato=='ok'">
+            <div class="alert alert-info" role="alert">
+            Subio correctamente el contrato. 
+            </div>
+          </div>
+          <div *ngIf="contrato=='error'">
+            <div class="alert alert-danger" role="alert">
+                  No subio el archivo verifique!!!!
+            </div>
+          </div>
+        </div>
+       
+          <!-- Modal footer -->
+            <div class="modal-footer">  
+                <button (click)="cerrarModal2()" type="button" class="btn btn-danger">Cerrar</button>         
+            </div>
+         </div>
+      </div>
+    </div>
+
+    <!--Modal ver lista contratos-->
+
+     <!-- modal lista lectores-->
+ <div class="modal" id="myModal" [ngClass]="{ 'show' : showModal2 }">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+  
+          <!-- Modal Header -->
+          <div class="modal-header" style="background-color: #2db3bf; color: white;">
+            <h4 class="modal-title" style="font-size: 22px; color: white !important;">Listado de contratos Subidos</h4>
+            <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal">&times;</button>
+          </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body" >
+          <p>Información de Usuario: C.C {{idenUsuarioSelec}} Nombre :{{nombreUsuarioSelec }}</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Fecha Escaneo/Subido</th>
+                <th scope="col">Archivo</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of listaContratos">
+              <tr>
+                <th scope="row">{{item.fechaContratoUpload}}</th>
+                <td><a target="_blank" href="{{url}}adopcionPostulacion/img/{{item.archivoContrato}}">
+                    {{item.archivoContrato}}</a>
+                    </td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+       
+          <!-- Modal footer -->
+            <div class="modal-footer">  
+                <button (click)="cerrarModal()" type="button" class="btn btn-danger">Cerrar</button>         
+            </div>
+         </div>
+      </div>
+    </div>
+
+</div>

@@ -1,0 +1,158 @@
+<app-sidebar></app-sidebar>
+<div class="main-content">
+    <!-- Top navbar -->
+    <app-navbar></app-navbar>
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+            <!-- Mask -->
+            <span class="mask bg-gradient-info opacity-8"></span>
+           
+        </div>
+        <div class="container-fluid mt--7">
+            <div class="row">
+           
+            <div class="col-xl-12 order-xl-1">
+                <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">Nuevo Usuario</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a routerLink="/listar-Usuarios" class="btn btn-sm btn-primary">Listar Usuarios</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="formRegistro">
+                    <h6 class="heading-small text-muted mb-4">Datos Personales<hr></h6>
+                    <div class="pl-lg-4">
+
+                        <div class="row">
+                            <div class="col-lg-2">
+                                    <div class="form-group">
+                                    <label class="form-control-label">Tipo Documento</label>
+                                    <select formControlName="tipoDoc" class="custom-select mr-sm-2">
+                                        <option selected value="TI">TI</option>
+                                        <option value="CC">CC</option>
+                                        <option value="CE">CE</option>
+                                      </select>
+                                    </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label class="form-control-label">Identificación</label>
+                                    <input formControlName="cedula" type="number" class="form-control form-control-alternative">
+                                    <div *ngIf="formRegistro.controls['cedula'].invalid && formRegistro.controls['cedula'].dirty" class="alert alert-danger" role="alert">
+                                        Identidad es obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                     <label class="form-control-label">Nombres</label>
+                                     <input formControlName="nombre" type="text" class="form-control form-control-alternative" placeholder="Nombres">
+                                        <div *ngIf="formRegistro.controls['nombre'].invalid && formRegistro.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                                            Nombre es obligatorio
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                   <label class="form-control-label" for="Apellidos">Apelllidos</label>
+                                   <input formControlName="apellido" type="text" class="form-control form-control-alternative" placeholder="Apellidos">
+                                    <div *ngIf="formRegistro.controls['apellido'].invalid && formRegistro.controls['apellido'].dirty" class="alert alert-danger" role="alert">
+                                        Apellido es obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="Email">Email</label>
+                                    <input formControlName="email" type="email" class="form-control form-control-alternative" placeholder="Email">
+                                    <div *ngIf="formRegistro.controls['email'].invalid && formRegistro.controls['email'].dirty" class="alert alert-danger" role="alert">
+                                        Email es obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="Telefno">Teléfono</label>
+                                    <input formControlName="telefono" type="number" class="form-control form-control-alternative" placeholder="Teléfono">
+                                    <div *ngIf="formRegistro.controls['telefono'].invalid && formRegistro.controls['telefono'].dirty" class="alert alert-danger" role="alert">
+                                        Telefono es obligatorio
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                    <div class="form-group">
+                                            <label class="form-control-label" for="Direccion">Dirección</label>
+                                            <input formControlName="direccion" type="text" class="form-control form-control-alternative" placeholder="Dirección">
+                                            <div *ngIf="formRegistro.controls['direccion'].invalid && formRegistro.controls['direccion'].dirty" class="alert alert-danger" role="alert">
+                                            Direccion es obligatorio
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                           <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="Facebook">Municipio</label>
+                                            <select formControlName="municipio" class="custom-select mr-sm-2">
+                                                <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ ciudad.nombre}}</option>
+                                            </select>
+                                                <div *ngIf="formRegistro.controls['municipio'].invalid && formRegistro.controls['municipio'].dirty" class="alert alert-danger" role="alert">
+                                                    Municipio es obligatorio
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="Facebook">Tipo Usuario</label>
+                                            <select formControlName="tipoUsuario" class="custom-select mr-sm-2">
+                                                <option value="Administrador">Administrador</option>
+                                                <option value="Alcaldia">Alcaldia</option>
+                                            </select>
+                                                <div *ngIf="formRegistro.controls['tipoUsuario'].invalid && formRegistro.controls['tipoUsuario'].dirty" class="alert alert-danger" role="alert">
+                                                    Tipo Usuario es obligatorio
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="Facebook">Contraseña</label>
+                                                    <input formControlName="clave" type="password" class="form-control form-control-alternative" placeholder="Clave">
+                                                    <div *ngIf="formRegistro.controls['clave'].invalid && formRegistro.controls['clave'].dirty" class="alert alert-danger" role="alert">
+                                                        Clave es obligatorio
+                                                    </div>
+                                                </div>
+                                    </div>
+                            </div>
+                    </div>
+                   <div class="text-center">
+                   <button [disabled]="!formRegistro.valid" (click)="agregarUsuario()"  type="button" class="btn btn-primary my-4">Registrar</button>
+                   </div>
+              
+                  </form><hr>
+                  <div *ngFor="let alert of alerts">
+                    <alert *ngIf="envioForm=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+                      {{ alert.msg }}
+                    </alert>
+                  </div>
+                  <div *ngIf="envioForm=='error'" class="alert alert-danger" role="alert">
+                    Revise identificación e Email ya se encuentran registrados!!!
+                  </div>
+                 </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+  <router-outlet></router-outlet>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

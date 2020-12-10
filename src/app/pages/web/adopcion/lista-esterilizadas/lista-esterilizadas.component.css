@@ -1,0 +1,12 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.imagen{
+   width: 100% !important;
+}
+
+img {
+    height: 120px;
+    width: 100%;
+    display: block;
+}

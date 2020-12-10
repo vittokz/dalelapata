@@ -1,0 +1,350 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+            <app-menu></app-menu>
+    </div>
+</div>
+<hr>
+<div class="row" class="fondo"> 
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+      Administración
+   </div>  
+</div>
+
+<div class="container"> 
+    <app-menu-flotante></app-menu-flotante>
+      <div class="row mt-3" *ngIf="idFundacion!='no'">
+        <div class="col-lg-4">
+          <button style="background-color: #2db3bf; color: white;" routerLink="/administrar-perfil" title="Click para ingresar al panel de administración" type="button" class="btn btn-link">Panel de Administración</button>
+        </div>     
+      </div>
+    <div class="row mt-3" *ngIf="idFundacion=='no'">
+          <div class="col-lg-2 col-sm-12 mt-2">
+            <button (click)="activarPerfil()" style="background-color: #2db3bf; color: white;" title="Perfil de Usuario" type="button" class="btn btn-link">Perfil De Usuario</button>
+          </div>  
+        <div class="col-lg-2 col-sm-12 mt-2">
+            <button (click)="activarMascota()" style="background-color: #2db3bf; color: white;" title="Perfil mascotas" type="button" class="btn btn-link">Mascotas</button>
+        </div>     
+      </div>
+    <hr>
+    <div class="row" *ngIf="linkPerfil">
+      
+        <h1 style="margin: auto;">Perfil de Usuario</h1>
+       <div class="col-lg-12 mt-2 mb-3 padding">
+             <div class="card" style="width: 100%; background-color: white;border-color: #2db3bf;">
+               <div class="row">
+                   <div class="col-lg-4 col-sm-8">
+                    <img src="assets/img/theme/usuario.png" class="imagen" alt="...">
+                   </div>
+                   <div class="col-lg-4 col-sm-8">
+                   
+                   </div>
+               </div>
+               
+               <div class="card-body" *ngFor="let u of usuario">
+                 <h2 *ngIf="idFundacion=='no'">No pertence a ninguna Fundación</h2>
+                 <h2 *ngIf="idFundacion!='no'">PERTENECE A {{ razonSocialFund | uppercase}}</h2>
+                 <img src="{{url}}{{identidadFundacion}}{{logoFundacion}}" style="width: 20%;" alt="No subio logo">
+                 <hr>
+                 <form [formGroup]="formEditar">
+                    <div class="form-group row">
+                        <label for="Nombre" class="col-sm-2 col-form-label col-form-label-sm">Nombres</label>
+                         <div class="col-sm-4">
+                              <input formControlName="idUsuario" type="hidden" class="form-control form-control-sm">
+                              <input formControlName="identificacion" type="hidden" class="form-control form-control-sm">  
+                              <input formControlName="idFundacion" type="hidden" class="form-control form-control-sm">  
+                              <input formControlName="tipoDoc" type="hidden" class="form-control form-control-sm">  
+                              <input disabled formControlName="nombre" type="text" class="form-control form-control-sm">  
+                         </div>
+                        <label for="Apellidos" class="col-sm-2 col-form-label col-form-label-sm">Apellidos</label>
+                         <div class="col-sm-4">
+                             <input disabled formControlName="apellido" type="text" class="form-control form-control-sm">
+                         </div>
+                    </div>
+                     <div class="form-group row">
+                      <label for="Telefono" class="col-sm-2 col-form-label col-form-label-sm">Teléfono</label>
+                       <div class="col-sm-4">
+                           <input formControlName="telefono" type="text" class="form-control form-control-sm">
+                      </div>
+                       <label for="Movil" class="col-sm-2 col-form-label col-form-label-sm">Movil</label>
+                       <div class="col-sm-4">
+                           <input formControlName="movil" type="text" class="form-control form-control-sm">
+                       </div>
+                     </div>
+                     <div class="form-group row">
+                      <label for="Direccion" class="col-sm-2 col-form-label col-form-label-sm">Dirección</label>
+                       <div class="col-sm-4">
+                           <input formControlName="direccion"  type="text" class="form-control form-control-sm">
+                       </div>
+                       <label for="Email" class="col-sm-2 col-form-label col-form-label-sm">Emáil</label>
+                       <div class="col-sm-4">
+                           <input formControlName="email" type="text" class="form-control form-control-sm">
+                       </div>
+                     </div>
+                     <div class="form-group row">
+                      <label for="Twitter" class="col-sm-2 col-form-label col-form-label-sm">Twitter</label>
+                       <div class="col-sm-4">
+                           <input formControlName="twitter" type="text" class="form-control form-control-sm" placeholder="Escriba no si no lo tiene">  
+                       </div>
+                       <label for="Facebook" class="col-sm-2 col-form-label col-form-label-sm">Facebook</label>
+                       <div class="col-sm-4">
+                           <input formControlName="facebook" type="text" class="form-control form-control-sm" placeholder="Escriba no si no lo tiene"> 
+                       </div>
+                     </div>
+                     <hr>
+                     <div class="form-group row">
+                        <div class="col-sm-4">
+                           <input formControlName="clave" type="hidden" class="form-control form-control-sm">  
+                       </div>
+                     </div>
+                    
+                     <button disabled (click)="editarPerfil()" title="Editar información de usuario" type="button" class="btn btn-success">Editar</button>
+                 </form><hr>
+                 <div *ngFor="let alert of alertsEditar">
+                  <alert *ngIf="envioFormEditar=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosedEditar(alert)">
+                    {{ alert.msg }}
+                  </alert>
+                 </div>
+     
+                 <div *ngIf="envioFormEditar=='error'">
+                   <div class="alert alert-danger" role="alert">
+                    Error al modificar Usuario. Verifique!!!!
+                   </div>
+                 </div>
+               </div>
+             </div>
+        </div>
+    </div>
+</div>
+     <!-- link mascotas-->
+<div class="container" *ngIf="linkMascota">
+     <div class="row" *ngIf="oculto">
+      <h1 style="margin: auto;">Registrar Mascota</h1>
+      <div class="col-lg-12 mt-5">
+          <form [formGroup]="registro">
+               
+              <div class="form-row" style="border-color:#2db3bf!important;">
+                   
+                    <div class="form-group col-md-3">
+                      <label for="Nombre">Nombre</label>
+                      <input formControlName="nombre" type="text" class="form-control">
+                      <div *ngIf="registro.controls['nombre'].invalid && registro.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                        Nombre es obligatorio
+                      </div>
+                    </div>
+                   
+                    <div class="form-group col-md-3">
+                      <label for="Edad">Edad</label>
+                      <input formControlName="edad" type="text" class="form-control" placeholder=" Ejemplo 2 Años, 5 Meses">
+                      <div *ngIf="registro.controls['edad'].invalid && registro.controls['edad'].dirty" class="alert alert-danger" role="alert">
+                        Edad es obligatorio
+                      </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="raza">Raza</label>
+                        <select formControlName="raza" class="custom-select mr-sm-2">
+                           <option *ngFor="let r of razas;let index = index" value="{{r.id}}" [selected]="index == 1">{{ r.nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="especie">Especie</label>
+                        <select formControlName="especie" class="custom-select mr-sm-2">
+                          <option selected value="1">CANINO</option>
+                          <option value="2">FELINO</option>
+                        </select>
+                    </div>
+                  </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="genero">Genero</label>
+                    <select formControlName="genero" class="custom-select mr-sm-2">
+                      <option selected value="MACHO">MACHO</option>
+                      <option value="HEMBRA">HEMBRA</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="tamaño">Tamaño</label>
+                    <select formControlName="tamano" class="custom-select mr-sm-2">
+                      <option selected value="PEQUEÑO">PEQUEÑO</option>
+                      <option value="MEDIANO">MEDIANO</option>
+                      <option value="GRANDE">GRANDE</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="Peso">Peso (Kg)</label>
+                  <input formControlName="peso" type="text" class="form-control" placeholder="Ejemplo 2 kilos">
+                  <div *ngIf="registro.controls['peso'].invalid && registro.controls['peso'].dirty" class="alert alert-danger" role="alert">
+                   Peso es obligatorio
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="ciudad">Ciudad</label>
+                    <select formControlName="ciudad" class="custom-select mr-sm-2">
+                      <option *ngFor="let c of ciudadesFormulario;let index = index" value="{{c.id}}" [selected]="index == 1">{{ c.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label for="estado">Estado Mascota</label>
+                  <select formControlName="estadoMascota" class="custom-select mr-sm-2">
+                    <option value="4">Extraviada</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="Color">Color</label>
+                <input formControlName="color" type="text" class="form-control">
+                <div *ngIf="registro.controls['color'].invalid && registro.controls['color'].dirty" class="alert alert-danger" role="alert">
+                 Color es obligatorio
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="Foto">Foto</label>
+                <input type="file" formControlName="foto"  class="form-control">
+                <div *ngIf="registro.controls['foto'].invalid && registro.controls['foto'].dirty" class="alert alert-danger" role="alert">
+                 Color es obligatorio
+                </div>
+              </div>
+             
+              <div class="form-group col-md-5">
+                <label for="descripcion">Descripción</label>
+                <textarea cols="3" rows="2" formControlName="descripcion" class="form-control"></textarea>
+                <div *ngIf="registro.controls['descripcion'].invalid && registro.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
+                  Descripcion es obligatorio
+                </div>
+              </div>
+        </div>
+             
+              <div title="Registrar nuevo usuario" class="text-center">
+                <button disabled (click)="agregarMascota()" style="background-color:#2db3bf; color: white;" 
+                type="button" class="btn btn-primary my-4">Registrar Mascota</button>
+               
+              </div>
+            </form>
+            <div *ngFor="let alert of alerts">
+             <alert *ngIf="envioForm=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+               {{ alert.msg }}
+             </alert>
+            </div>
+
+            <div *ngIf="envioForm=='error'">
+              <div class="alert alert-danger" role="alert">
+               Error al registrar la mascota. Verifique!!!!
+              </div>
+            </div>
+        </div>
+      </div>
+
+    <!-- listar mascotas registradas -->
+    <div class="row" *ngIf="oculto">
+      <div class="col-lg-12 mt-5">
+        <h2>Mascotas Registradas {{ cantidadMascotas}}</h2>
+          <div class="table-responsive">
+                  <table class="table table-info">
+                      <thead class="cabeceraTabla">
+                      <tr>
+                        <th style="font-family: 18px;" scope="col"># CHIP</th>
+                        <th style="font-family: 18px;" scope="col">NOMBRE</th>
+                        <th style="font-family: 18px;" scope="col">COLOR</th>
+                        <th style="font-family: 18px;" scope="col">EDAD</th>
+                        <th scope="col">FECHA REGISTRO</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Ver</th>
+                     
+                      </tr>
+                      </thead>
+                      <tbody class="itemTabla">
+                          <tr class="hoverTr" *ngFor="let masc of mascotasUsuario">
+                            <td style="color: red;" *ngIf="masc.numChip==''">Sin chip</td>
+                            <td *ngIf="masc.numChip!=''">{{ masc.numChip}}</td>
+                            <td>{{ masc.nombre}}</td>
+                            <td>{{ masc.color}}</td>
+                            <td>{{ masc.edad}}</td>
+                            <td>{{ masc.fechaRegistro}}</td>
+                            <td *ngIf="masc.estadoMascota== '2'"><button title="Por Adoptar" class="btn btn-info btn-sm">Por Adoptar</button></td>
+                            <td *ngIf="masc.estadoMascota== '4'"><button title="Extraviada" class="btn btn-danger btn-sm">Extraviada</button></td>
+                            <td><button routerLink="/detalleMascotaWeb/{{masc.idMascota}}" title="Ver detalle de mascota" class="btn btn-warning btn-sm">Ver</button></td>
+                          </tr>
+                      </tbody>
+                  </table>
+          </div>
+      </div>
+  </div>  
+
+
+ <!-- listar mascotas Adoptadas -->
+ <div class="row">
+  <div class="col-lg-12 mt-5">
+    <h2>Mascotas Adoptadas</h2>
+      <div class="table-responsive">
+              <table class="table table-info">
+                  <thead class="cabeceraTabla">
+                  <tr>
+                    <th style="font-size: 14px !important;"># CHIP</th>
+                    <th style="font-size: 14px !important;" scope="col">NOMBRE</th>
+                    <th style="font-size: 14px !important;" scope="col">COLOR</th>
+                    <th style="font-size: 14px !important;" scope="col">EDAD</th>
+                    <th style="font-size: 14px !important;" scope="col">FECHA REGISTRO</th>
+                    <th style="font-size: 14px !important;" scope="col">Estado</th>
+                    <th style="font-size: 14px !important;" scope="col">Ver</th>
+                    <th style="font-size: 14px !important;" scope="col">Agregar Logro</th>
+                 
+                  </tr>
+                  </thead>
+                  <tbody class="itemTabla">
+                      <tr class="hoverTr" *ngFor="let masc of datosPostulacionMascotaAdoptadas">
+                        <td style="font-size: 12px !important;" style="color: red;" *ngIf="masc.numChip==''">Sin chip</td>
+                        <td style="font-size: 12px !important;" *ngIf="masc.numChip!=''">{{ masc.numChip}}</td>
+                        <td style="font-size: 12px !important;">{{ masc.nombre}}</td>
+                        <td style="font-size: 12px !important;">{{ masc.color}}</td>
+                        <td style="font-size: 12px !important;">{{ masc.edad}}</td>
+                        <td style="font-size: 12px !important;">{{ masc.fechaRegistro}}</td>
+                        <td><button title="Mascota Adoptado" class="btn btn-info btn-sm">Adoptado</button></td>
+                        <td><button routerLink="/perfil-mascota/{{masc.idMascota}}" title="Ver detalle de mascota" class="btn btn-warning btn-sm">Ver</button></td>
+                        <td><button routerLink="/agregarLogro/{{masc.idMascota}}/{{idUsuario}}" title="Agregar Imagenes o comentarios" class="btn btn-danger btn-sm">Agregar</button></td>
+                      </tr>
+                  </tbody>
+              </table>
+      </div>
+  </div>
+ </div>  
+
+ <!-- listar mascotas postulacion -->
+ <div class="row">
+  <div class="col-lg-12 mt-5">
+    <h2>Mascotas en Postulación</h2>
+      <div class="table-responsive">
+              <table class="table table-info">
+                  <thead class="cabeceraTabla">
+                  <tr>
+                    <th style="font-size: 14px !important;" scope="col"># CHIP</th>
+                    <th style="font-size: 14px !important;" scope="col">NOMBRE</th>
+                    <th style="font-size: 14px !important;" scope="col">COLOR</th>
+                    <th style="font-size: 14px !important;" scope="col">EDAD</th>
+                    <th style="font-size: 14px !important;" scope="col">FECHA REGISTRO</th>
+                    <th style="font-size: 14px !important;" scope="col">Estado</th>
+                    <th style="font-size: 14px !important;" scope="col">Ver</th>
+                 
+                  </tr>
+                  </thead>
+                  <tbody class="itemTabla">
+                    <tr class="hoverTr" *ngFor="let masc of datosPostulacionMascota">
+                      <td style="font-size: 12px !important;" style="color: red;" *ngIf="masc.numChip==''">Sin chip</td>
+                      <td style="font-size: 12px !important;" *ngIf="masc.numChip!=''">{{ masc.numChip}}</td>
+                      <td style="font-size: 12px !important;">{{ masc.nombre}}</td>
+                      <td style="font-size: 12px !important;">{{ masc.color}}</td>
+                      <td style="font-size: 12px !important;">{{ masc.edad}}</td>
+                      <td style="font-size: 12px !important;">{{ masc.fechaRegistro}}</td>
+                      <td><button title="Mascota Adoptada" class="btn btn-danger btn-sm">Postulado</button></td>
+                      <td><button routerLink="/detalleMascotaWeb/{{masc.idMascota}}" title="Ver detalle de mascota" class="btn btn-warning btn-sm">Ver</button></td>
+                    </tr>
+                </tbody>
+              </table>
+      </div>
+  </div>
+</div>  
+</div>
+<app-footer-paginas style="margin-top: 20px;"></app-footer-paginas>

@@ -1,0 +1,139 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+ 
+ <div class="container-fluid mt--7">
+    <div class="row">
+    <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+            <div class="col-2">
+               <img style="width: 90%;" src="{{ fundacionDetalle.logo}}">
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-control-label">Tipo</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="Pendiente actualizar" value="{{ nomFundacion}}">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label class="form-control-label">Identidad Responsable</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="Pendiente actualizar" value="{{ fundacionDetalle.ccResponsable}}">
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Nombre Responsable</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="Pendiente actualizar" value="{{ fundacionDetalle.nombreResponsable}}">
+                </div>
+             </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+            <div class="pl-lg-4">
+                <div class="row">
+                <div class="col-lg-2">
+                        <div class="form-group">
+                        <label class="form-control-label">Tipo Documento</label>
+                        <input type="text" class="form-control form-control-alternative" value="{{ fundacionDetalle.tipoDoc}}">
+                        </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                    <label class="form-control-label">Identidad</label>
+                    <input type="text" class="form-control form-control-alternative" value="{{ fundacionDetalle.identidad}}">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="form-group">
+                    <label class="form-control-label" for="Apellidos">Razón Social</label>
+                    <input type="text" class="form-control form-control-alternative" value="{{ fundacionDetalle.razonSocial}}">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                    <label class="form-control-label" for="Apellidos">Movil</label>
+                    <input type="text" class="form-control form-control-alternative" value="{{ fundacionDetalle.movil}}">
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                        <label class="form-control-label" for="Telefno">Teléfono</label>
+                        <input type="text" class="form-control form-control-alternative" value="{{ fundacionDetalle.telefono}}">
+                        </div>
+                    </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                    <label class="form-control-label" for="Email">Email</label>
+                    <input type="email" class="form-control form-control-alternative" value="{{ fundacionDetalle.email}}">
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="form-group">
+                    <label class="form-control-label" for="Direccion">Dirección</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="Pendiente actualizar" value="{{ fundacionDetalle.direccion}}">
+                    </div>
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                        <label class="form-control-label" for="Facebook">Facebook</label>
+                        <input type="text" class="form-control form-control-alternative" placeholder="Pendiente actualizar" value="{{ fundacionDetalle.facebook}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                        <label class="form-control-label" for="Facebook">Twitter</label>
+                        <input type="text" class="form-control form-control-alternative" placeholder="Pendiente actualizar" value="{{ fundacionDetalle.twitter}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-lg-4">
+                <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    <label class="form-control-label" for="Clave">Fecha Fundación</label>
+                    <input type="text" class="form-control form-control-alternative" placeholder="dd/mm/aaaa" value="{{ fundacionDetalle.fechaFundacion}}">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-country">Estado</label>
+                    <input type="text" class="form-control form-control-alternative" value="{{ fundacionDetalle.estado}}">
+                    </div>
+                </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-success my-4">Editar</button>
+                  </div>
+            </div>
+          </form>
+         </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

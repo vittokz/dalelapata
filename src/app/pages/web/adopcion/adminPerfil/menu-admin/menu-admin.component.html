@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color:#2db3bf !important">
+    <button class="navbar-toggler" type="button" (click)="show=!show" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" [ngbCollapse]="show" id="navbarsExampleDefault">
+     <img (click)="inicio()" class="my-0 mr-md-auto font-weight-normal" src="assets/img/brand/icono.png" width="12%">
+    
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link letra" routerLink="/administrar-perfil">Registrar Mascota</a>
+        </li>
+        <li class="nav-item"><span class="nav-link letra">Menu Mascotas</span>
+ 
+           <ul>
+            <li class="nav-item">
+              <a class="nav-link letra" routerLink="/registrar-mascota">Adoptadas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link letra" routerLink="/mascotas-PorAdoptadarPerfil">Por Adoptar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link letra" routerLink="/mascotas-ExtraviadasPerfil">Extraviadas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link letra" routerLink="/mascotas-EncontradasPerfil">Encontradas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link letra" routerLink="/mascota-microChipPerfil">MicroChip</a>
+            </li>
+           </ul>
+
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link letra" routerLink="/usuarios-perfil" href="#">Usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link letra" routerLink="/postulaciones" href="#">Postulaciones</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contratos-admin" class="nav-link letra" href="#">Contratos</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/notificaciones" class="nav-link letra" href="#">Notificaciones</a>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button  routerLink="/perfil-usuario" class="btn btn-danger my-2 my-sm-0" type="submit">Adopción</button>
+      </form>
+    </div>
+  </nav>

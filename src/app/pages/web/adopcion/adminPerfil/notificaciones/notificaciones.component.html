@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+        <app-menu-admin></app-menu-admin>
+    </div>
+</div>
+<hr>
+<div class="row" class="fondo"> 
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+      Modulo Notificaciones
+   </div>  
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <div class="alert alert-danger" role="alert">
+                <h3 style="color: white;"> FUNDACIÓN: {{ razonSocial | uppercase}} </h3>
+            </div>
+            <button class="btn btn-danger" title="Enviar Notificaciones" (click)="enviarNotificaciones()">Enviar Notificaciones</button>
+            <div *ngIf="cargando=='ok'">
+                <img src="assets/img/faunaSilvestre/loading.gif" width="15%">
+            </div><br>
+            <br> <div *ngIf="envioNoti" class="alert alert-success" role="alert">
+                Se enviaron notificaciones correctamente.
+          </div>
+        </div>
+    </div>
+
+    <!-- tabla contratos-->
+  <!--  <h3>Notificaciones Enviadas</h3>
+    <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="" noDataText="No se encontraron Datos" [showBorders]="true">
+
+      <dxo-search-panel [visible]="true" [width]=640 placeholder="Buscar..."></dxo-search-panel>
+      <dxo-paging [pageSize]="10"></dxo-paging>
+
+      <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Contratos)" [showPageSizeSelector]="true">
+      </dxo-pager>
+
+      <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+      <dxi-column dataField="identidad" alignment="center" caption="Identidad"></dxi-column>
+      <dxi-column dataField="nombres" alignment="center" caption="Nombres"></dxi-column>
+      <dxi-column dataField="apellidos" alignment="center" caption="Apellidos"></dxi-column>
+      <dxi-column dataField="email" alignment="center" caption="Email"></dxi-column>
+      <dxi-column dataField="fechaAceptado" alignment="center" caption="Fecha Adopción"></dxi-column>
+      <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+      <div *dxTemplate="let d of 'acciones'">
+        <button data-toggle="modal" data-target="#myModal" 
+        title="Ver contratos subidos" class="btn btn-danger btn-sm">Ver Contratos</button>
+                          
+        </div>
+    </dx-data-grid>
+-->
+</div>

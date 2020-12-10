@@ -1,0 +1,128 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+            <app-menu></app-menu>
+    </div>
+    <div class="col-lg-12">
+        <app-banner></app-banner>
+    </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+        Lista Mascotas Esterilizadas
+   </div>  
+</div>
+
+<div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed; ">  
+    <div class="container"> 
+          <app-menu-flotante></app-menu-flotante>
+          
+          <div class="section" id="carousel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mt-5">
+                       <span style="font-size: 20px; color:black;">{{ cantidadMascotas}} {{ tiposMascota}}s Esterilizados</span>   
+                    </div>
+                   
+                 </div>
+                 <br><br>
+                 <div class="row" style="background-image: linear-gradient(#88e5ee, rgb(245, 245, 241)); padding: 10px;">
+                    <div class="col-lg-12 mt-5">
+                        <p style="text-align: justify; font-size: 18px;">
+                            Conoce aquí los perritos y gaticos que se han esterilizados:
+                        </p>
+                        <form [formGroup]="buscarMascotas">
+                        <div class="row">
+                           
+                                    <div class="col-lg-4 mt-10">
+                                        <h3 style="color: rgb(56, 55, 55); font-weight: bold; text-align: center;">
+                                            Selecciona el Municipio y especie </h3><br><br>
+                                    </div>
+                                    <div class="col-lg-2 mt-10">
+                                        <select formControlName="municipio" class="form-control" id="exampleFormControlSelect1">
+                                            <option value="PASTO" selected>PASTO</option>
+                                            <option *ngFor="let ciudad of ciudades" value="{{ciudad.nombre}}">{{ ciudad.nombre}}</option>   
+                                        </select><br><br>
+                                    </div>
+                                    <div class="col-lg-4 mt-10">
+                                          <select formControlName="tipo" class="form-control" id="exampleFormControlSelect1">
+                                                <option value="Canino">Canino</option>
+                                                <option value="Felino">Felino</option>
+                                            </select>    
+                                        <br><br>
+                                    </div>
+                                    <div class="col-lg-2 mt-10">
+                                        <button (click)="realizarBusqueda()" style="background-color: #2db3bf;; color: white; font-size: 15px;"  class="btn btn-primary btn-lg btn-block" 
+                                        expand>Buscar</button>    <br><br>
+                                    </div>     
+                        </div>
+                      </form> 
+                     </div>
+                 </div>
+                 <br><br> 
+                      <div class="row mt-3">
+                        <div class="col-lg-4 mt-10" *ngFor="let i of mascotas" 
+                        style="border: 1px solid #2db3bf;background-image: linear-gradient(#2db3bf, rgb(247, 205, 244));padding: 20px ;padding: 18px;">
+                            <div class="card" style="width: 100%; border-color: #2db3bf;">
+                                <img routerLink="/detalleMascotaWeb/{{i.idMascota}}"  style="height: 250px;" src="{{url}}mascotas/img/{{i.urlFoto}}" alt="First slide">
+                                <div routerLink="/detalleMascotaWeb/{{i.idMascota}}" 
+                                style="background-color:#e217d8; color: rgb(255, 255, 255); font-size: 18px; text-align: center; font-weight: bold;">
+                                {{i.nombre | uppercase}}</div>
+                            </div>
+                        </div>
+                    </div>            
+            </div>
+        </div>
+         <!--   <div class="col-lg-7 mt-5">
+                  <div class="form-group">
+                      <label> Nombre Mascota</label> 
+                      <input (input)="buscarNombre($event.target.value)" class="form-control" type="text" placeholder="Nombre de la mascota a buscar">
+                    </div>
+           </div> 
+          </div>
+    
+    
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6">
+                <carousel style="height: 100% !important; width: 80%; margin: auto;">
+                    <slide *ngFor="let i of mascotas">
+                    <img src="{{url}}/mascotas/img/{{i.urlFoto}}" alt="first slide" style="display: block; width: 100%; height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                    </slide>
+                </carousel>
+              </div>
+              <div class="col-lg-3"></div>
+            </div>
+        -->
+      <!--  <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="mascotas" noDataText="No se encontraron Datos" [showBorders]="true">
+            <dxo-search-panel [visible]="true" [width]=240 placeholder="Buscar..."></dxo-search-panel>
+            <dxo-paging [pageSize]="10"></dxo-paging>
+            <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Mascotas)" [showPageSizeSelector]="true">
+            </dxo-pager>
+            <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+            <dxi-column dataField="nombre" alignment="center" caption="Nombre"></dxi-column>
+            <dxi-column dataField="idGenero" alignment="center" caption="Genero"></dxi-column>
+            <dxi-column dataField="tamano" caption="Tamaño"></dxi-column>
+            <dxi-column dataField="edad" caption="Edad"></dxi-column>
+            <dxi-column dataField="color" caption="Color"></dxi-column>
+            <dxi-column dataField="idEspecie" caption="Especie"></dxi-column>
+            <dxi-column dataField="urlFoto" [width]="100" [allowFiltering]="false"
+            [allowSorting]="false" cellTemplate="cellTemplate"></dxi-column>
+            <div *dxTemplate="let data of 'cellTemplate'">
+                <img [src]="data.value"/>
+            </div>
+            <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+            <div *dxTemplate="let d of 'acciones'">
+              <button target=”_blank” class="btn btn-info" style="background-color: #2db3bf !important; background-color: #f1f5f5" title="Ver información de Mascota" routerLink="/detalleMascotaWeb/{{d.data.idMascota}}">
+                Ver</button>
+            </div>
+    
+        </dx-data-grid> 
+    -->
+        <br><hr>
+    </div>
+    </div> 
+    <app-footer-paginas style="margin-top: 20px;"></app-footer-paginas>

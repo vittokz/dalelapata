@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+            <app-menu></app-menu>
+    </div>
+    <div class="col-lg-12">
+        <app-banner></app-banner>
+    </div>
+  </div>
+    <app-menu-flotante></app-menu-flotante>
+     
+     <div id="header">
+          <div id="nav">
+          <span class="titulo">Mascota Seleccionada - Adoptada</span>
+          </div>
+    </div>
+    <div class="container">
+         <div class="row mt-4 mb-4">
+              <div class="col-lg-12 mt-2 mb-2" style="margin: auto !important;">
+                  <div class="card mb-3" style="max-width: 100%; border-color: #2db3bf; background-color: #f1f5f5" *ngFor="let mas of mascotaSel">
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <img src="{{url}}mascotas/img/{{mas.urlFoto}}" class="imgUrl" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                           <div style="background-color:#2db3bf; width: 100%; text-align: center;">
+                            <h2 style="color: white">Nombre : {{ mas.nombre}}</h2>
+                          </div>
+                            
+                            <table class="table table-hover table-responsive">
+                              <thead>
+                                <tr>
+                                  <th class="subtitulos">N° Chip</th>
+                                  <th class="datos">{{ mas.numChip}}</th>
+                                  <th class="subtitulos">Edad</th>
+                                  <th class="datos">{{ mas.edad}}</th>
+                                </tr>
+                                <tr>
+                                  <th class="subtitulos">Peso</th>
+                                  <th class="datos">{{ mas.peso}} kg</th>
+                                  <th class="subtitulos">Color</th>
+                                  <th class="datos">{{ mas.color}}</th>
+                                </tr>
+                                <tr>
+                                  <th class="subtitulos">Raza</th>
+                                  <th class="datos">{{ nomRaza}}</th>
+                                  <th class="subtitulos">Ciudad del Animalito</th>
+                                  <th class="datos">{{ nomCiudad}}</th>
+                                </tr>
+                              </thead>
+                              
+                            </table>
+                            <div style="background-color:#2db3bf; width: 100%; text-align: center;">
+                            <h2 style="color: white">Descripción</h2>
+                            </div>
+                            <div style="background-color: rgb(238, 232, 235); 
+                             width: 100%; height: 70px; border: #2db3bf 1px solid; padding:10px">
+                               {{mas.descripcion | uppercase}}
+                            </div><br>
+                             <table class="table table-hover table-responsive">
+                              <thead>
+                                <tr *ngFor="let usu of usuario">
+                                  <th>Contacto Fundación</th>
+                                  <th class="datos">
+                                   <a title="Ver Información del usuario que registro" [routerLink]="['/detalleUsuarioPag',mas.idUsuario, mas.idFundacion]">{{ nomUsuario }}</a>
+                                  </th>
+                                  <th class="datos"><i class="fas fa-envelope"></i>{{ emailUsuario | lowercase }}</th>
+                                </tr>
+                               </thead>
+                            </table>
+                           
+                            <table class="table table-hover table-responsive">
+                              <thead>
+                                <tr>
+                                  <th>Ver Perfil de la Mascota </th>
+                                </tr>
+                                <tr>
+                                  <th>
+                                    <a routerLink="/perfil-mascota/{{mascotaSel[0].idMascota}}">
+                                     
+                                      <img title="Ir a perfil de mascota" style="width: 14%;" src="assets/img/adoptados/mascotas.jpg">
+                                      
+                                    </a>
+                                  </th>
+                                  <th>
+                                    <button style="background-color: #2db3bf;" routerLink="/perfil-mascota/{{mascotaSel[0].idMascota}}" class="btn btn-info"
+                                    data-toggle="tooltip" data-placement="top" title="Ir a perfil de Mascota">
+                                      Ir a Perfil Mascota
+                                    </button>
+                                  </th>
+                                </tr>
+                               </thead>
+                            </table>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+         </div>
+    </div>
+  
+    <app-footer-paginas></app-footer-paginas>

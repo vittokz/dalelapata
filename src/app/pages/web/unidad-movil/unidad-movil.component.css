@@ -1,0 +1,18 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.map-container {
+    border-radius: 4px;
+    border-color: teal;
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+     margin-top: 10px;
+    }
+.titulo{
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 26px;
+}

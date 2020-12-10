@@ -1,0 +1,59 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+  <div class="container-fluid mt--7">
+    <div class="row">
+    
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">{{ noticiaDetalle.nombre}}</h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card mb-3" style="max-width: 100%;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{{url}}/noticias/{{ noticiaDetalle.urlImagen}}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">{{ noticiaDetalle.descripcion}}</p>
+                      <p class="card-text"><small class="text-muted"><hr>Fecha de registro : {{ noticiaDetalle.fechaRegistro}}</small></p>
+                      <button type="button" (click)="eliminarNoticia(noticiaDetalle.idNoticia)" class="btn btn-danger">
+                        Eliminar Noticia
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="eliminado" class="alert alert-danger" role="alert">
+          Noticia Eliminada Correctamente
+                <button type="button" (click)="volver()" class="btn btn-primary">
+                   Volver a Noticias
+                </button>
+         </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

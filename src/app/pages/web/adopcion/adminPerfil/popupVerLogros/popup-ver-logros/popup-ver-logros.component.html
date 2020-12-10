@@ -1,0 +1,38 @@
+<div class="modal-header" style="background-color:#2db3bf;">
+    <h4 class="modal-title pull-left" style="color: white !important;">Lista de Logros Mascota Adoptada</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="cerrar()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12 mt-5">
+            <h2>Logros Registrados</h2>
+                <div class="table-responsive">
+                        <table class="table table-info">
+                            <thead class="cabeceraTabla">
+                            <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Estado Mascota</th>
+                            <th scope="col">Estado</th>
+                        
+                            </tr>
+                            </thead>
+                            <tbody class="itemTabla">
+                            <tr class="hoverTr" *ngFor="let item of listaLogro">
+                                <td>{{ item.nombre | uppercase}}</td>
+                                <td>{{ item.fecha}}</td>
+                                <td>{{ item.descripcion.substr(0,20) | uppercase}}..</td>
+                                <td>{{ item.estadoMascota | uppercase}}</td>
+                                <td><button title="Estado del logro" class="btn btn-danger btn-sm">{{ item.estado}}</button></td>
+                                
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </div> 
+</div>

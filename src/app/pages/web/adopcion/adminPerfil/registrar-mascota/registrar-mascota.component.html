@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+        <app-menu-admin></app-menu-admin>
+    </div>
+</div>
+<hr>
+<div class="row" class="fondo"> 
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+      Modulo Mascotas Adoptadas
+    </div>  
+</div>
+
+
+ 
+<div class="container">
+  <div class="row mt-3">
+      <div class="col-lg-6"> 
+        <h1 style="margin: auto;">Mascotas Fundación: N°. {{ cantidadMascotasAdoptadas }}</h1>
+      </div>
+      <div class="col-lg-2"> 
+      
+      </div>
+      <div class="col-lg-2"> 
+          <img (click)="generarExcel(mascotasFundacionAdoptadas,'mascotasAdoptadas')" title="Generar Excel" src="assets/img/pagAdopcion/excel.png" class="imgMenu">
+      </div>
+  </div>
+</div>
+
+
+<div class="container">
+ 
+  <div class="row">
+      <div class="col-lg-12 mt-5">
+        <div class="alert alert-danger" role="alert">
+          <h3 style="color: white;"> FUNDACIÓN: {{ razonSocial | uppercase}} </h3>
+        </div>
+
+              <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="mascotasFundacionAdoptadas" noDataText="No se encontraron Datos" [showBorders]="true">
+
+                <dxo-search-panel [visible]="true" [width]=240 placeholder="Buscar..."></dxo-search-panel>
+                <dxo-paging [pageSize]="10"></dxo-paging>
+
+                <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Usuarios)" [showPageSizeSelector]="true">
+                </dxo-pager>
+
+                <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+                <dxi-column dataField="idMascota" alignment="center" caption="idMascota"></dxi-column>
+                <dxi-column dataField="numChip" alignment="center" caption="numChip"></dxi-column>
+                <dxi-column dataField="nombre" caption="Nombre"></dxi-column>
+                <dxi-column dataField="edad" caption="Edad"></dxi-column>
+                <dxi-column dataField="color" caption="Color"></dxi-column>
+                <dxi-column dataField="idEspecie" caption="Especie"></dxi-column>
+                <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+                <div *dxTemplate="let d of 'acciones'">
+                  <button target=”_blank” class="btn btn-info btn-sm" title="Ver detalle de mascota" routerLink="/perfil-mascota/{{d.data.idMascota}}">
+                    Ver Perfil</button>
+                  <button routerLink="/popupAgregarLogro/{{ d.data.idMascota}}/{{d.data.idUsuario}}" title="Agregar Logro,foto a mascota" class="btn btn-danger btn-sm">
+                    Agregar Logro</button>
+                </div>
+              </dx-data-grid>
+      </div>
+  </div>
+</div>

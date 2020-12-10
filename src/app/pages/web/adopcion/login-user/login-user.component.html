@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+            <app-menu></app-menu>
+    </div>
+</div>
+<div class="header bg-gradient-ligh py-5 py-lg-6">
+    <div class="container">
+      <div class="header-body text-center mb-7">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-6">
+            <h1 class="text-white" style="color: #2db3bf !important;">Bienvenido Login de Usuarios</h1>
+           </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <!-- Page content -->
+  <div class="container mt--9">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-6 mt-4">
+          <div class="card bg-secondary shadow border-0">
+               <img src="assets/img/pagAdopcion/login.png" class="imagen" alt="...">
+               <hr>
+                <div>
+                  <p style="padding: 15px; color: #f31f31; font-weight: 700;">
+                    Si es su primer ingreso a la plataforma cambie su contraseña para poder ingresa!!!
+                  </p>
+                  <button routerLink="/cambiar-clave" title="Si es su primer ingreso cambie la contraseña por favor!!" style="width: 100%;" class="btn btn-danger btn-lg">Cambiar Contraseña</button>
+                </div>
+          </div>
+      </div>
+ 
+
+      <div class="col-lg-5 col-md-6 mt-4">
+        <div class="card bg-secondary shadow border-0">
+         
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-center text-muted mb-4">
+              <small>Datos de Usuario</small>
+            </div>
+            <form [formGroup]="formularioLogin">
+              <div class="form-group mb-3">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                  </div>
+                  <input formControlName="identidad" class="form-control" placeholder="Numero de Identidad" type="text">
+                </div>
+                <div *ngIf="formularioLogin.controls['identidad'].invalid && formularioLogin.controls['identidad'].dirty" class="alert alert-danger" role="alert">
+                  Identidad es un campo necesario!!!
+                 </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input formControlName="clave" class="form-control" placeholder="Password" type="password">
+                </div>
+                <div *ngIf="formularioLogin.controls['clave'].invalid && formularioLogin.controls['clave'].dirty" class="alert alert-danger" role="alert">
+                  Password es un campo necesario!!!
+                 </div>
+              </div>
+              
+              <div class="text-center">
+                <button [disabled]="!formularioLogin.valid" (click)="loginUser()" style="background-color:#2db3bf; color: white;" type="button" class="btn btn-primary my-4">Ingresar</button>
+              </div>
+            </form>
+            <div *ngIf="isLogueado=='false'" class="alert alert-danger" role="alert">
+              Datos de usuario Incorrectos!!!
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+   
+
+
+  </div>
+  

@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+        <app-menu-admin></app-menu-admin>
+    </div>
+</div>
+<hr>
+<div class="row" class="fondo"> 
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+      Modulo Registrar Logros Mascota
+    </div>  
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 mt-5">
+            <div class="alert alert-danger" role="alert">
+                <h3 style="color: white;"> Mascota: {{ nombreMascota | uppercase}} </h3>
+              </div>
+            <form [formGroup]="registro">
+                 
+                <div class="form-row" style="border-color:#2db3bf!important;">
+                     
+                      <div class="form-group col-md-6">
+                          <label for="Nombre">Nombre</label>
+                          <input formControlName="nombre" type="text" class="form-control" placeholder="Como va llamar el momento vivido con su mascota!!!">
+                          <div *ngIf="registro.controls['nombre'].invalid && registro.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                              Nombre es obligatorio
+                          </div>
+                      </div>
+                     
+                      <div class="form-group col-md-3">
+                         <label for="Fecha">Fecha</label>
+                         <input formControlName="fecha" type="date" class="form-control">
+                         <div *ngIf="registro.controls['fecha'].invalid && registro.controls['fecha'].dirty" class="alert alert-danger" role="alert">
+                             Fecha es obligatorio
+                         </div>
+                      </div>    
+                      
+                      <div class="form-group col-md-3">
+                        <label for="Estado mascota">Estado Mascota</label>
+                        <select formControlName="estadoMascota" class="form-control">
+                           <option value="Felíz">Feliz</option>
+                           <option value="Cariñoso">Cariñoso</option>
+                           <option value="Triste">Triste</option>
+                           <option value="Timido">Timido</option>
+                           <option value="Bravo">Bravo</option>
+                        </select>
+                     </div>    
+                </div> 
+                
+                <div class="form-row" style="border-color:#2db3bf!important;">
+                     
+                  <div class="form-group col-md-6">
+                      <label for="Descripcion">Descripción</label>
+                      <textarea cols="10" rows="2" formControlName="descripcion" class="form-control" placeholder="Describa el momento!!!"></textarea>
+                      <div *ngIf="registro.controls['descripcion'].invalid && registro.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
+                          Descripción es obligatorio
+                      </div>
+                  </div>
+                 
+                  <div class="form-group col-md-6">
+                     <label for="Imagen">Imagen</label>
+                     <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />  
+                  </div>                  
+            </div> 
+               
+                <div title="Registrar nuevo Momento" class="text-center">
+                  <button [disabled]="!registro.valid" (click)="agregarMomento()" style="background-color:#2db3bf; color: white;" 
+                  type="button" class="btn btn-primary my-4">Registrar</button>
+                 
+                </div>
+              </form>
+              <div *ngFor="let alert of alerts">
+               <alert *ngIf="envioForm=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+                 {{ alert.msg }}
+               </alert>
+              </div>
+  
+              <div *ngIf="envioForm=='error'">
+                <div class="alert alert-danger" role="alert">
+                 Error al registrar. Verifique!!!!
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 mt-5">
+              <h2>Logros Registrados</h2>
+                <div class="table-responsive">
+                        <table class="table table-info">
+                            <thead class="cabeceraTabla">
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Fecha</th>
+                              <th scope="col">Descripción</th>
+                              <th scope="col">Estado Mascota</th>
+                              <th scope="col">Estado</th>
+                           
+                            </tr>
+                            </thead>
+                            <tbody class="itemTabla">
+                              <tr class="hoverTr" *ngFor="let item of listaLogro">
+                                <td>{{ item.nombre | uppercase}}</td>
+                                <td>{{ item.fecha}}</td>
+                                <td>{{ item.descripcion.substr(0,20) | uppercase}}..</td>
+                                <td>{{ item.estadoMascota | uppercase}}</td>
+                                <td><button title="Estado del logro" class="btn btn-danger btn-sm">{{ item.estado}}</button></td>
+                                
+                              </tr>
+                          </tbody>
+                        </table>
+                </div>
+            </div>
+          </div>  
+  
+</div>
+
+
+
+
+     

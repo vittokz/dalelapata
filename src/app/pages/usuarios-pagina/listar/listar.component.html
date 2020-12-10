@@ -1,0 +1,134 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  
+  <!-- Pages -->
+  <div class="header pb-6 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+  
+   <!-- Page content -->
+<div class="container-fluid mt--7">
+  
+    <!-- Table -->
+    
+
+    <div class="row">
+      <div class="col">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">Lista de Usuarios</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <button (click)="generarExcel(usuario,'listaUsuariosPagina')" title="Generar excel de Usuarios" class="btn btn-sm btn-primary">Generar Excel</button>
+                </div>
+              </div>
+          </div>
+
+                <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="usuario" noDataText="No se encontraron Datos" [showBorders]="true">
+
+                  <dxo-search-panel [visible]="true" [width]=240 placeholder="Buscar..."></dxo-search-panel>
+                  <dxo-paging [pageSize]="10"></dxo-paging>
+
+                  <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Usuarios)" [showPageSizeSelector]="true">
+                  </dxo-pager>
+
+                  <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+                  <dxi-column dataField="identidad" caption="Identidad"></dxi-column>
+                  <dxi-column dataField="nombres" caption="Nombres"></dxi-column>
+                  <dxi-column dataField="apellidos" caption="Apellidos"></dxi-column>
+                  <dxi-column dataField="email" caption="Email"></dxi-column>
+                  <dxi-column dataField="telefono" caption="Teléfono"></dxi-column>
+                  <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+                  <div *dxTemplate="let d of 'acciones'">
+                    <button target=”_blank” class="btn btn-primary btn-sm" title="Ver información de Mascotas del usuario" 
+                    (click)="verMascotasUsuario(d.data)">
+                      Ver Info Mascotas</button>
+                     <button class="btn btn-success btn-sm" title="Editar información de Usuario" 
+                      (click)="editarUsuario(d.data)">
+                        Editar</button>
+                  </div>
+              </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  
+    <!-- modal para aceptar la postulacion del usuario-->
+ <div class="modal" id="myModal" [ngClass]="{ 'show' : showModal }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" style="background-color: #2db3bf; color: white;">
+          <h4 class="modal-title" style="color: white;">Modificar Información de Usuario</h4>
+          <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal">&times;</button>
+        </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" >
+            <div style="text-align: justify;"> 
+              <div>
+                <form [formGroup]="formEditar">
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Identificación</label>
+                    <input formControlName="identificacion" type="text" class="form-control">
+                  
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Nombres</label>
+                    <input formControlName="nombres" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Apellidos</label>
+                    <input formControlName="apellidos" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Teléfono</label>
+                    <input formControlName="telefono" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Movil</label>
+                    <input formControlName="movil" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Dirección</label>
+                    <input formControlName="direccion" type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Emáil</label>
+                    <input formControlName="email" type="text" class="form-control">
+                  </div>
+                  <div class="text-center">
+                    <button [disabled]="!formEditar.valid" (click)="editar()"  type="button" class="btn btn-success my-4">Editar</button>
+                    <button (click)="cerrarModal()" type="button" class="btn btn-danger">Cerrar</button>         
+                  </div>
+                </form>
+                <div *ngIf="editarForm=='ok'" class="alert alert-primary" role="alert">
+                  Usuario actualizado correctamente
+                </div>
+                <div *ngIf="editarForm=='error'" class="alert alert-danger" role="alert">
+                 No se actualizo usuario verifique con el Administrador!!!
+                </div>
+
+              
+              </div>     
+            </div>       
+      </div>
+     
+       
+       </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

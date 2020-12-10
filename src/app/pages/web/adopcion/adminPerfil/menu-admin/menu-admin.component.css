@@ -1,0 +1,29 @@
+.letra{
+    font-weight: bold;
+}
+
+.navbar-nav mr-auto > li {
+    float:left;
+}
+ul, ol {
+    list-style:none;
+}
+.navbar-nav  li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.navbar-nav li:hover > ul {
+    display:block;
+    background-color: #f87b7b ;
+    color: white;
+}
+.navbar-nav li ul li a:hover {
+    background-color:#eeecec;
+    color: #2db3bf;
+}
+
+.navbar-nav li ul li {
+    position:relative;
+}

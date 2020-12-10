@@ -1,0 +1,71 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+
+   <!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">Lista de Eventos</h3>
+                    <br>
+                    <div *ngIf="eliminado=='ok'" class="alert alert-primary alert-dismissible fade show" role="alert">
+                      <strong>  Evento eliminado con éxito</strong>   
+                    </div>
+                    <div *ngIf="eliminado=='error'" class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>  Error al eliminar, verifique con el administrador!!!</strong>   
+                    </div>
+                </div>
+                <div class="col-4 text-right">
+                  <button (click)="generarExcel(evento,'listaEventos')" title="Generar excel de eventos" class="btn btn-sm btn-primary">Generar Excel</button>
+                </div>
+              </div>
+          </div>
+         
+
+          <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="evento" noDataText="No se encontraron Datos" [showBorders]="true">
+
+            <dxo-search-panel [visible]="true" [width]=240 placeholder="Buscar..."></dxo-search-panel>
+            <dxo-paging [pageSize]="10"></dxo-paging>
+
+            <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Eventos)" [showPageSizeSelector]="true">
+            </dxo-pager>
+
+            <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+            <dxi-column dataField="idEvento" alignment="center" caption="IdEvento"></dxi-column>
+            <dxi-column dataField="municipio" alignment="center" caption="Municipio"></dxi-column>
+            <dxi-column dataField="nombre" alignment="center" caption="Nombre"></dxi-column>
+            <dxi-column dataField="fechaEvento" alignment="center" caption="Fecha Evento"></dxi-column>
+            <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+            <div *dxTemplate="let d of 'acciones'">
+          
+              <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de Evento" routerLink="/detalle-evento/{{d.data.idEvento}}">
+                Ver</button>
+                <button class="btn btn-danger btn-sm" title="Eliminar Evento" (click)="eliminar(d.data.idEvento)">
+                  Eliminar</button>
+            </div>
+
+        </dx-data-grid>
+        </div>
+      </div>
+    </div>
+  
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

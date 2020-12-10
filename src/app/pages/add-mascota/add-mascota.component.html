@@ -1,0 +1,249 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        
+
+        <div class="row" *ngIf="tipoUsuario=='Administrador'">
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-info" routerLink="/mascotas-admin"> ADOPTADAS </button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div> 
+              </div>
+            </div>
+          </div>  
+          
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0"> 
+                       <button class="btn btn-info" routerLink="/mascotasPorAdoptar-admin"> POR ADOPTAR </button>
+                    </h5>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>  
+
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-info" routerLink="/mascotasExtraviadas-admin"> EXTRAVIADAS</button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>  
+
+          <div class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-info" routerLink="/mascotasEncontradas-admin"> ENCONTRADAS </button>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+      <!-- Page content -->
+<div class="container-fluid mt--7">
+    
+  <div class="row mt-2">
+      <div class="col-lg-2 mb-2"> 
+        <a routerLink="/add-mascota"><img title="Agrega Mascota" src="assets/img/pagAdopcion/agregarMascota.png" class="imgMenu"></a>
+      </div>
+      <div class="col-lg-2 mb-2" *ngIf="tipoUsuario=='Administrador'"> 
+        <a routerLink="/buscar-mascota"><img title="Buscar Mascota" src="assets/img/pagAdopcion/buscar.png" class="imgMenu"></a>
+      </div>
+  </div>
+
+ 
+  <div class="row mt-5">
+    <div class="col-lg-12">
+      <h1>Registrar Mascota</h1><hr>
+        <form [formGroup]="registro">
+          
+            <div class="form-row" style="border-color:#2db3bf!important;">
+                <div class="form-group col-md-6">
+                    <label for="fundacion">Fundación</label>
+                    <select type="hidden" formControlName="fundacion" class="custom-select mr-sm-2">
+                        <option selected value="no"><span style="color: red;">NO PERTENECE A NINGUNA</span></option>
+                        <option *ngFor="let funda of fundaciones" value="{{ funda.idFundacion }}">{{funda.razonSocial | uppercase}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="fundacion">Número Chip</label>
+                  <input formControlName="chip" type="number" class="form-control" placeholder="Si no tiene deje en blanco">
+               
+                   <div *ngIf="registro.get('chip').invalid && registro.get('chip').dirty" class="alert alert-danger" role="alert">
+                        MicroChip es obligatorio
+                      
+                  </div>
+                  
+                </div>
+            </div>  
+
+             <div class="form-row" style="border-color:#2db3bf!important;">
+                     
+
+                   <div class="form-group col-md-3">
+                     <label for="Nombre">Nombre</label>
+                     <input formControlName="nombre" type="text" class="form-control">
+                     <div *ngIf="registro.controls['nombre'].invalid && registro.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                       Nombre es obligatorio
+                     </div>
+                   </div>
+                  
+                   <div class="form-group col-md-3">
+                     <label for="Edad">Edad(Fecha Nacimiento)</label>
+                     <input formControlName="edad" type="date" class="form-control" placeholder=" Ejemplo 2 Años, 5 Meses">
+                     <div *ngIf="registro.controls['edad'].invalid && registro.controls['edad'].dirty" class="alert alert-danger" role="alert">
+                       Edad es obligatorio
+                     </div>
+                   </div>
+                   <div class="form-group col-md-3">
+                     <label for="raza">Raza</label>
+                       <select formControlName="raza" class="custom-select mr-sm-2">
+                          <option *ngFor="let r of razas;let index = index" value="{{r.id}}" [selected]="index == 1">{{ r.nombre}}</option>
+                       </select>
+                   </div>
+                   <div class="form-group col-md-3">
+                     <label for="especie">Especie</label>
+                       <select formControlName="especie" class="custom-select mr-sm-2">
+                         <option selected value="Canino">CANINO</option>
+                         <option value="Felino">FELINO</option>
+                       </select>
+                   </div>
+            </div>
+
+
+             <div class="form-row">
+               <div class="form-group col-md-3">
+                 <label for="genero">Genero</label>
+                   <select formControlName="genero" class="custom-select mr-sm-2">
+                     <option selected value="MACHO">MACHO</option>
+                     <option value="HEMBRA">HEMBRA</option>
+                   </select>
+               </div>
+               <div class="form-group col-md-3">
+                 <label for="tamaño">Tamaño</label>
+                   <select formControlName="tamano" class="custom-select mr-sm-2">
+                     <option selected value="PEQUEÑO">PEQUEÑO</option>
+                     <option value="MEDIANO">MEDIANO</option>
+                     <option value="GRANDE">GRANDE</option>
+                   </select>
+               </div>
+               <div class="form-group col-md-3">
+                 <label for="Peso">Peso (Kg)</label>
+                 <input formControlName="peso" type="text" class="form-control" placeholder="Ejemplo 2 kilos">
+                 <div *ngIf="registro.controls['peso'].invalid && registro.controls['peso'].dirty" class="alert alert-danger" role="alert">
+                  Peso es obligatorio
+                 </div>
+               </div>
+               <div class="form-group col-md-3">
+                 <label for="ciudad">Ciudad</label>
+                   <select formControlName="ciudad" class="custom-select mr-sm-2">
+                     <option *ngFor="let c of ciudadesFormulario;let index = index" value="{{c.id}}" [selected]="index == 1">{{ c.nombre}}</option>
+                   </select>
+               </div>
+           </div>
+
+           <div class="form-row">
+             <div class="form-group col-md-2">
+               <label for="estado">Estado Mascota</label>
+                 <select formControlName="estadoMascota" class="custom-select mr-sm-2">
+                   <option selected value="1">Adoptada</option>
+                   <option value="2">Para Adopción</option>
+                   <option value="3">Encontrada</option>
+                   <option value="4">Extraviada</option>
+                   <option value="5">MicroChip</option>
+                   <option value="6">Esterilizado</option>
+                 </select>
+             </div>
+             <div class="form-group col-md-2">
+               <label for="Color">Color</label>
+               <input formControlName="color" type="text" class="form-control">
+               <div *ngIf="registro.controls['color'].invalid && registro.controls['color'].dirty" class="alert alert-danger" role="alert">
+                Color es obligatorio
+               </div>
+             </div>
+             <div class="form-group col-md-3">
+               <label for="Foto">Foto</label>
+               <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />   
+               <div *ngIf="registro.controls['avatar'].invalid && registro.controls['avatar'].dirty" class="alert alert-danger" role="alert">
+                Color es obligatorio
+               </div>
+             </div>
+             <div class="form-group col-md-5">
+               <label for="descripcion">Descripción</label>
+               <textarea cols="3" rows="2" formControlName="descripcion" class="form-control"></textarea>
+               <div *ngIf="registro.controls['descripcion'].invalid && registro.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
+                 Descripcion es obligatorio
+               </div>
+             </div>
+       </div>
+            
+             <div title="Registrar nuevo usuario" class="text-center">
+               <button [disabled]="!registro.valid" (click)="agregarMascota()" style="background-color:#2db3bf; color: white;" 
+               type="button" class="btn btn-primary my-4">Registrar Mascota</button>
+              
+             </div>
+           </form>
+           <div *ngFor="let alert of alerts">
+             <alert *ngIf="envioForm=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+               {{ alert.msg }}
+             </alert>
+            </div>
+ 
+            <div *ngIf="envioForm=='errorMicro'">
+              <div class="alert alert-danger" role="alert">
+               MicroChip debe contener 15 digitos verifique..!!!!
+              </div>
+            </div>
+
+            <div *ngIf="envioForm=='error'">
+              <div class="alert alert-danger" role="alert">
+               Error al registrar la mascota. Verifique número de chip si se repite!!!!
+              </div>
+            </div>
+     </div>
+ </div>
+
+
+<router-outlet></router-outlet>
+</div>
+<div class="container-fluid">
+<app-footer></app-footer>
+</div>

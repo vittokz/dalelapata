@@ -1,0 +1,36 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+   <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+  
+  <div class="container-fluid mt-2">
+  <div class="row mt-4">
+    <div class="col-lg-4">
+     
+      <div class="card shadow" *ngIf="loading=='ok'">
+        <img  src="assets/img/faunaSilvestre/loading.gif" width="20%">
+        <hr>
+        <h2>Estamos generando su reporte.....</h2>
+      </div>
+      <div class="card shadow" *ngIf="cargando=='ok'">
+        <img  src="assets/img/faunaSilvestre/ok.png" width="20%">
+        <hr>
+        <h2>Se generó correctamente.....</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

@@ -1,0 +1,245 @@
+<div class="row">
+  <div class="col-lg-12" style="padding: 40px;">
+          <app-menu></app-menu>
+  </div>
+  <div class="col-lg-12">
+      <app-banner></app-banner>
+  </div>
+</div>
+  <app-menu-flotante></app-menu-flotante>
+   <div id="header">
+        <div id="nav">
+        <span class="titulo">Buscar mascota por el número de MicroChip</span>
+        </div>
+  </div>
+  <div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed; ">
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-12" style="background-image: linear-gradient(#88e5ee, rgb(245, 245, 241));padding: 20px;">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <h2 style="color: rgb(184, 7, 160); font-weight: bold; text-align: center;">BÚSQUEDA DE MASCOTAS POR MICROCHIP</h2>
+                      <div style="text-align: justify; padding: 20px; font-size: 18px;">
+                        De acuerdo a la ordenanza No. 031 del 31 de agosto de 2019 “Por medio de la cual se adopta la Política Pública de Protección 
+                        y Bienestar Animal del Departamento de Nariño 2019-2035 y se dictan otras disposiciones” en la cual se adopta una 
+                        herramienta para la identificación de caninos y felinos del Departamento de Nariño. Con el fin de tener un mayor
+                         control sobre los mismos y realizar esfuerzos por el bienestar de los animales de #MINARIÑO#. 
+                      </div><br>
+                  </div>
+                
+              </div>
+           <hr>
+           <div class="row">
+                 <div class="col-lg-7">
+                    <h2 style="color: rgb(184, 7, 160); font-weight: bold; text-align: center;">¿QUE ES EL MICROCHIP?</h2>
+                    <div style="text-align: justify; padding: 20px; font-size: 18px;">
+                      Es un dispositivo de <span  style="color:rgb(247, 146, 80); font-weight: 800;">IDENTIFICACIÓN DE ANIMALES Y NO UN
+                      DISPOSITIVO DE RASTREO</span>, el cual lleva un número 
+                      único con el cual se hace el registro, y relaciona la información del nombre del animal, nombre del propietario, 
+                      dirección de residencia, número telefónico y demás características del animalito.
+                    </div>
+                   
+                      <h2 style="color: rgb(184, 7, 160); font-weight: bold; text-align: center;">¿ PARA QUE SIRVE ?</h2><br>
+                       <ul style="font-size: 18px;">
+                          <li>Certifica la titularidad sobre el animal de compañía ante cualquier autoridad o persona.</li><br>
+                          <li style="text-align: justify;">Aumentar la posibilidad de encontrar animales en casos de pérdida.</li>
+                      </ul>
+                     
+                      <h2 style="color: rgb(184, 7, 160); font-weight: bold; text-align: center;"><br>¿ VENTAJAS ?</h2><BR>
+                       <ul style="font-size: 18px;">
+                          <li>El animal queda identificado para toda la vida</li><br>
+                          <li style="text-align: justify;">Es indolora y muy sencilla basta con una simple inyección este 
+                            procedimiento no tiene contraindicaciones ni reacciones</li>
+                      </ul>
+
+                    
+                 </div>
+
+                 <div class="col-lg-5 order-md-2 mb-4">
+                  <img src="assets/img/pagAdopcion/mchip.jpg" class="imagen"><br><br>
+                  <button (click)="listarLectores()" type="submit" class="btn btn-block" 
+                  style="background-color: rgb(247, 146, 80); color: white;margin-top: 5px; font-size: 18px;">
+                  Lectores de MicroChip</button>
+                
+                  <h4 class="d-flex justify-content-between align-items-center mb-3">
+                     <h3 style="color: rgb(184, 7, 160); font-weight: bold; text-align: center;"><br>REALIZA BUSQUEDA DE MICROCHIP</h3>
+                  
+                  </h4>
+                  
+                  <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                      <div>
+                        <h4>Total de MicroChip registrados.</h4>              
+                      </div>
+                      <span class="text-muted">{{ cantidad}} </span>
+                    </li> 
+                  </ul>
+                 <br>
+                  <form [formGroup]="formBuscar" class="card p-2">
+                    <div class="input-group">
+                      <input formControlName="buscar" class="form-control" type="text" placeholder="Buscar número de Microchip">
+                      <button title="Ingresa el número de microchip para buscar" [disabled]="!formBuscar.valid" 
+                      (click)="buscarChip()" type="submit" class="btn btn-block" 
+                      style="background-color: rgb(184, 7, 160); color: white;margin-top: 5px;  font-size: 18px;">Buscar</button>
+                    </div>
+                  </form>
+                </div>
+
+           </div><hr>
+          
+          
+
+          <h2 style="color: rgb(184, 7, 160); font-weight: bold; text-align: center;">¿QUE REQUISITOS SE NECESITAN?</h2>
+          <div style="text-align: justify; padding: 20px; font-size: 18px;">
+            En las Jornadas que se realicen el propietario debe presentar.<br><br>
+             <ul>
+               <li>Fotocopia de la cédula de ciudadanía por ambos lados.</li>
+               <li>Fotocopia del recibo de pago de servicio públicos de agua o de energía, no superior a seis (6) meses, 
+                 para verificar el estrato y la dirección de su residencia.</li>
+             </ul> 
+          </div><br>
+
+        </div>
+      </div>  
+      <br>
+  </div>
+
+
+
+ <!-- modal para aceptar la postulacion del usuario-->
+ <div class="modal" id="myModal" [ngClass]="{ 'show' : showModal }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" style="background-color: #2db3bf; color: white;">
+          <h4 class="modal-title">Busqueda de Mascota</h4>
+          <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal">&times;</button>
+        </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" >
+            <div *ngIf="encontrado=='ok'" style="text-align: justify;"> 
+              <div *ngFor="let masco of mascotaEncontrada; let indice=index;">
+                Se encontro la siguiente mascota con el MicroChip Nº: {{ chipBuscado}}
+                <p>Nombre {{ masco.nombre}}</p>
+                <img src="{{url}}mascotas/img/{{masco.urlFoto}}" class="card-img-top" class="img" alt="...">
+              </div>     
+            </div>   
+            
+            <div *ngIf="encontrado=='error'" style="text-align: justify;"> 
+                No se encontró información con el número de MicroChip {{ chipBuscado}}!!!
+            </div>        
+      </div>
+     
+        <!-- Modal footer -->
+          <div class="modal-footer">  
+            <button routerLink="/detalleChip/{{chipBuscado}}" title="Ver información completa"  type="button" class="btn btn-info">Ver</button>    
+            <button (click)="cerrarModal()" type="button" class="btn btn-danger">Cerrar</button>         
+          </div>
+       </div>
+    </div>
+  </div>
+
+
+  <!-- modal lista lectores-->
+ <div class="modal" id="myModal" [ngClass]="{ 'show' : showModal2 }">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header" style="background-color: #2db3bf; color: white;">
+          <h4 class="modal-title" style="font-size: 22px; color: white !important;">Lectores de MicroChip</h4>
+          <button type="button" class="close" (click)="cerrarModal2()" data-dismiss="modal">&times;</button>
+        </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" >
+        <h2 style="text-align: center; color: tomato; font-weight: bold;">Ubicación de Lectores</h2>
+            <table class="table table-bordered">
+             
+              <thead>
+                <tr style="background-color: #2db3bf; color: white;">
+                  <th style="font-size: 16px;text-align: center;" scope="col">Lugar</th>
+                  <th style="font-size: 16px;text-align: center;" scope="col">Ubicación</th>
+                  <th style="font-size: 16px; text-align: center;" scope="col">Teléfono</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;"> 
+                  <td style="font-size: 14px;">Umata Alcaldía</td>
+                  <td style="font-size: 14px;">Aldana</td>
+                  <td style="font-size: 14px;">318 666 92 44</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Umata Alcaldía</td>
+                  <td style="font-size: 14px;">Consacá</td>
+                  <td style="font-size: 14px;">321 751 87 35</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">Contadero</td>
+                  <td style="font-size: 14px;">318 320 03 96</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">  
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">El Peñol</td>
+                  <td style="font-size: 14px;">312 859 42 32</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">ElTambo</td>
+                  <td style="font-size: 14px;">317 477 44 60</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">Guachucal</td>
+                  <td style="font-size: 14px;">322 582 84 01</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">Gualmatan</td>
+                  <td style="font-size: 14px;">310 590 71 77</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Umata Alcaldía</td>
+                  <td style="font-size: 14px;">Imues</td>
+                  <td style="font-size: 14px;">311 792 47 04</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">Ipiales</td>
+                 <td style="font-size: 14px;">318 770 11 87</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Umata Alcaldía</td>
+                  <td style="font-size: 14px;">La Cruz</td>
+                   <td style="font-size: 14px;">321 717 70 17</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Umata Alcaldía</td>
+                  <td style="font-size: 14px;">Pupiales</td>
+                  <td style="font-size: 14px;">315 758 59 61</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">San Pablo</td>
+                  <td style="font-size: 14px;">318 399 95 93</td>
+                </tr>
+                <tr style="background-color: #eceff0; color: rgb(8, 8, 8); text-align: center;">
+                  <td style="font-size: 14px;">Secretaria de Agricultura</td>
+                  <td style="font-size: 14px;">Yacuanquer</td>
+                  <td style="font-size: 14px;">318 519 14 26</td>
+                </tr>
+              </tbody>
+            </table>                 
+      </div>
+     
+        <!-- Modal footer -->
+          <div class="modal-footer">  
+              <button (click)="cerrarModal2()" type="button" class="btn btn-danger">Cerrar</button>         
+          </div>
+       </div>
+    </div>
+  </div>
+  <app-footer-paginas></app-footer-paginas>

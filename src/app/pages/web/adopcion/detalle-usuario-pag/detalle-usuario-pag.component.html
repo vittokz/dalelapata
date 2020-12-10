@@ -1,0 +1,60 @@
+<carousel>
+    <slide>
+      <img src="assets/img/homeChip/bannerChip.jpg" alt="first slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+     
+      </div>
+    </slide>
+    <slide>
+      <img src="assets/img/homeChip/bannerChip2.jpg" alt="second slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </slide>
+  </carousel>
+  <app-menu-flotante></app-menu-flotante>
+   
+   <div id="header">
+        <div id="nav">
+           <span class="titulo">Información de Usuario </span>
+        </div>
+  </div>
+  <div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed;  opacity: 9;"> 
+  
+  <div class="container">
+      <div class="row mt-4 mb-4">
+           <div class="col-lg-6 mt-2 mb-2" style="margin: auto !important;">
+                <div class="card" style="width: 100%; border-color: #2db3bf; background-color: #f1f5f5">
+                    <div class="card-body" *ngFor="let usu of usuarioEncontrado">
+                      <h3 class="subtitulos">Contactar Usuario que hizo el resgistro</h3><hr>
+                      <h5 class="card-subtitle mb-3 text-muted">NOMBRE: {{ usu.nombres}} {{ usu.apellidos}}</h5>
+                      <h5 class="card-subtitle mb-3 text-muted">Celular: {{ usu.movil}}</h5>
+                      <h5 class="card-subtitle mb-3 text-muted">Email: {{ usu.email}}</h5>
+                      <a title="Ir a facebook del usuario" target="_blank" href="{{ usu.facebook}}" class="card-link"><img style="width: 9%;" src="assets/img/homePage/facebook.jpg"> </a>
+                      <a title="Ir a Twitter del usuario" target="_blank" href="{{ usu.twitter}}" class="card-link"><img style="width: 6%;" src="assets/img/homePage/twiter.png"></a>
+                      <br><br>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-lg-6 mt-2 mb-2" style="margin: auto !important;">
+                <div class="card" style="width: 100%; border-color: #2db3bf; background-color: #f1f5f5">
+                    <div class="card-body" *ngFor="let fun of fundacionEncontrada">
+                      
+                      <h3 class="subtitulos">Información de la Fundación a la que Pertenece</h3>
+                      <img *ngIf="fun.logo==''" src="assets/img/fundacion/logos/sinLogo.png" class="imagen" alt="...">
+                     <!-- <img *ngIf="fun.logo!=''" src="{{ fun.logo}}" class="imagen" alt="..."> -->
+                      <hr>
+                      <h5 class="card-subtitle mb-3 text-muted">NOMBRE: {{ fun.razonSocial}}</h5>
+                      <h5 class="card-subtitle mb-3 text-muted">Celular: {{ fun.movil}}</h5>
+                      <h5 class="card-subtitle mb-3 text-muted">Teléfono: {{ fun.telefono}}</h5>
+                      <h5 class="card-subtitle mb-3 text-muted">Email: {{ fun.email}}</h5>
+                      <a title="Ir a facebook del usuario" target="_blank" href="{{ fun.facebook}}" class="card-link"><img style="width: 9%;" src="assets/img/homePage/facebook.jpg"> </a>
+                      <a title="Ir a Twitter del usuario" target="_blank" href="{{ fun.twitter}}" class="card-link"><img style="width: 6%;" src="assets/img/homePage/twiter.png"></a>
+                    </div>
+                  </div>
+            </div>
+       </div>
+   </div>
+  </div>
+
+  <app-footer-paginas></app-footer-paginas>

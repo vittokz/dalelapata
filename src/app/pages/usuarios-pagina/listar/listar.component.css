@@ -1,0 +1,13 @@
+.titulos{
+    font-size: 12px;
+    font-weight: bold;
+}
+.fila{
+    background-color: rgb(30, 30, 230) ;
+    color: darkgray;
+    font-weight: bold;
+}
+.modal.show{
+    display: block;
+    overflow-y: auto;
+}

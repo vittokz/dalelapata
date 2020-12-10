@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+            <app-menu></app-menu>
+    </div>
+</div>
+<div class="header bg-gradient-ligh py-5 py-lg-6">
+    <div class="container">
+      <div class="header-body text-center mb-7">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-6">
+            <h1 class="text-white" style="color: #2db3bf !important;">Cambio de Contraseña</h1>
+           </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <!-- Page content -->
+  <div class="container mt--9">
+    <div class="row justify-content-center">
+
+      <div class="col-lg-5 col-md-6 mt-4">
+            <div class="card bg-secondary shadow border-0">
+            
+                <div class="card-body px-lg-5 py-lg-5">
+                        <div class="text-center text-muted mb-4">
+                            <form [formGroup]="formValidar">  
+                                    <div class="form-group">
+                                        <label>Número de Identidad</label>
+                                        <input formControlName="cedula" class="form-control" type="text" placeholder="Digite el número de identidad!!!">
+                                        <button [disabled]="!formValidar.valid" (click)="buscarIdentidad()" style="background-color:#2db3bf; color: white;" type="button" class="btn btn-primary my-4">Buscar</button>
+                                    </div>
+                            </form>
+                        </div>         
+                </div>
+            </div>     
+      </div>
+    </div>
+
+    <div *ngIf="actualizado" class="alert alert-success" role="alert">
+        Se actualizo Contraseña correctamente. Ya puede ingresar a la plataforma.
+    </div>
+
+    <div *ngIf="encontrado=='error'" class="alert alert-danger" role="alert">
+      La identidad no esta registrada!!!
+  </div>
+
+
+    <div *ngIf="encontrado=='ok'"  class="row mt-4 mb-4">
+        <div class="col-lg-6 mt-2 mb-2" style="margin: auto !important;">
+          <div class="card" style="width: 100%; background-color: rgb(238, 236, 238);
+          margin-bottom: 4px;" *ngFor="let u of usuarioBuscado">
+            <div class="card-body">
+              <h5 class="card-title">Información del usuario</h5> 
+              <h5 class="card-title">Nombre: {{ u.nombres}} {{u.apellidos}}</h5>
+              <form [formGroup]="formClave">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i>
+                       
+                      </span>
+                    </div>
+                    <input formControlName="clave" class="form-control" placeholder="Password" type="password">
+                  </div>
+                  <div *ngIf="formClave.controls['clave'].invalid && formClave.controls['clave'].dirty" class="alert alert-danger" role="alert">
+                    Password es un campo necesario!!!
+                   </div>
+                </div>
+                <button [disabled]="!formClave.valid" (click)="cambiarClave()" type="button" class="btn btn-info">Aceptar</button>
+                <br>
+                
+              </form>
+              
+             
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+  

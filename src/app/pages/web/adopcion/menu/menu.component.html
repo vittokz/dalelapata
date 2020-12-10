@@ -1,0 +1,66 @@
+<nav style="margin-bottom: 30px;" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mask !important" 
+style="background-color:#2db3bf !important">
+
+    <button class="navbar-toggler" (click)="isCollapsed=!isCollapsed" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> 
+    <img (click)="inicio()" class="my-0 mr-md-auto font-weight-normal" src="assets/img/brand/icono.png" width="12%"> 
+    <!-- Collapse -->
+     <div class="collapse navbar-collapse"  [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
+          <!-- Collapse header -->
+          <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a  routerLinkActive="active">
+                  <img src="assets/img/brand/icono.png" style="width: 20%;">
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        <!-- Navigation -->
+          <hr class="my-3">
+           <!-- Navigation -->
+           <ul class="navbar-nav ml-ml-3">
+            <li class="nav-item">
+              <a routerLink="/pagAdopcion" style="font-weight: bold; font-size: 20px;" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/mascotas" style="font-weight: bold; font-size: 20px;" class="nav-link">Por Adoptar</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/lista-adoptadas" style="font-weight: bold; font-size: 20px;" class="nav-link">Adoptadas</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/lista-extraviadas" style="font-weight: bold;font-size: 20px;" class="nav-link">Extraviadas</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/lista-encontradas" style="font-weight: bold;font-size: 20px;" class="nav-link">Encontradas</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/lista-esterilizadas" style="font-weight: bold;font-size: 20px;" class="nav-link">Esterilizadas</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/buscarChip" style="font-weight: bold;font-size: 20px;" class="nav-link">MicroChip</a>
+            </li>
+            <li *ngIf="isLogueado" class="nav-item">
+              <a routerLink="/perfil-usuario" style="font-weight: bold;font-size: 20px;" class="nav-link">Perfil</a>
+            </li>
+            <li *ngIf="!isLogueado" class="nav-item">
+              <a routerLink="/registrarFundacion" style="font-weight: bold;font-size: 20px;" class="nav-link">Registrarse</a>
+            </li>
+            <li *ngIf="!isLogueado" class="nav-item">
+              <a routerLink="/loginUser" style="font-weight: bold;font-size: 20px;" class="nav-link">Login</a>
+            </li>
+            <li *ngIf="isLogueado" class="nav-item">
+              <a (click)="salir()" style="font-weight: bold;font-size: 20px;" class="nav-link">Salir</a>
+            </li>
+      </ul>
+    </div>
+</nav>

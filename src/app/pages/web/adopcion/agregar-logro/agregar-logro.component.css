@@ -1,0 +1,36 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.imagen{
+    margin-right: auto;
+    padding: 3px;
+    width: 40%;
+    height: 130px;
+}
+
+.cabecera{
+    background: linear-gradient(top,white,#2db3bf);
+    color: black;
+    font-weight: bold;
+}
+.imgMenu{
+    display: block;
+    margin: auto;
+    width: 30%;
+
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cabeceraTabla{
+    background-color:#2db3bf;
+    color: white;
+    font-size: 16px;
+}
+.itemTabla{
+    background-color: rgb(241, 238, 241);
+    color: black;
+}
+.hoverTr:hover{
+    background-color: #cdf0f3;
+}

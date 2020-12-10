@@ -1,0 +1,91 @@
+<div class="header pb-2 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 100px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+  <!-- Header container -->
+  
+</div>
+<div class="container-fluid mt-2">
+  <div class="row">
+    
+    <div class="col-xl-12 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Información Personal</h3>
+            </div>
+              
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formPerfil">
+            <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="identidad">Identificación</label>
+                    <input formControlName="identidad" type="number" class="form-control">
+                    <div *ngIf="formPerfil.get('identidad').errors && formPerfil.get('identidad').dirty" class="alert alert-danger" role="alert">
+                      Identidad es obligatoria
+                     <p *ngIf="formPerfil.get('identidad').hasError('minlength')">
+                      Identidad no es correcta</p>
+                    </div>
+                  </div>
+                 
+                  <div class="form-group col-md-4">
+                    <label for="nombre">Nombres</label>
+                    <input formControlName="nombres" type="text" class="form-control">
+                    <div *ngIf="formPerfil.controls['nombres'].invalid && formPerfil.controls['nombres'].dirty" class="alert alert-danger" role="alert">
+                      Nombre es obligatorio
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="apellidos">Apellidos</label>
+                    <input formControlName="apellidos" type="text" class="form-control">
+                    <div *ngIf="formPerfil.controls['apellidos'].invalid && formPerfil.controls['apellidos'].dirty" class="alert alert-danger" role="alert">
+                      Apellidos es obligatorio
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="Email">Email</label>
+                    <input formControlName="email" type="text" class="form-control">
+                    <div *ngIf="formPerfil.controls['email'].invalid && formPerfil.controls['email'].dirty" class="alert alert-danger" role="alert">
+                      Email es obligatorio
+                    </div>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="Telefono">Teléfono</label>
+                    <input formControlName="telefono" type="text" class="form-control">
+                    <div *ngIf="formPerfil.controls['telefono'].invalid && formPerfil.controls['telefono'].dirty" class="alert alert-danger" role="alert">
+                      Teléfono es obligatorio
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Direccion">Dirección</label>
+                    <input formControlName="direccion" type="text" class="form-control">
+                    <div *ngIf="formPerfil.controls['direccion'].invalid && formPerfil.controls['direccion'].dirty" class="alert alert-danger" role="alert">
+                      Teléfono es obligatorio
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Clave">Clave</label>
+                    <input formControlName="clave" type="text" class="form-control">
+                    <div *ngIf="formPerfil.controls['clave'].invalid && formPerfil.controls['clave'].dirty" class="alert alert-danger" role="alert">
+                      Clave es obligatorio
+                    </div>
+                  </div>
+                </div>
+                <div title="Editar usuario" class="text-center">
+                  <button [disabled]="!formPerfil.valid"  style="background-color:#2db3bf; color: white;" 
+                  type="button" class="btn btn-success my-4">Editar</button>
+                </div>
+           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

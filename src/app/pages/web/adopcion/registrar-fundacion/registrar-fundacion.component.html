@@ -1,0 +1,157 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+            <app-menu></app-menu>
+    </div>
+</div>
+<div class="header bg-gradient-ligh py-5 py-lg-6">
+    <div class="container">
+      <div class="header-body text-center mb-7">
+        <div class="row justify-content-center">
+       
+        </div>
+        <h1>Registrar Fundación</h1>
+      </div>
+    </div>
+   
+  </div>
+  <!-- Page content -->
+  <div class="container mt--8">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-7">
+        <div class="card bg-secondary shadow border-0">
+         
+          <div class="card-body px-lg-5 py-lg-5">
+           
+            <form [formGroup]="registro">
+                <div class="form-row">
+                     
+                      <div class="form-group col-md-3">
+                        <label for="tipoDoc">Tipo Documento</label>
+                          <select formControlName="tipoDoc" class="custom-select mr-sm-2">
+                            <option selected value="NIT">NIT</option>
+                            <option value="CC">CC</option>
+                          </select>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="identidad">Identificación</label>
+                        <input formControlName="identidad" type="number" class="form-control">
+                        <div *ngIf="registro.controls['identidad'].invalid && registro.controls['identidad'].dirty" class="alert alert-danger" role="alert">
+                          Identidad es obligatoria
+                        </div>
+                      </div>
+                     
+                      <div class="form-group col-md-6">
+                        <label for="razonSocial">Razón Social</label>
+                        <input formControlName="razon" type="text" class="form-control">
+                        <div *ngIf="registro.controls['razon'].invalid && registro.controls['razon'].dirty" class="alert alert-danger" role="alert">
+                          Razón Social es obligatorio
+                        </div>
+                      </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="municipio">Municipio</label>
+                        <select formControlName="municipio" class="custom-select mr-sm-2">
+                            <option *ngFor="let ciudad of ciudades" value="{{ciudad.id}}">{{ ciudad.nombre}}</option>
+                           </select>
+                        <div *ngIf="registro.controls['municipio'].invalid && registro.controls['municipio'].dirty" class="alert alert-danger" role="alert">
+                          Municipio es obligatorio
+                        </div>
+                      </div>
+                    <div class="form-group col-md-4">
+                        <label for="Identidad Responsable">Identidad Responsable</label>
+                        <input formControlName="idenRespon" type="number" class="form-control">
+                        <div *ngIf="registro.controls['idenRespon'].invalid && registro.controls['idenRespon'].dirty" class="alert alert-danger" role="alert">
+                          Identidad es obligatorio
+                        </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="direccion">Nombre Responsable</label>
+                        <input formControlName="nomRespon" type="text" class="form-control">
+                        <div *ngIf="registro.controls['nomRespon'].invalid && registro.controls['nomRespon'].dirty" class="alert alert-danger" role="alert">
+                         Nombre es obligatorio
+                        </div>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="telefono">Teléfono</label>
+                        <input formControlName="telefono" type="number" class="form-control">
+                        <div *ngIf="registro.controls['telefono'].invalid && registro.controls['telefono'].dirty" class="alert alert-danger" role="alert">
+                          Teléfono es obligatorio
+                        </div>
+                      </div>
+                      
+                </div>
+
+                  <div class="form-row">
+                      <div class="form-group col-md-2">
+                        <label for="movil">Movil</label>
+                        <input formControlName="movil" type="number" class="form-control">
+                        <div *ngIf="registro.controls['movil'].invalid && registro.controls['movil'].dirty" class="alert alert-danger" role="alert">
+                          Movil es obligatorio
+                        </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="direccion">Dirección</label>
+                        <input formControlName="direccion" type="text" class="form-control">
+                        <div *ngIf="registro.controls['direccion'].invalid && registro.controls['direccion'].dirty" class="alert alert-danger" role="alert">
+                         Dirección es obligatorio
+                        </div>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="email">Email</label>
+                        <input formControlName="email" type="email" class="form-control"> 
+                        <div *ngIf="registro.controls['email'].invalid && registro.controls['email'].dirty" class="alert alert-danger" role="alert">
+                             Email es obligatorio
+                        </div> 
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="facebook">Faceboook</label>
+                        <input formControlName="facebook" type="text" class="form-control" placeholder="Si no tiene escriba no"> 
+                        <div *ngIf="registro.controls['facebook'].invalid && registro.controls['facebook'].dirty" class="alert alert-danger" role="alert">
+                            Si no tiene escriba no
+                        </div> 
+                      </div>
+                </div>
+                <div class="form-row">
+                     <div class="form-group col-md-3">
+                        <label for="Twitter">Twitter</label>
+                        <input formControlName="twitter" type="text" class="form-control" placeholder="Si no tiene escriba no"> 
+                        <div *ngIf="registro.controls['twitter'].invalid && registro.controls['twitter'].dirty" class="alert alert-danger" role="alert">
+                            Si no tiene escriba no
+                        </div> 
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="clave">Contraseña</label>
+                        <input formControlName="clave" type="password" class="form-control">
+                        <div *ngIf="registro.controls['clave'].invalid && registro.controls['clave'].dirty" class="alert alert-danger" role="alert">
+                             Contraseña es obligatorio
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="Imagen">Logo Fundación</label>
+                        <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />  
+                       
+                     </div>   
+                     
+                </div>
+               
+                <div title="Registrar nuevo usuario" class="text-center">
+                  <button [disabled]="!registro.valid" (click)="agregarFundacion()" style="background-color:#2db3bf; color: white;" 
+                  type="button" class="btn btn-primary my-4">Registrar Fundación</button>
+                </div>
+              </form><hr>
+              <div *ngFor="let alert of alerts">
+                <alert *ngIf="envioForm=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
+                  {{ alert.msg }}
+                </alert>
+              </div>
+              <div *ngIf="envioForm=='error'" class="alert alert-danger" role="alert">
+                Revise identificación e Email ya se encuentran registrados!!!
+              </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>

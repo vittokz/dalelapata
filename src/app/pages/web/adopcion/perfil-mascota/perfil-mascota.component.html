@@ -1,0 +1,96 @@
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/adoptados/pagAdopcionuno.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+        
+        </div>
+      </div>
+     </div>
+  </div>
+<div><hr>
+    <div style="margin-bottom: 30px;" *ngFor="let mas of mascotaSel" style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed;  opacity: 9;">
+      <h1 style="text-align: center;" class="display-2">Perfil Mascota</h1>
+      <div class="row" style="margin: 20px;">
+          <div class="col-lg-1 col-sm-1" style="padding: 20px;background-image: linear-gradient(#2db3bf, white);">
+          </div>
+          <div class="col-lg-2 col-sm-4" style="padding: 20px;background-image: linear-gradient(#2db3bf, white);">
+             <img style="float: left;" src="{{url}}mascotas/img/{{mas.urlFoto}}" class="imagen" alt="...">
+             <h2 style="color: rgb(14, 16, 36); text-align: center;">{{ mas.nombre}}</h2>
+          </div>
+          <div class="col-lg-9 col-sm-8" style="padding: 20px;background-image: linear-gradient(#2db3bf, white);">
+           
+             <div class="card-body">
+                  <div style="background-color:#2db3bf; width: 100%; text-align: center;">
+                 
+                </div>
+
+             <table style="width: 100% !important;" class="table table-hover table-responsive">
+              <thead>
+                <tr>
+                  <th class="subtitulos">N° Chip</th>
+                  <th class="datos">{{ mas.numChip}}</th>
+                  <th class="subtitulos">Edad</th>
+                  <th class="datos">{{ mas.edad}}</th>
+                  <th class="subtitulos">Estado Mascota</th>
+                  <th class="datos">
+                    <span *ngIf="mas.estadoMascota==1">Adoptada</span>
+                    <span *ngIf="mas.estadoMascota==2">Por adoptadr</span>
+                    <span *ngIf="mas.estadoMascota==3">Encontrada</span>
+                    <span *ngIf="mas.estadoMascota==4">Extraviada</span>
+                    <span *ngIf="mas.estadoMascota==5">MicroChip</span>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="subtitulos">Peso</th>
+                  <th class="datos">{{ mas.peso}} kg</th>
+                  <th class="subtitulos">Color</th>
+                  <th class="datos">{{ mas.color}}</th>
+                  <th class="subtitulos">Género</th>
+                  <th class="datos">{{ mas.idGenero}}</th>
+                </tr>
+                <tr>
+                  <th class="subtitulos">Raza</th>
+                  <th class="datos">{{ nomRaza}}</th>
+                  <th class="subtitulos">Ciudad del Animalito</th>
+                  <th class="datos">{{ nomCiudad}}</th>
+                  <th class="subtitulos">Tamaño</th>
+                  <th class="datos">{{ mas.tamano}}</th>
+                </tr>
+                <tr>
+                  <th class="subtitulos">Propietario: </th>
+                  <th colspan="2" class="datos"> {{ nomAdoptador | uppercase}}</th>
+                </tr>
+              </thead>
+              
+            </table>
+          </div>
+         </div>
+      </div>
+    </div>
+</div>
+<hr>
+<div class="container" style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed;  opacity: 9;"> 
+    <app-menu-flotante></app-menu-flotante>
+    <div style=" background-color: #2db3bf; width: 100%; color: white; text-align: center; display: block; font-size: 26px; font-weight: bold;">
+      Fotos y Logros Realizados </div>
+     <div class="row mt-3">
+            <div class="col-lg-4 mt-3 mb-3" *ngFor="let item of listaLogros">
+
+              <div class="card" style="max-width: 100%; background-color: #f1f5f5; border-color: #2db3bf;">
+                <img src="{{url}}/logros/img/{{ item.img}}" class="imagen" alt="Sin foto">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.nombre | uppercase}}</h5>
+                  <p class="card-text">{{item.descripcion | uppercase}}</p>
+                  <p class="card-text">{{item.fecha}}</p>
+                  <button *ngIf="item.estadoMascota=='Felíz'" class="btn btn-info btn-lg btn-block">{{ item.estadoMascota}}</button>
+                  <button *ngIf="item.estadoMascota=='Cariñoso'" class="btn btn-info btn-lg btn-block">{{ item.estadoMascota}}</button>
+                  <button *ngIf="item.estadoMascota=='Triste'" class="btn btn-dark btn-lg btn-block">{{ item.estadoMascota}}</button>
+                  <button *ngIf="item.estadoMascota=='Timido'" class="btn btn-warning btn-lg btn-block">{{ item.estadoMascota}}</button>
+                  <button *ngIf="item.estadoMascota=='Bravo'" class="btn btn-danger btn-lg btn-block">{{ item.estadoMascota}}</button>
+                </div>
+              </div>
+           </div>
+    </div>
+</div>
+<app-footer-paginas style="margin-top: 20px;"></app-footer-paginas>
