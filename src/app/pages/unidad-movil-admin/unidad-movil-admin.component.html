@@ -69,17 +69,19 @@
                             <label for="estado">Estado Visita</label>
                             <select formControlName="estado" class="custom-select mr-sm-2">
                                 <option selected value="Visitado">VISITADO</option>
+                                <option selected value="Revision">EN REVISIÒN</option>
                                 <option value="Pendiente">PENDIENTE</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                       <div class="form-group col-md-6">
                           <label for="fecha inicial">Imagen De la Visita</label>
                           <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />  
                          
                       </div>
-                    </div>
+                    </div> -->
+                    
                     <div title="Registrar Visita" class="text-center">
                         <button title="Registrar nueva visita" *ngIf="esNuevo" [disabled]="!registro.valid" (click)="agregarVisita()"  type="button" class="btn btn-primary my-4">Registrar</button>
                         <button title="Modificar Visita" *ngIf="!esNuevo" [disabled]="!registro.valid" (click)="editarVisitaSeleccionada ()"  type="button" class="btn btn-success my-4">Editar</button>
@@ -136,10 +138,19 @@
           <dxi-column dataField="fechaFinal" caption="Fecha Final"></dxi-column>
           <dxi-column dataField="estado" caption="Estado"></dxi-column>
           <dxi-column dataField="urlFoto" caption="Imagen"></dxi-column>
+          <dxi-column dataField="urlFoto2" caption="Imagen2"></dxi-column>
+          <dxi-column dataField="urlFoto3" caption="Imagen3"></dxi-column>
           <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
           <div *dxTemplate="let d of 'acciones'">
-            <button target=”_blank” class="btn btn-success" title="Editar información Visita" (click)="editarVisita(d.data);">
+            <button target=”_blank” class="btn btn-success btn-sm" title="Editar información Visita" (click)="editarVisita(d.data);">
               Editar</button>
+            <button class="btn btn-primary btn-sm" title="Agregar Imagen" 
+            routerLink="/unidadMovilImg/{{d.data.idVisita}}/{{d.data.urlFoto}}/{{d.data.urlFoto2}}/{{d.data.urlFoto3}}">
+                Agregar Img</button>
+                <button class="btn btn-danger btn-sm" title="Eliminar Imagen" 
+                routerLink="/unidadMovilImg-eliminar/{{d.data.idVisita}}/{{d.data.urlFoto}}/{{d.data.urlFoto2}}/{{d.data.urlFoto3}}/{{d.data.idMunicipio}}">
+                    Eliminar Img</button>
+                
           </div>
 
       </dx-data-grid> 
@@ -147,7 +158,6 @@
     </div>
   </div>
 </div>
-
   <router-outlet></router-outlet>
 </div>
   <div class="container-fluid">

@@ -71,6 +71,17 @@
       <!-- Navigation -->
       <hr class="my-3">
        <!-- Heading -->
+       <h3>Principal</h3>
+       <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
+        <li class="nav-item">
+          <a routerLink="/adminBanner" class="nav-link">
+            <i class="ni ni-album-2 text-blue"></i> Banner Principal
+          </a>
+        </li> 
+     </ul>
+
+      <hr class="my-3">
+       <!-- Heading -->
        <h3>Adopción</h3>
        <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
         <li class="nav-item">

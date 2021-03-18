@@ -6,6 +6,8 @@ export class UbicacionMapa{
         cantidad: string;
         proceso: string;
         urlFoto: string;
+        urlFoto2: string;
+        urlFoto3: string;
         fechaInicial: string;
         fechaFinal: string;
         estado: string;

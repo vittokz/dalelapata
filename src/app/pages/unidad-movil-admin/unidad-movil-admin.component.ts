@@ -26,6 +26,7 @@ export class UnidadMovilAdminComponent implements OnInit {
   idVisitaModificar:string;
   alertsSeleccionar:any;
   identidadUsuario:string;
+  showModal=false;
   defaultAlerts: any[] = [
     {
       type: 'info',
@@ -69,9 +70,13 @@ export class UnidadMovilAdminComponent implements OnInit {
       fecha1: ['',Validators.required],
       fecha2: ['',Validators.required],
       cantidad: ['',Validators.required],
-      estado: ['', Validators.required],
-      avatar: ['', Validators.required]
+      estado: ['', Validators.required]
     });
+  }
+
+ 
+  agregarImgVisita(data){
+    console.log(data);
   }
 
   agregarVisita(){
@@ -91,7 +96,7 @@ export class UnidadMovilAdminComponent implements OnInit {
     formData.append('fecha2', this.registro.get('fecha2').value);
     formData.append('cantidad', this.registro.get('cantidad').value);
     formData.append('estado', this.registro.get('estado').value);
-    formData.append('avatar', this.registro.get('avatar').value);
+    formData.append('avatar', 'no');
     formData.append('usuarioRegistro', this.identidadUsuario);
 
     this.visitaService.uploadFile(formData).subscribe(

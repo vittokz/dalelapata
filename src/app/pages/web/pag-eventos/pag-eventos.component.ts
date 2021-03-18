@@ -24,6 +24,7 @@ export class PagEventosComponent implements OnInit {
   constructor(private eventoService: EventosService, private ruta: Router,private mascotaService: MascotasService) { }
 
   ngOnInit(): void {
+    
     this.ruta.events.subscribe((event) => {
       this.isCollapsed = true;
    });

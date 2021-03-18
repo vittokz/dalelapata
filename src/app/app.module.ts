@@ -102,6 +102,9 @@ import { MascotasMicroChipComponent } from './pages/mascotas-micro-chip/mascotas
 import { NotificacionesComponent } from './pages/web/adopcion/adminPerfil/notificaciones/notificaciones.component';
 import { ListaEsterilizadasComponent } from './pages/web/adopcion/lista-esterilizadas/lista-esterilizadas.component';
 import { MascotasEsterilizadasComponent } from './pages/mascotas-esterilizadas/mascotas-esterilizadas.component';
+import { UnidadMovilAdminImgComponent } from './pages/unidad-movil-admin-img/unidad-movil-admin-img.component';
+import { AdminBannerComponent } from './pages/admin-banner/admin-banner.component';
+import { UnidadMovilAdminImgDeleteComponent } from './pages/unidad-movil-admin-img-delete/unidad-movil-admin-img-delete.component';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 @NgModule({
@@ -201,7 +204,10 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MascotasMicroChipComponent,
     NotificacionesComponent,
     ListaEsterilizadasComponent,
-    MascotasEsterilizadasComponent
+    MascotasEsterilizadasComponent,
+    UnidadMovilAdminImgComponent,
+    AdminBannerComponent,
+    UnidadMovilAdminImgDeleteComponent
    ],
   providers: [
     FaunaService, EventosService,FundacionService, AuthUsuariosService, UserPlataformaService,LogroService,

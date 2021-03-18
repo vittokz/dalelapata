@@ -34,11 +34,11 @@
                   <th class="datos">{{ mas.edad}}</th>
                   <th class="subtitulos">Estado Mascota</th>
                   <th class="datos">
-                    <span *ngIf="mas.estadoMascota==1">Adoptada</span>
-                    <span *ngIf="mas.estadoMascota==2">Por adoptadr</span>
-                    <span *ngIf="mas.estadoMascota==3">Encontrada</span>
-                    <span *ngIf="mas.estadoMascota==4">Extraviada</span>
-                    <span *ngIf="mas.estadoMascota==5">MicroChip</span>
+                    <span *ngIf="mas.estadoMascota=='1'">Adoptada</span>
+                    <span *ngIf="mas.estadoMascota=='2'">Por adoptadr</span>
+                    <span *ngIf="mas.estadoMascota=='3'">Encontrada</span>
+                    <span *ngIf="mas.estadoMascota=='4'">Extraviada</span>
+                    <span *ngIf="mas.estadoMascota=='5'">MicroChip</span>
                   </th>
                 </tr>
                 <tr>
@@ -50,16 +50,24 @@
                   <th class="datos">{{ mas.idGenero}}</th>
                 </tr>
                 <tr>
-                  <th class="subtitulos">Raza</th>
+                  <th class="subtitulos">Raza </th>
                   <th class="datos">{{ nomRaza}}</th>
                   <th class="subtitulos">Ciudad del Animalito</th>
                   <th class="datos">{{ nomCiudad}}</th>
                   <th class="subtitulos">Tamaño</th>
                   <th class="datos">{{ mas.tamano}}</th>
                 </tr>
-                <tr>
+                <tr *ngIf="tipoUsuario=='Administrador'">
                   <th class="subtitulos">Propietario: </th>
                   <th colspan="2" class="datos"> {{ nomAdoptador | uppercase}}</th>
+                  <th class="subtitulos">Teléfono: </th>
+                  <th colspan="2" class="datos"> {{ telefono}}</th>
+                </tr>
+                <tr *ngIf="tipoUsuario=='Administrador'">
+                  <th class="subtitulos">Dirección: </th>
+                  <th colspan="2" class="datos"> {{ direccion| uppercase}}</th>
+                  <th class="subtitulos">Emáil: </th>
+                  <th colspan="2" class="datos"> {{ email}}</th>
                 </tr>
               </thead>
               

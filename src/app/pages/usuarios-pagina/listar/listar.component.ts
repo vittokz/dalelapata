@@ -132,29 +132,34 @@ export class ListarComponent implements OnInit {
   }
 
   generarWord(mascota: Mascota[],data){
-   
     let content ="<h3><center>INFORMACIÓN DE MASCOTA Y USUARIO</center></h3><center>";
     content = content + "<span style='font-size:13px; font-weight:800'> Nombre: "+ data.nombres +" "+ data.apellidos+ "</span><br>";
     content = content + "<span style='font-size:13px; font-weight:800'> Identidad: "+ data.identidad + "</span><br>";
     content = content + "<span style='font-size:13px; font-weight:800'> Dirección: "+ data.direccion + "</span><br>";
     content = content + "<span style='font-size:13px; font-weight:800'> Movil: "+ data.movil + "</span><br>";
     content = content + "<span style='font-size:13px; font-weight:800'> Email: "+ data.email + "</span><br>";
-    content = content + "<h3><center>INFORMACIÓN DE LA MASCOTA</center></h3><center>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Nombre: "+ mascota[0].nombre + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> NumChip: "+mascota[0].numChip + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Edad: "+ mascota[0].edad + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Especie: "+ mascota[0].idEspecie + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Genero: "+ mascota[0].idGenero + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Tamaño: "+ mascota[0].tamano + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Peso: "+ mascota[0].peso + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Color: "+ mascota[0].color + "</span><br>";
-    content = content + "<span style='font-size:13px; font-weight:800'> Fecha Registro: "+ mascota[0].fechaRegistro + "</span><br>";
-    content = content + "<img style='width:40px;height:50px; display:block; margin:auto;' src='"+ this.url +mascota[0].urlFoto +"'><br>";
- 
+    content = content + "<h3><center>INFORMACIÓN DE LAS MASCOTAS</center></h3><center>";
+    let i=1;
+    mascota.map((elemento)=>{
+       console.log('mascota:', elemento.nombre);
+       console.log('mascota:', elemento.numChip);
+       content = content + "<h3><center>Mascota N."+i+"</center></h3><center>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Nombre: "+ elemento.nombre + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> NumChip: "+elemento.numChip + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Edad: "+ elemento.edad + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Especie: "+ elemento.idEspecie + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Genero: "+ elemento.idGenero + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Tamaño: "+ elemento.tamano + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Peso: "+ elemento.peso + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Color: "+ elemento.color + "</span><br>";
+       content = content + "<span style='font-size:13px; font-weight:800'> Fecha Registro: "+ elemento.fechaRegistro + "</span><br>";
+       content = content + "<img style='width:40px;height:50px; display:block; margin:auto;' src='"+ this.url + elemento.urlFoto +"'><br>";
+       i++;
+    });
     content = content + "<br><br><br><span style='font-size:13px; font-weight:800'> Generado Por: "+ this.nombreCompleto + "</span><br>";
     
   
-   /* content = content + this.contenidoContrado[0].contenido;*/
+   /* content = content + this.contenidoContrado[i].contenido;*/
     let htmlDocumennt = '<!DOCTYPE html><html><head><meta charset="utf-8"><title></title>';
     htmlDocumennt = htmlDocumennt + '</head><body>' + content + '</body></html>';
     const converted = htmlDocx.asBlob(htmlDocumennt);
@@ -174,7 +179,7 @@ export class ListarComponent implements OnInit {
   content = content + "<br><br><br><span style='font-size:13px; font-weight:800'> Generado Por: "+ this.nombreCompleto + "</span><br>";
   
 
- /* content = content + this.contenidoContrado[0].contenido;*/
+ /* content = content + this.contenidoContrado[i].contenido;*/
   let htmlDocumennt = '<!DOCTYPE html><html><head><meta charset="utf-8"><title></title>';
   htmlDocumennt = htmlDocumennt + '</head><body>' + content + '</body></html>';
   const converted = htmlDocx.asBlob(htmlDocumennt);

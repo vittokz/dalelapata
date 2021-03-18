@@ -1,0 +1,59 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+     <app-navbar></app-navbar>
+  <!-- Pages -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+            <!-- Mask -->
+            <span class="mask bg-gradient-info opacity-8"></span>
+            <!-- Header container -->     
+        </div>
+        <div class="container-fluid mt--7">
+            <div class="row">
+                <div class="col-xl-12 order-xl-1">
+                        <div class="card bg-secondary shadow">
+                          
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                      <div class="col-8">
+                                          <h3 class="mb-0">Eliminar Imagenes Visita Unidad Movil {{dato.municipio |uppercase}}</h3>
+                                      </div>
+                                  </div>
+                            </div>         
+                        <table class="table" width="100%">
+                            <thead>
+                              <tr>
+                                <th scope="col">Imagen 1</th>
+                                <td> {{dato.urlFoto}}</td>
+                                <td> <button (click)="eliminarImg(dato.urlFoto,'1')" type="button" class="btn btn-danger btn-sm">Eliminar</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="col">Imagen 2</th>
+                                <td> {{dato.urlFoto2}}</td>
+                                <td><button (click)="eliminarImg(dato.urlFoto2,'2')" type="button" class="btn btn-danger btn-sm">Eliminar</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="col">Imagen 3</th>
+                                <td> {{dato.urlFoto3}}</td>
+                                <td><button (click)="eliminarImg(dato.urlFoto3,'3')" type="button" class="btn btn-danger btn-sm">Eliminar</button></td>
+                              </tr>
+                            </thead>
+                    
+                          </table>
+                          <div *ngIf="envioForm" class="alert alert-primary" role="alert">
+                            Se eliminó correctamente la imagen
+                         </div>
+
+                    </div>
+                </div>
+                
+            </div>
+    </div>
+
+  
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

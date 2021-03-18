@@ -15,8 +15,20 @@ getVisitas(): Observable<UnidadMovil[]>{
   return this.http.get<UnidadMovil[]>(this.url + "getVisitasAdmin.php");
 }
 
+eliminarImgVisita(idVisita: string, posicion: string): Observable<any>{
+  return this.http.get<any>(this.url + "eliminarImgVisita.php?idVisita="+idVisita + "&posicion="+posicion);
+}
+
 public uploadFile(data):Observable<any>{
   let uploadURL = this.url + "addVisitaImagen.php";
+  return this.http.post<any>(uploadURL, data);
+}
+
+//agregar imagen a visita
+
+public uploadFileVisita(data):Observable<any>{
+  console.log(data);
+  let uploadURL = this.url + "addImagenVisita.php";
   return this.http.post<any>(uploadURL, data);
 }
 
@@ -53,6 +65,20 @@ addVisita(visita: UnidadMovil): Observable<any>
     "estado" : visita.estado
   };    
        return this.http.post(this.url + "updateVisita.php", JSON.stringify(options), headers);
+}
+
+ //editar imagen
+ updateVisitaImg(idVisita:string, urlFoto: string, numero: string):Observable<any>{
+   var urlFotoEnviada: string ="";
+   urlFotoEnviada = "urlFoto"+numero;
+   console.log(urlFotoEnviada);
+  let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
+  options 	: any		= {
+    "idVisita" : idVisita,
+    urlFotoEnviada : urlFoto,
+  };    
+  console.log(options );
+       return this.http.post(this.url + "updateVisitaImg.php", JSON.stringify(options), headers);
 }
 
 

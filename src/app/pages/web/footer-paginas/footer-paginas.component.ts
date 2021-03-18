@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Banner } from 'src/app/modelos/modulo-banner/banner-modelo';
+import { AdminBannerService } from 'src/app/servicios/adminBanner/admin-banner.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-footer-paginas',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterPaginasComponent implements OnInit {
 
-  constructor() { }
+  listaAliados : Banner[];
+  url: string = environment.url;
+  constructor(private bannerService: AdminBannerService) { }
 
   ngOnInit(): void {
+    this.cargarAliados();
+  }
+
+  cargarAliados(){
+    this.bannerService.getAliadosActivos().subscribe(
+      (resul)=> {
+        this.listaAliados=resul;
+      }
+    );
   }
 
 }

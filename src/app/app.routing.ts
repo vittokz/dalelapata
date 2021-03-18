@@ -1,3 +1,6 @@
+import { UnidadMovilAdminImgDeleteComponent } from './pages/unidad-movil-admin-img-delete/unidad-movil-admin-img-delete.component';
+import { AdminBannerComponent } from './pages/admin-banner/admin-banner.component';
+import { UnidadMovilAdminImgComponent } from './pages/unidad-movil-admin-img/unidad-movil-admin-img.component';
 import { MascotasEsterilizadasComponent } from './pages/mascotas-esterilizadas/mascotas-esterilizadas.component';
 import { ListaEsterilizadasComponent } from './pages/web/adopcion/lista-esterilizadas/lista-esterilizadas.component';
 import { NotificacionesComponent } from './pages/web/adopcion/adminPerfil/notificaciones/notificaciones.component';
@@ -79,6 +82,9 @@ const routes: Routes =[
     path: 'formFauna',component: FormFaunaComponent
   },
   {
+    path: 'adminBanner',component: AdminBannerComponent
+  },
+  {
     path: 'noticias-Fauna',component: NoticiasFaunaComponent
   },
   {
@@ -142,6 +148,12 @@ const routes: Routes =[
   },
   {
     path: 'unidadMovil', component:  UnidadMovilComponent 
+  },
+  {
+    path: 'unidadMovilImg/:parametro/:parametro2/:parametro3/:parametro4', component: UnidadMovilAdminImgComponent
+  },
+  {
+    path: 'unidadMovilImg-eliminar/:parametro/:parametro2/:parametro3/:parametro4/:parametro5', component: UnidadMovilAdminImgDeleteComponent
   },
   {
     path: 'detalleChip/:parametro', component: PaginaDetalleChipComponent

@@ -10,6 +10,7 @@ export class BannerAdopcionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

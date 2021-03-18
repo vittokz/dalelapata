@@ -18,7 +18,9 @@ export class UnidadMovilComponent implements OnInit {
   public ubicacionSelec: UbicacionMapa[];
   url: string =environment.url+ 'unidadMovil/img/';
   municipio: string;
+  idVisita : string;
   activar:boolean;
+  
 
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 1.2;
@@ -33,6 +35,18 @@ export class UnidadMovilComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    var a = [1,2,1,3,3,1,2,1,5,1];
+    var suma=0;
+    for(var i=0;i<a.length;i++){
+      for(var j=1;j<=a.length;j++){
+        suma = a[i] + a[j];
+        console.log(suma);
+        if(suma==10){
+          console.log('numer:',a[i]);
+        }
+          }
+    }
+    
     this.cargarUbicaciones(); 
   }
 
@@ -40,12 +54,15 @@ export class UnidadMovilComponent implements OnInit {
     this.router.navigateByUrl("/home");
   }
 
+  
+
   activarMunicipio(evento){
     this.activar=true;
     this.municipio = evento.target.value;
     this.mapService.getUbicacionesByIMunicipio(this.municipio).subscribe(
       data=>{
-        this.ubicacionSelec = data;  
+        this.ubicacionSelec = data;
+       
         console.log(this.ubicacionSelec);
        });
 }

@@ -50,19 +50,15 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
 <br><br><br><br>
 <div style=" background-image: url('assets/img/homePage/huellas.png');">
   <carousel>
-    <slide>
-      <img src="assets/img/homePage/bannerSecretaria.jpg" alt="first slide" style="margin: auto; display: block; width: 100%;">
+    <slide *ngFor="let b of listaBanner">
+     
+      <a target="_blank" href="{{b.descripcion}}"><img src="{{url}}adminBanner/img/{{b.imagen}}" alt="{{b.nombre}}" style="margin: auto; display: block; width: 100%;"></a>
       <div class="carousel-caption d-none d-md-block">
     
       </div>
     </slide>
-    <slide>
-      <img src="assets/img/homePage/bannerSecretaria2.jpg" alt="second slide" style="margin: auto;display: block; width: 100%;">
-      <div class="carousel-caption d-none d-md-block">
-        
-      </div>
-    </slide>
   </carousel>
+ 
 </div>
 
 <div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed; ">
@@ -71,6 +67,7 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
       <div class="col-lg-12" style="font-size: 34px; color: white; text-align: center; 
       font-weight: bold; background-color:#2db3bf;">
          En Defensa de lo Nuestro
+       
       </div>
 </div>
 </div><br><br>

@@ -63,12 +63,13 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
      <div class="col-lg-12">
            <div class="row">
                  <div class="col-lg-7">
-                     <h2 style="color: rgb(56, 55, 55); font-weight: bold; text-align: center;">¿ Unidad movil?</h2>
+                     <h2 style="color: rgb(56, 55, 55); font-weight: bold; text-align: center;">Unidad movil</h2>
                      <div style="text-align: justify; padding: 20px;">
                      En esta sección se encuentra información de la presencia que ha hecho la unidad movil en algunos 
-                      municipios del  Departamento de Nariño. <br>
+                      municipios del  Departamento de Nariño y en los que se esta pendiente la visita.<br>
                      Se selecciona el municipio de la lista desplegable y se muestra la información correspondiente.
-                     </div><br>
+                      </div><br>
+                    
                  </div>
 
                  <div class="col-lg-5 order-md-2 mb-4">
@@ -86,6 +87,14 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
            </div>
      </div>
    </div>
+   <div class="row">
+    <div class="col-lg-3"></div>
+      <div class="col-lg-9">
+           <!--  <img style="display: flex; align-items: center∫;" src="assets/img/homePage/unidadMovil.jpg" width="60%"> -->
+           <video width="600px" src="https://www.youtube.com/watch?v=bLCqRd_fLio" controls> Vídeo no es soportado... </video>
+      </div>
+   </div>
+
    <hr>
 
    <div class="row" style="border-color: black; padding: 20px; text-align: center;">
@@ -124,8 +133,24 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
                   </thead>
                 </table>
                 <hr>
-                <img *ngIf="activar" src="{{url}}{{item.urlFoto}}" style="margin: auto; width: 50%;" class="foto" alt="...">                
-              </div>  
+                <div class="row">
+                   <div class="col-lg-4">
+                    <img *ngIf="activar" src="{{url}}{{item.urlFoto}}" style="margin: auto; width: 100%; height: 300px;" class="foto" alt="..."> 
+                    <span><a style="font-size: 18px; color: #2db3bf;font-weight: bold;" href="{{url}}{{item.urlFoto}}" target="_blank">
+                      Ver Imagen completa</a></span> 
+                   </div>
+                   <div class="col-lg-4">
+                    <img *ngIf="activar" src="{{url}}{{item.urlFoto2}}" style="margin: auto; width: 100%; height: 300px;" class="foto" alt="...">  
+                    <span><a style="font-size: 18px; color: #2db3bf;font-weight: bold;" href="{{url}}{{item.urlFoto2}}" target="_blank">
+                      Ver Imagen completa</a></span> 
+                   </div>
+                   <div class="col-lg-4">
+                    <img *ngIf="activar" src="{{url}}{{item.urlFoto3}}" style="margin: auto; width: 100%; height: 300px;" class="foto" alt="...">  
+                    <span><a style="font-size: 18px; color: #2db3bf;font-weight: bold;" href="{{url}}{{item.urlFoto3}}" target="_blank">
+                      Ver Imagen completa</a></span> 
+                   </div>
+                </div>
+                 </div>  
             
           </div>  
                    
@@ -135,4 +160,7 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
  </div>
 </div>
 <br>
+ 
+
+
 <app-footer-paginas></app-footer-paginas> 
