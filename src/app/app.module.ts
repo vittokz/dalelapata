@@ -105,6 +105,7 @@ import { MascotasEsterilizadasComponent } from './pages/mascotas-esterilizadas/m
 import { UnidadMovilAdminImgComponent } from './pages/unidad-movil-admin-img/unidad-movil-admin-img.component';
 import { AdminBannerComponent } from './pages/admin-banner/admin-banner.component';
 import { UnidadMovilAdminImgDeleteComponent } from './pages/unidad-movil-admin-img-delete/unidad-movil-admin-img-delete.component';
+import { AddMascotaImagenComponent } from './pages/add-mascota-imagen/add-mascota-imagen.component';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 @NgModule({
@@ -207,7 +208,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MascotasEsterilizadasComponent,
     UnidadMovilAdminImgComponent,
     AdminBannerComponent,
-    UnidadMovilAdminImgDeleteComponent
+    UnidadMovilAdminImgDeleteComponent,
+    AddMascotaImagenComponent
    ],
   providers: [
     FaunaService, EventosService,FundacionService, AuthUsuariosService, UserPlataformaService,LogroService,

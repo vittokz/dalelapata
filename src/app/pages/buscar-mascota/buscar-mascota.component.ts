@@ -91,6 +91,7 @@ export class BuscarMascotaComponent implements OnInit {
       this.mascotaService.getMascotas().subscribe(
         (data)=>{
           this.mascota = data;
+       
         }
       );
     }

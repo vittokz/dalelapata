@@ -27,7 +27,6 @@ public uploadFile(data):Observable<any>{
 //agregar imagen a visita
 
 public uploadFileVisita(data):Observable<any>{
-  console.log(data);
   let uploadURL = this.url + "addImagenVisita.php";
   return this.http.post<any>(uploadURL, data);
 }

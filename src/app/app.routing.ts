@@ -71,6 +71,7 @@ import { AgregraLogroAdminComponent } from './pages/agregra-logro-admin/agregra-
 import { MascotasMicrochipComponent } from './pages/web/adopcion/adminPerfil/mascotas-microchip/mascotas-microchip.component';
 import { EditarUserPaginaComponent } from './pages/usuarios-pagina/editar-user-pagina/editar-user-pagina.component';
 import { MascotasMicroChipComponent } from './pages/mascotas-micro-chip/mascotas-micro-chip.component';
+import { AddMascotaImagenComponent } from './pages/add-mascota-imagen/add-mascota-imagen.component';
 
 const routes: Routes =[
   {
@@ -241,6 +242,9 @@ const routes: Routes =[
   },
   {
     path: 'add-mascota', component: AddMascotaComponent
+  },
+  {
+    path: 'add-mascota-images/:parametro', component: AddMascotaImagenComponent
   },
   {
     path: 'buscar-mascota', component: BuscarMascotaComponent

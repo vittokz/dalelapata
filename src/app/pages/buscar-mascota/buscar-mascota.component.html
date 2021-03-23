@@ -288,6 +288,9 @@
                       <button class="btn btn-danger btn-sm" title="Eliminar información de Mascota"
                       (click)="eliminar(d.data)">
                          Eliminar</button>
+                      <button class="btn btn-primary btn-sm" title="Agregar imagen de Mascota"
+                        routerLink="/add-mascota-images/{{d.data.idMascota}}">
+                            Agregar Img</button>
                       <button class="btn btn-ligh btn-sm" title="Generar Informacion en Word"
                         (click)="generarInfoMascota(d.data)">
                          Generar Archivo

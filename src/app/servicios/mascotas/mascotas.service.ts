@@ -206,6 +206,12 @@ export class MascotasService {
    };    
       return  this.http.post(this.url + "addMascotaAdmin.php", JSON.stringify(options), headers);
    }
+   //subir imagen mascota
+   public subirImagenMascota(data):Observable<any>{
+      console.log(data);
+      let uploadURL = this.url + "addMascotaImagen.php";
+      return this.http.post<any>(uploadURL, data);
+    }
 
    //editar mascota
    editarMascotaAdmin(mascota:Mascota): Observable<any>
