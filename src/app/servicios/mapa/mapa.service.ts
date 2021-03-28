@@ -19,6 +19,11 @@ export class MapaService {
 
   }
 
+  getAllUbicaciones(): Observable<UbicacionMapa[]>{
+    return this.http.get<UbicacionMapa[]>(this.url + 'getAllVisitas.php');
+
+  }
+
   getUbicacionesByIVisita(idVisita: string): Observable<UbicacionMapa[]>{
     return this.http.get<UbicacionMapa[]>(this.url + 'getVisitasByIdVisita.php?idVisita=' + idVisita);
 
