@@ -22,7 +22,7 @@ export class RegistrarFundacionComponent implements OnInit {
   defaultAlerts: any[] = [
     {
       type: 'info',
-      msg: 'Se registro correctamente la Fundación. El usuario es su número de identidad.!!!'
+      msg: 'Se registro correctamente. El usuario es su número de identidad.!!!'
     }
   ];
   constructor(private formBuild: FormBuilder, private fundacionService: FundacionService,

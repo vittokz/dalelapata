@@ -42,6 +42,19 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
             <li class="nav-item">
               <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/pagEventos">Eventos Bienestar Animal</a>
             </li>
+            <li *ngIf="isLogueado" class="nav-item">
+              <a routerLink="/perfil-usuario" class="nav-link">
+                <span style="font-weight: bold;font-size: 22px; color: rgb(232, 240, 123);">Acceder a Perfil</span></a>
+            </li>
+            <li *ngIf="!isLogueado" class="nav-item">
+              <a routerLink="/registrarFundacion" style="font-weight: bold;font-size: 20px;" class="nav-link">Registrarse</a>
+            </li>
+            <li *ngIf="!isLogueado" class="nav-item">
+              <a routerLink="/loginUser" style="font-weight: bold;font-size: 20px;" class="nav-link">Login</a>
+            </li>
+            <li *ngIf="isLogueado" class="nav-item">
+              <a (click)="salir()" style="font-weight: bold;font-size: 20px;" class="nav-link">Salir</a>
+            </li>
           </ul>   
      </div>
 </nav>
@@ -81,8 +94,8 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
                     <div class="shadow card-body">
                       <h2 style="text-align: center;" class="card-title">Adopción</h2>
                       <p style="text-align: justify;" class="card-text">Toda la información  de nuestros animalitos, y procesos para adopción.</p>
-                      <button routerLink="/pagAdopcion" type="button" style="background-color:#2db3bf" class="btn btn-primary btn-lg btn-block">Adopción</button>
-                   </div>
+                       <a routerLink="/pagAdopcion"><img src="assets/img/homePage/adopcion.png" width="100%"></a> 
+                    </div>
                   </div>
             </div>
 
@@ -94,7 +107,8 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
                       <p style="text-align: justify;" class="card-text">
                         Verifique los municipios del departamento donde haya realizado visita
                         la Unidad Movil de la Gobernación de Nariño, además cuales estan pendientes. </p>
-                      <button routerLink="/unidadMovil" style="background-color:#2db3bf" type="button" class="btn btn-primary btn-lg btn-block">Unidad Movil</button>
+                         <a routerLink="/unidadMovil"><img src="assets/img/homePage/unidadMovil.png" width="100%"></a>
+                       
                     </div>
                   </div>
             </div>
@@ -105,7 +119,7 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
                     <div class="card-body">
                       <h2 style="text-align: center;" class="card-title">Fauna Silvestre</h2>
                       <p style="text-align: justify;" class="card-text">Encuentre todas las noticias de la fauna de nuestro Departamento</p>
-                      <button routerLink="/fauna-silvestre" style="background-color:#2db3bf" type="button" class="btn btn-primary btn-lg btn-block">Fauna Silvestre</button>
+                      <a routerLink="/fauna-silvestre"><img src="assets/img/homePage/fauna.png" width="100%"></a>
                     </div>
                   </div>
             </div>
@@ -118,7 +132,7 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
                     <div class="card-body">
                       <h2 style="text-align: center;" class="card-title">Microchip</h2>
                       <p style="text-align: justify;" class="card-text">Realiza la busqueda de una mascota por Microchip</p>
-                      <button routerLink="/buscarChip" style="background-color:#2db3bf" type="button" class="btn btn-primary btn-lg btn-block">Buscar por MicroChip</button>
+                      <a routerLink="/buscarChip"><img src="assets/img/homePage/microChip.png" width="100%"></a>
                     </div>
                   </div>
             </div>
@@ -129,8 +143,7 @@ style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
                     <div class="card-body">
                       <h2 style="text-align: center;" class="card-title">Eventos Programa de Bienestar Animal</h2>
                       <p style="text-align: justify;" class="card-text">Eventos que se desarrollan en el programa de bienestar animal</p>
-                      <button [routerLink]="['/pagEventos']" routerLinkActive="router-link-active"  
-                      style="background-color:#2db3bf" class="btn btn-primary btn-lg btn-block">Eventos</button>
+                      <a routerLink="/pagEventos"><img src="assets/img/homePage/eventos.png" width="100%"></a>
                     </div>
                   </div>
             </div>

@@ -5,6 +5,7 @@ import { UbicacionMapa } from 'src/app/modelos/modulo-ubicacionMapa/ubicacionMap
 import { environment } from 'src/environments/environment.prod';
 import { Router } from '@angular/router';
 import { Item } from 'pdfmake-wrapper';
+import { UserPlataformaService } from 'src/app/servicios/userPlataforma/user-plataforma.service';
 
 @Component({
   selector: 'app-unidad-movil',
@@ -22,13 +23,14 @@ export class UnidadMovilComponent implements OnInit {
   municipio: string;
   idVisita : string;
   activar:boolean;
-  
+  public isLogueado: Boolean=false;
+  nomUsuario: string;
 
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 1.2;
   lng = -77.267;
   zoom = 7;
-  constructor(private mapService: MapaService,private router: Router) {
+  constructor(private mapService: MapaService,private router: Router,private userPlataforma: UserPlataformaService) {
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
@@ -40,6 +42,21 @@ export class UnidadMovilComponent implements OnInit {
     this.buildMapa();
     this.cargarUbicaciones(); 
     this.getAllUbicaciones(); 
+    this.verificarAccesoUsuario();
+  }
+  verificarAccesoUsuario(): void{
+    if(this.userPlataforma.getCurrentUser() == null){
+      this.isLogueado=false;
+     }
+   else{
+    this.isLogueado=true;
+    this.nomUsuario=this.userPlataforma.getCurrentUser();
+    }
+  }
+
+  salir(){
+    this.userPlataforma.logoutUser();
+    this.router.navigateByUrl("/home");
   }
   getAllUbicaciones() {
     this.mapService.getAllUbicaciones().subscribe(
@@ -47,10 +64,13 @@ export class UnidadMovilComponent implements OnInit {
         this.listaLatitudes = data;
         this.listaLatitudes.map((item)=>{
            if(item.estado=='Visitado'){
-            this.crearMarcador(item.longitud,item.latitud, '#2db3bf',item.idMunicipio, item.cantidad,item.estado, item.urlFoto);
+            this.crearMarcador(item.longitud,item.latitud, '#008F39',item.idMunicipio, item.cantidad,item.estado, item.urlFoto);
            }
-           else{
-            this.crearMarcador(item.longitud,item.latitud, '#008F39',item.idMunicipio, item.cantidad,item.estado,item.urlFoto);
+           if(item.estado=='Pendiente'){
+            this.crearMarcador(item.longitud,item.latitud, '#F5EB08',item.idMunicipio, item.cantidad,item.estado,item.urlFoto);
+           }
+           if(item.estado=='Revision'){
+            this.crearMarcador(item.longitud,item.latitud, '#F5AA08',item.idMunicipio, item.cantidad,item.estado,item.urlFoto);
            }
          
          });

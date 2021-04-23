@@ -1,3 +1,5 @@
+import { UnidadMovilSolicitudesComponent } from './pages/unidad-movil-solicitudes/unidad-movil-solicitudes.component';
+import { UnidadMovilMunicipiosComponent } from './pages/web/adopcion/adminPerfil/unidad-movil-municipios/unidad-movil-municipios.component';
 import { UnidadMovilAdminImgDeleteComponent } from './pages/unidad-movil-admin-img-delete/unidad-movil-admin-img-delete.component';
 import { AdminBannerComponent } from './pages/admin-banner/admin-banner.component';
 import { UnidadMovilAdminImgComponent } from './pages/unidad-movil-admin-img/unidad-movil-admin-img.component';
@@ -149,6 +151,12 @@ const routes: Routes =[
   },
   {
     path: 'unidadMovil', component:  UnidadMovilComponent 
+  },
+  {
+    path: 'unidadMovilMunicipios', component:  UnidadMovilMunicipiosComponent 
+  },
+  {
+    path: 'unidadMovilSolicitudes', component: UnidadMovilSolicitudesComponent 
   },
   {
     path: 'unidadMovilImg/:parametro/:parametro2/:parametro3/:parametro4', component: UnidadMovilAdminImgComponent

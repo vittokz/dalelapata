@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
        
         </div>
-        <h1>Registrar Fundación</h1>
+        <h1>Registrarse</h1>
       </div>
     </div>
    
@@ -129,7 +129,7 @@
                         </div>
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="Imagen">Logo Fundación</label>
+                        <label for="Imagen">Logo o imágen</label>
                         <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />  
                        
                      </div>   
@@ -138,7 +138,7 @@
                
                 <div title="Registrar nuevo usuario" class="text-center">
                   <button [disabled]="!registro.valid" (click)="agregarFundacion()" style="background-color:#2db3bf; color: white;" 
-                  type="button" class="btn btn-primary my-4">Registrar Fundación</button>
+                  type="button" class="btn btn-primary my-4">Registrarse</button>
                 </div>
               </form><hr>
               <div *ngFor="let alert of alerts">

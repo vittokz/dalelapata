@@ -69,9 +69,9 @@
      
       
       <!-- Navigation -->
-      <hr class="my-3">
+      <hr *ngIf="tipoUsuario=='Administrador'" class="my-3">
        <!-- Heading -->
-       <h3>Principal</h3>
+       <h3 *ngIf="tipoUsuario=='Administrador'"> Principal</h3>
        <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
         <li class="nav-item">
           <a routerLink="/adminBanner" class="nav-link">
@@ -83,7 +83,7 @@
       <hr class="my-3">
        <!-- Heading -->
        <h3>Adopción</h3>
-       <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
+       <ul *ngIf="tipoUsuario=='Administrador' || tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
         <li class="nav-item">
           <a routerLink="/mascotas-admin" class="nav-link">
             <i class="ni ni-planet text-blue"></i> Mascotas
@@ -99,9 +99,14 @@
             <i class="ni ni-ambulance text-blue"></i> Unidad Movil
           </a>
         </li>
+        <li *ngIf="tipoUsuario=='Administrador' || tipoUsuario=='Alcaldia'" class="nav-item">
+          <a routerLink="/unidadMovilSolicitudes" class="nav-link">
+            <i class="ni ni-ambulance text-blue"></i> Solicitudes Unidad Movil
+          </a>
+        </li>
      </ul>
 
-     <ul *ngIf="tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
+    <!--  <ul *ngIf="tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
       <li class="nav-item">
         <a routerLink="/add-mascota" class="nav-link">
           <i class="ni ni-planet text-blue"></i> Registrar Mascotas
@@ -112,14 +117,14 @@
           <i class="ni ni-ambulance text-blue"></i> Ver Mascotas
         </a>
       </li>
-   </ul>
+   </ul> -->
      
        <!-- Divider -->
        <hr class="my-3">
        <!-- Heading -->
        <h3>Fauna Silvestre</h3>
        <!-- Navigation -->
-       <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
+       <ul *ngIf="tipoUsuario=='Administrador' || tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
          <li class="nav-item">
            <a class="nav-link" routerLink="/formFauna">
              <i class="ni ni-image text-red"></i> Registrar Noticias

@@ -31,7 +31,19 @@ public uploadFileVisita(data):Observable<any>{
   return this.http.post<any>(uploadURL, data);
 }
 
-  //adicionar visitas unidad movil
+//subir documentos de municipios u organizaciones
+public cargarDocumentos(data):Observable<any>{
+  let uploadURL = this.url + "subirDocumentos.php";
+  return this.http.post<any>(uploadURL, data);
+}
+
+listarDocumentosByIdentidad(identidad: string): Observable<any[]>{
+  return this.http.get<any[]>(this.url + "getListaDocumentosByIdentidad.php?identidad="+identidad);
+}
+listarDocumentosTodos(): Observable<any[]>{
+  return this.http.get<any[]>(this.url + "getAllListaDocumentos.php");
+}
+//adicionar visitas unidad movil
 addVisita(visita: UnidadMovil): Observable<any>
 {
   let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),

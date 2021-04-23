@@ -1,0 +1,74 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+
+
+   <!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                  <h3 class="mb-0">Lista de Solicitudes</h3>
+                  <br>
+                  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>  Noticia eliminada con éxito</strong>   
+                  </div>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>  Error al eliminar, verifique con el administrador!!!</strong>   
+                  </div>
+              </div>
+              <div class="col-4 text-right">
+                <button  title="Generar excel de noticias" class="btn btn-sm btn-primary">Generar Excel</button>
+              </div>
+            </div>
+        </div>
+       
+
+        <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" 
+        [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="listaDocumentos" noDataText="No se encontraron Datos" [showBorders]="true">
+
+          <dxo-search-panel [visible]="true" [width]=440 placeholder="Buscar..."></dxo-search-panel>
+          <dxo-paging [pageSize]="10"></dxo-paging>
+
+          <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} solicitudes)" [showPageSizeSelector]="true">
+          </dxo-pager>
+
+          <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
+          <dxi-column dataField="idMunicipio" alignment="center" caption="IdMunicipio"></dxi-column>
+          <dxi-column dataField="fechaRegistro" alignment="center" caption="Fecha Registro"></dxi-column>
+          <dxi-column dataField="estado" alignment="center" caption="Estado solicitud"></dxi-column>
+          <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+          <div *dxTemplate="let d of 'acciones'">
+        
+            <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de noticia">
+              Ver</button>
+              <button class="btn btn-danger btn-sm" title="Eliminar Noticia">
+                Eliminar</button>
+          </div>
+
+      </dx-data-grid>
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

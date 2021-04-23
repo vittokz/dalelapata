@@ -70,6 +70,8 @@ export class UnidadMovilAdminComponent implements OnInit {
       fecha1: ['',Validators.required],
       fecha2: ['',Validators.required],
       cantidad: ['',Validators.required],
+      latitud: ['',Validators.required],
+      longitud: ['',Validators.required],
       estado: ['', Validators.required]
     });
   }
@@ -86,6 +88,8 @@ export class UnidadMovilAdminComponent implements OnInit {
     this.visita.fechaInicial= frm.fecha1;
     this.visita.fechaFinal= frm.fecha2;
     this.visita.cantidad= frm.cantidad;
+    this.visita.latitud= frm.latitud;
+    this.visita.longitud= frm.longitud;
     this.visita.estado= frm.estado;
     this.visita.usuarioRegistro = this.identidadUsuario;
 
@@ -95,6 +99,8 @@ export class UnidadMovilAdminComponent implements OnInit {
     formData.append('fecha1', this.registro.get('fecha1').value);
     formData.append('fecha2', this.registro.get('fecha2').value);
     formData.append('cantidad', this.registro.get('cantidad').value);
+    formData.append('latitud', this.registro.get('latitud').value);
+    formData.append('longitud', this.registro.get('longitud').value);
     formData.append('estado', this.registro.get('estado').value);
     formData.append('avatar', 'no');
     formData.append('usuarioRegistro', this.identidadUsuario);

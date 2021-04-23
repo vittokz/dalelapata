@@ -282,10 +282,10 @@
                     <div *dxTemplate="let d of 'acciones'">
                       <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de Mascota" routerLink="/detalleMascotaWeb/{{d.data.idMascota}}">
                         Ver</button>
-                      <button class="btn btn-success btn-sm" title="Editar Mascota"
+                      <button *ngIf="tipoUsuario=='Administrador'" class="btn btn-success btn-sm" title="Editar Mascota"
                       (click)="habilitarVer(d.data)">
                           Editar</button>
-                      <button class="btn btn-danger btn-sm" title="Eliminar información de Mascota"
+                      <button *ngIf="tipoUsuario=='Administrador'" class="btn btn-danger btn-sm" title="Eliminar información de Mascota"
                       (click)="eliminar(d.data)">
                          Eliminar</button>
                       <button class="btn btn-primary btn-sm" title="Agregar imagen de Mascota"

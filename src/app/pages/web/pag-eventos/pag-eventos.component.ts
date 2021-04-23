@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Eventos } from '../../../modelos/modulo-eventos/evento-modelo';
 import { MascotasService } from 'src/app/servicios/mascotas/mascotas.service';
 import { Ciudad } from 'src/app/modelos/modulo-ciudades/ciudades-modelo';
+import { UserPlataformaService } from 'src/app/servicios/userPlataforma/user-plataforma.service';
 
 @Component({
   selector: 'app-pag-eventos',
@@ -21,16 +22,34 @@ export class PagEventosComponent implements OnInit {
   cantidad: number;
   showModal2=false;
   imagen: string;
-  constructor(private eventoService: EventosService, private ruta: Router,private mascotaService: MascotasService) { }
+  public isLogueado: Boolean=false;
+  nomUsuario: string;
+  constructor(private eventoService: EventosService, private ruta: Router,private mascotaService: MascotasService,
+    private userPlataforma: UserPlataformaService) { }
 
   ngOnInit(): void {
-    
+    this.verificarAccesoUsuario();
     this.ruta.events.subscribe((event) => {
       this.isCollapsed = true;
    });
     this.municipio="Pasto";
     this.cargarDatos();
     this.cargarCiudades();
+  }
+
+  verificarAccesoUsuario(): void{
+    if(this.userPlataforma.getCurrentUser() == null){
+      this.isLogueado=false;
+     }
+   else{
+    this.isLogueado=true;
+    this.nomUsuario=this.userPlataforma.getCurrentUser();
+    }
+  }
+
+  salir(){
+    this.userPlataforma.logoutUser();
+    this.ruta.navigateByUrl("/home");
   }
 
   inicio(){

@@ -74,6 +74,22 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="Cantidad">Latitud</label>
+                          <input formControlName="latitud" type="text" class="form-control">
+                          <div *ngIf="registro.controls['latitud'].invalid && registro.controls['latitud'].dirty" class="alert alert-danger" role="alert">
+                          Latitud Atendida es obligatoria
+                          </div>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="Cantidad">Longitud</label>
+                        <input formControlName="longitud" type="text" class="form-control">
+                        <div *ngIf="registro.controls['longitud'].invalid && registro.controls['longitud'].dirty" class="alert alert-danger" role="alert">
+                        Longitud Atendida es obligatoria
+                        </div>
+                    </div>
+                    </div>
                     <!-- <div class="form-row">
                       <div class="form-group col-md-6">
                           <label for="fecha inicial">Imagen De la Visita</label>

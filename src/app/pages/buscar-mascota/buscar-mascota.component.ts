@@ -34,6 +34,7 @@ export class BuscarMascotaComponent implements OnInit {
     eliminado: string;
     registro: FormGroup;
     alerts:any;
+    tipoUsuario: string;
     usuarioLogueado: UserInterface[];
     defaultAlerts: any[] = [
     {
@@ -62,7 +63,8 @@ export class BuscarMascotaComponent implements OnInit {
       this.authService.getUsuarioPorIdentidad(identidad).subscribe(
         data=>{
             this.usuarioLogueado = data;
-            this.nombreCompleto = this.usuarioLogueado[0].nombre + " " + this.usuarioLogueado[0].apellido;        
+            this.nombreCompleto = this.usuarioLogueado[0].nombre + " " + this.usuarioLogueado[0].apellido;
+            this.tipoUsuario = this.usuarioLogueado[0].tipoUsuario;    
         }
       );
     }

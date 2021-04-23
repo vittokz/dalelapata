@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginAdminComponent implements OnInit {
   [x: string]: any;
-  isLogueado:Boolean;
+  isLogueado:boolean;
   formLogin: FormGroup;
   
   usuario: UserInterface ={

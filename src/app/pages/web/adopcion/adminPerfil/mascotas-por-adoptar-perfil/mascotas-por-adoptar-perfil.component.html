@@ -16,7 +16,7 @@
 <div class="container">
   <div class="row mt-3">
       <div class="col-lg-6"> 
-        <h1 style="margin: auto;">Mascotas Fundación: N°. {{ cantidadMascotasPorAdoptar}}</h1>
+        <h1 style="margin: auto;">Mascotas : N°. {{ cantidadMascotasPorAdoptar}}</h1>
       </div>
        
       <div class="col-lg-2"> 
@@ -33,7 +33,7 @@
   <div class="row">
       <div class="col-lg-12 mt-5">
         <div class="alert alert-danger" role="alert">
-          <h3 style="color: white;"> FUNDACIÓN: {{ razonSocial | uppercase}} </h3>
+          <h3 style="color: white;"> NOMBRE: {{ razonSocial | uppercase}} </h3>
         </div>
         <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="mascotasFundacionPorAdoptar" noDataText="No se encontraron Datos" [showBorders]="true">
 

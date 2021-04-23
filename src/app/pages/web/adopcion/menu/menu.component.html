@@ -50,7 +50,8 @@ style="background-color:#2db3bf !important">
               <a routerLink="/buscarChip" style="font-weight: bold;font-size: 20px;" class="nav-link">MicroChip</a>
             </li>
             <li *ngIf="isLogueado" class="nav-item">
-              <a routerLink="/perfil-usuario" style="font-weight: bold;font-size: 20px;" class="nav-link">Perfil</a>
+              <a routerLink="/perfil-usuario" class="nav-link">
+                <span style="font-weight: bold;font-size: 22px; color: rgb(232, 240, 123);">Acceder a Perfil</span></a>
             </li>
             <li *ngIf="!isLogueado" class="nav-item">
               <a routerLink="/registrarFundacion" style="font-weight: bold;font-size: 20px;" class="nav-link">Registrarse</a>
