@@ -11,3 +11,9 @@ export class UnidadMovil {
     estado:string;
     usuarioRegistro:string;
 }
+export class RespuestaSolicitud {
+    idSolicitud?: string;
+    comentarios: string;
+    estado: string;
+    usuarioRespuesta:string;
+}

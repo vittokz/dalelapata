@@ -74,6 +74,7 @@ import { MascotasMicrochipComponent } from './pages/web/adopcion/adminPerfil/mas
 import { EditarUserPaginaComponent } from './pages/usuarios-pagina/editar-user-pagina/editar-user-pagina.component';
 import { MascotasMicroChipComponent } from './pages/mascotas-micro-chip/mascotas-micro-chip.component';
 import { AddMascotaImagenComponent } from './pages/add-mascota-imagen/add-mascota-imagen.component';
+import { UnidadMovilSolicitudesDetalleComponent } from './pages/unidad-movil-solicitudes-detalle/unidad-movil-solicitudes-detalle.component';
 
 const routes: Routes =[
   {
@@ -157,6 +158,9 @@ const routes: Routes =[
   },
   {
     path: 'unidadMovilSolicitudes', component: UnidadMovilSolicitudesComponent 
+  },
+  {
+    path: 'unidadMovilSolicitudesDetalle/:parametro/:parametro2', component: UnidadMovilSolicitudesDetalleComponent 
   },
   {
     path: 'unidadMovilImg/:parametro/:parametro2/:parametro3/:parametro4', component: UnidadMovilAdminImgComponent

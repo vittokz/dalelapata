@@ -21,19 +21,16 @@
         <div class="card-header bg-white border-0">
             <div class="row align-items-center">
               <div class="col-8">
-                  <h3 class="mb-0">Lista de Solicitudes</h3>
+                  <h3 class="mb-0">Lista de Solicitudes Unidad Movil</h3>
                   <br>
-                  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                  <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <strong>  Noticia eliminada con éxito</strong>   
                   </div>
                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>  Error al eliminar, verifique con el administrador!!!</strong>   
+                  </div> -->
+              </div>
                   </div>
-              </div>
-              <div class="col-4 text-right">
-                <button  title="Generar excel de noticias" class="btn btn-sm btn-primary">Generar Excel</button>
-              </div>
-            </div>
         </div>
        
 
@@ -47,16 +44,15 @@
           </dxo-pager>
 
           <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
-          <dxi-column dataField="idMunicipio" alignment="center" caption="IdMunicipio"></dxi-column>
+          <dxi-column dataField="nombre" alignment="center" caption="Municipio"></dxi-column>
           <dxi-column dataField="fechaRegistro" alignment="center" caption="Fecha Registro"></dxi-column>
           <dxi-column dataField="estado" alignment="center" caption="Estado solicitud"></dxi-column>
           <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
           <div *dxTemplate="let d of 'acciones'">
         
-            <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de noticia">
+            <button routerLink="/unidadMovilSolicitudesDetalle/{{d.data.idSolicitud}}/{{d.data.usuarioRegistro}}" class="btn btn-info btn-sm" title="Ver información de la solicitud">
               Ver</button>
-              <button class="btn btn-danger btn-sm" title="Eliminar Noticia">
-                Eliminar</button>
+            
           </div>
 
       </dx-data-grid>

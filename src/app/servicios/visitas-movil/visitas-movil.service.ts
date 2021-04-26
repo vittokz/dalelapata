@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UnidadMovil } from 'src/app/modelos/modulo-unidadMovil/unidadMovil-modelo';
+import { RespuestaSolicitud, UnidadMovil } from 'src/app/modelos/modulo-unidadMovil/unidadMovil-modelo';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 
@@ -35,6 +35,18 @@ public uploadFileVisita(data):Observable<any>{
 public cargarDocumentos(data):Observable<any>{
   let uploadURL = this.url + "subirDocumentos.php";
   return this.http.post<any>(uploadURL, data);
+}
+
+//enviar respuesta a solicitud
+public enviarRespuestaSolicitud(respuesta: RespuestaSolicitud):Observable<any>{
+  console.log(respuesta);
+  let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
+  options 	: any		= {
+     "comentarios" : respuesta.comentarios,
+     "estado" : respuesta.estado,
+     "idSolicitud" : respuesta.idSolicitud
+ };  
+  return  this.http.post(this.url + "addRespuestaSolicitud.php", JSON.stringify(options), headers);
 }
 
 listarDocumentosByIdentidad(identidad: string): Observable<any[]>{

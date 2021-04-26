@@ -1,0 +1,160 @@
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-info opacity-8"></span>
+    <!-- Header container -->
+    
+  </div>
+
+
+   <!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                  <h3 class="mb-0">Lista de documentos adjuntados por :{{nombre}}</h3>
+                  <br>
+                  <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>  Noticia eliminada con éxito</strong>   
+                  </div>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>  Error al eliminar, verifique con el administrador!!!</strong>   
+                  </div> -->
+              </div>
+            
+            </div>
+        </div>
+       
+
+       <!-- Div para mostrar lista documentos-->
+    <div class="row">
+       
+        <div class="col-lg-12 mt-2">
+                <div class="table-responsive">
+                   
+                    <table class="table table-info">
+                       
+                        <tbody class="itemTabla" *ngFor="let item of listaDocumentos">
+                                <tr class="hoverTr">
+                                    <th scope="col">ADJUNTO</th>
+                                    <th scope="col">NOMBRE DEL ARCHIVO</th>  
+                                    <th scope="col">FECHA REGISTRO</th>  
+                                    <th scope="col">ESTADO</th>  
+                                    <th scope="col">VER ARCHIVO</th>  
+                                 
+                                </tr>
+                                
+                                
+                              
+                            
+                             <tr style="background-color: aliceblue;">   
+                                <td>Carta Compromiso</td>
+                                <td>{{ item.cartaCompromiso}}</td>
+                                <td>{{ item.fechaRegistro}}</td>
+                                <td>
+                                  <button *ngIf="item.estado=='Pendiente'" type="button" class="btn btn-success btn-sm">{{ item.estado}}</button>
+                                  <button *ngIf="item.estado=='Revision'" type="button" class="btn btn-warning btn-sm">{{ item.estado}}</button>
+                                  <button *ngIf="item.estado=='Rechazado'" type="button" class="btn btn-danger btn-sm">{{ item.estado}}</button>
+                                  <button *ngIf="item.estado=='Aceptado'" type="button" class="btn btn-info btn-sm">{{ item.estado}}</button>
+                                 
+                                 </td>
+                                <td><a style="color: white !important;" target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.cartaCompromiso}}"  title="Ver archivo" 
+                                  class="btn btn-danger btn-sm">
+                                    Ver archivo</a></td>
+                             </tr>
+                             <tr style="background-color: aliceblue;">   
+                                <td>Formato Censo Excel</td> 
+                                <td>{{ item.formatoExcel}}</td>
+                                <td>{{ item.fechaRegistro}}</td>
+                                <td>
+                                  <button *ngIf="item.estado=='Pendiente'" type="button" class="btn btn-success btn-sm">{{ item.estado}}</button>
+                                  <button *ngIf="item.estado=='Revision'" type="button" class="btn btn-warning btn-sm">{{ item.estado}}</button>
+                                  <button *ngIf="item.estado=='Rechazado'" type="button" class="btn btn-danger btn-sm">{{ item.estado}}</button>
+                                  <button *ngIf="item.estado=='Aceptado'" type="button" class="btn btn-info btn-sm">{{ item.estado}}</button>
+                                 
+                                 </td>
+                                <td><a style="color: white !important;" target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.formatoCenso}}"  title="Ver archivo" 
+                                  class="btn btn-danger btn-sm">
+                                    Ver archivo</a></td>
+                             </tr>  
+                             <tr style="background-color: aliceblue;">   
+                                <td>Rut</td> 
+                                <td>{{ item.rut}}</td>
+                                <td>{{ item.fechaRegistro}}</td>
+                                <td>
+                                   <button *ngIf="item.estado=='Pendiente'" type="button" class="btn btn-success btn-sm">{{ item.estado}}</button>
+                                   <button *ngIf="item.estado=='Revision'" type="button" class="btn btn-warning btn-sm">{{ item.estado}}</button>
+                                   <button *ngIf="item.estado=='Rechazado'" type="button" class="btn btn-danger btn-sm">{{ item.estado}}</button>
+                                   <button *ngIf="item.estado=='Aceptado'" type="button" class="btn btn-info btn-sm">{{ item.estado}}</button>
+                                  
+                                  </td>
+                                <td><a style="color: white !important;" target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.rut}}"  title="Ver archivo" 
+                                  class="btn btn-danger btn-sm">
+                                    Ver archivo</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <h3 style="margin-left: 15px;">Diligenciar respuesta a enviar al usuario.</h3><br>
+                    <form [formGroup]="formRespuesta">
+                    <table style="margin: 20px;">
+                        <tr>   
+                            <td>Comentarios</td>
+                            <td>
+                           <textarea class="form-control" cols="70" rows="4"
+                           formControlName="comentarios" 
+                                    placeholder="Describa la respuesta a enviar al usuario."></textarea>
+                                    <div *ngIf="formRespuesta.controls['comentarios'].invalid && formRespuesta.controls['comentarios'].dirty" class="alert alert-danger" role="alert">
+                                      Comentarios es un campo necesario!!!
+                                     </div>
+                                  </td>  
+                        </tr>
+                        <br>
+                        <tr>   
+                            <td>Estado:</td>
+                            <td>
+                               <select class="form-control" formControlName="estado">
+                                   <option value="no">Seleccione estado</option>
+                                   <option value="Revision">Revisión</option>
+                                   <option value="Pendiente">Pendiente</option>
+                                   <option value="Rechazado">Rechazado</option>
+                                   <option value="Aceptado">Aceptado</option>
+                                 
+                               </select>         
+                            </td>
+                        </tr>
+                        <tr>   
+                            <td>
+                                <div class="text-center">
+                                    <button [disabled]="!formRespuesta.valid" (click)="agregarRespuesta()" type="button" class="btn btn-primary my-4"
+                                    title="Registrar respuesta">Aceptar</button>
+                                  </div>
+                            </td>
+                        </tr>
+                    </table>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <!--Fin mostrar contratos-->
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+  <router-outlet></router-outlet>
+</div>
+  <div class="container-fluid">
+    <app-footer></app-footer>
+  </div>

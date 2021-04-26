@@ -108,6 +108,7 @@ import { UnidadMovilAdminImgDeleteComponent } from './pages/unidad-movil-admin-i
 import { AddMascotaImagenComponent } from './pages/add-mascota-imagen/add-mascota-imagen.component';
 import { UnidadMovilMunicipiosComponent } from './pages/web/adopcion/adminPerfil/unidad-movil-municipios/unidad-movil-municipios.component';
 import { UnidadMovilSolicitudesComponent } from './pages/unidad-movil-solicitudes/unidad-movil-solicitudes.component';
+import { UnidadMovilSolicitudesDetalleComponent } from './pages/unidad-movil-solicitudes-detalle/unidad-movil-solicitudes-detalle.component';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 @NgModule({
@@ -213,7 +214,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     UnidadMovilAdminImgDeleteComponent,
     AddMascotaImagenComponent,
     UnidadMovilMunicipiosComponent,
-    UnidadMovilSolicitudesComponent
+    UnidadMovilSolicitudesComponent,
+    UnidadMovilSolicitudesDetalleComponent,
    ],
   providers: [
     FaunaService, EventosService,FundacionService, AuthUsuariosService, UserPlataformaService,LogroService,
