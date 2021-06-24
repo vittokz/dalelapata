@@ -21,7 +21,7 @@
         <div class="card-header bg-white border-0">
             <div class="row align-items-center">
               <div class="col-8">
-                  <h3 class="mb-0">Lista de documentos adjuntados por :{{nombre}}</h3>
+                  <h3 class="mb-0">Lista de documentos adjuntados por :{{dato.nombreMunicipio}}</h3>
                   <br>
                   <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <strong>  Noticia eliminada con éxito</strong>   
@@ -43,22 +43,22 @@
                    
                     <table class="table table-info">
                        
-                        <tbody class="itemTabla" *ngFor="let item of listaDocumentos">
+                        <tbody class="itemTabla">
                                 <tr class="hoverTr">
                                     <th scope="col">ADJUNTO</th>
-                                    <th scope="col">NOMBRE DEL ARCHIVO</th>  
                                     <th scope="col">FECHA REGISTRO</th>  
                                     <th scope="col">ESTADO</th>  
+                                    <th scope="col">ASIGNAR COMENTARIO</th>  
+                                    <th scope="col">EDITAR COMENTARIO</th>  
                                     <th scope="col">VER ARCHIVO</th>  
                                  
                                 </tr>
-                                
-                                
+                                          
                               
                             
-                             <tr style="background-color: aliceblue;">   
-                                <td>Carta Compromiso</td>
-                                <td>{{ item.cartaCompromiso}}</td>
+                             <tr style="background-color: aliceblue;" *ngFor="let item of listaDocumentos">   
+                                <td>{{ item.tipoArchivo}}</td>
+                
                                 <td>{{ item.fechaRegistro}}</td>
                                 <td>
                                   <button *ngIf="item.estado=='Pendiente'" type="button" class="btn btn-success btn-sm">{{ item.estado}}</button>
@@ -67,45 +67,28 @@
                                   <button *ngIf="item.estado=='Aceptado'" type="button" class="btn btn-info btn-sm">{{ item.estado}}</button>
                                  
                                  </td>
-                                <td><a style="color: white !important;" target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.cartaCompromiso}}"  title="Ver archivo" 
+                                 <td *ngIf="item.comentario==null || item.comentario==''">
+                                  <button (click)="asignarComentario(item)" 
+                                  type="button" class="btn btn-light btn-sm"
+                                  title="Asignar comentario a documento">Asignar comentario</button>
+                                 </td>
+                                 <td *ngIf="item.comentario!=null || item.comentario==''">{{ item.comentario}}</td>
+
+                                 <td>
+                                  <button (click)="editarComentario(item)" type="button" class="btn btn-primary btn-sm"
+                                  title="editar comentario">editar</button>
+                                 </td>
+                                 <td><a style="color: white !important;" target="_blank" 
+                                  href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.nombreArchivo}}"  title="Ver archivo" 
                                   class="btn btn-danger btn-sm">
                                     Ver archivo</a></td>
                              </tr>
-                             <tr style="background-color: aliceblue;">   
-                                <td>Formato Censo Excel</td> 
-                                <td>{{ item.formatoExcel}}</td>
-                                <td>{{ item.fechaRegistro}}</td>
-                                <td>
-                                  <button *ngIf="item.estado=='Pendiente'" type="button" class="btn btn-success btn-sm">{{ item.estado}}</button>
-                                  <button *ngIf="item.estado=='Revision'" type="button" class="btn btn-warning btn-sm">{{ item.estado}}</button>
-                                  <button *ngIf="item.estado=='Rechazado'" type="button" class="btn btn-danger btn-sm">{{ item.estado}}</button>
-                                  <button *ngIf="item.estado=='Aceptado'" type="button" class="btn btn-info btn-sm">{{ item.estado}}</button>
-                                 
-                                 </td>
-                                <td><a style="color: white !important;" target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.formatoCenso}}"  title="Ver archivo" 
-                                  class="btn btn-danger btn-sm">
-                                    Ver archivo</a></td>
-                             </tr>  
-                             <tr style="background-color: aliceblue;">   
-                                <td>Rut</td> 
-                                <td>{{ item.rut}}</td>
-                                <td>{{ item.fechaRegistro}}</td>
-                                <td>
-                                   <button *ngIf="item.estado=='Pendiente'" type="button" class="btn btn-success btn-sm">{{ item.estado}}</button>
-                                   <button *ngIf="item.estado=='Revision'" type="button" class="btn btn-warning btn-sm">{{ item.estado}}</button>
-                                   <button *ngIf="item.estado=='Rechazado'" type="button" class="btn btn-danger btn-sm">{{ item.estado}}</button>
-                                   <button *ngIf="item.estado=='Aceptado'" type="button" class="btn btn-info btn-sm">{{ item.estado}}</button>
-                                  
-                                  </td>
-                                <td><a style="color: white !important;" target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.rut}}"  title="Ver archivo" 
-                                  class="btn btn-danger btn-sm">
-                                    Ver archivo</a></td>
-                            </tr>
                         </tbody>
                     </table>
                     <hr>
-                    <h3 style="margin-left: 15px;">Diligenciar respuesta a enviar al usuario.</h3><br>
-                    <form [formGroup]="formRespuesta">
+                  
+                    <form [formGroup]="formRespuesta" *ngIf="bandera">
+                      <h3 style="margin-left: 15px;">Diligenciar respuesta a enviar al usuario.</h3><br>
                     <table style="margin: 20px;">
                         <tr>   
                             <td>Comentarios</td>
@@ -137,6 +120,8 @@
                                 <div class="text-center">
                                     <button [disabled]="!formRespuesta.valid" (click)="agregarRespuesta()" type="button" class="btn btn-primary my-4"
                                     title="Registrar respuesta">Aceptar</button>
+                                    <button (click)="cancelarRespuesta()" type="button" class="btn btn-info my-4"
+                                    title="cancelar respuesta">Cancelar</button>
                                   </div>
                             </td>
                         </tr>

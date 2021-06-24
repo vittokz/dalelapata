@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AdminBannerService {
   urlBanner: string = environment.url + "adminBanner/";
+
   resul:any;
   url:string="";
   constructor(public http:HttpClient) { }
@@ -17,6 +18,8 @@ export class AdminBannerService {
   getBanner(): Observable<Banner[]>{
     return this.http.get<Banner[]>(this.urlBanner +"getBanner.php")
   }
+
+
 
   getAliados(): Observable<Banner[]>{
     return this.http.get<Banner[]>(this.urlBanner +"getAliados.php")

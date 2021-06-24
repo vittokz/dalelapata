@@ -46,11 +46,15 @@ public enviarRespuestaSolicitud(respuesta: RespuestaSolicitud):Observable<any>{
      "estado" : respuesta.estado,
      "idSolicitud" : respuesta.idSolicitud
  };  
+ console.log(options);
   return  this.http.post(this.url + "addRespuestaSolicitud.php", JSON.stringify(options), headers);
 }
 
 listarDocumentosByIdentidad(identidad: string): Observable<any[]>{
   return this.http.get<any[]>(this.url + "getListaDocumentosByIdentidad.php?identidad="+identidad);
+}
+listarDocumentosByIdMunicipio(idMunicipio: string): Observable<any[]>{
+  return this.http.get<any[]>(this.url + "getListaDocumentosByIdMunicipio.php?idMunicipio="+idMunicipio);
 }
 listarDocumentosTodos(): Observable<any[]>{
   return this.http.get<any[]>(this.url + "getAllListaDocumentos.php");

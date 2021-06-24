@@ -75,6 +75,7 @@ import { EditarUserPaginaComponent } from './pages/usuarios-pagina/editar-user-p
 import { MascotasMicroChipComponent } from './pages/mascotas-micro-chip/mascotas-micro-chip.component';
 import { AddMascotaImagenComponent } from './pages/add-mascota-imagen/add-mascota-imagen.component';
 import { UnidadMovilSolicitudesDetalleComponent } from './pages/unidad-movil-solicitudes-detalle/unidad-movil-solicitudes-detalle.component';
+import { AdminPodCastComponent } from './pages/admin-pod-cast/admin-pod-cast.component';
 
 const routes: Routes =[
   {
@@ -287,6 +288,9 @@ const routes: Routes =[
   },
   {
     path: 'mascotasMicroChip-Admin', component:  MascotasMicroChipComponent
+  },
+  {
+    path: 'AdminPodCast', component:  AdminPodCastComponent
   },
   {
     path: 'notificaciones', component:  NotificacionesComponent

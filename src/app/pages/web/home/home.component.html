@@ -1,156 +1,510 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mask !important" 
-style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
-
-<button class="navbar-toggler" (click)="isCollapsed=!isCollapsed" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+<nav
+  class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mask !important"
+  style="
+    height: 100px;
+    background-color: #2db3bf !important;
+    margin-bottom: 30px;
+  "
+>
+  <button
+    class="navbar-toggler"
+    (click)="isCollapsed = !isCollapsed"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
-</button> 
- 
-    <img (click)="inicio()" class="my-0 mr-md-auto font-weight-normal" src="assets/img/brand/icono.png" width="12%">
+  </button>
 
-     <!-- Collapse -->
-     <div class="collapse navbar-collapse"  [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
-      <!-- Collapse header -->
-          <div class="navbar-collapse-header d-md-none">
-            <div class="row">
-              <div class="col-6 collapse-brand">
-                <a  routerLinkActive="active">
-                  <img src="assets/img/brand/icono.png" style="width: 20%;">
-                </a>
-              </div>
-              <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
-                  <span></span>
-                  <span></span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <hr class="my-3">
-           <ul class="navbar-nav ml-ml-3">
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/pagAdopcion">Adopción</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/unidadMovil">Unidad Movil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/fauna-silvestre">Fauna Silvestre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/buscarChip">Busqueda Por Microchip</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/pagEventos">Eventos Bienestar Animal</a>
-            </li>
-            <li *ngIf="isLogueado" class="nav-item">
-              <a routerLink="/perfil-usuario" class="nav-link">
-                <span style="font-weight: bold;font-size: 22px; color: rgb(232, 240, 123);">Acceder a Perfil</span></a>
-            </li>
-            <li *ngIf="!isLogueado" class="nav-item">
-              <a routerLink="/registrarFundacion" style="font-weight: bold;font-size: 20px;" class="nav-link">Registrarse</a>
-            </li>
-            <li *ngIf="!isLogueado" class="nav-item">
-              <a routerLink="/loginUser" style="font-weight: bold;font-size: 20px;" class="nav-link">Login</a>
-            </li>
-            <li *ngIf="isLogueado" class="nav-item">
-              <a (click)="salir()" style="font-weight: bold;font-size: 20px;" class="nav-link">Salir</a>
-            </li>
-          </ul>   
-     </div>
+  <img
+    (click)="inicio()"
+    class="my-0 mr-md-auto font-weight-normal"
+    src="assets/img/brand/icono.png"
+    width="12%"
+  />
+
+  <!-- Collapse -->
+  <div
+    class="collapse navbar-collapse"
+    [ngbCollapse]="isCollapsed"
+    id="sidenav-collapse-main"
+  >
+    <!-- Collapse header -->
+    <div class="navbar-collapse-header d-md-none">
+      <div class="row">
+        <div class="col-6 collapse-brand">
+          <a routerLinkActive="active">
+            <img src="assets/img/brand/icono.png" style="width: 20%" />
+          </a>
+        </div>
+        <div class="col-6 collapse-close">
+          <button
+            type="button"
+            class="navbar-toggler"
+            (click)="isCollapsed = !isCollapsed"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div style="padding: 10px" *ngIf="razonSocial != ''">
+      <span
+        style="font-weight: bold; font-size: 18px; color: rgb(255, 255, 255)"
+      >
+        Bienvenido: {{ razonSocial }}</span
+      >
+    </div>
+    <hr class="my-3" />
+    <ul class="navbar-nav ml-ml-3">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/pagAdopcion"
+          >Adopción</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/unidadMovil"
+          >Unidad Movil</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/fauna-silvestre"
+          >Fauna Silvestre</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/buscarChip"
+          >Busqueda Por Microchip</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/pagEventos"
+          >Eventos Bienestar Animal</a
+        >
+      </li>
+      <li *ngIf="isLogueado" class="nav-item">
+        <a routerLink="/perfil-usuario" class="nav-link">
+          <span
+            style="
+              font-weight: bold;
+              font-size: 22px;
+              color: rgb(232, 240, 123);
+            "
+            >Acceder a Perfil</span
+          ></a
+        >
+      </li>
+      <li *ngIf="!isLogueado" class="nav-item">
+        <a
+          routerLink="/registrarFundacion"
+          style="font-weight: bold; font-size: 20px"
+          class="nav-link"
+          >Registrarse</a
+        >
+      </li>
+      <li *ngIf="!isLogueado" class="nav-item">
+        <a
+          routerLink="/loginUser"
+          style="font-weight: bold; font-size: 20px"
+          class="nav-link"
+          >Login</a
+        >
+      </li>
+      <li *ngIf="isLogueado" class="nav-item">
+        <a
+          (click)="salir()"
+          style="font-weight: bold; font-size: 20px"
+          class="nav-link"
+          >Salir</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
 <!---->
 
-<br><br><br><br>
-<div style=" background-image: url('assets/img/homePage/huellas.png');">
+<br /><br /><br /><br />
+<div style="background-image: url('assets/img/homePage/huellas.png')">
   <carousel>
     <slide *ngFor="let b of listaBanner">
-     
-      <a target="_blank" href="{{b.descripcion}}"><img src="{{url}}adminBanner/img/{{b.imagen}}" alt="{{b.nombre}}" style="margin: auto; display: block; width: 100%;"></a>
-      <div class="carousel-caption d-none d-md-block">
-    
-      </div>
+      <a target="_blank" href="{{ b.descripcion }}"
+        ><img
+          src="{{ url }}adminBanner/img/{{ b.imagen }}"
+          alt="{{ b.nombre }}"
+          style="margin: auto; display: block; width: 100%"
+      /></a>
+      <div class="carousel-caption d-none d-md-block"></div>
     </slide>
   </carousel>
- 
 </div>
 
-<div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed; ">
-  <div style="background-image: linear-gradient(#2db3bf, rgb(245, 245, 241));">   
+<div
+  style="
+    background-image: url('assets/img/pagAdopcion/fondoHuellas.png');
+    background-attachment: fixed;
+  "
+>
+  <div style="background-image: linear-gradient(#2db3bf, rgb(245, 245, 241))">
     <div class="row">
-      <div class="col-lg-12" style="font-size: 34px; color: white; text-align: center; 
-      font-weight: bold; background-color:#2db3bf;">
-         En Defensa de lo Nuestro
-       
+      <div
+        class="col-lg-12"
+        style="
+          font-size: 34px;
+          color: white;
+          text-align: center;
+          font-weight: bold;
+          background-color: #2db3bf;
+        "
+      >
+        En Defensa de lo Nuestro
       </div>
-</div>
-</div><br><br>
+    </div>
+  </div>
+  <br /><br />
 
-
-   <div class="container">
-        <div  class="row" padding>
-            <div  class="col-lg-4" style="margin-top: 15px;">
-                <div class="card" style=" padding: 8px; width: 100%; height: 100%; background-color: #f1f5f5; border-color: #2db3bf;">
-                    <img src="assets/img/homePage/adopcion.jpg" class="card-img-top" alt="adopcion">
-                    <div class="shadow card-body">
-                      <h2 style="text-align: center;" class="card-title">Adopción</h2>
-                      <p style="text-align: justify;" class="card-text">Toda la información  de nuestros animalitos, y procesos para adopción.</p>
-                       <a routerLink="/pagAdopcion"><img src="assets/img/homePage/adopcion.png" width="100%"></a> 
-                    </div>
-                  </div>
+  <div
+    class="container-fluid"
+    style="margin-left: 80px; margin-right: 80px; width: 90%"
+  >
+    <div class="row" padding>
+      <div class="col-lg-10">
+        <div class="row" padding>
+          <div class="col-lg-4" style="margin-top: 15px">
+            <div
+              class="card"
+              style="
+                padding: 8px;
+                width: 100%;
+                height: 100%;
+                background-color: #f1f5f5;
+                border-color: #2db3bf;
+              "
+            >
+              <img
+                src="assets/img/homePage/adopcion.jpg"
+                class="card-img-top"
+                alt="adopcion"
+              />
+              <div class="shadow card-body">
+                <h2 style="text-align: center" class="card-title">Adopción</h2>
+                <p style="text-align: justify" class="card-text">
+                  Toda la información de nuestros animalitos, y procesos para
+                  adopción.
+                </p>
+                <a routerLink="/pagAdopcion"
+                  ><img src="assets/img/homePage/adopcion.png" width="100%"
+                /></a>
+              </div>
             </div>
+          </div>
 
-            <div  class="col-lg-4" style="margin-top: 15px;">
-                <div class="card" style="padding: 8px; width: 100%; height: 100%; background-color: #f1f5f5;border-color: #2db3bf;">
-                    <img src="assets/img/homePage/unidadMovil.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h2 class="card-title" style="text-align: center;">Unidad Movil</h2>
-                      <p style="text-align: justify;" class="card-text">
-                        Verifique los municipios del departamento donde haya realizado visita
-                        la Unidad Movil de la Gobernación de Nariño, además cuales estan pendientes. </p>
-                         <a routerLink="/unidadMovil"><img src="assets/img/homePage/unidadMovil.png" width="100%"></a>
-                       
-                    </div>
-                  </div>
+          <div class="col-lg-4" style="margin-top: 15px">
+            <div
+              class="card"
+              style="
+                padding: 8px;
+                width: 100%;
+                height: 100%;
+                background-color: #f1f5f5;
+                border-color: #2db3bf;
+              "
+            >
+              <img
+                src="assets/img/homePage/unidadMovil.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h2 class="card-title" style="text-align: center">
+                  Unidad Movil
+                </h2>
+                <p style="text-align: justify" class="card-text">
+                  Verifique los municipios del departamento donde haya realizado
+                  visita la Unidad Movil de la Gobernación de Nariño, además
+                  cuales estan pendientes.
+                </p>
+                <a routerLink="/unidadMovil"
+                  ><img src="assets/img/homePage/unidadMovil.png" width="100%"
+                /></a>
+              </div>
             </div>
+          </div>
 
-            <div  class="col-lg-4" style="margin-top: 15px;">
-                <div class="card" style="padding: 8px; width: 100%; height: 100%; background-color: #f1f5f5;border-color: #2db3bf;">
-                    <img src="assets/img/homePage/fauna.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h2 style="text-align: center;" class="card-title">Fauna Silvestre</h2>
-                      <p style="text-align: justify;" class="card-text">Encuentre todas las noticias de la fauna de nuestro Departamento</p>
-                      <a routerLink="/fauna-silvestre"><img src="assets/img/homePage/fauna.png" width="100%"></a>
-                    </div>
-                  </div>
+          <div class="col-lg-4" style="margin-top: 15px">
+            <div
+              class="card"
+              style="
+                padding: 8px;
+                width: 100%;
+                height: 100%;
+                background-color: #f1f5f5;
+                border-color: #2db3bf;
+              "
+            >
+              <img
+                src="assets/img/homePage/fauna.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h2 style="text-align: center" class="card-title">
+                  Fauna Silvestre
+                </h2>
+                <p style="text-align: justify" class="card-text">
+                  Encuentre todas las noticias de la fauna de nuestro
+                  Departamento
+                </p>
+                <a routerLink="/fauna-silvestre"
+                  ><img src="assets/img/homePage/fauna.png" width="100%"
+                /></a>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-4" style="margin-top: 15px">
+            <div
+              class="card"
+              style="
+                padding: 8px;
+                width: 100%;
+                height: 100%;
+                background-color: #f1f5f5;
+                border-color: #2db3bf;
+              "
+            >
+              <img
+                src="assets/img/homePage/chip.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h2 style="text-align: center" class="card-title">Microchip</h2>
+                <p style="text-align: justify" class="card-text">
+                  Realiza la busqueda de una mascota por Microchip
+                </p>
+                <a routerLink="/buscarChip"
+                  ><img src="assets/img/homePage/microChip.png" width="100%"
+                /></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" style="margin-top: 15px">
+            <div
+              class="card"
+              style="
+                padding: 8px;
+                width: 100%;
+                height: 100%;
+                background-color: #f1f5f5;
+                border-color: #2db3bf;
+              "
+            >
+              <img
+                src="assets/img/homePage/eventos.jpg"
+                class="card-img-top"
+                alt="adopcion"
+              />
+              <div class="card-body">
+                <h2 style="text-align: center" class="card-title">
+                  Eventos Programa de Bienestar Animal
+                </h2>
+                <p style="text-align: justify" class="card-text">
+                  Eventos que se desarrollan en el programa de bienestar animal
+                </p>
+                <a routerLink="/pagEventos"
+                  ><img src="assets/img/homePage/eventos.png" width="100%"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4" style="margin-top: 15px">
+            <div
+              class="card"
+              style="
+                padding: 8px;
+                width: 100%;
+                height: 100%;
+                background-color: #f1f5f5;
+                border-color: #2db3bf;
+              "
+            >
+              <img
+                src="assets/img/homePage/podcast.jpg"
+                class="card-img-top"
+                alt="adopcion"
+              />
+              <div class="card-body">
+                <h2 style="text-align: center" class="card-title">
+                  <br />PodCats
+                </h2>
+                <p style="text-align: justify" class="card-text">
+                  Hablamos por los que no tienen voz
+                </p>
+                <a (click)="irDetalleNoticia()"
+                  ><img src="assets/img/homePage/podcats.png" width="100%"
+                /></a>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div  class="row" padding>
-              <div  class="col-lg-4" style="margin-top: 15px;">
-                <div class="card" style="padding: 8px; width: 100%; height: 100%; background-color: #f1f5f5;border-color: #2db3bf;">
-                    <img src="assets/img/homePage/chip.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h2 style="text-align: center;" class="card-title">Microchip</h2>
-                      <p style="text-align: justify;" class="card-text">Realiza la busqueda de una mascota por Microchip</p>
-                      <a routerLink="/buscarChip"><img src="assets/img/homePage/microChip.png" width="100%"></a>
-                    </div>
-                  </div>
-            </div>
-
-            <div  class="col-lg-4" style="margin-top: 15px;">
-                <div class="card" style="padding: 8px; width: 100%; height: 100%; background-color: #f1f5f5;border-color: #2db3bf;">
-                    <img src="assets/img/homePage/eventos.jpg" class="card-img-top" alt="adopcion">
-                    <div class="card-body">
-                      <h2 style="text-align: center;" class="card-title">Eventos Programa de Bienestar Animal</h2>
-                      <p style="text-align: justify;" class="card-text">Eventos que se desarrollan en el programa de bienestar animal</p>
-                      <a routerLink="/pagEventos"><img src="assets/img/homePage/eventos.png" width="100%"></a>
-                    </div>
-                  </div>
-            </div>
       </div>
+
+      <div class="col-lg-2">
+        <div class="col-lg-12" style="margin-top: 15px">
+          <div
+            class="card"
+            style="
+              text-align: center;
+              margin-top: 7px;
+              padding: 8px;
+              width: 100%;
+              height: 100%;
+              background-color: #f3f1ec;
+              border-color: #f52db9;
+            "
+          >
+            <!--  <div class="card-body" *ngFor="let item of listaPodcats">
+              <h2
+                style="text-align: center"
+                class="card-title"
+                style="color: fuchsia; font-weight: 800"
+              >
+                PodCats
+              </h2>
+              <p style="text-align: justify" class="card-text">
+                {{ item.descripcion }}
+              </p>
+              <a
+                style="text-align: center; background-color: #f52db9"
+                target="_blank"
+                href="{{ item.url }}"
+                class="btn btn-success"
+                >Escuchar</a
+               
+              >
+              <hr>
+            </div> -->
+            <div class="card-body">
+              <h2
+                style="text-align: center"
+                class="card-title"
+                style="color: fuchsia; font-weight: 800"
+              >
+                PodCats
+              </h2>
+              <p style="text-align: center" class="card-text">
+                RADIO ANIMALISTA ACTIVISTA | Podcast on Spotify
+              </p>
+              <a
+                style="text-align: center; background-color: #f52db9"
+                target="_blank"
+                href="https://open.spotify.com/show/3ipkwKStamqOKSblAVdmps"
+                class="btn btn-success"
+                >Escuchar</a
+              >
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<hr>
+<hr />
+<!-- modal podcats-->
+<div class="modal" id="myModal" [ngClass]="{ show: showModal2 }">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header" style="background-color: #2db3bf; color: white">
+        <h4
+          class="modal-title"
+          style="font-size: 22px; color: white !important"
+        >
+          PodCast
+        </h4>
+        <button
+          style="color: white"
+          type="button"
+          class="close"
+          (click)="cerrarModal2()"
+          data-dismiss="modal"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div style="text-align: center">
+          <table class="table">
+            <thead>
+              <tr class="table-secondary">
+                <th style="font-size: 16px">Nombre</th>
+                <th style="font-size: 16px">Fecha</th>
+                <th style="font-size: 16px">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-secondary" *ngFor="let item of listaPodcats">
+                <th style="font-size: 14px">{{ item.nombre }}</th>
+                <th style="font-size: 14px">{{ item.fechaRegistro }}</th>
+                <th style="font-size: 14px">
+                  <a
+                    target="_blank"
+                    href="{{ item.url }}"
+                    title="Ver información del link"
+                  >
+                    <img src="assets/img/homePage/iconoPodcats.jpg" width="50%"
+                  /></a>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          style="color: white"
+          (click)="cerrarModal2()"
+          type="button"
+          class="btn btn-danger"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- (p>lorem)*20 (código a usar si tienes instalada la extensión emmet)-->
+</div>
+<div class="btn-whatsapp">
+  <a href="https://api.whatsapp.com/send?phone=31355559055" target="_blank">
+    <img src="http://s2.accesoperu.com/logos/btn_whatsapp.png" alt="" />
+  </a>
+</div>
 
 <app-footer-paginas></app-footer-paginas>
- 

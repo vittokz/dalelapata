@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Ciudad } from 'src/app/modelos/modulo-ciudades/ciudades-modelo';
 import { Fundacion } from 'src/app/modelos/modulo-fundacion/fundacion-modelo';
 import { UserPagina } from 'src/app/modelos/modulo-usuario/usuarioPagina-modelo';
 import { FundacionService } from 'src/app/servicios/fundacion/fundacion.service';
+import { MascotasService } from 'src/app/servicios/mascotas/mascotas.service';
 import { UserPlataformaService } from 'src/app/servicios/userPlataforma/user-plataforma.service';
 import { VisitasMovilService } from 'src/app/servicios/visitas-movil/visitas-movil.service';
 import { environment } from 'src/environments/environment.prod';
@@ -18,6 +20,7 @@ export class UnidadMovilSolicitudesComponent implements OnInit {
   public razonSocial: string;
   identidadFundacion: string;
   municipio: string;
+  ciudadesFormulario: Ciudad[];
   usuario:UserPagina;
   envioForm:boolean=false;
   cargando:boolean=false;
@@ -25,11 +28,12 @@ export class UnidadMovilSolicitudesComponent implements OnInit {
   url: string = environment.url;
 
   constructor(private userPlataformaService: UserPlataformaService,private visitaService: VisitasMovilService,
-    private fundacionService: FundacionService) { }
+    private fundacionService: FundacionService, private mascotaService: MascotasService) { }
 
   ngOnInit(): void {
     this.identidadUsuario = this.userPlataformaService.getCurrentUser();
     this.cargarDatosUsuario();
+    this.cargarCiudades();
     this.cargarListaDocumentos();
   }
 
@@ -42,11 +46,19 @@ export class UnidadMovilSolicitudesComponent implements OnInit {
     );
  }
 
+ cargarCiudades(){
+  this.mascotaService.getCiudades().subscribe(
+    data=>{
+        this.ciudadesFormulario = data;
+    }
+  )
+}
+
  cargarDatosUsuario(){
   this.userPlataformaService.getUsuarioIdentidad(this.identidadUsuario).subscribe(
     data=>{
         this.usuario = data;
-        this.idFundacion = this.usuario[0].idFundacion;
+        this.idFundacion = this.usuario.idFundacion;
         this.cargarDatosFundacion(this.idFundacion);
     }
   );
@@ -56,10 +68,10 @@ cargarDatosFundacion(idFundacion: string){
   this.fundacionService.getFundacionId(idFundacion).subscribe(
     resul=>{
       this.fundacion = resul;
-      this.razonSocial = this.fundacion[0].razonSocial;
-      this.identidadFundacion = this.fundacion[0].identidad;
-      this.municipio = this.fundacion[0].municipio;
-      this.idFundacion= this.fundacion[0].idFundacion;
+      this.razonSocial = this.fundacion.razonSocial;
+      this.identidadFundacion = this.fundacion.identidad;
+      this.municipio = this.fundacion.municipio;
+      this.idFundacion= this.fundacion.idFundacion;
   
      }
   );

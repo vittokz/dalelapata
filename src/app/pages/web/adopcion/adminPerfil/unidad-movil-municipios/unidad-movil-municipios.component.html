@@ -20,55 +20,57 @@
             <div class="alert alert-danger" role="alert">
                 <h3 style="color: white;"> NOMBRE: {{ razonSocial | uppercase}} </h3>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="form-group">
-                       
-                            Cargue la informacion solicitada completamente. Lista de formatos a descargar.<br><br>
-                            <ul>
-                                <li>
-                                    <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/cartaCompromiso.docx">
-                                        Formato carta de compromiso
-                                       </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/cuadroCenso.xls">
-                                        Formato Censo excel
-                                       </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/modeloCertificado.docx">
-                                        Modelo Certificado
-                                       </a>
-                                </li>
-                            </ul>         
-                    </div>
-             </div>
-               <div class="col-lg-6">
-                <div class="form-group">
-                    <label>Cargar Rut (pdf)</label>
-                    <input type="file" class="form-control" name="file1" (change)="onFileSelect1($event)">
-                </div>
-               </div>
-               <div class="col-lg-6">
-                      <div class="form-group">
-                          <label>Carta de compromiso (pdf)</label>
-                          <input type="file" class="form-control" name="file2" (change)="onFileSelect2($event)">
-                      </div>
-               </div>
-               <div class="col-lg-12">
-                    <div class="form-group">
-                        <label>Censo archivo excel</label>
-                        <input type="file" class="form-control" name="file3" (change)="onFileSelect3($event)">
-                    </div>
-               </div>
-               <div class="col-lg-12">
+            <form [formGroup]="formulario">
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="form-group">
-                            <button [disabled]="!formulario.valid"  title="Subir Documentos" class="btn btn-danger" (click)="subirArchivos()">
-                                Subir Documentos</button>
+                        
+                                Cargue la informacion solicitada completamente. Lista de formatos a descargar.<br><br>
+                                <ul>
+                                    <li>
+                                        <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/cartaCompromiso.docx">
+                                            Formato carta de compromiso
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/cuadroCenso.xlsx">
+                                            Formato Censo excel
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/modeloCertificado.docx">
+                                            Modelo Certificado
+                                        </a>
+                                    </li>
+                                </ul>         
                         </div>
                 </div>
-            </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Tipo de archivo a subir</label>
+                        <select formControlName="tipoArchivo" (change)="selectArchivo($event)" class="form-control">
+                            <option selected value="1">Formato carta de compromiso</option>
+                            <option value="2">Formato Censo excel</option>
+                            <option value="3">Modelo Certificado</option>
+                            <option value="4">Rut</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Adjuntar archivo (pdf)</label>
+                            <input type="file" class="form-control" name="file1" (change)="onFileSelect($event)">
+                        </div>
+                </div>
+                
+                <div class="col-lg-12">
+                            <div class="form-group">
+                                <button [disabled]="!formulario.valid" title="Subir Documento" class="btn btn-danger" (click)="subirArchivos()">
+                                    Subir Documento</button>
+                            </div>
+                    </div>
+                </div>
+            </form>
             <div *ngIf="cargando">
                 <div class="alert alert-danger" role="alert">
                   Cargando información al sistema... espere por favor..
@@ -90,16 +92,17 @@
             <div class="table-responsive">
                     <table class="table table-info">
                        
-                        <tbody class="itemTabla" *ngFor="let item of listaDocumentos">
+                        <tbody class="itemTabla">
                                 <tr class="hoverTr">
                                     <th scope="col">ADJUNTO</th>
                                     <th scope="col">NOMBRE DEL ARCHIVO</th>  
                                     <th scope="col">FECHA REGISTRO</th>  
-                                    <th scope="col">ESTADO</th>  
+                                    <th scope="col">ESTADO</th> 
+                                    <th scope="col">COMENTARIO</th>  
                                     <th scope="col">VER ARCHIVO</th>  
                                  
                                 </tr>
-                                <tr style="background-color: rgb(236, 236, 236);">   
+                               <!--  <tr style="background-color: rgb(236, 236, 236);">   
                                     <td>Comentarios:</td>
                                     <td colspan="4">
                                         <p style="color: black;" *ngIf="item.comentario==null">
@@ -111,31 +114,17 @@
 
                                         </p>
                                     </td>
-                                </tr>
-                             <tr style="background-color: aliceblue;">   
-                                <td>Carta Compromiso</td>
-                                <td>{{ item.cartaCompromiso}}</td>
+                                </tr> -->
+                             <tr style="background-color: aliceblue;" *ngFor="let item of listaDocumentos">   
+                                <td>{{ item.tipoArchivo}}</td>
+                                <td>{{ item.nombreArchivo}}</td>
                                 <td>{{ item.fechaRegistro}}</td>
                                 <td>{{ item.estado}}</td>
-                                <td><a target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.cartaCompromiso}}"  title="Ver archivo" class="btn btn-danger btn-sm">
+                                <td>{{ item.comentario}}</td>
+                                <td><a target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.nombreArchivo}}"  title="Ver archivo" class="btn btn-danger btn-sm">
                                     Ver archivo</a></td>
                              </tr>
-                             <tr style="background-color: aliceblue;">   
-                                <td>Formato Censo Excel</td> 
-                                <td>{{ item.formatoExcel}}</td>
-                                <td>{{ item.fechaRegistro}}</td>
-                                <td>{{ item.estado}}</td>
-                                <td><a target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.formatoCenso}}"  title="Ver archivo" class="btn btn-danger btn-sm">
-                                    Ver archivo</a></td>
-                             </tr>  
-                             <tr style="background-color: aliceblue;">   
-                                <td>Rut</td> 
-                                <td>{{ item.rut}}</td>
-                                <td>{{ item.fechaRegistro}}</td>
-                                <td>{{ item.estado}}</td>
-                                <td><a target="_blank" href="{{url}}unidadMovil/documentos/{{item.usuarioRegistro}}/{{item.rut}}"  title="Ver archivo" class="btn btn-danger btn-sm">
-                                    Ver archivo</a></td>
-                            </tr>
+                           
                         </tbody>
                     </table>
             </div>

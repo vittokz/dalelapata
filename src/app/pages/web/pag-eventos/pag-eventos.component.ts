@@ -6,6 +6,9 @@ import { Eventos } from '../../../modelos/modulo-eventos/evento-modelo';
 import { MascotasService } from 'src/app/servicios/mascotas/mascotas.service';
 import { Ciudad } from 'src/app/modelos/modulo-ciudades/ciudades-modelo';
 import { UserPlataformaService } from 'src/app/servicios/userPlataforma/user-plataforma.service';
+import { UserPagina } from 'src/app/modelos/modulo-usuario/usuarioPagina-modelo';
+import { Fundacion } from 'src/app/modelos/modulo-fundacion/fundacion-modelo';
+import { FundacionService } from 'src/app/servicios/fundacion/fundacion.service';
 
 @Component({
   selector: 'app-pag-eventos',
@@ -22,12 +25,22 @@ export class PagEventosComponent implements OnInit {
   cantidad: number;
   showModal2=false;
   imagen: string;
+  razonSocial: string;
   public isLogueado: Boolean=false;
   nomUsuario: string;
+  identidadUsuario: string;
+  idFundacion: string;
+  fundacion: Fundacion;
+  identidadFundacion: string;
+
+  usuario:UserPagina;
+
   constructor(private eventoService: EventosService, private ruta: Router,private mascotaService: MascotasService,
-    private userPlataforma: UserPlataformaService) { }
+    private userPlataforma: UserPlataformaService,
+    private fundacionService: FundacionService) { }
 
   ngOnInit(): void {
+    this.razonSocial='';
     this.verificarAccesoUsuario();
     this.ruta.events.subscribe((event) => {
       this.isCollapsed = true;
@@ -44,7 +57,27 @@ export class PagEventosComponent implements OnInit {
    else{
     this.isLogueado=true;
     this.nomUsuario=this.userPlataforma.getCurrentUser();
+    this.cargarDatosUsuario();
     }
+  }
+
+  cargarDatosUsuario(){
+    this.userPlataforma.getUsuarioIdentidad( this.nomUsuario).subscribe(
+      data=>{
+          this.usuario = data;
+          this.idFundacion = this.usuario[0].idFundacion;
+          this.cargarDatosFundacion(this.idFundacion);
+      }
+    );
+  }
+
+  cargarDatosFundacion(idFundacion: string){
+    this.fundacionService.getFundacionId(idFundacion).subscribe(
+      resul=>{
+        this.fundacion = resul;
+        this.razonSocial = this.fundacion[0].razonSocial;   
+       }
+    );
   }
 
   salir(){

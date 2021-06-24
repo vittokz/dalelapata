@@ -24,6 +24,10 @@ style="height: 100px;background-color:#2db3bf !important;">
               </div>
             </div>
           </div>
+          <div style="padding: 10px;" *ngIf="razonSocial!=''">
+            <span style="font-weight: bold; font-size: 18px;color: rgb(255, 255, 255);">
+              Bienvenido: {{razonSocial}}</span>
+          </div>
           <hr class="my-3">
            <ul class="navbar-nav ml-ml-3">
             <li class="nav-item">
@@ -84,7 +88,8 @@ style="height: 100px;background-color:#2db3bf !important;">
               <img src="{{url}}noticias/{{itemNoticia.urlImagen}}" class="foto" alt="...">
               <div class="card-body">
                 <h3 style="text-align: center; font-size: 12px !important;" class="card-title">{{ itemNoticia.nombre | uppercase}}</h3>
-              <button type="button" class="btn btn-info btn-lg btn-block" style="background-color: #2db3bf; color: white;" (click)="irDetalleNoticia(itemNoticia)">Ver más</button>
+              <button type="button" class="btn btn-info btn-lg btn-block" 
+              style="background-color: #2db3bf; color: white;" (click)="irDetalleNoticia(itemNoticia)">Ver más</button>
               </div>
               <ul class="list-group list-group-flush">
                 <li style="text-align: center;" class="list-group-item" 

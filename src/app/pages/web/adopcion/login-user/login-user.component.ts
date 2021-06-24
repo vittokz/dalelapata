@@ -35,16 +35,18 @@ export class LoginUserComponent implements OnInit {
      this.usuario.clave = formulario.clave;
       this.userPlataforma.onLoginUser(this.usuario.identidad,this.usuario.clave).subscribe(
       data=>{
-        console.log(data['resul']);
           if(data["resul"]>0){
               this.isLogueado="true";
               this.userPlataforma.setUser(this.usuario.identidad);
               const token = this.usuario.identidad;
               this.userPlataforma.setToken(token);
-              this.ruta.navigateByUrl('/pagAdopcion');
+              this.ruta.navigateByUrl('/perfil-usuario');
           }
           else{
               this.isLogueado="false";
+              setTimeout(() => {
+                this.isLogueado="";
+              }, 2000);
               //this.formularioLogin.reset();
               
           }

@@ -51,17 +51,19 @@
             <dxi-column dataField="identidad" alignment="center" caption="Identidad"></dxi-column>
             <dxi-column dataField="municipio" caption="Municipio"></dxi-column>
              <dxi-column dataField="nombre" caption="Nombre"></dxi-column>
+             <dxi-column dataField="apellido" caption="Apellidos"></dxi-column>
             <dxi-column dataField="email" caption="Emáil"></dxi-column>
             <dxi-column dataField="telefono" caption="Teléfono"></dxi-column>
-            <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
-            <div *dxTemplate="let d of 'acciones'">
+            <dxi-column dataField="estado" caption="Estado"></dxi-column>
+           <!--  <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column> -->
+           <!--  <div *dxTemplate="let d of 'acciones'">
           
-              <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de noticia"
+             <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de noticia"
               >
                 Ver</button>
                 <button class="btn btn-danger btn-sm" title="Eliminar Noticia">
-                  Eliminar</button>
-            </div>
+                  Eliminar</button> 
+            </div> -->
         </dx-data-grid>
         </div>
       </div>

@@ -35,22 +35,20 @@
        
 
         <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" 
-        [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="listaDocumentos" noDataText="No se encontraron Datos" [showBorders]="true">
+        [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="ciudadesFormulario" noDataText="No se encontraron Datos" [showBorders]="true">
 
           <dxo-search-panel [visible]="true" [width]=440 placeholder="Buscar..."></dxo-search-panel>
           <dxo-paging [pageSize]="10"></dxo-paging>
 
-          <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} solicitudes)" [showPageSizeSelector]="true">
+          <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} ciudades)" [showPageSizeSelector]="true">
           </dxo-pager>
 
           <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
           <dxi-column dataField="nombre" alignment="center" caption="Municipio"></dxi-column>
-          <dxi-column dataField="fechaRegistro" alignment="center" caption="Fecha Registro"></dxi-column>
-          <dxi-column dataField="estado" alignment="center" caption="Estado solicitud"></dxi-column>
           <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
           <div *dxTemplate="let d of 'acciones'">
         
-            <button routerLink="/unidadMovilSolicitudesDetalle/{{d.data.idSolicitud}}/{{d.data.usuarioRegistro}}" class="btn btn-info btn-sm" title="Ver información de la solicitud">
+            <button routerLink="/unidadMovilSolicitudesDetalle/{{d.data.id}}/{{d.data.nombre}}" class="btn btn-info btn-sm" title="Ver información de la solicitud por municipio">
               Ver</button>
             
           </div>

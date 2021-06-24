@@ -1,89 +1,122 @@
-
-
-<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav
+  class="navbar navbar-vertical navbar-expand-md navbar-light bg-white"
+  id="sidenav-main"
+>
   <div class="container-fluid">
     <!-- Toggler -->
-    <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
-       aria-controls="sidenav-collapse-main">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+      aria-controls="sidenav-collapse-main"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" routerLinkActive="active" routerLink="/dashboard">
-      <img src="./assets/img/brand/admin.png" class="navbar-brand-img" alt="...">
-     <br>
-     <span style="color: red; font-weight: 900; font-size: 12px;" *ngFor="let u of usuarioLogueado">
-     Usu: {{ u.identidad}}/{{ u.municipio}}</span>
+    <a
+      class="navbar-brand pt-0"
+      routerLinkActive="active"
+      routerLink="/dashboard"
+    >
+      <img
+        src="./assets/img/brand/admin.png"
+        class="navbar-brand-img"
+        alt="..."
+      />
+      <br />
+      <span
+        style="color: red; font-weight: 900; font-size: 12px"
+        *ngFor="let u of usuarioLogueado"
+      >
+        Usu: {{ u.identidad }}/{{ u.municipio }}</span
+      >
     </a>
-        <!-- User -->
-        <ul class="nav align-items-center d-md-none">
-          
-          <li class="nav-item" ngbDropdown placement="bottom-right">
-            <a class="nav-link" role="button" ngbDropdownToggle>
-              <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="./assets/img/theme/usuario.png">
-                </span>
-              </div>
-            </a>
-            <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
-              <div class=" dropdown-header noti-title">
-                <h6 class="text-overflow m-0">Bienvenido!</h6>
-              </div>
-              <div class="dropdown-divider"></div>
-              <a [routerLink]="['/dashboard']" class="dropdown-item">
-                <i class="ni ni-shop"></i>
-                <span>Inicio</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
-                <i class="ni ni-calendar-grid-58"></i>
-                <span>Mi perfil</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <div class="dropdown-divider"></div>
-              <a (click)="logout()" class="dropdown-item">
-                <i class="ni ni-user-run"></i>
-                <span>Salir</span>
-              </a>
-            </div>
-          </li>
-      </ul>
+    <!-- User -->
+    <ul class="nav align-items-center d-md-none">
+      <li class="nav-item" ngbDropdown placement="bottom-right">
+        <a class="nav-link" role="button" ngbDropdownToggle>
+          <div class="media align-items-center">
+            <span class="avatar avatar-sm rounded-circle">
+              <img
+                alt="Image placeholder"
+                src="./assets/img/theme/usuario.png"
+              />
+            </span>
+          </div>
+        </a>
+        <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
+          <div class="dropdown-header noti-title">
+            <h6 class="text-overflow m-0">Bienvenido!</h6>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a [routerLink]="['/dashboard']" class="dropdown-item">
+            <i class="ni ni-shop"></i>
+            <span>Inicio</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a
+            routerLinkActive="active"
+            [routerLink]="['/user-profile']"
+            class="dropdown-item"
+          >
+            <i class="ni ni-calendar-grid-58"></i>
+            <span>Mi perfil</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div>
+          <a (click)="logout()" class="dropdown-item">
+            <i class="ni ni-user-run"></i>
+            <span>Salir</span>
+          </a>
+        </div>
+      </li>
+    </ul>
     <!-- Collapse -->
-    <div class="collapse navbar-collapse"  [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
+    <div
+      class="collapse navbar-collapse"
+      [ngbCollapse]="isCollapsed"
+      id="sidenav-collapse-main"
+    >
       <!-- Collapse header -->
       <div class="navbar-collapse-header d-md-none">
         <div class="row">
           <div class="col-6 collapse-brand">
-            <a  routerLinkActive="active">
-              <img src="./assets/img/brand/admin.png">
+            <a routerLinkActive="active">
+              <img src="./assets/img/brand/admin.png" />
             </a>
           </div>
           <div class="col-6 collapse-close">
-            <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+            <button
+              type="button"
+              class="navbar-toggler"
+              (click)="isCollapsed = !isCollapsed"
+            >
               <span></span>
               <span></span>
             </button>
           </div>
         </div>
       </div>
-     
-      
+
       <!-- Navigation -->
-      <hr *ngIf="tipoUsuario=='Administrador'" class="my-3">
-       <!-- Heading -->
-       <h3 *ngIf="tipoUsuario=='Administrador'"> Principal</h3>
-       <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
+      <hr *ngIf="tipoUsuario == 'Administrador'" class="my-3" />
+      <!-- Heading -->
+      <h3 *ngIf="tipoUsuario == 'Administrador'">Principal</h3>
+      <ul *ngIf="tipoUsuario == 'Administrador'" class="navbar-nav mb-md-3">
         <li class="nav-item">
           <a routerLink="/adminBanner" class="nav-link">
             <i class="ni ni-album-2 text-blue"></i> Banner Principal
           </a>
-        </li> 
-     </ul>
+        </li>
+      </ul>
 
-      <hr class="my-3">
-       <!-- Heading -->
-       <h3>Adopción</h3>
-       <ul *ngIf="tipoUsuario=='Administrador' || tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
+      <hr class="my-3" />
+      <!-- Heading -->
+      <h3>Adopción</h3>
+      <ul
+        *ngIf="tipoUsuario == 'Administrador' || tipoUsuario == 'Alcaldia'"
+        class="navbar-nav mb-md-3"
+      >
         <li class="nav-item">
           <a routerLink="/mascotas-admin" class="nav-link">
             <i class="ni ni-planet text-blue"></i> Mascotas
@@ -94,19 +127,27 @@
             <i class="ni ni-image text-blue"></i> Reporte Completo
           </a>
         </li>
-        <li *ngIf="tipoUsuario=='Administrador'" class="nav-item">
+        <li *ngIf="tipoUsuario == 'Administrador'" class="nav-item">
           <a routerLink="/unidadMovil-admin" class="nav-link">
             <i class="ni ni-ambulance text-blue"></i> Unidad Movil
           </a>
         </li>
-        <li *ngIf="tipoUsuario=='Administrador' || tipoUsuario=='Alcaldia'" class="nav-item">
+        <li
+          *ngIf="tipoUsuario == 'Administrador' || tipoUsuario == 'Alcaldia'"
+          class="nav-item"
+        >
           <a routerLink="/unidadMovilSolicitudes" class="nav-link">
             <i class="ni ni-ambulance text-blue"></i> Solicitudes Unidad Movil
           </a>
         </li>
-     </ul>
+        <li *ngIf="tipoUsuario == 'Administrador'" class="nav-item">
+          <a routerLink="/AdminPodCast" class="nav-link">
+            <i class="ni ni-sound-wave text-blue"></i> Admin Podcast
+          </a>
+        </li>
+      </ul>
 
-    <!--  <ul *ngIf="tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
+      <!--  <ul *ngIf="tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
       <li class="nav-item">
         <a routerLink="/add-mascota" class="nav-link">
           <i class="ni ni-planet text-blue"></i> Registrar Mascotas
@@ -118,50 +159,53 @@
         </a>
       </li>
    </ul> -->
-     
-       <!-- Divider -->
-       <hr class="my-3">
-       <!-- Heading -->
-       <h3>Fauna Silvestre</h3>
-       <!-- Navigation -->
-       <ul *ngIf="tipoUsuario=='Administrador' || tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">
-         <li class="nav-item">
-           <a class="nav-link" routerLink="/formFauna">
-             <i class="ni ni-image text-red"></i> Registrar Noticias
-           </a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" routerLink="/noticias-Fauna">
-             <i class="ni ni-collection text-red"></i> Ver Noticias
-           </a>
-         </li>
+
+      <!-- Divider -->
+      <hr class="my-3" />
+      <!-- Heading -->
+      <h3>Fauna Silvestre</h3>
+      <!-- Navigation -->
+      <ul
+        *ngIf="tipoUsuario == 'Administrador' || tipoUsuario == 'Alcaldia'"
+        class="navbar-nav mb-md-3"
+      >
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/formFauna">
+            <i class="ni ni-image text-red"></i> Registrar Noticias
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/noticias-Fauna">
+            <i class="ni ni-collection text-red"></i> Ver Noticias
+          </a>
+        </li>
       </ul>
 
-       <!-- Divider -->
-       <hr class="my-3">
-       <!-- Heading -->
-       <h3>Eventos Bienestar Animal</h3>
-       <!-- Navigation -->
-       <ul class="navbar-nav mb-md-3">
-         <li class="nav-item">
-           <a class="nav-link" routerLink="/form-evento">
-             <i class="ni ni-image text-blue"></i> Registrar Evento
-           </a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" routerLink="/eventos">
-             <i class="ni ni-collection text-blue"></i> Ver Eventos
-           </a>
-         </li>
+      <!-- Divider -->
+      <hr class="my-3" />
+      <!-- Heading -->
+      <h3>Eventos Bienestar Animal</h3>
+      <!-- Navigation -->
+      <ul class="navbar-nav mb-md-3">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/form-evento">
+            <i class="ni ni-image text-blue"></i> Registrar Evento
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/eventos">
+            <i class="ni ni-collection text-blue"></i> Ver Eventos
+          </a>
+        </li>
       </ul>
 
-       <!-- Divider -->
-      <hr class="my-3">
+      <!-- Divider -->
+      <hr class="my-3" />
       <!-- Heading -->
       <h3>Usuarios</h3>
       <!-- Navigation -->
-      <ul *ngIf="tipoUsuario=='Administrador'" class="navbar-nav mb-md-3">
-        <li *ngIf="identidadUsuario=='1085254579'" class="nav-item">
+      <ul *ngIf="tipoUsuario == 'Administrador'" class="navbar-nav mb-md-3">
+        <li *ngIf="identidadUsuario == '1085254579'" class="nav-item">
           <a class="nav-link" routerLink="/usuarios-sistema">
             <i class="ni ni-single-02 text-yellow"></i> Del Sistema
           </a>

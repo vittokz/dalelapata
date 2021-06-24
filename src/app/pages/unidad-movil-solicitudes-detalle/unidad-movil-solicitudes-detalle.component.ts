@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Ciudad } from 'src/app/modelos/modulo-ciudades/ciudades-modelo';
 import { Fundacion } from 'src/app/modelos/modulo-fundacion/fundacion-modelo';
 import { RespuestaSolicitud } from 'src/app/modelos/modulo-unidadMovil/unidadMovil-modelo';
 import { UserPagina } from 'src/app/modelos/modulo-usuario/usuarioPagina-modelo';
 import { FundacionService } from 'src/app/servicios/fundacion/fundacion.service';
+import { MascotasService } from 'src/app/servicios/mascotas/mascotas.service';
 import { UserPlataformaService } from 'src/app/servicios/userPlataforma/user-plataforma.service';
 import { VisitasMovilService } from 'src/app/servicios/visitas-movil/visitas-movil.service';
 import { environment } from 'src/environments/environment.prod';
@@ -22,6 +24,9 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
   identidadFundacion: string;
   municipio: string;
   usuario:UserPagina;
+  bandera: boolean=false;
+  ciudadesFormulario: Ciudad[];
+  archivoSelect: any;
   envioForm:boolean=false;
   cargando:boolean=false;
   respuestaSolicitud: RespuestaSolicitud = new RespuestaSolicitud();
@@ -29,18 +34,18 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
   nombre: string;
   url: string = environment.url;
   dato: {
-    idSolicitud: string,
-    idUsuarioAlcaldia: string,
+    idMunicipio: string,
+    nombreMunicipio: string
 };
 formRespuesta: FormGroup;
 
   constructor(private rutaActiva: ActivatedRoute,private userPlataformaService: UserPlataformaService,private visitaService: VisitasMovilService,
-    private fundacionService: FundacionService, private formBuilder: FormBuilder) { }
+    private fundacionService: FundacionService, private formBuilder: FormBuilder,private mascotaService: MascotasService) { }
 
   ngOnInit(): void {
     this.dato = {
-      idSolicitud: this.rutaActiva.snapshot.params.parametro,
-      idUsuarioAlcaldia: this.rutaActiva.snapshot.params.parametro2,
+      idMunicipio: this.rutaActiva.snapshot.params.parametro,
+      nombreMunicipio: this.rutaActiva.snapshot.params.parametro2
     };
     this.crearFormulario();
     this.identidadUsuario = this.userPlataformaService.getCurrentUser();
@@ -55,50 +60,64 @@ formRespuesta: FormGroup;
     })
  }
 
-  cargarListaDocumentos() {
-    this.visitaService.listarDocumentosByIdentidad(this.dato.idUsuarioAlcaldia).subscribe(
+   cargarListaDocumentos() {
+    this.visitaService.listarDocumentosByIdMunicipio(this.dato.idMunicipio).subscribe(
       (dataLista)=>{
         this.listaDocumentos = dataLista;
         console.log(this.listaDocumentos);
-        this.nombre=this.listaDocumentos[0].nombre;
       }
     );
- }
+ } 
 
  cargarDatosUsuario(){
   this.userPlataformaService.getUsuarioIdentidad(this.identidadUsuario).subscribe(
     data=>{
         this.usuario = data;
-        this.idFundacion = this.usuario[0].idFundacion;
+        this.idFundacion = this.usuario.idFundacion;
         this.cargarDatosFundacion(this.idFundacion);
     }
   );
+}
+
+asignarComentario(item){
+  this.archivoSelect = item;
+  this.bandera=true;
+}
+editarComentario(item){
+  this.archivoSelect = item;
+  console.log(this.archivoSelect);
+  this.bandera=true;
+  this.formRespuesta.controls['comentarios'].setValue(this.archivoSelect.comentario);  
+}
+cancelarRespuesta(){
+  this.bandera=false;
 }
 
 cargarDatosFundacion(idFundacion: string){
   this.fundacionService.getFundacionId(idFundacion).subscribe(
     resul=>{
       this.fundacion = resul;
-      this.razonSocial = this.fundacion[0].razonSocial;
-      this.identidadFundacion = this.fundacion[0].identidad;
-      this.municipio = this.fundacion[0].municipio;
-      this.idFundacion= this.fundacion[0].idFundacion;
+      this.razonSocial = this.fundacion.razonSocial;
+      this.identidadFundacion = this.fundacion.identidad;
+      this.municipio = this.fundacion.municipio;
+      this.idFundacion= this.fundacion.idFundacion;
   
      }
   );
 }
 
-  agregarRespuesta(){
+   agregarRespuesta(){
     const form = this.formRespuesta.value;
     this.respuestaSolicitud.comentarios = form.comentarios;
     this.respuestaSolicitud.estado = form.estado;
-    this.respuestaSolicitud.idSolicitud = this.dato.idSolicitud;
+    this.respuestaSolicitud.idSolicitud = this.archivoSelect.idSolicitud;
     this.visitaService.enviarRespuestaSolicitud(this.respuestaSolicitud).subscribe(
       resp=>{
+        this.formRespuesta.reset();
         this.cargarListaDocumentos();
-        console.log('respuesta->>',resp);
+        this.bandera = false;
       }
     );
   }
-
+ 
 }

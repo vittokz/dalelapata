@@ -20,6 +20,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   identidadFundacion: string;
   municipio: string;
   usuario:UserPagina;
+  tipoArchivo:string;
   formulario: FormGroup;
   envioForm:boolean=false;
   cargando:boolean=false;
@@ -46,31 +47,21 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
 
   crearFormulario(){
     this.formulario = this.formBuilder.group({
-      file1: ['', Validators.required],
-      file2: ['', Validators.required],
-      file3: ['', Validators.required],
+           tipoArchivo: ['', Validators.required],
+           file1: ['', Validators.required]
     });
   }
 
-  onFileSelect1(event) {
-    if (event.target.files.length > 0) {
+  onFileSelect(event) {
+   
       const file = event.target.files[0];
       this.formulario.get('file1').setValue(file);
-    }
+    
   }
-  onFileSelect2(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.formulario.get('file2').setValue(file);
-    }
+  selectArchivo(event) {
+    this.tipoArchivo = event.target.value;
   }
-  onFileSelect3(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.formulario.get('file3').setValue(file);
-    }
-  }
-
+ 
 
   cargarDatosUsuario(){
     this.userPlataformaService.getUsuarioIdentidad(this.identidadUsuario).subscribe(
@@ -98,8 +89,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   subirArchivos() {
     const formData = new FormData();
     formData.append('file1', this.formulario.get('file1').value);
-    formData.append('file2', this.formulario.get('file2').value);
-    formData.append('file3', this.formulario.get('file3').value);
+    formData.append('tipoArchivo', this.tipoArchivo);
     formData.append('idMunicipio', this.municipio);
     formData.append('usuarioRegistro', this.identidadFundacion);
     this.cargando = true;
@@ -110,6 +100,9 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
         this.envioForm=true;
         this.cargando = false;
         this.formulario.reset();
+        setTimeout(() => {
+          this.envioForm=false;
+        }, 2000);
       },
       (err) => {  
         console.log(err);
