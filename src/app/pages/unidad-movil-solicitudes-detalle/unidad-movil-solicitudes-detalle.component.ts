@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Ciudad } from 'src/app/modelos/modulo-ciudades/ciudades-modelo';
-import { Fundacion } from 'src/app/modelos/modulo-fundacion/fundacion-modelo';
-import { RespuestaSolicitud } from 'src/app/modelos/modulo-unidadMovil/unidadMovil-modelo';
-import { UserPagina } from 'src/app/modelos/modulo-usuario/usuarioPagina-modelo';
-import { FundacionService } from 'src/app/servicios/fundacion/fundacion.service';
-import { MascotasService } from 'src/app/servicios/mascotas/mascotas.service';
-import { UserPlataformaService } from 'src/app/servicios/userPlataforma/user-plataforma.service';
-import { VisitasMovilService } from 'src/app/servicios/visitas-movil/visitas-movil.service';
-import { environment } from 'src/environments/environment.prod';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+import { Ciudad } from "src/app/modelos/modulo-ciudades/ciudades-modelo";
+import { Fundacion } from "src/app/modelos/modulo-fundacion/fundacion-modelo";
+import { RespuestaSolicitud } from "src/app/modelos/modulo-unidadMovil/unidadMovil-modelo";
+import { UserPagina } from "src/app/modelos/modulo-usuario/usuarioPagina-modelo";
+import { FundacionService } from "src/app/servicios/fundacion/fundacion.service";
+import { MascotasService } from "src/app/servicios/mascotas/mascotas.service";
+import { UserPlataformaService } from "src/app/servicios/userPlataforma/user-plataforma.service";
+import { AuthUsuariosService } from "src/app/servicios/usuariosAdmin/auth-usuarios.service";
+import { VisitasMovilService } from "src/app/servicios/visitas-movil/visitas-movil.service";
+import { environment } from "src/environments/environment.prod";
 
 @Component({
-  selector: 'app-unidad-movil-solicitudes-detalle',
-  templateUrl: './unidad-movil-solicitudes-detalle.component.html',
-  styleUrls: ['./unidad-movil-solicitudes-detalle.component.css']
+  selector: "app-unidad-movil-solicitudes-detalle",
+  templateUrl: "./unidad-movil-solicitudes-detalle.component.html",
+  styleUrls: ["./unidad-movil-solicitudes-detalle.component.css"],
 })
 export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
   identidadUsuario: string;
@@ -22,102 +23,110 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
   fundacion: Fundacion;
   public razonSocial: string;
   identidadFundacion: string;
+  identidadAcceso: string;
   municipio: string;
-  usuario:UserPagina;
-  bandera: boolean=false;
+  usuario: UserPagina;
+  bandera: boolean = false;
   ciudadesFormulario: Ciudad[];
   archivoSelect: any;
-  envioForm:boolean=false;
-  cargando:boolean=false;
+  envioForm: boolean = false;
+  cargando: boolean = false;
   respuestaSolicitud: RespuestaSolicitud = new RespuestaSolicitud();
   listaDocumentos: any[];
   nombre: string;
   url: string = environment.url;
   dato: {
-    idMunicipio: string,
-    nombreMunicipio: string
-};
-formRespuesta: FormGroup;
+    idMunicipio: string;
+    nombreMunicipio: string;
+  };
+  formRespuesta: FormGroup;
 
-  constructor(private rutaActiva: ActivatedRoute,private userPlataformaService: UserPlataformaService,private visitaService: VisitasMovilService,
-    private fundacionService: FundacionService, private formBuilder: FormBuilder,private mascotaService: MascotasService) { }
+  constructor(
+    private rutaActiva: ActivatedRoute,
+    private userPlataformaService: UserPlataformaService,
+    private visitaService: VisitasMovilService,
+    private fundacionService: FundacionService,
+    private formBuilder: FormBuilder,
+    private mascotaService: MascotasService,
+    private authService: AuthUsuariosService
+  ) {}
 
   ngOnInit(): void {
     this.dato = {
       idMunicipio: this.rutaActiva.snapshot.params.parametro,
-      nombreMunicipio: this.rutaActiva.snapshot.params.parametro2
+      nombreMunicipio: this.rutaActiva.snapshot.params.parametro2,
     };
     this.crearFormulario();
     this.identidadUsuario = this.userPlataformaService.getCurrentUser();
+    this.identidadAcceso = this.authService.getCurrentUser();
+    console.log("iden:", this.identidadAcceso);
     this.cargarDatosUsuario();
     this.cargarListaDocumentos();
   }
 
-  crearFormulario(){
+  crearFormulario() {
     this.formRespuesta = this.formBuilder.group({
-      comentarios: ['',Validators.required],
-      estado: ['', Validators.required]
-    })
- }
+      comentarios: ["", Validators.required],
+      estado: ["", Validators.required],
+    });
+  }
 
-   cargarListaDocumentos() {
-    this.visitaService.listarDocumentosByIdMunicipio(this.dato.idMunicipio).subscribe(
-      (dataLista)=>{
+  cargarListaDocumentos() {
+    this.visitaService
+      .listarDocumentosByIdMunicipio(this.dato.idMunicipio)
+      .subscribe((dataLista) => {
         this.listaDocumentos = dataLista;
-        console.log(this.listaDocumentos);
-      }
-    );
- } 
+      });
+  }
 
- cargarDatosUsuario(){
-  this.userPlataformaService.getUsuarioIdentidad(this.identidadUsuario).subscribe(
-    data=>{
+  cargarDatosUsuario() {
+    this.userPlataformaService
+      .getUsuarioIdentidad(this.identidadUsuario)
+      .subscribe((data) => {
         this.usuario = data;
         this.idFundacion = this.usuario.idFundacion;
         this.cargarDatosFundacion(this.idFundacion);
-    }
-  );
-}
+      });
+  }
 
-asignarComentario(item){
-  this.archivoSelect = item;
-  this.bandera=true;
-}
-editarComentario(item){
-  this.archivoSelect = item;
-  console.log(this.archivoSelect);
-  this.bandera=true;
-  this.formRespuesta.controls['comentarios'].setValue(this.archivoSelect.comentario);  
-}
-cancelarRespuesta(){
-  this.bandera=false;
-}
+  asignarComentario(item) {
+    this.archivoSelect = item;
+    this.bandera = true;
+  }
+  editarComentario(item) {
+    this.archivoSelect = item;
 
-cargarDatosFundacion(idFundacion: string){
-  this.fundacionService.getFundacionId(idFundacion).subscribe(
-    resul=>{
+    this.bandera = true;
+    this.formRespuesta.controls["comentarios"].setValue(
+      this.archivoSelect.comentario
+    );
+  }
+  cancelarRespuesta() {
+    this.bandera = false;
+  }
+
+  cargarDatosFundacion(idFundacion: string) {
+    this.fundacionService.getFundacionId(idFundacion).subscribe((resul) => {
       this.fundacion = resul;
       this.razonSocial = this.fundacion.razonSocial;
       this.identidadFundacion = this.fundacion.identidad;
       this.municipio = this.fundacion.municipio;
-      this.idFundacion= this.fundacion.idFundacion;
-  
-     }
-  );
-}
+      this.idFundacion = this.fundacion.idFundacion;
+    });
+  }
 
-   agregarRespuesta(){
+  agregarRespuesta() {
     const form = this.formRespuesta.value;
     this.respuestaSolicitud.comentarios = form.comentarios;
     this.respuestaSolicitud.estado = form.estado;
     this.respuestaSolicitud.idSolicitud = this.archivoSelect.idSolicitud;
-    this.visitaService.enviarRespuestaSolicitud(this.respuestaSolicitud).subscribe(
-      resp=>{
+    this.respuestaSolicitud.usuarioComento = this.identidadAcceso;
+    this.visitaService
+      .enviarRespuestaSolicitud(this.respuestaSolicitud)
+      .subscribe((resp) => {
         this.formRespuesta.reset();
         this.cargarListaDocumentos();
         this.bandera = false;
-      }
-    );
+      });
   }
- 
 }

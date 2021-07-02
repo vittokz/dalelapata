@@ -145,6 +145,11 @@
             <i class="ni ni-sound-wave text-blue"></i> Admin Podcast
           </a>
         </li>
+        <li *ngIf="tipoUsuario == 'Administrador'" class="nav-item">
+          <a routerLink="/capsulas" class="nav-link">
+            <i class="ni ni-image text-blue"></i> Capsulas
+          </a>
+        </li>
       </ul>
 
       <!--  <ul *ngIf="tipoUsuario=='Alcaldia'" class="navbar-nav mb-md-3">

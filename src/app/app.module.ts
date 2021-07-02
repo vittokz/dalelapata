@@ -110,6 +110,8 @@ import { UnidadMovilMunicipiosComponent } from './pages/web/adopcion/adminPerfil
 import { UnidadMovilSolicitudesComponent } from './pages/unidad-movil-solicitudes/unidad-movil-solicitudes.component';
 import { UnidadMovilSolicitudesDetalleComponent } from './pages/unidad-movil-solicitudes-detalle/unidad-movil-solicitudes-detalle.component';
 import { AdminPodCastComponent } from './pages/admin-pod-cast/admin-pod-cast.component';
+import { CapsulasComponent } from './pages/capsulas/capsulas.component';
+import { ListaCapsulasComponent } from './pages/web/lista-capsulas/lista-capsulas.component';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 @NgModule({
@@ -218,6 +220,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     UnidadMovilSolicitudesComponent,
     UnidadMovilSolicitudesDetalleComponent,
     AdminPodCastComponent,
+    CapsulasComponent,
+    ListaCapsulasComponent,
    ],
   providers: [
     FaunaService, EventosService,FundacionService, AuthUsuariosService, UserPlataformaService,LogroService,

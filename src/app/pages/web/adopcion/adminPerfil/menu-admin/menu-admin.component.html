@@ -1,59 +1,144 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color:#2db3bf !important">
-    <button class="navbar-toggler" type="button" (click)="show=!show" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" [ngbCollapse]="show" id="navbarsExampleDefault">
-     <img (click)="inicio()" class="my-0 mr-md-auto font-weight-normal" src="assets/img/brand/icono.png" width="12%">
-    
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link letra" routerLink="/administrar-perfil">Registrar Mascota</a>
-        </li>
-        <li class="nav-item"><span class="nav-link letra">Menu Adopciones</span>
- 
-           <ul>
-            <li class="nav-item">
-              <a class="nav-link letra" routerLink="/registrar-mascota">Adoptadas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link letra" routerLink="/mascotas-PorAdoptadarPerfil">Por Adoptar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link letra" routerLink="/mascotas-ExtraviadasPerfil">Extraviadas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link letra" routerLink="/mascotas-EncontradasPerfil">Encontradas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link letra" routerLink="/mascota-microChipPerfil">MicroChip</a>
-            </li>
-           </ul>
+<nav
+  class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+  style="background-color: #2db3bf !important"
+>
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="show = !show"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        </li>
-        <li class="nav-item">
-          <a class="nav-link letra" routerLink="/postulaciones" href="#">Postulaciones</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/contratos-admin" class="nav-link letra" href="#">Contratos</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/notificaciones" class="nav-link letra" href="#">Notificaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link letra" routerLink="/unidadMovilMunicipios" href="#">Unidad Movil</a>
-        </li>
-        
-       <!--  <li class="nav-item">
+  <div
+    class="collapse navbar-collapse"
+    [ngbCollapse]="show"
+    id="navbarsExampleDefault"
+  >
+    <img
+      (click)="inicio()"
+      class="my-0 mr-md-auto font-weight-normal"
+      src="assets/img/brand/icono.png"
+      width="12%"
+    />
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link letra"
+          routerLinkActive="activo"
+          routerLink="/perfil-usuario"
+          >Perfil</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link letra"
+          routerLinkActive="activo"
+          routerLink="/administrar-perfil"
+          >Registrar Mascota</a
+        >
+      </li>
+      <li class="nav-item">
+        <span class="nav-link letra">Menu Adopciones</span>
+
+        <ul>
+          <li class="nav-item">
+            <a
+              class="nav-link letra"
+              routerLinkActive="activo"
+              routerLink="/registrar-mascota"
+              >Adoptadas</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link letra"
+              routerLinkActive="activo"
+              routerLink="/mascotas-PorAdoptadarPerfil"
+              >Por Adoptar</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link letra"
+              routerLinkActive="activo"
+              routerLink="/mascotas-ExtraviadasPerfil"
+              >Extraviadas</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link letra"
+              routerLinkActive="activo"
+              routerLink="/mascotas-EncontradasPerfil"
+              >Encontradas</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link letra"
+              routerLinkActive="activo"
+              routerLink="/mascota-microChipPerfil"
+              >MicroChip</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link letra"
+          routerLinkActive="activo"
+          routerLink="/postulaciones"
+          href="#"
+          >Postulaciones</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          routerLink="/contratos-admin"
+          routerLinkActive="activo"
+          class="nav-link letra"
+          href="#"
+          >Contratos</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          routerLink="/notificaciones"
+          routerLinkActive="activo"
+          class="nav-link letra"
+          href="#"
+          >Notificaciones</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link letra"
+          routerLinkActive="activo"
+          routerLink="/unidadMovilMunicipios"
+          href="#"
+          >Unidad Movil</a
+        >
+      </li>
+
+      <!--  <li class="nav-item">
           <a class="nav-link letra" routerLink="/usuarios-perfil" href="#">Usuarios</a>
         </li> -->
-       
-       
-     
-        
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <button  routerLink="/perfil-usuario" class="btn btn-danger my-2 my-sm-0" type="submit">Inicio perfil</button>
-      </form>
-    </div>
-  </nav>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button
+        (click)="salir()"
+        class="btn btn-danger my-2 my-sm-0"
+        type="submit"
+      >
+        Cerrar sesión
+      </button>
+    </form>
+  </div>
+</nav>

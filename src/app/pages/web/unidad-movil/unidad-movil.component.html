@@ -1,197 +1,475 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mask !important" 
-style="height: 100px;background-color:#2db3bf !important;margin-bottom: 30px;">
+<nav
+  class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mask !important"
+  style="
+    height: 100px;
+    background-color: #2db3bf !important;
+    margin-bottom: 30px;
+  "
+>
+  <img
+    title="Ir a pagina de inicio"
+    (click)="inicio()"
+    class="my-0 mr-md-auto font-weight-normal"
+    src="assets/img/brand/icono.png"
+    width="12%"
+  />
 
+  <!-- Collapse -->
+  <div
+    class="collapse navbar-collapse"
+    [ngbCollapse]="isCollapsed"
+    id="sidenav-collapse-main"
+  >
+    <!-- Collapse header -->
+    <div style="padding: 10px" *ngIf="razonSocial != ''">
+      <span
+        style="font-weight: bold; font-size: 18px; color: rgb(255, 255, 255)"
+      >
+        Bienvenido: {{ razonSocial }}</span
+      >
+    </div>
 
-<img (click)="inicio()" class="my-0 mr-md-auto font-weight-normal" src="assets/img/brand/icono.png" width="12%">
-
-     <!-- Collapse -->
-     <div class="collapse navbar-collapse"  [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
-      <!-- Collapse header -->
-          <div style="padding: 10px;" *ngIf="razonSocial!=''">
-            <span style="font-weight: bold; font-size: 18px;color: rgb(255, 255, 255);">
-              Bienvenido: {{razonSocial}}</span>
-          </div>
-         
-          <hr class="my-3">
-           <ul class="navbar-nav ml-ml-3">
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/pagAdopcion">Adopción</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/unidadMovil">Unidad Movil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/fauna-silvestre">Fauna Silvestre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/buscarChip">Busqueda Por Microchip</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="font-weight: bold; font-size: 20px;" routerLink="/pagEventos">Eventos Bienestar Animal</a>
-            </li>
-            <li *ngIf="isLogueado" class="nav-item">
-              <a routerLink="/perfil-usuario" class="nav-link">
-                <span style="font-weight: bold;font-size: 22px; color: rgb(232, 240, 123);">Acceder a Perfil</span></a>
-            </li>
-            <li *ngIf="!isLogueado" class="nav-item">
-              <a routerLink="/registrarFundacion" style="font-weight: bold;font-size: 20px;" class="nav-link">Registrarse</a>
-            </li>
-            <li *ngIf="!isLogueado" class="nav-item">
-              <a routerLink="/loginUser" style="font-weight: bold;font-size: 20px;" class="nav-link">Login</a>
-            </li>
-            <li *ngIf="isLogueado" class="nav-item">
-              <a (click)="salir()" style="font-weight: bold;font-size: 20px;" class="nav-link">Salir</a>
-            </li>
-          </ul>   
-     </div>
+    <hr class="my-3" />
+    <ul class="navbar-nav ml-ml-3">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/pagAdopcion"
+          >Adopción</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/unidadMovil"
+          >Unidad Movil</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/fauna-silvestre"
+          >Fauna Silvestre</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/buscarChip"
+          >Busqueda Por Microchip</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/pagEventos"
+          >Eventos Bienestar Animal</a
+        >
+      </li>
+      <li *ngIf="isLogueado" class="nav-item">
+        <a routerLink="/perfil-usuario" class="nav-link">
+          <span
+            style="
+              font-weight: bold;
+              font-size: 22px;
+              color: rgb(232, 240, 123);
+            "
+            >Acceder a Perfil</span
+          ></a
+        >
+      </li>
+      <li *ngIf="!isLogueado" class="nav-item">
+        <a
+          routerLink="/registrarFundacion"
+          style="font-weight: bold; font-size: 20px"
+          class="nav-link"
+          >Registrarse</a
+        >
+      </li>
+      <li *ngIf="!isLogueado" class="nav-item">
+        <a
+          routerLink="/loginUser"
+          style="font-weight: bold; font-size: 20px"
+          class="nav-link"
+          >Login</a
+        >
+      </li>
+      <li *ngIf="isLogueado" class="nav-item">
+        <a
+          (click)="salir()"
+          style="font-weight: bold; font-size: 20px"
+          class="nav-link"
+          >Salir</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
-<br><br><br><br>
+<br /><br /><br /><br />
 <app-banner></app-banner>
-<app-menu-flotante></app-menu-flotante>  
+<app-menu-flotante></app-menu-flotante>
 
-<div style="background-image: linear-gradient(#2db3bf, rgb(245, 245, 241));">   
-   <div class="row">
-     <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
-     font-weight: bold; background-color:#2db3bf;">
-        Presencia Unidad Movil
-     </div>
+<div style="background-image: linear-gradient(#2db3bf, rgb(245, 245, 241))">
+  <div class="row">
+    <div
+      class="col-lg-12"
+      style="
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        background-color: #2db3bf;
+      "
+    >
+      Presencia Unidad Movil
+    </div>
+  </div>
 </div>
-</div>
 
-<div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed; ">
-<div class="container mt-5" style="background-image: linear-gradient(#88e5ee, rgb(245, 245, 241));padding: 20px;"><br><br>       
-   <div class="row">
-     <div class="col-lg-12">
-           <div class="row">
-                 <div class="col-lg-7">
-                     <h2 style="color: rgb(56, 55, 55); font-weight: bold; text-align: center;">Unidad movil</h2>
-                     <div style="text-align: justify; padding: 20px;">
-                     En esta sección se encuentra información de la presencia que ha hecho la unidad movil en algunos 
-                      municipios del  Departamento de Nariño y en los que se esta pendiente la visita.<br>
-                     Se selecciona el municipio de la lista desplegable y se muestra la información correspondiente.
-                      </div><br>
-                    
-                 </div>
+<div
+  style="
+    background-image: url('assets/img/pagAdopcion/fondoHuellas.png');
+    background-attachment: fixed;
+  "
+>
+  <div
+    class="container-fluid mt-5"
+    style="
+      background-image: linear-gradient(#88e5ee, rgb(245, 245, 241));
+      margin-left: 80px;
+      margin-right: 100px;
+      width: 90%;
+    "
+  >
+    <br /><br />
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-4">
+            <h2
+              style="
+                color: rgb(56, 55, 55);
+                font-weight: bold;
+                text-align: center;
+              "
+            >
+              Unidad movil
+            </h2>
+            <div style="text-align: justify; padding: 20px">
+              En esta sección se encuentra información de la presencia que ha
+              hecho la unidad movil en algunos municipios del Departamento de
+              Nariño y en los que se esta pendiente la visita.<br />
+              Se selecciona el municipio de la lista desplegable y se muestra la
+              información correspondiente.
+            </div>
+            <br />
+          </div>
 
-                 <div class="col-lg-5 order-md-2 mb-4">
-                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                       <h3 style="color: rgb(56, 55, 55); font-weight: bold; text-align: center;">
-                         Selecciona el Municipio. </h3>
-                     
-                     </h4>
-                     
-                     <select (input)="activarMunicipio($event)" class="form-control" id="exampleFormControlSelect1">
-                       <option value="">Seleccione municipio</option>
-                       <option *ngFor="let ciudad of ubicaciones" value="{{ciudad.idMunicipio}}">{{ ciudad.idMunicipio}}</option>   
-                     </select>       
-                </div>
-           </div>
-          
-           <div class="row" style="display: block; text-align: center;">
-                <a routerLink="/registrarFundacion" 
-                class="btn">
-                  <img src="assets/img/theme/registrarse.png" width="200">
-              </a>  
-                <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/requisitosUnidad.pdf" style="align-items: center;"
-                class="btn">
-                <img src="assets/img/theme/requisitos.png" width="200">
-              </a>  
-           </div>
-           <br> <br>
-           <div class="row" style="display: block; text-align: center;">
-             <p style="color: black; font-weight: 800;">
-              
-              <span style="color: rgb(248, 111, 61); font-size: 38px;">{{totalEsterilizadas}}</span> 
-              <br>Perros y gatos, han sido esterilizados en el Departamento de Nariño, en lo corrido del año 2021.
-                   
-             </p> 
-           </div>
-        
-            <hr>
-     </div>
-   </div>
-   <div class="row">
-    <div class="col-lg-3"></div>
-      <div class="col-lg-9">
-           <!--  <img style="display: flex; align-items: center∫;" src="assets/img/homePage/unidadMovil.jpg" width="60%"> -->
-           <video width="600px" src="https://www.youtube.com/watch?v=bLCqRd_fLio" controls> Vídeo no es soportado... </video>
+          <div class="col-lg-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <h3
+                style="
+                  color: rgb(56, 55, 55);
+                  font-weight: bold;
+                  text-align: center;
+                "
+              >
+                Selecciona el Municipio.
+              </h3>
+            </h4>
+
+            <select
+              (input)="activarMunicipio($event)"
+              class="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option value="">Seleccione municipio</option>
+              <option
+                *ngFor="let ciudad of ubicaciones"
+                value="{{ ciudad.idMunicipio }}"
+              >
+                {{ ciudad.idMunicipio }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-lg-4">
+            <a
+              target="_blank"
+              href="https://dalelapata.narino.gov.co/archivos/requisitosUnidad.pdf"
+              style="align-items: center"
+              class="btn"
+            >
+              <img src="assets/img/theme/requisitos.png" width="200" />
+            </a>
+            <a routerLink="/registrarFundacion" class="btn">
+              <img src="assets/img/theme/registrarse.png" width="200" />
+            </a>
+
+            <br />
+            <br />
+
+            <p style="color: black; font-weight: 800; text-align: center">
+              <span
+                style="
+                  color: rgb(248, 111, 61);
+                  font-size: 38px;
+                  text-align: center;
+                "
+                >{{ totalEsterilizadas }}</span
+              >
+              <br />Perros y gatos, han sido esterilizados en el Departamento de
+              Nariño, en lo corrido del año 2021.
+            </p>
+
+            <hr />
+          </div>
+        </div>
       </div>
-   </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" style="text-align: center">
+          <!--  <img style="display: flex; align-items: center∫;" src="assets/img/homePage/unidadMovil.jpg" width="60%"> -->
+          <video
+            width="70%"
+            src="https://dalelapata.narino.gov.co/archivos/um/Unidad Móvil_1080p.mp4"
+            controls
+          >
+            Vídeo no es soportado...
+          </video>
+        </div>
+      </div>
+    </div>
 
- <!--    <div class="row">
+    <!--    <div class="row">
         <div class="col-lg-12">
           <div id="mapa" style="width: 100%; height: 550px;"> </div>
         </div>
    </div>  -->
 
-   <hr>
+    <div
+      class="row"
+      style="border-color: black; padding: 10px; text-align: center"
+    >
+      <div style="margin-top: 5px" class="col-lg-12">
+        <div
+          class="card"
+          style="
+            padding: 8px;
+            width: 100%;
+            height: 100%;
+            background-color: #edf1f1;
+            border-color: #2db3bf;
+          "
+        >
+          <div
+            *ngFor="let item of ubicacionSelec"
+            class="card-body"
+            style="background-color: #edf1f1; color: rgb(32, 32, 32)"
+          >
+            <h3
+              style="text-align: center; font-size: 24px !important"
+              class="card-title"
+            >
+              MUNICIPIO DE {{ item.idMunicipio | uppercase }}
+            </h3>
+            <hr />
+            <table class="table table-responsive-lg">
+              <thead>
+                <tr>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #2db3bf;
+                      color: white;
+                    "
+                  >
+                    Fecha Inicio
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #2db3bf;
+                      color: white;
+                    "
+                    scope="col"
+                  >
+                    Fecha Terminación
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #2db3bf;
+                      color: white;
+                    "
+                    scope="col"
+                  >
+                    Cantidad Mascotas Atendidas
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #2db3bf;
+                      color: white;
+                    "
+                    scope="col"
+                  >
+                    Estado Visita
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #e4eaeb;
+                      color: rgb(20, 20, 20);
+                    "
+                  >
+                    {{ item.fechaInicial }}
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #e4eaeb;
+                      color: rgb(20, 20, 20);
+                    "
+                  >
+                    {{ item.fechaFinal }}
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #e4eaeb;
+                      color: rgb(20, 20, 20);
+                    "
+                  >
+                    {{ item.cantidad }}
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #e4eaeb;
+                      color: rgb(20, 20, 20);
+                    "
+                  >
+                    <button
+                      *ngIf="item.estado == 'Pendiente'"
+                      class="btn btn-danger"
+                    >
+                      Pendiente
+                    </button>
+                    <button
+                      *ngIf="item.estado == 'Visitado'"
+                      class="btn btn-success"
+                    >
+                      Visitado
+                    </button>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
 
-   
-
-   <div class="row" style="border-color: black; padding: 20px; text-align: center;">
-      <div style="margin-top: 5px;" class="col-lg-12">
-          <div class="card" style=" padding: 8px; width: 100%; height: 100%; background-color: #edf1f1; border-color: #2db3bf;">
-               <div *ngFor="let item of ubicacionSelec" class="card-body" style="background-color: #edf1f1; color: rgb(32, 32, 32);">
-                <h3 style="text-align: center; font-size: 24px !important;" class="card-title">MUNICIPIO DE {{ item.idMunicipio | uppercase}}</h3>
-                <hr>
-                <table class="table table-responsive-lg">
-                  <thead>
-                    <tr>
-                      <th style="font-size: 14px !important; background-color:#2db3bf; color: white;">Fecha Inicio</th>
-                      <th style="font-size: 14px !important; background-color:#2db3bf; color: white;" scope="col">Fecha Terminación</th>
-                      <th style="font-size: 14px !important; background-color:#2db3bf; color: white;" scope="col">Cantidad Mascotas Atendidas</th>
-                      <th style="font-size: 14px !important; background-color:#2db3bf; color: white;" scope="col">Estado Visita</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th style="font-size: 14px !important; background-color:#e4eaeb; color: rgb(20, 20, 20);">{{item.fechaInicial}} </th>
-                      <th style="font-size: 14px !important; background-color:#e4eaeb; color: rgb(20, 20, 20);">{{item.fechaFinal}}</th>
-                      <th style="font-size: 14px !important; background-color:#e4eaeb; color: rgb(20, 20, 20);">{{item.cantidad}}</th>
-                      <th style="font-size: 14px !important; background-color:#e4eaeb; color: rgb(20, 20, 20);">  
-                        <button *ngIf="item.estado=='Pendiente'" class="btn btn-danger">Pendiente</button>
-                        <button *ngIf="item.estado=='Visitado'" class="btn btn-success">Visitado</button></th>
-                    </tr>        
-                  </tbody>
-                </table>
-
-                <table class="table table-responsive-lg">
-                  <thead>
-                    <tr>
-                      <th style="font-size: 14px !important; background-color:#2db3bf; color: white; text-align: justify;">Proceso Realizado</th>
-                      <th style="font-size: 14px !important; background-color:#2db3bf; color: white; text-align: justify;" scope="col">{{ item.proceso }}   </th>
-                   </tr>
-                  </thead>
-                </table>
-                <hr>
-                <div class="row">
-                   <div class="col-lg-4">
-                    <img *ngIf="activar" src="{{url}}{{item.urlFoto}}" style="margin: auto; width: 100%; height: 300px;" class="foto" alt="..."> 
-                    <span><a style="font-size: 18px; color: #2db3bf;font-weight: bold;" href="{{url}}{{item.urlFoto}}" target="_blank">
-                      Ver Imagen completa</a></span> 
-                   </div>
-                   <div class="col-lg-4">
-                    <img *ngIf="activar" src="{{url}}{{item.urlFoto2}}" style="margin: auto; width: 100%; height: 300px;" class="foto" alt="...">  
-                    <span><a style="font-size: 18px; color: #2db3bf;font-weight: bold;" href="{{url}}{{item.urlFoto2}}" target="_blank">
-                      Ver Imagen completa</a></span> 
-                   </div>
-                   <div class="col-lg-4">
-                    <img *ngIf="activar" src="{{url}}{{item.urlFoto3}}" style="margin: auto; width: 100%; height: 300px;" class="foto" alt="...">  
-                    <span><a style="font-size: 18px; color: #2db3bf;font-weight: bold;" href="{{url}}{{item.urlFoto3}}" target="_blank">
-                      Ver Imagen completa</a></span> 
-                   </div>
+            <table class="table table-responsive-lg">
+              <thead>
+                <tr>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #2db3bf;
+                      color: white;
+                      text-align: justify;
+                    "
+                  >
+                    Proceso Realizado
+                  </th>
+                  <th
+                    style="
+                      font-size: 14px !important;
+                      background-color: #2db3bf;
+                      color: white;
+                      text-align: justify;
+                    "
+                    scope="col"
+                  >
+                    {{ item.proceso }}
+                  </th>
+                </tr>
+              </thead>
+            </table>
+            <hr />
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img
+                    *ngIf="activar"
+                    src="{{ url }}{{ item.urlFoto }}"
+                    style="margin: auto; width: 100%; height: 300px"
+                    class="foto"
+                    alt="..."
+                  />
+                  <span
+                    ><a
+                      style="font-size: 18px; color: #2db3bf; font-weight: bold"
+                      href="{{ url }}{{ item.urlFoto }}"
+                      target="_blank"
+                    >
+                      Ver Imagen completa</a
+                    ></span
+                  >
                 </div>
-                 </div>  
-            
-          </div>  
-                   
-     </div>   <br>  
+                <div class="col-lg-4">
+                  <img
+                    *ngIf="activar"
+                    src="{{ url }}{{ item.urlFoto2 }}"
+                    style="margin: auto; width: 100%; height: 300px"
+                    class="foto"
+                    alt="..."
+                  />
+                  <span
+                    ><a
+                      style="font-size: 18px; color: #2db3bf; font-weight: bold"
+                      href="{{ url }}{{ item.urlFoto2 }}"
+                      target="_blank"
+                    >
+                      Ver Imagen completa</a
+                    ></span
+                  >
+                </div>
+                <div class="col-lg-4">
+                  <img
+                    *ngIf="activar"
+                    src="{{ url }}{{ item.urlFoto3 }}"
+                    style="margin: auto; width: 100%; height: 300px"
+                    class="foto"
+                    alt="..."
+                  />
+                  <span
+                    ><a
+                      style="font-size: 18px; color: #2db3bf; font-weight: bold"
+                      href="{{ url }}{{ item.urlFoto3 }}"
+                      target="_blank"
+                    >
+                      Ver Imagen completa</a
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
   </div>
-
- </div>
 </div>
-<br>
- 
+<br />
 
-
-<app-footer-paginas></app-footer-paginas> 
+<app-footer-paginas></app-footer-paginas>
