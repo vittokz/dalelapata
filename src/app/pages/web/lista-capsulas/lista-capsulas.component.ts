@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Banner } from "src/app/modelos/modulo-banner/banner-modelo";
 import { Capsulas } from "src/app/modelos/modulo-capsulas/capsulas-modelo";
 import { Fundacion } from "src/app/modelos/modulo-fundacion/fundacion-modelo";
 import { UserPagina } from "src/app/modelos/modulo-usuario/usuarioPagina-modelo";
+import { AdminBannerService } from "src/app/servicios/adminBanner/admin-banner.service";
 import { CapsulasService } from "src/app/servicios/capsulas/capsulas.service";
 import { FundacionService } from "src/app/servicios/fundacion/fundacion.service";
 import { UserPlataformaService } from "src/app/servicios/userPlataforma/user-plataforma.service";
@@ -17,6 +19,7 @@ export class ListaCapsulasComponent implements OnInit {
   url: string = environment.url;
   showModal2 = false;
   public isCollapsed = true;
+  listaBanner: Banner[];
   imagen: string;
   public isLogueado: Boolean = false;
   nomUsuario: string;
@@ -31,6 +34,7 @@ export class ListaCapsulasComponent implements OnInit {
   constructor(
     private capsulasService: CapsulasService,
     private ruta: Router,
+    private bannerService: AdminBannerService,
     private userPlataforma: UserPlataformaService,
     private fundacionService: FundacionService
   ) {}
@@ -38,6 +42,7 @@ export class ListaCapsulasComponent implements OnInit {
   ngOnInit(): void {
     this.razonSocial = "";
     this.cargarDatos();
+    this.cargarBanner();
     this.verificarAccesoUsuario();
     this.ruta.events.subscribe((event) => {
       this.isCollapsed = true;
@@ -52,6 +57,12 @@ export class ListaCapsulasComponent implements OnInit {
       this.nomUsuario = this.userPlataforma.getCurrentUser();
       this.cargarDatosUsuario();
     }
+  }
+
+  cargarBanner() {
+    this.bannerService.getBannerActivos().subscribe((resul) => {
+      this.listaBanner = resul;
+    });
   }
 
   cargarDatosUsuario() {

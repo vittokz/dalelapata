@@ -1,54 +1,114 @@
-<footer style="background-color:#2db3bf">
-    <div class="row" style="margin: auto; padding: 20px;">
-         <div class="col-lg-4">
-            <div class="card" style="width: 4;">
-                <div class="card-body">
-                  <h3 class="card-title" class="colorTitulos">EN DEFENSA DE LO NUESTRO</h3>
-                  <img src="assets/img/homePage/secretaria.jpg" style="width:100%" class="card-img-top" alt="...">
-                  <br><br>
-                  <button style="background-color: #2db3bf; color: white;" routerLink="/login-Admin" type="button" class="btn btn-info btn-lg btn-block">
-                    Administrar</button>
-                </div>
-              </div>
-         </div>    
-
-         <div class="col-lg-8">
-                <div class="card" style="width: 8;">
-                    <div class="card-body">
-                      <h3 class="card-title" class="colorTitulos">Para radicar quejas, reclamos, sugerencias únicamente
-                        a través de los correos electrónicos.</h3>
-                            <p class="card-text"> 
-                          Email: ambienteydesarrollo@narino.gov.co<br>
-                          Email: bienestaranimal@narino.gov.co<br>
-                        <hr>
-                        <h4>PABLO FRANKLIN AGUIRRE TUTALCHA - Secretario de Ambiente y Desarrollo Sostenible</h4>
-                        <hr>
-                        <div class="row">
-                            <div class="col-lg-3">
-                              <h3 class="colorTitulos">Copy Right © 2020</h3>
-                              <img class="my-0 mr-md-auto font-weight-normal" src="assets/img/brand/icono.png" width="70%"> 
-                            </div>
-                            <div class="col-lg-5"><br>
-                              <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/calendario.jpg">
-                                  <img style="width: 87; height: 70%;" src="assets/img/homePage/boton.png">
-                              </a>
-                 
-                            </div>
-                            <div class="col-lg-4">
-                             
-                              <carousel>
-                                <slide *ngFor="let b of listaAliados">
-                                  <a target="_blank" href="{{b.descripcion}}"><img src="{{url}}adminBanner/img/{{b.imagen}}" alt="{{b.nombre}}" 
-                                    style="margin: auto; display: block; width: 42%;"></a>
-                                    <div class="carousel-caption d-none d-md-block">      
-                                  </div>
-                                </slide>
-                              </carousel>         
-                            </div>
-                        </div>
-                      
-                    </div>
-                </div>       
-        </div> 
+<footer style="background-color: #2db3bf">
+  <div class="row" style="margin: auto; padding: 20px">
+    <div class="col-lg-4">
+      <div class="card" style="width: 4">
+        <div class="card-body">
+          <h3 class="card-title" class="colorTitulos">
+            EN DEFENSA DE LO NUESTRO
+          </h3>
+          <img
+            src="assets/img/homePage/secretaria.jpg"
+            style="width: 100%"
+            class="card-img-top"
+            alt="..."
+          />
+          <br /><br />
+          <button
+            style="background-color: #2db3bf; color: white"
+            routerLink="/login-Admin"
+            type="button"
+            class="btn btn-info btn-lg btn-block"
+          >
+            Administrar
+          </button>
+        </div>
+      </div>
     </div>
- </footer> 
+
+    <div class="col-lg-8">
+      <div class="card" style="width: 8">
+        <div class="card-body">
+          <h3 class="card-title" class="colorTitulos">
+            Para radicar quejas, reclamos, sugerencias únicamente a través de
+            los correos electrónicos.
+          </h3>
+          <p class="card-text">
+            Email: ambienteydesarrollo@narino.gov.co<br />
+            Email: bienestaranimal@narino.gov.co<br />
+          </p>
+
+          <hr />
+          <h4>
+            PABLO FRANKLIN AGUIRRE TUTALCHA - Secretario de Ambiente y
+            Desarrollo Sostenible
+          </h4>
+          <hr />
+          <div class="row">
+            <div class="col-lg-3">
+              <h3 class="colorTitulos">Copy Right © 2020</h3>
+              <img
+                class="my-0 mr-md-auto font-weight-normal"
+                src="assets/img/brand/icono.png"
+                width="70%"
+              />
+            </div>
+            <div class="col-lg-5">
+              <br />
+              <a
+                target="_blank"
+                href="https://dalelapata.narino.gov.co/archivos/footer/calendario.jpg"
+              >
+                <img
+                  style="width: 85%; height: 70%"
+                  src="assets/img/homePage/boton.png"
+                />
+              </a>
+            </div>
+            <div class="col-lg-4">
+              <br />
+              <a
+                target="_blank"
+                href="https://dalelapata.narino.gov.co/archivos/footer/politicas.pdf"
+              >
+                <img
+                  style="width: 100%; height: 70%"
+                  src="https://dalelapata.narino.gov.co/archivos/footer/botonPoliticas.jpg"
+                />
+              </a>
+              <!-- <carousel>
+                <slide *ngFor="let b of listaAliados">
+                  <a target="_blank" href="{{ b.descripcion }}"
+                    ><img
+                      src="{{ url }}adminBanner/img/{{ b.imagen }}"
+                      alt="{{ b.nombre }}"
+                      style="margin: auto; display: block; width: 42%"
+                  /></a>
+                  <div class="carousel-caption d-none d-md-block"></div>
+                </slide>
+              </carousel> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin: auto; padding: 20px">
+        <div class="col-lg-4">
+          <div class="card" style="width: 4">
+            <div class="card-body">
+              <carousel>
+                <slide *ngFor="let b of listaAliados">
+                  <a target="_blank" href="{{ b.descripcion }}"
+                    ><img
+                      src="{{ url }}adminBanner/img/{{ b.imagen }}"
+                      alt="{{ b.nombre }}"
+                      style="margin: auto; display: block; width: 42%"
+                  /></a>
+                  <div class="carousel-caption d-none d-md-block"></div>
+                </slide>
+              </carousel>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
