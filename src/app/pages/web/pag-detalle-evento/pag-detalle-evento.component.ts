@@ -1,41 +1,44 @@
-import { environment } from 'src/environments/environment.prod';
-import { Component, OnInit } from '@angular/core';
-import { EventosService } from '../../../servicios/eventos/eventos.service';
-import { Eventos } from '../../../modelos/modulo-eventos/evento-modelo';
-import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from "src/environments/environment.prod";
+import { Component, OnInit } from "@angular/core";
+import { EventosService } from "../../../servicios/eventos/eventos.service";
+import { Eventos } from "../../../modelos/modulo-eventos/evento-modelo";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-pag-detalle-evento',
-  templateUrl: './pag-detalle-evento.component.html',
-  styleUrls: ['./pag-detalle-evento.component.css']
+  selector: "app-pag-detalle-evento",
+  templateUrl: "./pag-detalle-evento.component.html",
+  styleUrls: ["./pag-detalle-evento.component.css"],
 })
 export class PagDetalleEventoComponent implements OnInit {
-  eventoDetalle: Eventos=new Eventos();
+  eventoDetalle: Eventos = new Eventos();
   url: string = environment.url;
   idEvento: string;
   evento: Eventos = new Eventos();
+  listImgEvento: any;
   public isCollapsed = true;
-  constructor(private eventoService: EventosService,private ruta: Router,
-    private rutaActiva: ActivatedRoute) {
-     this.idEvento = this.rutaActiva.snapshot.params.idEvento;
-     this.cargarEvento(this.idEvento);
-   }
+  constructor(
+    private eventoService: EventosService,
+    private ruta: Router,
+    private rutaActiva: ActivatedRoute
+  ) {
+    this.idEvento = this.rutaActiva.snapshot.params.idEvento;
+    this.cargarEvento(this.idEvento);
+    this.eventoService.getEventosVarios(this.idEvento).subscribe((data) => {
+      this.listImgEvento = data;
+    });
+  }
 
   ngOnInit(): void {
     this.isCollapsed = true;
   }
 
-  cargarEvento(idEvento: string){
-    this.eventoService.getEventoById(idEvento).subscribe(
-      event => {
-        this.evento = event;
-        console.log(this.evento);
-      }
-    );
+  cargarEvento(idEvento: string) {
+    this.eventoService.getEventoById(idEvento).subscribe((event) => {
+      this.evento = event;
+    });
   }
 
-  inicio(){
-    this.ruta.navigateByUrl('/home');
+  inicio() {
+    this.ruta.navigateByUrl("/home");
   }
-
 }
