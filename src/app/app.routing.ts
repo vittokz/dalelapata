@@ -78,6 +78,7 @@ import { UnidadMovilSolicitudesDetalleComponent } from "./pages/unidad-movil-sol
 import { AdminPodCastComponent } from "./pages/admin-pod-cast/admin-pod-cast.component";
 import { CapsulasComponent } from "./pages/capsulas/capsulas.component";
 import { ListaCapsulasComponent } from "./pages/web/lista-capsulas/lista-capsulas.component";
+import { AddMascotaPropietarioComponent } from "./pages/add-mascota-propietario/add-mascota-propietario.component";
 
 const routes: Routes = [
   {
@@ -320,6 +321,10 @@ const routes: Routes = [
   {
     path: "add-mascota-images/:parametro",
     component: AddMascotaImagenComponent,
+  },
+  {
+    path: "add-mascota-propietario/:parametro",
+    component: AddMascotaPropietarioComponent,
   },
   {
     path: "buscar-mascota",

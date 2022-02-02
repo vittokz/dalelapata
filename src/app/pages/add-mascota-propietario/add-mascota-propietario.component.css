@@ -1,0 +1,10 @@
+.centrar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+}
+.input-group-text {
+  background-color: rgb(225, 224, 224);
+  color: black;
+}

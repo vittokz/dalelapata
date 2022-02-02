@@ -5,11 +5,10 @@
   <app-navbar></app-navbar>
   <!-- Pages -->
 
-<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+  <div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
       <div class="header-body">
         <!-- Card stats -->
-        
 
         <div class="row">
           <div class="col-xl-3 col-lg-6">
@@ -17,297 +16,495 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <button routerLink="/mascotas-admin" class="btn btn-info"> ADOPTADAS </button>
+                    <button routerLink="/mascotas-admin" class="btn btn-info">
+                      ADOPTADAS
+                    </button>
                     <span class="h2 font-weight-bold mb-0"></span>
                   </div>
-                  
-                </div> 
+                </div>
               </div>
             </div>
-          </div>  
-          
+          </div>
+
           <div class="col-xl-3 col-lg-6">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0"> 
-                       <button class="btn btn-info" routerLink="/mascotasPorAdoptar-admin"> POR ADOPTAR </button>
+                    <h5 class="card-title text-uppercase text-muted mb-0">
+                      <button
+                        class="btn btn-info"
+                        routerLink="/mascotasPorAdoptar-admin"
+                      >
+                        POR ADOPTAR
+                      </button>
                     </h5>
                     <span class="h2 font-weight-bold mb-0"></span>
                   </div>
-                  
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
 
           <div class="col-xl-3 col-lg-6">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <button class="btn btn-info" routerLink="/mascotasExtraviadas-admin"> EXTRAVIADAS</button>
+                    <button
+                      class="btn btn-info"
+                      routerLink="/mascotasExtraviadas-admin"
+                    >
+                      EXTRAVIADAS
+                    </button>
                     <span class="h2 font-weight-bold mb-0"></span>
                   </div>
-                  
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
 
           <div class="col-xl-3 col-lg-6">
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <button class="btn btn-info" routerLink="/mascotasEncontradas-admin"> ENCONTRADAS </button>
+                    <button
+                      class="btn btn-info"
+                      routerLink="/mascotasEncontradas-admin"
+                    >
+                      ENCONTRADAS
+                    </button>
                     <span class="h2 font-weight-bold mb-0"></span>
                   </div>
-                  
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
-
-        
-
       </div>
     </div>
   </div>
 
-   <!-- Page content -->
-<div class="container-fluid mt--7">
-    
-      <div class="row mt-2">
-          <div class="col-lg-2 mb-2"> 
-            <a routerLink="/add-mascota"><img title="Agrega Mascota" src="assets/img/pagAdopcion/agregarMascota.png" class="imgMenu"></a>
-          </div>
-         
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <div class="row mt-2">
+      <div class="col-lg-2 mb-2">
+        <a routerLink="/add-mascota"
+          ><img
+            title="Agrega Mascota"
+            src="assets/img/pagAdopcion/agregarMascota.png"
+            class="imgMenu"
+        /></a>
       </div>
+    </div>
 
-       <!-- Se habilita para editar mascota-->
-       <div class="row mt-7" *ngIf="linkVer">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10" style="text-align: center; background-color: rgb(243, 241, 241);">
-          <div class="alert alert-danger" style="background-color: #2db3bf;color: white; font-size: 22px;" role="alert">
-           Información de Mascota a Editar
-           </div>
-          
-            <form [formGroup]="registro">
-              
-                <div class="form-row" style="border-color:#2db3bf!important;">
-                    <div class="form-group col-md-6">
-                        <label for="fundacion">Fundación</label>
-                        <select type="hidden" formControlName="fundacion" class="custom-select mr-sm-2">
-                            <option selected value="no"><span style="color: red;">NO PERTENECE A NINGUNA</span></option>
-                            <option *ngFor="let funda of fundaciones" value="{{ funda.idFundacion }}">{{funda.razonSocial | uppercase}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="fundacion">Número Chip</label>
-                      <input formControlName="chip" type="text" class="form-control" placeholder="Número de chip.">
-                      
-                    </div>
-                </div>  
-    
-                 <div class="form-row" style="border-color:#2db3bf!important;">
-                         
-    
-                       <div class="form-group col-md-3">
-                         <label for="Nombre">Nombre</label>
-                         <input formControlName="idMascota" type="hidden" class="form-control">
-                         <input formControlName="nombre" type="text" class="form-control">
-                         <div *ngIf="registro.controls['nombre'].invalid && registro.controls['nombre'].dirty" class="alert alert-danger" role="alert">
-                           Nombre es obligatorio
-                         </div>
-                       </div>
-                      
-                       <div class="form-group col-md-3">
-                         <label for="Edad">Edad</label>
-                         <input formControlName="edad" type="text" class="form-control" placeholder=" Ejemplo 2 Años, 5 Meses">
-                         <div *ngIf="registro.controls['edad'].invalid && registro.controls['edad'].dirty" class="alert alert-danger" role="alert">
-                           Edad es obligatorio
-                         </div>
-                       </div>
-                       <div class="form-group col-md-3">
-                         <label for="raza">Raza</label>
-                           <select formControlName="raza" class="custom-select mr-sm-2">
-                              <option *ngFor="let r of razas;let index = index" value="{{r.id}}" [selected]="index == 1">{{ r.nombre}}</option>
-                           </select>
-                       </div>
-                       <div class="form-group col-md-3">
-                         <label for="especie">Especie</label>
-                           <select formControlName="especie" class="custom-select mr-sm-2">
-                             <option selected value="Canino">CANINO</option>
-                             <option value="Felino">FELINO</option>
-                           </select>
-                       </div>
-                </div>
-    
-    
-                 <div class="form-row">
-                   <div class="form-group col-md-3">
-                     <label for="genero">Genero</label>
-                       <select formControlName="genero" class="custom-select mr-sm-2">
-                         <option selected value="MACHO">MACHO</option>
-                         <option value="HEMBRA">HEMBRA</option>
-                       </select>
-                   </div>
-                   <div class="form-group col-md-3">
-                     <label for="tamaño">Tamaño</label>
-                       <select formControlName="tamano" class="custom-select mr-sm-2">
-                         <option selected value="PEQUEÑO">PEQUEÑO</option>
-                         <option value="MEDIANO">MEDIANO</option>
-                         <option value="GRANDE">GRANDE</option>
-                       </select>
-                   </div>
-                   <div class="form-group col-md-3">
-                     <label for="Peso">Peso (Kg)</label>
-                     <input formControlName="peso" type="text" class="form-control" placeholder="Ejemplo 2 kilos">
-                     <div *ngIf="registro.controls['peso'].invalid && registro.controls['peso'].dirty" class="alert alert-danger" role="alert">
-                      Peso es obligatorio
-                     </div>
-                   </div>
-                   <div class="form-group col-md-3">
-                     <label for="ciudad">Ciudad</label>
-                       <select formControlName="ciudad" class="custom-select mr-sm-2">
-                         <option *ngFor="let c of ciudadesFormulario;let index = index" value="{{c.id}}" [selected]="index == 1">{{ c.nombre}}</option>
-                       </select>
-                   </div>
-               </div>
-    
-               <div class="form-row">
-                 <div class="form-group col-md-2">
-                   <label for="estado">Estado Mascota</label>
-                     <select formControlName="estadoMascota" class="custom-select mr-sm-2">
-                       <option selected value="1">Adoptada</option>
-                       <option value="2">Para Adopción</option>
-                       <option value="3">Encontrada</option>
-                       <option value="4">Extraviada</option>
-                       <option value="5">MicroChip</option>
-                     </select>
-                 </div>
-                 <div class="form-group col-md-2">
-                   <label for="Color">Color</label>
-                   <input formControlName="color" type="text" class="form-control">
-                   <div *ngIf="registro.controls['color'].invalid && registro.controls['color'].dirty" class="alert alert-danger" role="alert">
-                    Color es obligatorio
-                   </div>
-                 </div>
-                
-                 <div class="form-group col-md-5">
-                   <label for="descripcion">Descripción</label>
-                   <textarea cols="3" rows="2" formControlName="descripcion" class="form-control"></textarea>
-                   <div *ngIf="registro.controls['descripcion'].invalid && registro.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
-                     Descripcion es obligatorio
-                   </div>
-                 </div>
-                 <div class="form-group col-md-3">
-                  <label for="descripcion">Observación</label>
-                  <textarea cols="3" rows="2" formControlName="observacion" class="form-control" placeholder="Observacion de perdida de mascota"></textarea>
-                  <div *ngIf="registro.controls['observacion'].invalid && registro.controls['observacion'].dirty" class="alert alert-danger" role="alert">
-                    Observación es obligatorio
-                  </div>
-                </div>
-           </div>
-                
-                 <div title="Editar Mascota" class="text-center">
-                   <button [disabled]="!registro.valid" (click)="editarMascota()" 
-                   type="button" class="btn btn-danger my-4">Editar Datos Mascota</button>
-                   <button (click)="cancelar()" 
-                   type="button" class="btn btn-info my-4">Cancelar</button>
-                  
-                 </div>
-               </form>
-               <div *ngFor="let alert of alerts">
-                 <alert *ngIf="editado=='ok'" [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">
-                   {{ alert.msg }}
-                 </alert>
-                </div>
-    
-                <div *ngIf="editado=='error'">
-                  <div class="alert alert-danger" role="alert">
-                   Error al editar la mascota. Verifique!!!!
-                  </div>
-                </div>
-         </div>
-         <hr>
-     </div>
+    <!-- Se habilita para editar mascota-->
+    <div class="row mt-7" *ngIf="linkVer">
+      <div class="col-lg-1"></div>
+      <div
+        class="col-lg-10"
+        style="text-align: center; background-color: rgb(243, 241, 241)"
+      >
+        <div
+          class="alert alert-danger"
+          style="background-color: #2db3bf; color: white; font-size: 22px"
+          role="alert"
+        >
+          Información de Mascota a Editar
+        </div>
 
-      <!--Fin editar mascota-->
-
-
-     
-      <div class="row mt-4">
-        <div class="col">
-          <div class="card shadow">
-            <div class="card bg-secondary shadow">
-              <div class="card-header bg-white border-0">
-                  <div class="row align-items-center">
-                    <div class="col-8">
-                        <h3 class="mb-0">Lista de Mascotas</h3>
-                    </div>
-                    <div class="col-4 text-right">
-                      <button (click)="generarExcel(mascota,'listaMascotas')" title="Generar excel de Mascotas" class="btn btn-sm btn-primary">Generar Excel</button>
-                    </div>
-                  </div>
-              </div>
-                  <div *ngIf="eliminado=='ok'" class="alert alert-info" role="alert">
-                    Se eliminó correctamente la mascota.
-                  </div>
-                  <div *ngIf="eliminado=='error'" class="alert alert-danger" role="alert">
-                   Error eliminando mascota, verifique con el administrador!!!
-                  </div>
-  
-                  <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="mascota" noDataText="No se encontraron Datos" [showBorders]="true">
-  
-                    <dxo-search-panel [visible]="true" [width]=640 placeholder="Buscar Por cualquier campo...">
-                     
-                    </dxo-search-panel>
-                    
-                    <dxo-paging [pageSize]="10"></dxo-paging>
-  
-                    <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} Mascotas)" [showPageSizeSelector]="true">
-                    </dxo-pager>
-  
-                    <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
-                    <dxi-column dataField="numChip" alignment="center" caption="Número de MicroChip"></dxi-column>
-                    <dxi-column dataField="nombre" caption="Nombre"></dxi-column>
-                    <dxi-column dataField="edad" caption="Edad"></dxi-column>
-                    <dxi-column dataField="color" caption="Color"></dxi-column>
-                    <dxi-column dataField="idEspecie" caption="Especie"></dxi-column>
-                    <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
-                    <div *dxTemplate="let d of 'acciones'">
-                      <button target=”_blank” class="btn btn-info btn-sm" title="Ver información de Mascota" routerLink="/detalleMascotaWeb/{{d.data.idMascota}}">
-                        Ver</button>
-                      <button *ngIf="tipoUsuario=='Administrador'" class="btn btn-success btn-sm" title="Editar Mascota"
-                      (click)="habilitarVer(d.data)">
-                          Editar</button>
-                      <button *ngIf="tipoUsuario=='Administrador'" class="btn btn-danger btn-sm" title="Eliminar información de Mascota"
-                      (click)="eliminar(d.data)">
-                         Eliminar</button>
-                      <button class="btn btn-primary btn-sm" title="Agregar imagen de Mascota"
-                        routerLink="/add-mascota-images/{{d.data.idMascota}}">
-                            Agregar Img</button>
-                      <button class="btn btn-ligh btn-sm" title="Generar Informacion en Word"
-                        (click)="generarInfoMascota(d.data)">
-                         Generar Archivo
-                      </button>
-                    </div>
-  
-                </dx-data-grid>
+        <form [formGroup]="registro">
+          <div class="form-row" style="border-color: #2db3bf !important">
+            <div class="form-group col-md-6">
+              <label for="fundacion">Fundación</label>
+              <select
+                type="hidden"
+                formControlName="fundacion"
+                class="custom-select mr-sm-2"
+              >
+                <option selected value="no">
+                  <span style="color: red">NO PERTENECE A NINGUNA</span>
+                </option>
+                <option
+                  *ngFor="let funda of fundaciones"
+                  value="{{ funda.idFundacion }}"
+                >
+                  {{ funda.razonSocial | uppercase }}
+                </option>
+              </select>
             </div>
+            <div class="form-group col-md-6">
+              <label for="fundacion">Número Chip</label>
+              <input
+                formControlName="chip"
+                type="text"
+                class="form-control"
+                placeholder="Número de chip."
+              />
+            </div>
+          </div>
+
+          <div class="form-row" style="border-color: #2db3bf !important">
+            <div class="form-group col-md-3">
+              <label for="Nombre">Nombre</label>
+              <input
+                formControlName="idMascota"
+                type="hidden"
+                class="form-control"
+              />
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  registro.controls['nombre'].invalid &&
+                  registro.controls['nombre'].dirty
+                "
+                class="alert alert-danger"
+                role="alert"
+              >
+                Nombre es obligatorio
+              </div>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label for="Edad">Edad</label>
+              <input
+                formControlName="edad"
+                type="text"
+                class="form-control"
+                placeholder=" Ejemplo 2 Años, 5 Meses"
+              />
+              <div
+                *ngIf="
+                  registro.controls['edad'].invalid &&
+                  registro.controls['edad'].dirty
+                "
+                class="alert alert-danger"
+                role="alert"
+              >
+                Edad es obligatorio
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="raza">Raza</label>
+              <select formControlName="raza" class="custom-select mr-sm-2">
+                <option
+                  *ngFor="let r of razas; let index = index"
+                  value="{{ r.id }}"
+                  [selected]="index == 1"
+                >
+                  {{ r.nombre }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="especie">Especie</label>
+              <select formControlName="especie" class="custom-select mr-sm-2">
+                <option selected value="Canino">CANINO</option>
+                <option value="Felino">FELINO</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="genero">Genero</label>
+              <select formControlName="genero" class="custom-select mr-sm-2">
+                <option selected value="MACHO">MACHO</option>
+                <option value="HEMBRA">HEMBRA</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="tamaño">Tamaño</label>
+              <select formControlName="tamano" class="custom-select mr-sm-2">
+                <option selected value="PEQUEÑO">PEQUEÑO</option>
+                <option value="MEDIANO">MEDIANO</option>
+                <option value="GRANDE">GRANDE</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="Peso">Peso (Kg)</label>
+              <input
+                formControlName="peso"
+                type="text"
+                class="form-control"
+                placeholder="Ejemplo 2 kilos"
+              />
+              <div
+                *ngIf="
+                  registro.controls['peso'].invalid &&
+                  registro.controls['peso'].dirty
+                "
+                class="alert alert-danger"
+                role="alert"
+              >
+                Peso es obligatorio
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="ciudad">Ciudad</label>
+              <select formControlName="ciudad" class="custom-select mr-sm-2">
+                <option
+                  *ngFor="let c of ciudadesFormulario; let index = index"
+                  value="{{ c.id }}"
+                  [selected]="index == 1"
+                >
+                  {{ c.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="estado">Estado Mascota</label>
+              <select
+                formControlName="estadoMascota"
+                class="custom-select mr-sm-2"
+              >
+                <option selected value="1">Adoptada</option>
+                <option value="2">Para Adopción</option>
+                <option value="3">Encontrada</option>
+                <option value="4">Extraviada</option>
+                <option value="5">MicroChip</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="Color">Color</label>
+              <input formControlName="color" type="text" class="form-control" />
+              <div
+                *ngIf="
+                  registro.controls['color'].invalid &&
+                  registro.controls['color'].dirty
+                "
+                class="alert alert-danger"
+                role="alert"
+              >
+                Color es obligatorio
+              </div>
+            </div>
+
+            <div class="form-group col-md-5">
+              <label for="descripcion">Descripción</label>
+              <textarea
+                cols="3"
+                rows="2"
+                formControlName="descripcion"
+                class="form-control"
+              ></textarea>
+              <div
+                *ngIf="
+                  registro.controls['descripcion'].invalid &&
+                  registro.controls['descripcion'].dirty
+                "
+                class="alert alert-danger"
+                role="alert"
+              >
+                Descripcion es obligatorio
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="descripcion">Observación</label>
+              <textarea
+                cols="3"
+                rows="2"
+                formControlName="observacion"
+                class="form-control"
+                placeholder="Observacion de perdida de mascota"
+              ></textarea>
+              <div
+                *ngIf="
+                  registro.controls['observacion'].invalid &&
+                  registro.controls['observacion'].dirty
+                "
+                class="alert alert-danger"
+                role="alert"
+              >
+                Observación es obligatorio
+              </div>
+            </div>
+          </div>
+
+          <div title="Editar Mascota" class="text-center">
+            <button
+              [disabled]="!registro.valid"
+              (click)="editarMascota()"
+              type="button"
+              class="btn btn-danger my-4"
+            >
+              Editar Datos Mascota
+            </button>
+            <button
+              (click)="cancelar()"
+              type="button"
+              class="btn btn-info my-4"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+        <div *ngFor="let alert of alerts">
+          <alert
+            *ngIf="editado == 'ok'"
+            [type]="alert.type"
+            [dismissible]="dismissible"
+            (onClosed)="onClosed(alert)"
+          >
+            {{ alert.msg }}
+          </alert>
+        </div>
+
+        <div *ngIf="editado == 'error'">
+          <div class="alert alert-danger" role="alert">
+            Error al editar la mascota. Verifique!!!!
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <!--Fin editar mascota-->
+
+    <div class="row mt-4">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Lista de Mascotas</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <button
+                    (click)="generarExcel(mascota, 'listaMascotas')"
+                    title="Generar excel de Mascotas"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Generar Excel
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="eliminado == 'ok'"
+              class="alert alert-info"
+              role="alert"
+            >
+              Se eliminó correctamente la mascota.
+            </div>
+            <div
+              *ngIf="eliminado == 'error'"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Error eliminando mascota, verifique con el administrador!!!
+            </div>
+
+            <dx-data-grid
+              id="gridContainer"
+              [showColumnLines]="false"
+              [showRowLines]="true"
+              [hoverStateEnabled]="true"
+              [rowAlternationEnabled]="true"
+              [columnAutoWidth]="true"
+              [dataSource]="mascota"
+              noDataText="No se encontraron Datos"
+              [showBorders]="true"
+            >
+              <dxo-search-panel
+                [visible]="true"
+                [width]="640"
+                placeholder="Buscar Por cualquier campo..."
+              >
+              </dxo-search-panel>
+
+              <dxo-paging [pageSize]="10"></dxo-paging>
+
+              <dxo-pager
+                [visible]="true"
+                [showInfo]="true"
+                infoText="Pagina {0} de {1} ({2} Mascotas)"
+                [showPageSizeSelector]="true"
+              >
+              </dxo-pager>
+
+              <dxo-load-panel
+                [enabled]="true"
+                text="Cargando..."
+              ></dxo-load-panel>
+              <dxi-column
+                dataField="numChip"
+                alignment="center"
+                caption="Número de MicroChip"
+              ></dxi-column>
+              <dxi-column dataField="nombre" caption="Nombre"></dxi-column>
+              <dxi-column dataField="edad" caption="Edad"></dxi-column>
+              <dxi-column dataField="color" caption="Color"></dxi-column>
+              <dxi-column dataField="idEspecie" caption="Especie"></dxi-column>
+              <dxi-column
+                caption="Acciones"
+                cellTemplate="acciones"
+              ></dxi-column>
+              <div *dxTemplate="let d of 'acciones'">
+                <button
+                  target="”_blank”"
+                  class="btn btn-info btn-sm"
+                  title="Ver información de Mascota"
+                  routerLink="/detalleMascotaWeb/{{ d.data.idMascota }}"
+                >
+                  Ver
+                </button>
+                <button
+                  *ngIf="tipoUsuario == 'Administrador'"
+                  class="btn btn-success btn-sm"
+                  title="Editar Mascota"
+                  (click)="habilitarVer(d.data)"
+                >
+                  Editar
+                </button>
+                <button
+                  *ngIf="tipoUsuario == 'Administrador'"
+                  class="btn btn-danger btn-sm"
+                  title="Eliminar información de Mascota"
+                  (click)="eliminar(d.data)"
+                >
+                  Eliminar
+                </button>
+                <button
+                  class="btn btn-primary btn-sm"
+                  title="Agregar imagen de Mascota"
+                  routerLink="/add-mascota-images/{{ d.data.idMascota }}"
+                >
+                  Agregar Img
+                </button>
+                <button
+                  class="btn btn-primary btn-sm"
+                  title="Agregar propietario"
+                  routerLink="/add-mascota-propietario/{{ d.data.idMascota }}"
+                >
+                  Agregar Propietario
+                </button>
+                <button
+                  class="btn btn-ligh btn-sm"
+                  title="Generar Informacion en Word"
+                  (click)="generarInfoMascota(d.data)"
+                >
+                  Generar Archivo
+                </button>
+              </div>
+            </dx-data-grid>
+          </div>
         </div>
       </div>
 
-       
-     
-
-    
-  <router-outlet></router-outlet>
-</div>
-  <div class="container-fluid">
-    <app-footer></app-footer>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="container-fluid">
+      <app-footer></app-footer>
+    </div>
   </div>
+</div>
