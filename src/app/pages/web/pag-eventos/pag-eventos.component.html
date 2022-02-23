@@ -76,6 +76,16 @@
           >Unidad Movil</a
         >
       </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="font-weight: bold; font-size: 20px"
+          routerLink="/listaCapsulas"
+          >Dejando Huellas</a
+        >
+      </li>
+
       <li class="nav-item">
         <a
           class="nav-link"
@@ -97,7 +107,7 @@
           class="nav-link"
           style="font-weight: bold; font-size: 20px"
           routerLink="/pagEventos"
-          >Eventos Bienestar Animal</a
+          >Noticias</a
         >
       </li>
       <li *ngIf="isLogueado" class="nav-item">
@@ -172,7 +182,7 @@
         background-color: #2db3bf;
       "
     >
-      Eventos Programa Bienestar Animal por Municipio
+      Noticias Programa Bienestar Animal
     </div>
   </div>
 </div>
@@ -188,18 +198,18 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-12">
           <h2
             style="
               color: rgb(56, 55, 55);
               font-weight: bold;
               text-align: center;
-              font-size: 24;
+              font-size: 26;
             "
           >
-            ¿ Eventos ?
+            ¿ Noticias ?
           </h2>
-          <div style="text-align: justify; padding: 22px; color: black">
+          <div style="text-align: justify; padding: 24px; color: black">
             En esta sección se encuentran los eventos que registran las
             alcaldias de los municipios que pertenecen al Departamento de
             Nariño. <br /><br />
@@ -209,7 +219,7 @@
           <br />
         </div>
 
-        <div class="col-lg-5 order-md-2 mb-4">
+        <!--      <div class="col-lg-5 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <h3
               style="
@@ -236,7 +246,7 @@
               </option>
             </select>
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -246,7 +256,7 @@
     <div
       style="margin-top: 5px"
       class="col-md-4"
-      *ngFor="let itemEvento of listaEventos"
+      *ngFor="let itemEvento of listaNoticias"
     >
       <div
         class="card"
@@ -259,7 +269,7 @@
         "
       >
         <img
-          src="{{ url }}eventos/{{ itemEvento.urlImagen }}"
+          src="{{ url }}noticiasModulo/{{ itemEvento.urlImagen }}"
           class="foto"
           alt="..."
         />
@@ -270,14 +280,14 @@
           >
             {{ itemEvento.nombre | uppercase }}
           </h3>
-          <button
-            type="button"
+          <a
+            target="_blank"
             class="btn btn-info btn-lg btn-block"
             style="background-color: #2db3bf; color: white"
-            routerLink="/pagDetalleEventos/{{ itemEvento.idEvento }}"
+            href="{{ itemEvento.descripcion }}"
           >
             Ver más
-          </button>
+          </a>
         </div>
         <ul class="list-group list-group-flush">
           <li

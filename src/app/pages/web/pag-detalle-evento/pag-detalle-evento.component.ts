@@ -13,7 +13,7 @@ export class PagDetalleEventoComponent implements OnInit {
   eventoDetalle: Eventos = new Eventos();
   url: string = environment.url;
   idEvento: string;
-  evento: Eventos = new Eventos();
+  evento: Eventos[];
   listImgEvento: any;
   public isCollapsed = true;
   constructor(
