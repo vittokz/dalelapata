@@ -4,11 +4,13 @@
   <!-- Top navbar -->
   <app-navbar></app-navbar>
   <!-- Pages -->
-   <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+  <div
+    class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 50px"
+  >
     <!-- Mask -->
     <span class="mask bg-gradient-info opacity-8"></span>
     <!-- Header container -->
-    
   </div>
   <div class="container-fluid mt--7">
     <div class="row">
@@ -17,64 +19,122 @@
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
               <div class="col-8">
-                <h3 class="mb-0">Datos de Registro de Noticia Fauna Silvestre</h3>
+                <h3 class="mb-0">
+                  Datos de Registro de Noticia Fauna Silvestre
+                </h3>
               </div>
-              
             </div>
           </div>
           <div class="card-body">
             <form [formGroup]="formulario">
               <div class="pl-lg-4">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                              <label class="form-control-label">Nombre</label>
-                              <input type="text" formControlName="nombre" placeholder="Nombre noticia" class="form-control form-control-alternative">
-                                <div *ngIf="formulario.controls['nombre'].invalid && formulario.controls['nombre'].dirty" class="alert alert-danger" role="alert">
-                                  Nombre de la noticia es necesario
-                                </div>
-                            </div>
-                        </div><!-- fin col-->
-                    </div><!-- fin row-->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Nombre</label>
+                      <input
+                        type="text"
+                        formControlName="nombre"
+                        placeholder="Nombre noticia"
+                        class="form-control form-control-alternative"
+                      />
+                      <div
+                        *ngIf="
+                          formulario.controls['nombre'].invalid &&
+                          formulario.controls['nombre'].dirty
+                        "
+                        class="alert alert-danger"
+                        role="alert"
+                      >
+                        Nombre de la noticia es necesario
+                      </div>
+                    </div>
+                  </div>
+                  <!-- fin col-->
+                </div>
+                <!-- fin row-->
               </div>
               <!-- Description -->
-                <div class="pl-lg-4">
-                      <div class="form-group">
-                        <label>Descripción</label>
-                        <textarea formControlName="descripcion" placeholder="Descripción de la noticia" rows="4" class="form-control form-control-alternative"></textarea>
-                          <div *ngIf="formulario.controls['descripcion'].invalid && formulario.controls['descripcion'].dirty" class="alert alert-danger" role="alert">
-                            Descripción es necesario
-                          </div>
-                      </div>
-                </div>
-
-                <div class="pl-lg-4">
-                  <div class="form-group">
-                    <label>Imagen</label>
-                    <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" />     
+              <div class="pl-lg-4">
+                <div class="form-group">
+                  <label>Descripción</label>
+                  <textarea
+                    formControlName="descripcion"
+                    placeholder="Descripción de la noticia"
+                    rows="4"
+                    class="form-control form-control-alternative"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      formulario.controls['descripcion'].invalid &&
+                      formulario.controls['descripcion'].dirty
+                    "
+                    class="alert alert-danger"
+                    role="alert"
+                  >
+                    Descripción es necesario
                   </div>
                 </div>
-                
-               
-                
-              
-             <div class="text-center">
-                <button type="button" [disabled]="!formulario.valid" (click)="agregarNoticia()" class="btn btn-primary">Registrar</button>
               </div>
-            </form><hr>
-            <div *ngIf="envioForm" class="alert alert-primary alert-dismissible fade show" role="alert">
-              <strong>  Noticia registrada con éxito</strong> 
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+              <div class="pl-lg-4">
+                <div class="form-group">
+                  <label>Fecha </label>
+                  <input
+                    type="date"
+                    formControlName="fechaEvento"
+                    class="form-control form-control-alternative"
+                  />
+                </div>
+              </div>
+
+              <div class="pl-lg-4">
+                <div class="form-group">
+                  <label>Imagen</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    name="avatar"
+                    (change)="onFileSelect($event)"
+                  />
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button
+                  type="button"
+                  [disabled]="!formulario.valid"
+                  (click)="agregarNoticia()"
+                  class="btn btn-primary"
+                >
+                  Registrar
+                </button>
+              </div>
+            </form>
+            <hr />
+            <div
+              *ngIf="envioForm"
+              class="alert alert-primary alert-dismissible fade show"
+              role="alert"
+            >
+              <strong> Noticia registrada con éxito</strong>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-          </div><!-- fin card body-->
+          </div>
+          <!-- fin card body-->
         </div>
       </div>
     </div>
   </div>
   <router-outlet></router-outlet>
 </div>
-  <div class="container-fluid">
-    <app-footer></app-footer>
-  </div>
+<div class="container-fluid">
+  <app-footer></app-footer>
+</div>

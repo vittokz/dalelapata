@@ -214,7 +214,7 @@
             <br />
             <br />
 
-            <p style="color: black; font-weight: 800; text-align: center">
+            <!--  <p style="color: black; font-weight: 800; text-align: center">
               <span
                 style="
                   color: rgb(248, 111, 61);
@@ -225,7 +225,7 @@
               >
               <br />Perros y gatos, han sido esterilizados en el Departamento de
               Nariño, en lo corrido del año 2021.
-            </p>
+            </p> -->
 
             <hr />
           </div>
@@ -234,10 +234,29 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12" style="text-align: center">
+        <div class="col-lg-6" style="display: flex; justify-content: start">
+          <div class="card" style="width: 100%; background-color: transparent">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 18px">
+                Descargar reporte de Esterilizaciones
+              </h5>
+              <h6
+                class="card-subtitle mb-2 text-muted"
+                style="font-size: 16px; cursor: pointer"
+              >
+                <a
+                  href="https://dalelapata.narino.gov.co/archivos/um/ESTERILIZACIONES2021.docx"
+                  target="_blank"
+                  >+ Esterilizaciones 2021</a
+                >
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" style="text-align: center">
           <!--  <img style="display: flex; align-items: center∫;" src="assets/img/homePage/unidadMovil.jpg" width="60%"> -->
           <video
-            width="70%"
+            width="100%"
             src="https://dalelapata.narino.gov.co/archivos/um/Unidad Móvil_1080p.mp4"
             controls
           >
@@ -405,59 +424,73 @@
               </thead>
             </table>
             <hr />
-            <div class="container-fluid">
+            <div>
               <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4" *ngIf="item.urlFoto != 'no'">
                   <img
                     *ngIf="activar"
                     src="{{ url }}{{ item.urlFoto }}"
-                    style="margin: auto; width: 100%; height: 300px"
+                    style="
+                      width: 50%;
+
+                      height: 170px;
+                      border-radius: 50%;
+                    "
                     class="foto"
                     alt="..."
-                  />
+                  /><br />
                   <span
                     ><a
-                      style="font-size: 18px; color: #2db3bf; font-weight: bold"
+                      style="
+                        font-size: 18px;
+                        color: #2db3bf;
+                        font-weight: bold;
+                        border-radius: 50%;
+                      "
                       href="{{ url }}{{ item.urlFoto }}"
                       target="_blank"
                     >
-                      Ver Imagen completa</a
+                      Ver</a
                     ></span
                   >
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" *ngIf="item.urlFoto != 'no'">
                   <img
                     *ngIf="activar"
                     src="{{ url }}{{ item.urlFoto2 }}"
-                    style="margin: auto; width: 100%; height: 300px"
+                    style="
+                      width: 50% !important;
+                      height: 170px;
+                      border-radius: 50%;
+                    "
                     class="foto"
                     alt="..."
-                  />
+                  /><br />
                   <span
                     ><a
                       style="font-size: 18px; color: #2db3bf; font-weight: bold"
                       href="{{ url }}{{ item.urlFoto2 }}"
                       target="_blank"
                     >
-                      Ver Imagen completa</a
+                      Ver</a
                     ></span
                   >
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" *ngIf="item.urlFoto != 'no'">
                   <img
                     *ngIf="activar"
                     src="{{ url }}{{ item.urlFoto3 }}"
-                    style="margin: auto; width: 100%; height: 300px"
+                    style="width: 50%; height: 170px; border-radius: 50%"
                     class="foto"
                     alt="..."
-                  />
+                  /><br />
                   <span
                     ><a
                       style="font-size: 18px; color: #2db3bf; font-weight: bold"
                       href="{{ url }}{{ item.urlFoto3 }}"
                       target="_blank"
                     >
-                      Ver Imagen completa</a
+                      Ver</a
                     ></span
                   >
                 </div>
@@ -466,7 +499,6 @@
           </div>
         </div>
       </div>
-      <br />
     </div>
   </div>
 </div>

@@ -280,7 +280,7 @@
         />
         <div class="card-body">
           <h3
-            style="text-align: center; font-size: 12px !important"
+            style="text-align: center; font-size: 14px !important"
             class="card-title"
           >
             {{ itemEvento.nombre | uppercase }}
@@ -293,6 +293,32 @@
           >
             Ver más
           </a>
+          <br />
+          <h3
+            style="
+              display: flex;
+              justify-content: center;
+              color: rgb(75, 74, 75);
+              font-size: 16px;
+              align-items: center;
+              font-weight: bold;
+            "
+          >
+            Fecha del evento
+          </h3>
+          <span
+            class="text-center"
+            style="
+              display: flex;
+              justify-content: center;
+              color: fuchsia;
+              font-size: 18px;
+              align-items: center;
+              font-weight: bold;
+            "
+          >
+            {{ itemEvento.fechaEvento | date: "dd-M-yyyy" }}
+          </span>
         </div>
 
         <div

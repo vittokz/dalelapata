@@ -232,15 +232,41 @@
           >
             {{ itemNoticia.nombre | uppercase }}
           </h3>
-          <button
+          <a
+            target="_blank"
             type="button"
             class="btn btn-info btn-lg btn-block"
             style="background-color: #2db3bf; color: white"
-            (click)="irDetalleNoticia(itemNoticia)"
+            href="{{ itemNoticia.descripcion }}"
           >
             Ver más
-          </button>
+          </a>
         </div>
+        <h3
+          style="
+            display: flex;
+            justify-content: center;
+            color: rgb(75, 74, 75);
+            font-size: 16px;
+            align-items: center;
+            font-weight: bold;
+          "
+        >
+          Fecha del evento
+        </h3>
+        <span
+          class="text-center"
+          style="
+            display: flex;
+            justify-content: center;
+            color: fuchsia;
+            font-size: 18px;
+            align-items: center;
+            font-weight: bold;
+          "
+        >
+          {{ itemNoticia.fechaEvento | date: "dd-M-yyyy" }}
+        </span>
       </div>
     </div>
     <br />

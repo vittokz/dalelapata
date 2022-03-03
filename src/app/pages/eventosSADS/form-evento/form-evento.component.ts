@@ -54,7 +54,7 @@ export class FormEventoComponent implements OnInit {
       //municipio: ["", Validators.required],
       nombre: ["", Validators.required],
       descripcion: ["", Validators.required],
-      //  fechaEvento: ['',],
+      fechaEvento: [""],
       avatar: ["", Validators.required],
     });
   }
@@ -71,7 +71,7 @@ export class FormEventoComponent implements OnInit {
     //formData.append("municipio", this.formulario.get("municipio").value);
     formData.append("nombre", this.formulario.get("nombre").value);
     formData.append("descripcion", this.formulario.get("descripcion").value);
-    // formData.append("fechaEvento", this.formulario.get("fechaEvento").value);
+    formData.append("fechaEvento", this.formulario.get("fechaEvento").value);
     formData.append("avatar", this.formulario.get("avatar").value);
     formData.append("usuarioRegistro", this.identidadUsuario);
     this.eventoService.uploadFile(formData).subscribe(
