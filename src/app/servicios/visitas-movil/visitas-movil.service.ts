@@ -80,6 +80,11 @@ export class VisitasMovilService {
   listarDocumentosTodos(): Observable<any[]> {
     return this.http.get<any[]>(this.url + "getAllListaDocumentos.php");
   }
+  listarDocumentosTodosByNombreMunicipio(): Observable<any[]> {
+    return this.http.get<any[]>(
+      this.url + "getAllListaDocumentosByNombreMunicipio.php"
+    );
+  }
   //adicionar visitas unidad movil
   addVisita(visita: UnidadMovil): Observable<any> {
     let headers: any = new HttpHeaders({ "Content-Type": "application/json" }),

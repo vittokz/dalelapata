@@ -4,65 +4,108 @@
   <!-- Top navbar -->
   <app-navbar></app-navbar>
   <!-- Pages -->
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 50px;">
+  <div
+    class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 50px"
+  >
     <!-- Mask -->
     <span class="mask bg-gradient-info opacity-8"></span>
     <!-- Header container -->
-    
   </div>
 
-
-   <!-- Page content -->
-<div class="container-fluid mt--7">
-  <!-- Table -->
-  <div class="row">
-    <div class="col">
-      <div class="card bg-secondary shadow">
-        <div class="card-header bg-white border-0">
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
             <div class="row align-items-center">
-              <div class="col-8">
-                  <h3 class="mb-0">Lista de Solicitudes Unidad Movil</h3>
-                  <br>
-                  <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <strong>  Noticia eliminada con éxito</strong>   
+              <div
+                class="col-8"
+                style="display: flex; justify-content: space-around"
+              >
+                <h3 class="mb-0">Lista de Solicitudes Unidad Movil</h3>
+                <br />
+                <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>  Noticia eliminada con éxito</strong>
                   </div>
                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>  Error al eliminar, verifique con el administrador!!!</strong>   
+                    <strong>  Error al eliminar, verifique con el administrador!!!</strong>
                   </div> -->
+                <div class="col-4 text-right">
+                  <button
+                    (click)="
+                      generarExcel(
+                        listaDocumentosByNombreMunicipio,
+                        'listaSolicitudesUnidadMovil'
+                      )
+                    "
+                    title="Generar excel de Solicitudes"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Generar Excel
+                  </button>
+                </div>
               </div>
-                  </div>
-        </div>
-       
-
-        <dx-data-grid id="gridContainer" [showColumnLines]="false" [showRowLines]="true" [hoverStateEnabled]="true" 
-        [rowAlternationEnabled]="true" [columnAutoWidth]="true" [dataSource]="ciudadesFormulario" noDataText="No se encontraron Datos" [showBorders]="true">
-
-          <dxo-search-panel [visible]="true" [width]=440 placeholder="Buscar..."></dxo-search-panel>
-          <dxo-paging [pageSize]="10"></dxo-paging>
-
-          <dxo-pager [visible]="true" [showInfo]="true" infoText="Pagina {0} de {1} ({2} ciudades)" [showPageSizeSelector]="true">
-          </dxo-pager>
-
-          <dxo-load-panel [enabled]="true" text="Cargando..."></dxo-load-panel>
-          <dxi-column dataField="nombre" alignment="center" caption="Municipio"></dxi-column>
-          <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
-          <div *dxTemplate="let d of 'acciones'">
-        
-            <button routerLink="/unidadMovilSolicitudesDetalle/{{d.data.id}}/{{d.data.nombre}}" class="btn btn-info btn-sm" title="Ver información de la solicitud por municipio">
-              Ver</button>
-            
+            </div>
           </div>
 
-      </dx-data-grid>
+          <dx-data-grid
+            id="gridContainer"
+            [showColumnLines]="false"
+            [showRowLines]="true"
+            [hoverStateEnabled]="true"
+            [rowAlternationEnabled]="true"
+            [columnAutoWidth]="true"
+            [dataSource]="ciudadesFormulario"
+            noDataText="No se encontraron Datos"
+            [showBorders]="true"
+          >
+            <dxo-search-panel
+              [visible]="true"
+              [width]="440"
+              placeholder="Buscar..."
+            ></dxo-search-panel>
+            <dxo-paging [pageSize]="10"></dxo-paging>
+
+            <dxo-pager
+              [visible]="true"
+              [showInfo]="true"
+              infoText="Pagina {0} de {1} ({2} ciudades)"
+              [showPageSizeSelector]="true"
+            >
+            </dxo-pager>
+
+            <dxo-load-panel
+              [enabled]="true"
+              text="Cargando..."
+            ></dxo-load-panel>
+            <dxi-column
+              dataField="nombre"
+              alignment="center"
+              caption="Municipio"
+            ></dxi-column>
+            <dxi-column caption="Acciones" cellTemplate="acciones"></dxi-column>
+            <div *dxTemplate="let d of 'acciones'">
+              <button
+                routerLink="/unidadMovilSolicitudesDetalle/{{ d.data.id }}/{{
+                  d.data.nombre
+                }}"
+                class="btn btn-info btn-sm"
+                title="Ver información de la solicitud por municipio"
+              >
+                Ver
+              </button>
+            </div>
+          </dx-data-grid>
+        </div>
       </div>
     </div>
+
+    <router-outlet></router-outlet>
   </div>
-
-
- 
-
-  <router-outlet></router-outlet>
-</div>
   <div class="container-fluid">
     <app-footer></app-footer>
   </div>
+</div>
