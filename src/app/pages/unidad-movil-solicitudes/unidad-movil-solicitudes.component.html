@@ -22,8 +22,8 @@
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
               <div
-                class="col-8"
-                style="display: flex; justify-content: space-around"
+                class="col-lg-6"
+                
               >
                 <h3 class="mb-0">Lista de Solicitudes Unidad Movil</h3>
                 <br />
@@ -33,20 +33,29 @@
                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>  Error al eliminar, verifique con el administrador!!!</strong>
                   </div> -->
-                <div class="col-4 text-right">
-                  <button
-                    (click)="
-                      generarExcel(
-                        listaDocumentosByNombreMunicipio,
-                        'listaSolicitudesUnidadMovil'
-                      )
-                    "
-                    title="Generar excel de Solicitudes"
-                    class="btn btn-sm btn-primary"
-                  >
-                    Generar Excel
-                  </button>
-                </div>
+               
+              </div>
+              <div class="col-lg-6 text-right">
+                <button
+                  (click)="
+                    generarExcel(
+                      listaDocumentosByNombreMunicipio,
+                      'listaSolicitudesUnidadMovil'
+                    )
+                  "
+                  title="Generar excel de Solicitudes"
+                  class="btn btn-sm btn-primary"
+                >
+                  Generar Excel
+                </button>
+                <button
+                (click)="cambiarEstadoConvocatoria()"
+                title="Generar excel de Solicitudes"
+                class="btn btn-sm btn-primary"
+              >
+              {{titleBoton}} botones registro convocatoria
+              </button>
+                
               </div>
             </div>
           </div>

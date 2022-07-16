@@ -6,6 +6,7 @@ import { ExportarService } from "src/app/servicios/exportarExcel/exportar.servic
 import { FundacionService } from "src/app/servicios/fundacion/fundacion.service";
 import { MascotasService } from "src/app/servicios/mascotas/mascotas.service";
 import { UserPlataformaService } from "src/app/servicios/userPlataforma/user-plataforma.service";
+import { AuthUsuariosService } from "src/app/servicios/usuariosAdmin/auth-usuarios.service";
 import { VisitasMovilService } from "src/app/servicios/visitas-movil/visitas-movil.service";
 import { environment } from "src/environments/environment.prod";
 
@@ -28,13 +29,16 @@ export class UnidadMovilSolicitudesComponent implements OnInit {
   listaDocumentos: any[];
   listaDocumentosByNombreMunicipio: any[];
   url: string = environment.url;
+  botonEstado: string;
+  titleBoton: string ="";
 
   constructor(
     private userPlataformaService: UserPlataformaService,
     private visitaService: VisitasMovilService,
     private fundacionService: FundacionService,
     private mascotaService: MascotasService,
-    private exportExcelService: ExportarService
+    private exportExcelService: ExportarService,
+    private authService: AuthUsuariosService
   ) {}
 
   ngOnInit(): void {
@@ -42,6 +46,31 @@ export class UnidadMovilSolicitudesComponent implements OnInit {
     this.cargarDatosUsuario();
     this.cargarCiudades();
     this.cargarListaDocumentos();
+    this.validarComponentesActivos();
+  }
+
+  validarComponentesActivos() {
+    this.authService.getComponentesActivosAll().subscribe((resp: any)=>{
+     
+        if(resp[0].estado === 'Activo') {
+          this.titleBoton ="Inactivar"
+         }
+         else{
+          this.titleBoton ="Activar";
+         } 
+    });
+   }
+
+   cambiarEstadoConvocatoria(){
+    if(this.titleBoton ==="Inactivar"){
+        this.authService.updateComponentes('Activo').subscribe(resp=>{
+          this.validarComponentesActivos();
+        });
+    }else{
+      this.authService.updateComponentes('Inactivo').subscribe(resp=>{
+        this.validarComponentesActivos();
+      });
+    }
   }
 
   cargarListaDocumentos() {
@@ -57,12 +86,16 @@ export class UnidadMovilSolicitudesComponent implements OnInit {
       });
   }
 
+ 
+
   cargarCiudades() {
     this.mascotaService.getCiudades().subscribe((data) => {
       this.ciudadesFormulario = data;
       console.log(this.ciudadesFormulario);
     });
   }
+
+  
 
   cargarDatosUsuario() {
     this.userPlataformaService

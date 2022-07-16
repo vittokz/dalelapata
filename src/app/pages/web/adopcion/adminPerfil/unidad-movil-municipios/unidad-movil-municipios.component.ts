@@ -4,6 +4,7 @@ import { Fundacion } from "src/app/modelos/modulo-fundacion/fundacion-modelo";
 import { UserPagina } from "src/app/modelos/modulo-usuario/usuarioPagina-modelo";
 import { FundacionService } from "src/app/servicios/fundacion/fundacion.service";
 import { UserPlataformaService } from "src/app/servicios/userPlataforma/user-plataforma.service";
+import { AuthUsuariosService } from "src/app/servicios/usuariosAdmin/auth-usuarios.service";
 import { VisitasMovilService } from "src/app/servicios/visitas-movil/visitas-movil.service";
 import { environment } from "src/environments/environment.prod";
 
@@ -24,6 +25,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   formulario: FormGroup;
   envioForm: boolean = false;
   cargando: boolean = false;
+  botonRegistrar: string;
   listaDocumentos: any[];
   url: string = environment.url;
 
@@ -31,7 +33,8 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
     private userPlataformaService: UserPlataformaService,
     private fundacionService: FundacionService,
     private formBuilder: FormBuilder,
-    private visitaService: VisitasMovilService
+    private visitaService: VisitasMovilService,
+    private authService: AuthUsuariosService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +42,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
     this.identidadUsuario = this.userPlataformaService.getCurrentUser();
     this.cargarDatosUsuario();
     this.cargarListaDocumentos();
+    this.validarComponentesActivos();
   }
   cargarListaDocumentos() {
     this.visitaService
@@ -48,6 +52,12 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
         console.log(this.listaDocumentos);
       });
   }
+
+  validarComponentesActivos() {
+    this.authService.getComponentesActivos('unidadMovilMunicipios').subscribe((resp: any)=>{
+      this.botonRegistrar = resp[0].estado;
+    });
+   }
 
   crearFormulario() {
     this.formulario = this.formBuilder.group({
@@ -75,10 +85,8 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   }
 
   cargarDatosFundacion(idFundacion: string) {
-    console.log("idFundacion:", idFundacion);
     this.fundacionService.getFundacionId(idFundacion).subscribe((resul) => {
       this.fundacion = resul;
-      console.log("fundacion:", this.fundacion);
       this.razonSocial = this.fundacion[0].razonSocial;
       this.identidadFundacion = this.fundacion[0].identidad;
       this.municipio = this.fundacion[0].municipio;

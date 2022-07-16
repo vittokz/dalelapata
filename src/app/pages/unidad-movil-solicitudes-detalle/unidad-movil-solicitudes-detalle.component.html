@@ -43,6 +43,7 @@
                 <table class="table table-info">
                   <tbody class="itemTabla">
                     <tr class="hoverTr">
+                      <th scope="col">QUIEN CARGO</th>
                       <th scope="col">MODIFICO</th>
                       <th scope="col">ADJUNTO</th>
                       <th scope="col">FECHA REGISTRO</th>
@@ -56,6 +57,7 @@
                       style="background-color: aliceblue"
                       *ngFor="let item of listaDocumentos"
                     >
+                      <td>{{ item.usuarioRegistro }}</td>
                       <td>{{ item.usuarioComento }}</td>
                       <td>{{ item.tipoArchivo }}</td>
                       <td>{{ item.fechaRegistro }}</td>

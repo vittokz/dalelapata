@@ -8,6 +8,7 @@ import { FundacionService } from "../../../../servicios/fundacion/fundacion.serv
 import { TipoFundacionService } from "../../../../servicios/fundacion/tipo-fundacion.service";
 import { MascotasService } from "../../../../servicios/mascotas/mascotas.service";
 import { Ciudad } from "../../../../modelos/modulo-ciudades/ciudades-modelo";
+import { AuthUsuariosService } from "src/app/servicios/usuariosAdmin/auth-usuarios.service";
 
 @Component({
   selector: "app-registrar-fundacion",
@@ -22,6 +23,7 @@ export class RegistrarFundacionComponent implements OnInit {
   envioForm: string;
   dismissible = true;
   alerts: any;
+  botonRegistrar: string;
   defaultAlerts: any[] = [
     {
       type: "info",
@@ -32,7 +34,8 @@ export class RegistrarFundacionComponent implements OnInit {
     private formBuild: FormBuilder,
     private fundacionService: FundacionService,
     private tipoFundacionService: TipoFundacionService,
-    private mascotaService: MascotasService
+    private mascotaService: MascotasService,
+    private authService: AuthUsuariosService
   ) {
     this.alerts = this.defaultAlerts;
   }
@@ -40,6 +43,13 @@ export class RegistrarFundacionComponent implements OnInit {
     this.crearFormulario();
     this.cargarTiposFundacion();
     this.cargarCiudades();
+    this.validarComponentesActivos();
+  }
+  validarComponentesActivos() {
+   this.authService.getComponentesActivos('registrarFundacion').subscribe((resp: any)=>{
+        this.botonRegistrar = resp[0].estado;
+  
+   });
   }
 
   onClosed(dismissedAlert: any): void {

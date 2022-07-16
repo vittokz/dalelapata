@@ -83,4 +83,16 @@ export class AuthUsuariosService {
   getUsuarioPorIdentidad(identidad:string):Observable<UserInterface[]>{
      return this.http.get<UserInterface[]>(this.url + "getUsuarioPorIdentidad.php?idenUsuario=" + identidad);
  }
+
+ getComponentesActivos(ruta:string):Observable<any[]>{
+  return this.http.get<any[]>(this.url + "getComponentesActivos.php?ruta=" + ruta);
+}
+
+getComponentesActivosAll():Observable<any[]>{
+  return this.http.get<any[]>(this.url + "getComponentesActivosAll.php");
+}
+updateComponentes(estado:string):Observable<any[]>{
+  return this.http.get<any[]>(this.url + "updateComponentes.php?estado=" + estado);
+}
+
 }

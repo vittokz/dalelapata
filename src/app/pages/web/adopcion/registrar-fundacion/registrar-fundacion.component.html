@@ -274,6 +274,7 @@
 
             <div title="Registrar nuevo usuario" class="text-center">
               <button
+              *ngIf="botonRegistrar =='Activo'; else mensaje"
                 [disabled]="!registro.valid"
                 (click)="agregarFundacion()"
                 style="background-color: #2db3bf; color: white"
@@ -282,6 +283,9 @@
               >
                 Registrarse
               </button>
+              <ng-template #mensaje>
+                  <h3 style="color: rgb(238, 35, 35)">Registro Inactivo por cierre de convocatoria!!!</h3>
+              </ng-template>
             </div>
           </form>
           <hr />
