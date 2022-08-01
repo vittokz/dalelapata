@@ -24,6 +24,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
+                                <h1>Fecha Programada : {{fechaRegistroVisita}}</h1>
                         
                                 Cargue la informacion solicitada completamente. Lista de formatos a descargar.<br><br>
                                 <ul>
@@ -71,11 +72,11 @@
                 
                 <div class="col-lg-12">
                             <div class="form-group">
-                                <button  *ngIf="botonRegistrar==='Activo'; else mensaje" [disabled]="!formulario.valid" title="Subir Documento" class="btn btn-danger" (click)="subirArchivos()">
+                                <button  [disabled]="!formulario.valid" title="Subir Documento" class="btn btn-danger" (click)="subirArchivos()">
                                     Subir Documento</button>
-                                    <ng-template #mensaje>
+                                    <!-- <ng-template #mensaje>
                                         <h3 style="color: rgb(238, 35, 35)">Registro Inactivo por cierre de convocatoria!!!</h3>
-                                    </ng-template>
+                                    </ng-template> -->
                             </div>
                     </div>
                 </div>

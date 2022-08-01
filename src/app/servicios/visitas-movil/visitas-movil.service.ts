@@ -77,6 +77,15 @@ export class VisitasMovilService {
         idMunicipio
     );
   }
+
+  cargarSelectIdentidades(idMunicipio: string): Observable<any[]> {
+    return this.http.get<any[]>(
+      this.url +
+        "getListaNitRegistrados.php?idMunicipio=" +
+        idMunicipio
+    );
+  }
+
   listarDocumentosTodos(): Observable<any[]> {
     return this.http.get<any[]>(this.url + "getAllListaDocumentos.php");
   }
@@ -122,6 +131,21 @@ export class VisitasMovilService {
       };
     return this.http.post(
       this.url + "updateVisita.php",
+      JSON.stringify(options),
+      headers
+    );
+  }
+
+  //editar fecha visita
+  updateFechaVisita(fechaVisita: string, idUsuarioRegistro: string, nit: string): Observable<any> {
+    let headers: any = new HttpHeaders({ "Content-Type": "application/json" }),
+      options: any = {
+        fecha: fechaVisita,
+        usuarioRegistro: idUsuarioRegistro,
+        nit: nit
+      };
+    return this.http.post(
+      this.url + "updateFechaVisita.php",
       JSON.stringify(options),
       headers
     );

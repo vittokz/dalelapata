@@ -28,6 +28,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   botonRegistrar: string;
   listaDocumentos: any[];
   url: string = environment.url;
+  fechaRegistroVisita: string = "";
 
   constructor(
     private userPlataformaService: UserPlataformaService,
@@ -49,7 +50,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
       .listarDocumentosByIdentidad(this.identidadUsuario)
       .subscribe((dataLista) => {
         this.listaDocumentos = dataLista;
-        console.log(this.listaDocumentos);
+        this.fechaRegistroVisita = this.listaDocumentos[0].fechaVisitaProgramada;
       });
   }
 

@@ -68,6 +68,7 @@ export class MascotasComponent implements OnInit {
   cargarMascotasAdoptadas(){
     this.mascotaService.getMascotasAdoptadas().subscribe(
       data=>{
+        console.log('mascotas',data);
         this.mascotas = data;
         this.cantidad =this.mascotas.length;
         this.mascotasSel = this.mascotas;
@@ -76,10 +77,12 @@ export class MascotasComponent implements OnInit {
   }
 
   agregarLogros(idMascota: string){
+    debugger;
      this.mascotaService.getUsuarioPorIdMascota(idMascota).subscribe(
        data=>{
+        debugger;
           this.usuarioSelec = data; 
-          this.ruta.navigate(['/agregarLogroAdmin',idMascota,this.usuarioSelec[0].idUsuario]);
+          this.ruta.navigate(['/agregarLogroAdmin',idMascota,this.mascotasSel[0].idUsuario]);
        }
      );
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
+import { setTime } from "ngx-bootstrap/chronos/utils/date-setters";
 import { Ciudad } from "src/app/modelos/modulo-ciudades/ciudades-modelo";
 import { Fundacion } from "src/app/modelos/modulo-fundacion/fundacion-modelo";
 import { RespuestaSolicitud } from "src/app/modelos/modulo-unidadMovil/unidadMovil-modelo";
@@ -33,13 +34,17 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
   cargando: boolean = false;
   respuestaSolicitud: RespuestaSolicitud = new RespuestaSolicitud();
   listaDocumentos: any[];
+  listaNitRegistrados: any[];
   nombre: string;
+  showModal = false;
   url: string = environment.url;
+  estadoRegistro: boolean = false;
   dato: {
     idMunicipio: string;
     nombreMunicipio: string;
   };
   formRespuesta: FormGroup;
+  formFecha : FormGroup;
 
   constructor(
     private rutaActiva: ActivatedRoute,
@@ -59,7 +64,6 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
     this.crearFormulario();
     this.identidadUsuario = this.userPlataformaService.getCurrentUser();
     this.identidadAcceso = this.authService.getCurrentUser();
-    console.log("iden:", this.identidadAcceso);
     this.cargarDatosUsuario();
     this.cargarListaDocumentos();
   }
@@ -69,6 +73,28 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
       comentarios: ["", Validators.required],
       estado: ["", Validators.required],
     });
+    this.formFecha = this.formBuilder.group({
+      fecha: ["", Validators.required],
+      nit:[""],
+    });
+  }
+
+  cerrarModal() {
+    this.showModal = false;
+  }
+
+  asignarFechaVisita(){
+    const form = this.formFecha.value;
+    this.visitaService
+    .updateFechaVisita(form.fecha,this.identidadAcceso,form.nit)
+    .subscribe((respuesta) => {
+       this.estadoRegistro = true;
+       this.cargarListaDocumentos();
+       setTimeout(() => {
+        this.estadoRegistro = false;
+    }, 3000);
+    });
+   
   }
 
   cargarListaDocumentos() {
@@ -77,11 +103,16 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
       .subscribe((dataLista) => {
         this.listaDocumentos = dataLista;
       });
+      this.visitaService
+      .cargarSelectIdentidades(this.dato.idMunicipio)
+      .subscribe((dataLista) => {
+        this.listaNitRegistrados = dataLista;
+      });
   }
 
   cargarDatosUsuario() {
     this.userPlataformaService
-      .getUsuarioIdentidad(this.identidadUsuario)
+      .getUsuarioIdentidad(this.identidadAcceso)
       .subscribe((data) => {
         this.usuario = data;
         this.idFundacion = this.usuario.idFundacion;

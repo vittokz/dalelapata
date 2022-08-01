@@ -150,7 +150,7 @@
                     <div *dxTemplate="let d of 'acciones'">
                       <button target=”_blank” class="btn btn-info" routerLink="/perfil-mascota/{{d.data.idMascota}}">
                         Ver</button>
-                      <button (click)="agregarLogros(d.data.idLogro)" title="Agregar Imagenes o comentarios"
+                      <button (click)="agregarLogros(d.data.idMascota)" title="Agregar Imagenes o comentarios"
                        class="btn btn-danger">Agregar Logro</button>
                     </div>
 
