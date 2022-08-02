@@ -75,6 +75,7 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
     });
     this.formFecha = this.formBuilder.group({
       fecha: ["", Validators.required],
+      fecha2: ["", Validators.required],
       nit:[""],
     });
   }
@@ -86,7 +87,7 @@ export class UnidadMovilSolicitudesDetalleComponent implements OnInit {
   asignarFechaVisita(){
     const form = this.formFecha.value;
     this.visitaService
-    .updateFechaVisita(form.fecha,this.identidadAcceso,form.nit)
+    .updateFechaVisita(form.fecha,form.fecha2,this.identidadAcceso,form.nit)
     .subscribe((respuesta) => {
        this.estadoRegistro = true;
        this.cargarListaDocumentos();

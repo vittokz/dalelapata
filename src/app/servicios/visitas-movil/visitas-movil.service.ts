@@ -137,10 +137,11 @@ export class VisitasMovilService {
   }
 
   //editar fecha visita
-  updateFechaVisita(fechaVisita: string, idUsuarioRegistro: string, nit: string): Observable<any> {
+  updateFechaVisita(fechaVisita: string,fechaVisita2: string, idUsuarioRegistro: string, nit: string): Observable<any> {
     let headers: any = new HttpHeaders({ "Content-Type": "application/json" }),
       options: any = {
         fecha: fechaVisita,
+        fecha2: fechaVisita2,
         usuarioRegistro: idUsuarioRegistro,
         nit: nit
       };

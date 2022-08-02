@@ -22,19 +22,21 @@
         <div class="card bg-secondary shadow">
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
-              <div class="col-6">
+              <div class="col-5">
                 <h3 class="mb-0">
                   Lista de documentos adjuntados por :{{ dato.nombreMunicipio }}
                 </h3>
                 <br />
                </div>
-              <div class="col-6">
+              <div class="col-7">
                   <div >
                       <form [formGroup]="formFecha" style="display: flex; justify-content: start">
                           <select style="width: 250px; margin-right: 5px ;" class="form-control" formControlName="nit">
+                            <option value="">Seleccione Nit</option>
                             <option value="{{nit.usuarioRegistro}}" *ngFor="let nit of listaNitRegistrados">{{nit.usuarioRegistro}}</option>
                           </select>
-                          <input style="width: 250px; margin-right: 5px ;" class="form-control" formControlName="fecha" type="date">
+                          <input style="width: 150px; margin-right: 5px ;" class="form-control" formControlName="fecha" type="date">
+                          <input style="width: 150px; margin-right: 5px ;" class="form-control" formControlName="fecha2" type="date">
                           <button [disabled]="!formFecha.valid" class="btn btn-primary" (click)="asignarFechaVisita()">
                             Asignar Fecha Visita
                           </button>
@@ -57,7 +59,8 @@
                     <tr class="hoverTr">
                       <th scope="col">QUIEN CARGO</th>
                       <th scope="col">MODIFICO</th>
-                      <th scope="col">FECHA PROGRAMADA</th>
+                      <th scope="col">FECHA PROGRAMADA INICIAL</th>
+                      <th scope="col">FECHA PROGRAMADA FINAL</th>
                       <th scope="col">ADJUNTO</th>
                       <th scope="col">FECHA REGISTRO</th>
                       <th scope="col">ESTADO</th>
@@ -73,6 +76,7 @@
                       <td>{{ item.usuarioRegistro }}</td>
                       <td>{{ item.usuarioComento }}</td>
                       <td>{{ item.fechaVisitaProgramada }}</td>
+                      <td>{{ item.fechaVisitaProgramadaFin }}</td>
                       <td>{{ item.tipoArchivo }}</td>
                       <td>{{ item.fechaRegistro }}</td>
                       <td>
