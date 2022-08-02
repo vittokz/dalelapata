@@ -29,6 +29,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   listaDocumentos: any[];
   url: string = environment.url;
   fechaRegistroVisita: string = "";
+  fechaRegistroVisitaFin: string = "";
 
   constructor(
     private userPlataformaService: UserPlataformaService,
@@ -51,6 +52,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
       .subscribe((dataLista) => {
         this.listaDocumentos = dataLista;
         this.fechaRegistroVisita = this.listaDocumentos[0].fechaVisitaProgramada;
+        this.fechaRegistroVisitaFin = this.listaDocumentos[0].fechaVisitaProgramadaFin;
       });
   }
 
