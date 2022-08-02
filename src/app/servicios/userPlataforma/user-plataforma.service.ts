@@ -121,6 +121,7 @@ export class UserPlataformaService {
         email: usuario.email,
         facebook: usuario.facebook,
         twitter: usuario.twitter,
+        clave: usuario.clave,
       };
     return this.http.post(
       this.url + "updateUsuario.php",

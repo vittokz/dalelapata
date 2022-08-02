@@ -216,16 +216,25 @@
                 />
               </div>
             </div>
-            <hr />
+  
             <div class="form-group row">
+              <label
+              for="Facebook"
+              class="col-sm-2 col-form-label col-form-label-sm"
+              >Contraseña</label
+            >
               <div class="col-sm-4">
                 <input
-                  formControlName="clave"
-                  type="hidden"
-                  class="form-control form-control-sm"
-                />
+                formControlName="clave"
+                type="password"
+                class="mr-5 form-control form-control-sm"
+              />
               </div>
+              
             </div>
+           
+            <hr />
+            
 
             <button
               (click)="editarPerfil()"
