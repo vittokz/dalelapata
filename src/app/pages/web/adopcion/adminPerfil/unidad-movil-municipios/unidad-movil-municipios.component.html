@@ -24,7 +24,18 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                                <h1>Fecha Programada : {{fechaRegistroVisita}} -  {{fechaRegistroVisitaFin}}</h1>
+                                <div *ngIf="fechaRegistroVisita !==''" 
+                                style="margin-bottom: 30px; background-color: rgb(249, 247, 247); padding: 20px; border: 1px solid rgb(190, 187, 187);">
+                                    <strong>Se adjunta documento donde se relacionan las fechas del programa de exterilización.
+                                        Por favor verificar la fecha asignada.
+                                         <ul>
+                                            <li><a href="https://dalelapata.narino.gov.co/archivos/um/programa-esterilizacion.pdf" target="_blank">Descargar Resúmen de fechas</a></li>
+                                         </ul>
+                                    </strong>
+                                    <h2 *ngIf="fechaRegistroVisita !=='' && fechaRegistroVisitaFin !==''" >
+                                        Fecha Programada : {{fechaRegistroVisita}} -  {{fechaRegistroVisitaFin}}
+                                    </h2>
+                                </div>
                         
                                 Cargue la informacion solicitada completamente. Lista de formatos a descargar.<br><br>
                                 <ul>
