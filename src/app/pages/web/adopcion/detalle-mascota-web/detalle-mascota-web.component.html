@@ -1,209 +1,444 @@
 <div class="row">
-  <div class="col-lg-12" style="padding: 40px;">
-          <app-menu></app-menu>
+  <div class="col-lg-12" style="padding: 40px">
+    <app-menu></app-menu>
   </div>
   <div class="col-lg-12">
-      <app-banner></app-banner>
+    <app-banner></app-banner>
   </div>
 </div>
-  <app-menu-flotante></app-menu-flotante>
-   
-   <div id="header">
-        <div id="nav">
-        <span class="titulo">Mascota Seleccionada</span>
-        </div>
+<app-menu-flotante></app-menu-flotante>
+
+<div id="header">
+  <div id="nav">
+    <span class="titulo">Mascota Seleccionada</span>
   </div>
-  
-    
-  <!-- modal para aceptar la postulacion del usuario-->
-  <div class="modal" id="myModal" [ngClass]="{ 'show' : showModal }">
-    <div class="modal-dialog">
-      <div class="modal-content">
+</div>
 
-        <!-- Modal Header -->
-        <div class="modal-header" style="background-color: rgb(245, 243, 243);">
-          <h4 class="modal-title">Postulación</h4>
-          <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <p style="text-align: justify; font-size: 19px;"> 
-            Se realizará la postulación para darle la pata a mascota {{nombreMascotaSel}}. Digite su número de identidad.</p>
-         
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <form [formGroup]="formValidar">  
-                          <div class="form-group col-md-12">
-                              <input formControlName="cedula" class="form-control-sm" type="number" placeholder="Número de identidad">
-                              <button [disabled]="!formValidar.valid" (click)="buscarIdentidad()" style="background-color:#2db3bf; color: white;" type="button" class="btn btn-primary btn-sm">Buscar</button>
-                              <button (click)="limpiar()" style="background-color:#2db3bf; color: white;" type="button" class="btn btn-primary btn-sm">Limpiar Campos</button>
-                          </div>
-                        </form>
-                    </div>
-                </div>
-                      <div *ngIf="habilitado">
-                        <h2 *ngIf="!habilitado" style="text-align: center;">Registre Datos del Solicitante</h2>
-                        <h2 *ngIf="habilitado" style="text-align: center;">Datos del Solicitante</h2>
-                        <form [formGroup]="formAceptar">
-                          <div class="row">
-                              <div class="col-lg-3">
-                                <label for="Nombre">Nombres</label>
-                              </div>
-                              <div class="col-lg-9">
-                                   <input formControlName="nombres" placeholder="Nombres" type="text" class="form-control-sm">
-                                   <div *ngIf="formAceptar.controls['nombres'].invalid && formAceptar.controls['nombres'].dirty" class="alert alert-danger" role="alert">
-                                   Nombre es obligatorio
-                                  </div>    
-                              </div>        
-                          </div>
-                          <div class="row">
-                            <div class="col-lg-3">
-                              <label for="Apellidos">Apellidos</label>
-                            </div>
-                            <div class="col-lg-9">
-                                 <input formControlName="apellidos" placeholder="Apellidos" type="text" class="form-control-sm">
-                                 <div *ngIf="formAceptar.controls['apellidos'].invalid && formAceptar.controls['apellidos'].dirty" class="alert alert-danger" role="alert">
-                                  Apellidos es obligatorio
-                                 </div>  
-                            </div>        
-                        </div>
-                        <div class="row">
-                          <div class="col-lg-3">
-                            <label for="Movil">Movil</label>
-                          </div>
-                          <div class="col-lg-9">
-                               <input formControlName="movil" placeholder="movil" type="number" class="form-control-sm">
-                               <div *ngIf="formAceptar.controls['movil'].invalid && formAceptar.controls['movil'].dirty" class="alert alert-danger" role="alert">
-                                Movil es obligatorio
-                               </div>  
-                          </div>        
-                        </div>
-
-                        <div class="row">
-                          <div class="col-lg-3">
-                            <label for="Dirección">Dirección</label>
-                          </div>
-                          <div class="col-lg-9">
-                               <input formControlName="direccion" placeholder="Dirección" type="text" class="form-control-sm">
-                               <div *ngIf="formAceptar.controls['direccion'].invalid && formAceptar.controls['direccion'].dirty" class="alert alert-danger" role="alert">
-                                Dirección es obligatorio
-                               </div>     
-                           </div>        
-                        </div>
-
-                        <div class="row">
-                          <div class="col-lg-3">
-                            <label for="Email">Email</label>
-                          </div>
-                          <div class="col-lg-9">
-                               <input formControlName="email" placeholder="Emáil" type="text" class="form-control-sm">
-                               <div *ngIf="formAceptar.controls['email'].invalid && formAceptar.controls['email'].dirty" class="alert alert-danger" role="alert">
-                                Emáil es obligatorio
-                               </div>      
-                          </div>        
-                        </div>
-                        <hr>
-                        <button [disabled]="!formAceptar.valid" (click)="aceptarNuevaPostulacion()"  style="background-color: #2db3bf; color: white;" type="button" class="btn btn-info" data-dismiss="modal">Realizar Solicitud</button>
-                        <button (click)="cerrarModal()" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-       
-                      </form><hr>
-           
-                      <div *ngIf="registroAdopcion=='ok'" class="alert alert-info" role="alert">
-                        Se postulo correctamente. La información le llegara a su emáil,
-                        y la fundación se contactará con ud...
-                      </div>
-                      <div *ngIf="registroAdopcion=='error'" class="alert alert-danger" role="alert">
-                        El Usuario ya se encuentra postulado para esta Adopción!!!!
-                      </div>
-
-                      <div *ngIf="envioForm=='ok'" class="alert alert-info" role="alert">
-                        Datos de postulante resgistrados con éxito.
-                      </div>
-                      <div *ngIf="envioForm=='error'" class="alert alert-danger" role="alert">
-                        Revise Email ya se encuentra registrado!!!
-                      </div>    
-                  </div>
-                </div>
-          <!-- Modal footer -->
-        <div class="modal-footer">
-
-          
-        </div>
-        </div>
-       
-
+<!-- modal para aceptar la postulacion del usuario-->
+<div class="modal" id="myModal" [ngClass]="{ show: showModal }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header" style="background-color: rgb(245, 243, 243)">
+        <h4 class="modal-title">Postulación</h4>
+        <button
+          type="button"
+          class="close"
+          (click)="cerrarModal()"
+          data-dismiss="modal"
+        >
+          &times;
+        </button>
       </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p style="text-align: justify; font-size: 19px">
+          Se realizará la postulación para darle la pata a mascota
+          {{ nombreMascotaSel }}. Digite su número de identidad.
+        </p>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <form [formGroup]="formValidar">
+              <div class="form-group col-md-12">
+                <input
+                  formControlName="cedula"
+                  class="form-control-sm"
+                  type="number"
+                  placeholder="Número de identidad"
+                />
+                <button
+                  [disabled]="!formValidar.valid"
+                  (click)="buscarIdentidad()"
+                  style="background-color: #2db3bf; color: white"
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                >
+                  Buscar
+                </button>
+                <button
+                  (click)="limpiar()"
+                  style="background-color: #2db3bf; color: white"
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                >
+                  Limpiar Campos
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="habilitado">
+          <h2 *ngIf="!habilitado" style="text-align: center">
+            Registre Datos del Solicitante
+          </h2>
+          <h2 *ngIf="habilitado" style="text-align: center">
+            Datos del Solicitante
+          </h2>
+          <form [formGroup]="formAceptar">
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="Nombre">Nombres</label>
+              </div>
+              <div class="col-lg-9">
+                <input
+                  formControlName="nombres"
+                  placeholder="Nombres"
+                  type="text"
+                  class="form-control-sm"
+                />
+                <div
+                  *ngIf="
+                    formAceptar.controls['nombres'].invalid &&
+                    formAceptar.controls['nombres'].dirty
+                  "
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  Nombre es obligatorio
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="Apellidos">Apellidos</label>
+              </div>
+              <div class="col-lg-9">
+                <input
+                  formControlName="apellidos"
+                  placeholder="Apellidos"
+                  type="text"
+                  class="form-control-sm"
+                />
+                <div
+                  *ngIf="
+                    formAceptar.controls['apellidos'].invalid &&
+                    formAceptar.controls['apellidos'].dirty
+                  "
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  Apellidos es obligatorio
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="Movil">Movil</label>
+              </div>
+              <div class="col-lg-9">
+                <input
+                  formControlName="movil"
+                  placeholder="movil"
+                  type="number"
+                  class="form-control-sm"
+                />
+                <div
+                  *ngIf="
+                    formAceptar.controls['movil'].invalid &&
+                    formAceptar.controls['movil'].dirty
+                  "
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  Movil es obligatorio
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="Dirección">Dirección</label>
+              </div>
+              <div class="col-lg-9">
+                <input
+                  formControlName="direccion"
+                  placeholder="Dirección"
+                  type="text"
+                  class="form-control-sm"
+                />
+                <div
+                  *ngIf="
+                    formAceptar.controls['direccion'].invalid &&
+                    formAceptar.controls['direccion'].dirty
+                  "
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  Dirección es obligatorio
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <label for="Email">Email</label>
+              </div>
+              <div class="col-lg-9">
+                <input
+                  formControlName="email"
+                  placeholder="Emáil"
+                  type="text"
+                  class="form-control-sm"
+                />
+                <div
+                  *ngIf="
+                    formAceptar.controls['email'].invalid &&
+                    formAceptar.controls['email'].dirty
+                  "
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  Emáil es obligatorio
+                </div>
+              </div>
+            </div>
+            <hr />
+            <button
+              [disabled]="!formAceptar.valid"
+              (click)="aceptarNuevaPostulacion()"
+              style="background-color: #2db3bf; color: white"
+              type="button"
+              class="btn btn-info"
+              data-dismiss="modal"
+            >
+              Realizar Solicitud
+            </button>
+            <button
+              (click)="cerrarModal()"
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </form>
+          <hr />
+
+          <div
+            *ngIf="registroAdopcion == 'ok'"
+            class="alert alert-info"
+            role="alert"
+          >
+            Se postulo correctamente. La información le llegara a su emáil, y la
+            fundación se contactará con ud...
+          </div>
+          <div
+            *ngIf="registroAdopcion == 'error'"
+            class="alert alert-danger"
+            role="alert"
+          >
+            El Usuario ya se encuentra postulado para esta Adopción!!!!
+          </div>
+
+          <div *ngIf="envioForm == 'ok'" class="alert alert-info" role="alert">
+            Datos de postulante resgistrados con éxito.
+          </div>
+          <div
+            *ngIf="envioForm == 'error'"
+            class="alert alert-danger"
+            role="alert"
+          >
+            Revise Email ya se encuentra registrado!!!
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer"></div>
     </div>
-  <div style=" background-image: url('assets/img/pagAdopcion/fondoHuellas.png');  background-attachment: fixed;  opacity: 9;"> 
-  
-    <div class="container">
+  </div>
+</div>
+<div
+  style="
+    background-image: url('assets/img/pagAdopcion/fondoHuellas.png');
+    background-attachment: fixed;
+    opacity: 9;
+  "
+>
+  <div class="container">
+    <div class="row mt-4 mb-4">
+      <div class="col-lg-2"></div>
 
-  
-       <div class="row mt-4 mb-4">
-                    <div class="col-lg-2"></div>
+      <div class="col-lg-4" *ngFor="let mas of mascotaSel">
+        <div
+          class="card"
+          style="
+            width: 100%;
+            padding: 10px;
+            border-color: #2db3bf;
+            background-color: rgb(245, 245, 245);
+          "
+        >
+          <img
+            src="{{ url }}mascotas/img/{{ mas.urlFoto }}"
+            style="margin: auto; height: 230px"
+            class="imgUrl"
+            alt="..."
+          />
+          <div class="card-body">
+            <h3 style="text-align: center" class="card-title">
+              {{ mas.nombre | uppercase }}
+            </h3>
+            <p style="text-align: justify">
+              {{ mas.descripcion | uppercase }}, DEL MUNICIPIO DE
+              {{ nomCiudad | uppercase }}, {{ mas.idEspecie | uppercase }}
+              {{ mas.idGenero | uppercase }}
+            </p>
+            <hr />
+            <br />
+            <h3
+              style="
+                color: rgb(226, 68, 68);
+                font-weight: 700;
+                text-align: center;
+                font-size: 14px;
+              "
+            >
+              {{ mas.observacion | uppercase }}
+            </h3>
+            <hr />
+            <button
+              *ngIf="proceso == '2'"
+              (click)="irAdoptame(mas)"
+              data-toggle="modal"
+              data-target="#myModal"
+              class="btn btn-success btn-lg btn-block"
+            >
+              Adoptame
+            </button>
+            <button
+              *ngIf="proceso == '3'"
+              type="button"
+              class="btn btn-warning btn-lg btn-block"
+            >
+              Mascota Encontrada
+            </button>
+            <button
+              *ngIf="proceso == '4'"
+              type="button"
+              class="btn btn-danger btn-lg btn-block"
+            >
+              Mascota Extraviada
+            </button>
+            <button
+              *ngIf="proceso == '6'"
+              type="button"
+              class="btn btn-primary btn-lg btn-block"
+            >
+              Mascota Esterilizada
+            </button>
 
-                    <div class="col-lg-4" *ngFor="let mas of mascotaSel">
-                      <div class="card" style="width: 100%; padding: 10px; border-color:#2db3bf ; background-color: rgb(245, 245, 245);">
-                        <img src="{{url}}mascotas/img/{{mas.urlFoto}}" style="margin: auto; height: 230px;" class="imgUrl" alt="...">
-                        <div class="card-body">
-                          <h3 style="text-align: center;" class="card-title">{{mas.nombre | uppercase}}</h3>     
-                            <p style="text-align: justify;">{{ mas.descripcion | uppercase}}, DEL MUNICIPIO DE
-                              {{ nomCiudad | uppercase}}, {{ mas.idEspecie | uppercase}}  {{ mas.idGenero | uppercase}}</p>
-                              <hr>
-                              <br><h3 style="color: rgb(226, 68, 68); font-weight: 700; text-align: center; font-size: 14px;">
-                                {{ mas.observacion | uppercase}}
-                             </h3><hr>
-                              <button *ngIf="proceso=='2'" (click)="irAdoptame(mas)" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-lg btn-block">Adoptame</button>
-                              <button *ngIf="proceso=='3'" type="button" class="btn btn-warning btn-lg btn-block">Mascota Encontrada</button>
-                              <button *ngIf="proceso=='4'" type="button" class="btn btn-danger btn-lg btn-block">Mascota Extraviada</button>
-                              <button *ngIf="proceso=='6'" type="button" class="btn btn-primary btn-lg btn-block">Mascota Esterilizada</button>
-                            
-                              <!--  <a
+            <!--  <a
                               href="https://www.facebook.com/sharer/sharer.php?u=https://dalelapata.narino.gov.co/#/lista-extraviadas" 
                               class="fb-xfbml-parse-ignore">Compartir</a> -->
-                           
+          </div>
+        </div>
+      </div>
 
-                          </div>
-                      </div>
-                    </div> 
-        
-                    <div class="col-lg-4" style="border-color:#2db3bf !important" *ngFor="let mas of mascotaSel">      
-                      <div class="card" style="width: 100%; padding: 10px; border-color:#2db3bf ; background-color: rgb(245, 245, 245);">
-                          <div class="list-group" style="border-color:#2db3bf !important">
-                              <a style=" font-weight: 800; background-color: #2db3bf !important;color: #ffffff !important; text-align: center;" class="list-group-item list-group-item-action active">
-                                Características
-                              </a>
-                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">Nª CHIP: {{mas.numChip}}</a>
-                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">EDAD: {{mas.edad | uppercase}}  -   PESO {{mas.peso | uppercase}}</a>
-                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">COLOR: {{mas.color | uppercase}}</a>
-                              <a style="background-color: rgb(245, 245, 245) !important" class="list-group-item list-group-item-action">RAZA: {{nomRaza | uppercase}}</a>
-                            </div>
-                            <div class="list-group" *ngFor="let usu of usuario">
-                              <a routerLink="/detalleUsuarioPag/{{usu.idUsuario}}/{{usu.idFundacion}}" style=" font-weight: 800; background-color: #af107a!important;color: #ffffff !important; text-align: center;" class="list-group-item list-group-item-action active">
-                                Contáctos Fundación
-                              </a>
-                              <a style="background-color: rgb(245, 245, 245) !important; font-size: 14px;" class="list-group-item list-group-item-action">
-                                {{ nomUsuario | uppercase}}
-                            </a> 
-                            <a style="background-color: rgb(245, 245, 245) !important; font-size: 14px;" class="list-group-item list-group-item-action">
-                              {{emailUsuario | uppercase}}<br><br>
-                            </a>    
-                            <a style="background-color: rgb(52, 144, 231); color: white;" class="list-group-item list-group-item-action" 
-                            href="https://wwww.facebook.com/sharer.php?display=page&u=https://dalelapata.narino.gov.co/#/pagAdopcion" target="_blank">
-                             <img src="assets/img/homePage/facebook.jpg" width="50"> Compartir en Facebook
-                          </a> 
-                            </div>
-                        </div>
-                    </div>
+      <div
+        class="col-lg-4"
+        style="border-color: #2db3bf !important"
+        *ngFor="let mas of mascotaSel"
+      >
+        <div
+          class="card"
+          style="
+            width: 100%;
+            padding: 10px;
+            border-color: #2db3bf;
+            background-color: rgb(245, 245, 245);
+          "
+        >
+          <div class="list-group" style="border-color: #2db3bf !important">
+            <a
+              style="
+                font-weight: 800;
+                background-color: #2db3bf !important;
+                color: #ffffff !important;
+                text-align: center;
+              "
+              class="list-group-item list-group-item-action active"
+            >
+              Características
+            </a>
+            <a
+              style="background-color: rgb(245, 245, 245) !important"
+              class="list-group-item list-group-item-action"
+              >Nª CHIP: {{ mas.numChip }}</a
+            >
+            <a
+              style="background-color: rgb(245, 245, 245) !important"
+              class="list-group-item list-group-item-action"
+              >EDAD: {{ mas.edad | uppercase }} </a
+            >
+            <a
+            style="background-color: rgb(245, 245, 245) !important"
+            class="list-group-item list-group-item-action"
+            >PESO :{{ mas.peso | uppercase }} kg</a
+          >
+            <a
+              style="background-color: rgb(245, 245, 245) !important"
+              class="list-group-item list-group-item-action"
+              >COLOR: {{ mas.color | uppercase }}</a
+            >
+            <a
+              style="background-color: rgb(245, 245, 245) !important"
+              class="list-group-item list-group-item-action"
+              >RAZA: {{ nomRaza | uppercase }}</a
+            >
+          </div>
+          <div class="list-group" *ngFor="let usu of usuario">
+            <a
+              routerLink="/detalleUsuarioPag/{{ usu.idUsuario }}/{{
+                usu.idFundacion
+              }}"
+              style="
+                font-weight: 800;
+                background-color: #af107a !important;
+                color: #ffffff !important;
+                text-align: center;
+              "
+              class="list-group-item list-group-item-action active"
+            >
+              Contáctos Fundación
+            </a>
+            <a
+              style="
+                background-color: rgb(245, 245, 245) !important;
+                font-size: 14px;
+              "
+              class="list-group-item list-group-item-action"
+            >
+              {{ nomUsuario | uppercase }}
+            </a>
+            <a
+              style="
+                background-color: rgb(245, 245, 245) !important;
+                font-size: 14px;
+              "
+              class="list-group-item list-group-item-action"
+            >
+              {{ emailUsuario | uppercase }}<br /><br />
+            </a>
+          
+           
+            <div id="fb-root"></div>
+            <div class="fb-share-button" data-href="{{urlFacebookTitle}}" 
+            data-layout="button" data-size="large">
+            <a style="padding: 5px" target="_blank" 
+            href="{{urlFacebook}}" 
+            class="fb-xfbml-parse-ignore">
+            <img src="assets/img/icons/facebook.png" width="60px">
+            Compartir en Facebook
+          </a></div>
+          </div>
+        </div>
+      </div>
 
-                    <div class="col-lg-2"></div>
-       </div>
-
-     
-
+      <div class="col-lg-2"></div>
+    </div>
   </div>
 </div>
 
-       
-  <app-footer-paginas></app-footer-paginas>
+<app-footer-paginas></app-footer-paginas>

@@ -42,6 +42,9 @@ export class DetalleMascotaWebComponent implements OnInit {
   idFundacionPostulado: string;
   usuarioLogueado:UserPagina;//datos usuario logueado
   identidadLogueado: string; //variable q guarda el nombre de usuario del logueado
+  urlFacebook: string = "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdalelapata.narino.gov.co%2F%23%2FdetalleMascotaWeb%2F";
+  urlFacebook2 : string = "&amp;src=sdkpreparse";
+  urlFacebookTitle : string ="https://dalelapata.narino.gov.co/#/detalleMascotaWeb/";
   constructor(private rutaActiva: ActivatedRoute, private mascotaService: MascotasService,
     private userPlataforma: UserPlataformaService,private adopcionService: AdopcionService,
     private formBuilder: FormBuilder) { }
@@ -53,6 +56,8 @@ export class DetalleMascotaWebComponent implements OnInit {
     this.dato = {
       idMascota: this.rutaActiva.snapshot.params.parametro
     };
+    this.urlFacebook = this.urlFacebook + this.dato.idMascota + this.urlFacebook2;
+    this.urlFacebookTitle = this.urlFacebookTitle + this.dato.idMascota;
     this.identidadLogueado = this.userPlataforma.getCurrentUser();
     if(this.identidadLogueado==null){
       this.registroAdopcion="vacio";
