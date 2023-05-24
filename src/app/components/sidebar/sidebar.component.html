@@ -140,6 +140,14 @@
             <i class="ni ni-ambulance text-blue"></i> Solicitudes Unidad Movil
           </a>
         </li>
+        <li
+          *ngIf="tipoUsuario == 'Administrador' || tipoUsuario == 'Alcaldia'"
+          class="nav-item"
+        >
+          <a routerLink="/convocatoria-admin" class="nav-link">
+            <i class="ni ni-planet text-blue"></i> Convocatorias
+          </a>
+        </li>
         <li *ngIf="tipoUsuario == 'Administrador'" class="nav-item">
           <a routerLink="/AdminPodCast" class="nav-link">
             <i class="ni ni-sound-wave text-blue"></i> Admin Podcast

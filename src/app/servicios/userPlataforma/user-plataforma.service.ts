@@ -33,6 +33,7 @@ export class UserPlataformaService {
         movil: usuario.movil,
         clave: usuario.clave,
       };
+      debugger;
     return this.http.post(
       this.url + "actualizarUsuario.php",
       JSON.stringify(options),

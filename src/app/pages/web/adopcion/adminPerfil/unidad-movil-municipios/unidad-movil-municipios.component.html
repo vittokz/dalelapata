@@ -67,7 +67,7 @@
                         <label>Tipo de archivo a subir</label>
                         <select formControlName="tipoArchivo" (change)="selectArchivo($event)" class="form-control">
                             <option selected value="1">Formato carta de compromiso</option>
-                            <option value="2">Formato Censo excel</option>
+                            <option value="6">CDP</option>
                             <option value="3">Modelo Certificado</option>
                             <option value="4">Rut</option>
                             <option value="5">Otro</option>
@@ -81,16 +81,16 @@
                         </div>
                 </div>
                 
-                <div class="col-lg-12">
+                <div class="col-lg-12" *ngIf="botonRegistrar =='Activo'; else mensaje">
                             <div class="form-group">
                                 <button  [disabled]="!formulario.valid" title="Subir Documento" class="btn btn-danger" (click)="subirArchivos()">
                                     Subir Documento</button>
-                                    <!-- <ng-template #mensaje>
-                                        <h3 style="color: rgb(238, 35, 35)">Registro Inactivo por cierre de convocatoria!!!</h3>
-                                    </ng-template> -->
                             </div>
                     </div>
                 </div>
+                <ng-template #mensaje>
+                                        <h3 style="color: rgb(238, 35, 35)">Registro Inactivo por cierre de convocatoria!!!</h3>
+                </ng-template> 
             </form>
             <div *ngIf="cargando">
                 <div class="alert alert-danger" role="alert">

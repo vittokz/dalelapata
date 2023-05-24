@@ -113,6 +113,9 @@ import { AdminPodCastComponent } from './pages/admin-pod-cast/admin-pod-cast.com
 import { CapsulasComponent } from './pages/capsulas/capsulas.component';
 import { ListaCapsulasComponent } from './pages/web/lista-capsulas/lista-capsulas.component';
 import { AddMascotaPropietarioComponent } from './pages/add-mascota-propietario/add-mascota-propietario.component';
+import { ConvocatoriaComponent } from './pages/web/adopcion/adminPerfil/convocatorias/convocatoria/convocatoria.component';
+import { ConvocatoriaAdminComponent } from './pages/convocatoria-admin/convocatoria-admin.component';
+import { ConvocatoriaAdminDetalleComponent } from './pages/convocatoria-admin-detalle/convocatoria-admin-detalle.component';
 
 PdfMakeWrapper.setFonts(pdfFonts);
 @NgModule({
@@ -224,6 +227,9 @@ PdfMakeWrapper.setFonts(pdfFonts);
     CapsulasComponent,
     ListaCapsulasComponent,
     AddMascotaPropietarioComponent,
+    ConvocatoriaComponent,
+    ConvocatoriaAdminComponent,
+    ConvocatoriaAdminDetalleComponent,
    ],
   providers: [
     FaunaService, EventosService,FundacionService, AuthUsuariosService, UserPlataformaService,LogroService,

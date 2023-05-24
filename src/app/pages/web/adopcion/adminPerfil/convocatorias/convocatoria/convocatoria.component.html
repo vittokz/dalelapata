@@ -1,0 +1,149 @@
+<div class="row">
+    <div class="col-lg-12" style="padding: 40px;">
+        <app-menu-admin></app-menu-admin>
+    </div>
+</div>
+<hr>
+<div class="row" class="fondo"> 
+   <div class="col-lg-12" style="font-size: 30px; color: white; text-align: center; 
+   font-weight: bold; background-color:#2db3bf;">
+     Convocatoria
+   </div>  
+</div>
+
+<div class="container">
+
+    
+  <div class="row">
+      <div class="col-lg-12 mt-5">
+          <div class="alert alert-danger" role="alert">
+              <h3 style="color: white;"> NOMBRE: {{ razonSocial | uppercase}} </h3>
+          </div>
+          <form [formGroup]="formulario">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="form-group">
+                              <!-- <div
+                              style="margin-bottom: 30px; background-color: rgb(249, 247, 247); padding: 20px; border: 1px solid rgb(190, 187, 187);">
+                                  <strong>Se adjunta documento donde se relacionan las fechas del programa de exterilización.
+                                      Por favor verificar la fecha asignada.
+                                       <ul>
+                                          <li><a href="https://dalelapata.narino.gov.co/archivos/um/programa-esterilizacion.pdf" target="_blank">Descargar Resúmen de fechas</a></li>
+                                       </ul>
+                                  </strong>
+                                  
+                              </div> -->
+                      
+                              Cargue la informacion solicitada completamente. Lista de formatos a descargar.<br><br>
+                              <ul>
+                                  <li>
+                                      <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/cartaCompromiso.docx">
+                                          Formato carta de compromiso
+                                      </a>
+                                  </li>
+                                  <li>
+                                    <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/formatoPropuesta.docx">
+                                        Formato Propuesta
+                                    </a>
+                                </li>
+                                <li>
+                                  <a target="_blank" href="https://dalelapata.narino.gov.co/archivos/formatoInsumos.docx">
+                                      Formato Insumos
+                                  </a>
+                              </li>
+                              </ul>         
+                      </div>
+                  </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                      <label>Tipo de archivo a subir</label>
+                      <select formControlName="tipoArchivo" (change)="selectArchivo($event)" class="form-control">
+                          <option selected value="1">Formato carta de compromiso</option>
+                          <option value="2">Formato Propuesta</option>
+                          <option value="3">Formato Insumos</option>
+                          <option value="4">Cédula</option>
+                          <option value="5">Rut</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                      <div class="form-group">
+                          <label>Adjuntar archivo (pdf)</label>
+                          <input type="file" class="form-control" name="file1" (change)="onFileSelect($event)">
+                      </div>
+              </div>
+              
+              <div class="col-lg-12">
+                          <div class="form-group">
+                              <button  [disabled]="!formulario.valid" title="Subir Documento" class="btn btn-danger" (click)="subirArchivos()">
+                                  Subir Documento</button>
+                          </div>
+                  </div>
+       
+              <ng-template #mensaje>
+                                      <h3 style="color: rgb(238, 35, 35)">Registro Inactivo por cierre de convocatoria!!!</h3>
+              </ng-template> 
+              </div>
+          </form>
+          <div *ngIf="cargando">
+              <div class="alert alert-danger" role="alert">
+                Cargando información al sistema... espere por favor..
+              </div>
+            </div>
+          <div *ngIf="envioForm">
+              <div class="alert alert-primary" role="alert">
+              Se registraron archivos con éxito
+              </div>
+            </div>
+      </div>
+  </div>
+  <hr>
+      <!-- Div para mostrar lista documentos-->
+      <div class="row">
+       
+        <div class="col-lg-12 mt-2">
+            <h2>Lista de Documentos cargados</h2>
+            <div class="table-responsive">
+                    <table class="table table-info">
+                       
+                        <tbody class="itemTabla">
+                                <tr class="hoverTr">
+                                    <th scope="col">ADJUNTO</th>
+                                    <th scope="col">NOMBRE DEL ARCHIVO</th>  
+                                    <th scope="col">FECHA REGISTRO</th>  
+                                    <th scope="col">ESTADO</th> 
+                                    <th scope="col">COMENTARIO</th>  
+                                    <th scope="col">VER ARCHIVO</th>  
+                                 
+                                </tr>
+                               <!--  <tr style="background-color: rgb(236, 236, 236);">   
+                                    <td>Comentarios:</td>
+                                    <td colspan="4">
+                                        <p style="color: black;" *ngIf="item.comentario==null">
+                                            No hay respuesta ni comentarios a la fecha!!!
+  
+                                        </p>
+                                        <p style="color: black;" *ngIf="item.comentario!=null">
+                                           {{item.comentario}}
+  
+                                        </p>
+                                    </td>
+                                </tr> -->
+                             <tr style="background-color: aliceblue;" *ngFor="let item of listaDocumentos">   
+                                <td>{{ item.tipoArchivo}}</td>
+                                <td>{{ item.nombreArchivo}}</td>
+                                <td>{{ item.fechaRegistro}}</td>
+                                <td>{{ item.estado}}</td>
+                                <td>{{ item.comentario}}</td>
+                                <td><a target="_blank" href="{{url}}convocatoria/documentos/{{item.usuarioRegistro}}/{{item.nombreArchivo}}"  title="Ver archivo" class="btn btn-danger btn-sm">
+                                    Ver archivo</a></td>
+                             </tr>
+                           
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <!--Fin mostrar convocatorias-->
+  </div>
+

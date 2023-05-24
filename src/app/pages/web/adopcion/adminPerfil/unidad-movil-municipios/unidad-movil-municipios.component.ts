@@ -46,6 +46,8 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
     this.cargarListaDocumentos();
     this.validarComponentesActivos();
   }
+
+  
   cargarListaDocumentos() {
     this.visitaService
       .listarDocumentosByIdentidad(this.identidadUsuario)

@@ -79,6 +79,9 @@ import { AdminPodCastComponent } from "./pages/admin-pod-cast/admin-pod-cast.com
 import { CapsulasComponent } from "./pages/capsulas/capsulas.component";
 import { ListaCapsulasComponent } from "./pages/web/lista-capsulas/lista-capsulas.component";
 import { AddMascotaPropietarioComponent } from "./pages/add-mascota-propietario/add-mascota-propietario.component";
+import { ConvocatoriaComponent } from "./pages/web/adopcion/adminPerfil/convocatorias/convocatoria/convocatoria.component";
+import { ConvocatoriaAdminComponent } from "./pages/convocatoria-admin/convocatoria-admin.component";
+import { ConvocatoriaAdminDetalleComponent } from "./pages/convocatoria-admin-detalle/convocatoria-admin-detalle.component";
 
 const routes: Routes = [
   {
@@ -193,6 +196,10 @@ const routes: Routes = [
   {
     path: "unidadMovilSolicitudesDetalle/:parametro/:parametro2",
     component: UnidadMovilSolicitudesDetalleComponent,
+  },
+  {
+    path: "convocatorias-detalle/:parametro/:parametro2",
+    component: ConvocatoriaAdminDetalleComponent,
   },
   {
     path: "unidadMovilImg/:parametro/:parametro2/:parametro3/:parametro4",
@@ -358,6 +365,15 @@ const routes: Routes = [
     path: "agregarLogroAdmin/:parametro/:parametro2",
     component: AgregraLogroAdminComponent,
   },
+  {
+    path: "convocatoria",
+    component: ConvocatoriaComponent,
+  },
+  {
+    path: "convocatoria-admin",
+    component: ConvocatoriaAdminComponent,
+  },
+  
   {
     path: "editarUserPagina/:parametro/",
     component: EditarUserPaginaComponent,
