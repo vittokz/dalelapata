@@ -45,7 +45,6 @@
                       <th scope="col">FECHA REGISTRO</th>
                       <th scope="col">ESTADO</th>
                       <th scope="col">ASIGNAR COMENTARIO</th>
-                      <th scope="col">EDITAR COMENTARIO</th>
                       <th scope="col">VER ARCHIVO</th>
                     </tr>
 
@@ -105,16 +104,6 @@
                         {{ item.comentario }}
                       </td>
 
-                      <td>
-                        <button
-                          (click)="editarComentario(item)"
-                          type="button"
-                          class="btn btn-primary btn-sm"
-                          title="editar comentario"
-                        >
-                          editar
-                        </button>
-                      </td>
                       <td>
                         <a
                           style="color: white !important"

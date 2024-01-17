@@ -19,6 +19,7 @@ export class ConvocatoriaComponent implements OnInit {
   public razonSocial: string;
   envioForm: boolean = false;
   identidadFundacion: string;
+  botonRegistrar: string;
   municipio: string;
   tipoArchivo: string;
   usuario: UserPagina;
@@ -38,8 +39,10 @@ export class ConvocatoriaComponent implements OnInit {
   ngOnInit(): void {
     this.crearFormulario();
     this.identidadUsuario = this.userPlataformaService.getCurrentUser();
+    debugger;
     this.cargarDatosUsuario();
     this.cargarListaDocumentos();
+    this.validarComponentesActivos();
   }
 
   cargarListaDocumentos() {
@@ -49,6 +52,13 @@ export class ConvocatoriaComponent implements OnInit {
         this.listaDocumentos = dataLista;
       });
   }
+
+
+  validarComponentesActivos() {
+    this.authService.getComponentesActivos('unidadMovilMunicipios').subscribe((resp: any)=>{
+      this.botonRegistrar = resp[0].estado;
+    });
+   }
 
   crearFormulario() {
     this.formulario = this.formBuilder.group({
@@ -67,7 +77,7 @@ export class ConvocatoriaComponent implements OnInit {
       });
   }
 
-  
+
   cargarDatosFundacion(idFundacion: string) {
     this.fundacionService.getFundacionId(idFundacion).subscribe((resul) => {
       this.fundacion = resul;
@@ -77,7 +87,7 @@ export class ConvocatoriaComponent implements OnInit {
       this.idFundacion = this.fundacion[0].idFundacion;
     });
   }
-  
+
   onFileSelect(event) {
     const file = event.target.files[0];
     this.formulario.get("file1").setValue(file);
@@ -93,10 +103,10 @@ export class ConvocatoriaComponent implements OnInit {
     formData.append("idMunicipio", this.municipio);
     formData.append("usuarioRegistro", this.identidadFundacion);
     this.cargando = true;
-
+    debugger;
     this.convocatoriaService.cargarDocumentos(formData).subscribe(
       (res) => {
-      //  this.cargarListaDocumentos();
+        this.cargarListaDocumentos();
         this.envioForm = true;
         this.cargando = false;
         this.formulario.reset();

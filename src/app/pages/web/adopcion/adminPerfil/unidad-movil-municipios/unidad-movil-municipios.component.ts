@@ -47,7 +47,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
     this.validarComponentesActivos();
   }
 
-  
+
   cargarListaDocumentos() {
     this.visitaService
       .listarDocumentosByIdentidad(this.identidadUsuario)
@@ -59,7 +59,7 @@ export class UnidadMovilMunicipiosComponent implements OnInit {
   }
 
   validarComponentesActivos() {
-    this.authService.getComponentesActivos('unidadMovilMunicipios').subscribe((resp: any)=>{
+    this.authService.getComponentesActivos('convocatoriaVoz').subscribe((resp: any)=>{
       this.botonRegistrar = resp[0].estado;
     });
    }
