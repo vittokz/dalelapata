@@ -1,0 +1,152 @@
+[26-Aug-2020 13:33:56 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[26-Aug-2020 13:33:56 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[26-Aug-2020 13:33:56 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[26-Aug-2020 13:33:56 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[27-Aug-2020 12:45:40 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[27-Aug-2020 12:45:40 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[27-Aug-2020 12:45:40 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[27-Aug-2020 12:45:40 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[29-Aug-2020 11:27:55 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[29-Aug-2020 11:27:55 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[29-Aug-2020 11:27:55 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[29-Aug-2020 11:27:55 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[30-Aug-2020 05:42:31 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[30-Aug-2020 05:42:31 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[30-Aug-2020 05:42:31 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[30-Aug-2020 05:42:31 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[01-Sep-2020 01:18:53 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 01:18:53 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 01:18:53 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 01:18:53 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 01:33:42 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 01:33:42 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 01:33:42 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 01:33:42 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 02:37:56 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 02:37:56 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 02:37:56 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 02:37:56 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 02:38:48 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[01-Sep-2020 02:38:48 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[01-Sep-2020 02:38:48 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[01-Sep-2020 02:38:48 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[01-Sep-2020 03:59:57 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 03:59:57 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Sep-2020 03:59:57 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Sep-2020 03:59:57 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[02-Sep-2020 05:35:31 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[02-Sep-2020 05:35:31 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[02-Sep-2020 05:35:31 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[02-Sep-2020 05:35:31 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[05-Sep-2020 14:24:56 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[05-Sep-2020 14:24:57 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[05-Sep-2020 14:24:57 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[05-Sep-2020 14:24:57 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[09-Sep-2020 05:15:55 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[09-Sep-2020 05:15:55 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[09-Sep-2020 05:15:55 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[09-Sep-2020 05:15:55 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[10-Sep-2020 23:09:55 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[10-Sep-2020 23:09:55 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[10-Sep-2020 23:09:55 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[10-Sep-2020 23:09:55 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[14-Sep-2020 04:33:57 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[14-Sep-2020 04:33:57 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[14-Sep-2020 04:33:57 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[14-Sep-2020 04:33:57 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[14-Sep-2020 05:38:51 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[14-Sep-2020 05:38:51 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[14-Sep-2020 05:38:51 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[14-Sep-2020 05:38:51 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[14-Sep-2020 11:53:04 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[14-Sep-2020 11:53:04 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[14-Sep-2020 11:53:04 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[14-Sep-2020 11:53:04 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[15-Sep-2020 00:31:26 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[15-Sep-2020 00:31:26 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[15-Sep-2020 00:31:26 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[15-Sep-2020 00:31:26 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[15-Sep-2020 18:43:30 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[15-Sep-2020 18:43:30 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[15-Sep-2020 18:43:30 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[15-Sep-2020 18:43:30 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[17-Sep-2020 14:06:32 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[17-Sep-2020 14:06:32 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[17-Sep-2020 14:06:32 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[17-Sep-2020 14:06:32 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[17-Sep-2020 21:41:16 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[17-Sep-2020 21:41:16 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[17-Sep-2020 21:41:16 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[17-Sep-2020 21:41:16 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[18-Sep-2020 08:01:08 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[18-Sep-2020 08:01:08 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[18-Sep-2020 08:01:08 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[18-Sep-2020 08:01:08 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[19-Sep-2020 10:26:59 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[19-Sep-2020 10:26:59 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[19-Sep-2020 10:27:00 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[19-Sep-2020 10:27:00 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[21-Sep-2020 05:48:15 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[21-Sep-2020 05:48:15 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[21-Sep-2020 05:48:15 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[21-Sep-2020 05:48:15 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[21-Sep-2020 11:07:12 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[21-Sep-2020 11:07:12 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[21-Sep-2020 11:07:12 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[21-Sep-2020 11:07:12 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[22-Sep-2020 13:28:49 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[22-Sep-2020 13:28:49 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[22-Sep-2020 13:28:49 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[22-Sep-2020 13:28:49 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[22-Sep-2020 16:15:37 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[22-Sep-2020 16:15:37 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[22-Sep-2020 16:15:37 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[22-Sep-2020 16:15:37 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[25-Sep-2020 01:08:48 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[25-Sep-2020 01:08:48 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[25-Sep-2020 01:08:48 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[25-Sep-2020 01:08:48 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[27-Sep-2020 21:33:20 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[27-Sep-2020 21:33:20 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[27-Sep-2020 21:33:20 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[27-Sep-2020 21:33:20 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[29-Sep-2020 04:44:37 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[29-Sep-2020 04:44:37 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[29-Sep-2020 04:44:37 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[29-Sep-2020 04:44:37 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[30-Sep-2020 13:13:42 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[30-Sep-2020 13:13:42 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[30-Sep-2020 13:13:42 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[30-Sep-2020 13:13:42 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[01-Oct-2020 16:59:10 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Oct-2020 16:59:11 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[01-Oct-2020 16:59:11 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[01-Oct-2020 16:59:11 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[02-Oct-2020 13:13:33 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[02-Oct-2020 13:13:33 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[02-Oct-2020 13:13:33 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[02-Oct-2020 13:13:33 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[03-Oct-2020 06:43:22 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[03-Oct-2020 06:43:22 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[03-Oct-2020 06:43:22 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[03-Oct-2020 06:43:22 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[03-Oct-2020 09:35:32 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[03-Oct-2020 09:35:32 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[03-Oct-2020 09:35:32 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[03-Oct-2020 09:35:32 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[03-Oct-2020 11:35:05 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[03-Oct-2020 11:35:05 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[03-Oct-2020 11:35:05 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[03-Oct-2020 11:35:05 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[03-Oct-2020 11:46:49 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[03-Oct-2020 11:46:49 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[03-Oct-2020 11:46:49 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[03-Oct-2020 11:46:49 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[04-Oct-2020 02:46:48 UTC] PHP Notice:  Trying to get property 'nombre' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 9
+[04-Oct-2020 02:46:48 UTC] PHP Notice:  Trying to get property 'nombreArchivo' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 10
+[04-Oct-2020 02:46:48 UTC] PHP Notice:  Trying to get property 'base64textString' of non-object in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 11
+[04-Oct-2020 02:46:48 UTC] PHP Notice:  Undefined index:  in /home/e7jamdwnmw0k/public_html/ApiDalelapata/subirArchivo.php on line 16
+[05-Oct-2020 13:32:42 UTC] PHP Warning:  include(../conexion.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[05-Oct-2020 13:32:42 UTC] PHP Warning:  include(): Failed opening '../conexion.php' for inclusion (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 2
+[05-Oct-2020 13:32:42 UTC] PHP Warning:  require(../phpMailer/Exception.php): failed to open stream: No such file or directory in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6
+[05-Oct-2020 13:32:42 UTC] PHP Fatal error:  require(): Failed opening required '../phpMailer/Exception.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/e7jamdwnmw0k/public_html/ApiDalelapata/addUsuarioPostulacion.php on line 6

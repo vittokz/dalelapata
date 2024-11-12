@@ -1,0 +1,1391 @@
+getRawData(item, itemsReportCount)
+
+export interface PaymentMethods {
+  paymentMethod?: string;
+  amountPayed?: number;
+  cus?: string;
+}
+export interface Items {
+  cfm?: string;
+  cfmTaxes?: string;
+  cfmQuantity?: string;
+  itemID?: string;
+  itemParentId?: string;
+  idOffer?: string;
+  nameOffer?: string;
+  serial?: string;
+  subType?: string;
+  resourceNumber?: string;
+  initialPayment?: string;
+  installments?: string;
+  liquidationType?: string;
+  itemTaxAmount?: number;
+  itemUnitAmount?: number;
+  clausePermanence?: string;
+  permanence?: string;
+  iccid?: string;
+  amountPendingFinanced?: string;
+  amount?: string;
+  businessDocumentNumber?: string;
+  taxIdentificationNumber?: string;
+  paymentMethods?: PaymentMethods;
+}
+
+
+//////////////////////
+
+{
+    _id: 627c41ec2029da00121b47eb,
+    scID: '711994',
+    userDocumentId: '1033754644',
+    clientCode: '93000000364087711994',
+    dealerCode: null,
+    dealerName: 'CO15-COMUNICACIÓN CELULAR COMCEL S.A.',
+    daneCode: null,
+    nameCustomer: 'ANDREU FIGULS ANDREU',
+    accountNumber: '93000000364087',
+    typeSales: '',
+    dateSales: 2022-05-11T23:08:28.222Z,
+    contractNumber: '50002535479179',
+    totalPayed: 499418,
+    salesPersonId: '1033754644',
+    nombreAgente: 'CO15-COMUNICACIÓN CELULAR COMCEL S.A.',
+    employer: '8001539937',
+    office: '8',
+    agenteCorresponsal: false,
+    min: '3212586401',
+    numberUnitsProduct: 2,
+    vendordealerCode: '',
+    equipmentSalesInvoiceNumber: null,
+    valueSoldDealer: null,
+    environment: 'sit',
+    items: [ [Object] ],
+    __v: 0
+  },
+
+
+
+//////////////////////////////////////////
+
+const salesReports = [
+  {
+    _id: '628007712029da00121b4a16',
+    scID: '713975',
+    userDocumentId: '1033754644',
+    clientCode: '93000000364714713975',
+    dealerCode: null,
+    dealerName: 'CO15-COMUNICACIÓN CELULAR COMCEL S.A.',
+    daneCode: null,
+    nameCustomer: 'GERARD ALTIMIRAS Tobias',
+    accountNumber: '93000000364714',
+    typeSales: '',
+    dateSales: '2022-05-14T19:48:01.732Z',
+    contractNumber: '190002535679940',
+    totalPayed: 64703,
+    salesPersonId: '1033754644',
+    nombreAgente: 'CO15-COMUNICACIÓN CELULAR COMCEL S.A.',
+    employer: '8001539937',
+    office: '8',
+    agenteCorresponsal: false,
+    min: '3102648429',
+    numberUnitsProduct: 3,
+    vendordealerCode: '',
+    equipmentSalesInvoiceNumber: null,
+    valueSoldDealer: null,
+    environment: 'sit',
+    items: [
+      {
+        itemID: '10007783409',
+        itemParentId: null,
+        subType: 'Contract',
+        idOffer: 'PO_MovPosBasico',
+        nameOffer: 'Servicio Móvil Postpago',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '571025000001004477',
+        liquidationType: 'Direct',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 62323, cus: null }],
+        cfm: '62325',
+        cfmTaxes: '10307',
+        cfmQuantity: '1',
+        iccid: '571025000001004477',
+        amountPendingFinanced: '0',
+        amount: null,
+        businessDocumentNumber: null,
+        taxIdentificationNumber: null,
+      },
+      {
+        itemID: '10007784260',
+        itemParentId: '10007783409',
+        subType: 'Plan',
+        idOffer: 'PO_MovPosPlanNavegalaA021',
+        nameOffer: 'Navegala M PRO',
+        itemTaxAmount: 10305.9255,
+        itemUnitAmount: 52016.81,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784648',
+        itemParentId: '10007783409',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoMonedero',
+        nameOffer: 'Servicio de Monederos',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784697',
+        itemParentId: '10007783409',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoRoaming',
+        nameOffer: 'Servicio Roaming por Demanda Internacional',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784749',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptCobilling',
+        nameOffer: 'Móvil Postpago Co-Billing',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784774',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloq',
+        nameOffer: 'Funcionalidades Postpago',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784904',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptClaroVideoB',
+        nameOffer: 'Claro Video',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784945',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloqCont',
+        nameOffer: 'Contenido```',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784970',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosEleApp2',
+        nameOffer: 'APP Elegibles - 2',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007784996',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloqDon',
+        nameOffer: 'Donaciones',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007785021',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptClaroMusicaInc',
+        nameOffer: 'Claro Música Incluida',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007785077',
+        itemParentId: '10007783409',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptFaFVozProv',
+        nameOffer: 'Familia y Amigos',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007785112',
+        itemParentId: '10007783409',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoOtros',
+        nameOffer: 'Otros Servicios por Demanda',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007785155',
+        itemParentId: '10007783409',
+        subType: 'SimCard',
+        idOffer: 'PO_SIM7012268',
+        nameOffer: 'USIM NORMAL',
+        itemTaxAmount: 380,
+        itemUnitAmount: 2000,
+        initialPayment: '',
+        installments: '1',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '571025000001004477',
+        liquidationType: 'Direct',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 2380, cus: null }],
+        cfm: null,
+        cfmTaxes: null,
+        cfmQuantity: null,
+        iccid: '571025000001004477',
+        amountPendingFinanced: null,
+        amount: null,
+        businessDocumentNumber: null,
+        taxIdentificationNumber: null,
+      },
+      {
+        itemID: '10007786825',
+        itemParentId: null,
+        subType: 'Telefono',
+        idOffer: 'PO_Equ70030488',
+        nameOffer: 'MOT MOG7P64XT1955 VT',
+        itemTaxAmount: 0,
+        itemUnitAmount: 567520,
+        initialPayment: '',
+        installments: '12',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '365317163682270',
+        liquidationType: 'Financed',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 0, cus: null }],
+        cfm: null,
+        cfmTaxes: null,
+        cfmQuantity: null,
+        iccid: '365317163682270',
+        amountPendingFinanced: '510768',
+        amount: null,
+        businessDocumentNumber: null,
+        taxIdentificationNumber: null,
+      },
+      {
+        itemID: '10007786825',
+        itemParentId: null,
+        subType: 'Telefono',
+        idOffer: 'PO_Equ70030488',
+        nameOffer: 'MOT MOG7P64XT1955 VT kz',
+        itemTaxAmount: 0,
+        itemUnitAmount: 567520,
+        initialPayment: '',
+        installments: '12',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '365317163682270',
+        liquidationType: 'Financed',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 0, cus: null }],
+        cfm: null,
+        cfmTaxes: null,
+        cfmQuantity: null,
+        iccid: '365317163682270',
+        amountPendingFinanced: '510768',
+        amount: null,
+        businessDocumentNumber: null,
+        taxIdentificationNumber: null,
+      },
+      {
+        itemID: '10007789903',
+        itemParentId: '10007786825',
+        subType: 'Financiamiento',
+        idOffer: 'PO_MotorAfinidadTerminales',
+        nameOffer: 'Financiamiento Terminales',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '12',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+    ],
+    __v: 0,
+  },
+  {
+    _id: '627fd41e2029da00121b49fb',
+    scID: '713940',
+    userDocumentId: '1035922188',
+    clientCode: '93000000363217713940',
+    dealerCode: 'D123800040',
+    dealerName: 'MOVILCO SAS',
+    daneCode: '4444',
+    nameCustomer: 'PREPAGO BASICA DUMMY',
+    accountNumber: '93000000363217',
+    typeSales: '',
+    dateSales: '2022-05-14T16:09:02.223Z',
+    contractNumber: '40002535678861',
+    totalPayed: 78798,
+    salesPersonId: '1035922188',
+    nombreAgente: 'MOVILCO SAS',
+    employer: '9003154483',
+    office: '28',
+    agenteCorresponsal: false,
+    min: '3102656616',
+    numberUnitsProduct: 4,
+    vendordealerCode: '',
+    equipmentSalesInvoiceNumber: null,
+    valueSoldDealer: null,
+    environment: 'sit',
+    items: [
+      {
+        itemID: '10007668431',
+        itemParentId: null,
+        subType: 'Contract',
+        idOffer: 'PO_MovPosBasico',
+        nameOffer: 'Servicio Móvil Postpago',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '571025000001002679',
+        liquidationType: 'Invoice',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 76418, cus: null }],
+        cfm: '76420',
+        cfmTaxes: '12638',
+        cfmQuantity: '1',
+        iccid: '571025000001002679',
+        amountPendingFinanced: '0',
+        amount: '83.00',
+        businessDocumentNumber: '3112014150',
+        taxIdentificationNumber: 'D123800040',
+      },
+      {
+        itemID: '10007670618',
+        itemParentId: '10007668431',
+        subType: 'Plan',
+        idOffer: 'PO_MovPosPlanNavegalaA018',
+        nameOffer: 'Navegala L LITE',
+        itemTaxAmount: 12636.8281,
+        itemUnitAmount: 63781.51,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671210',
+        itemParentId: '10007668431',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoMonedero',
+        nameOffer: 'Servicio de Monederos',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671259',
+        itemParentId: '10007668431',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoRoaming',
+        nameOffer: 'Servicio Roaming por Demanda Internacional',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671311',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptCobilling',
+        nameOffer: 'Móvil Postpago Co-Billing',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671336',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloq',
+        nameOffer: 'Funcionalidades Postpago',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671466',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptClaroVideoB',
+        nameOffer: 'Claro Video',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671507',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloqCont',
+        nameOffer: 'Contenido```',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671532',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosEleApp3',
+        nameOffer: 'APP Elegibles - 3',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671558',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloqDon',
+        nameOffer: 'Donaciones',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671583',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptClaroMusicaInc',
+        nameOffer: 'Claro Música Incluida',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671639',
+        itemParentId: '10007668431',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptFaFVozProv',
+        nameOffer: 'Familia y Amigos',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671674',
+        itemParentId: '10007668431',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoOtros',
+        nameOffer: 'Otros Servicios por Demanda',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007671717',
+        itemParentId: '10007668431',
+        subType: 'SimCard',
+        idOffer: 'PO_SIM7012268',
+        nameOffer: 'USIM NORMAL',
+        itemTaxAmount: 380,
+        itemUnitAmount: 2000,
+        initialPayment: '',
+        installments: '1',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '571025000001002679',
+        liquidationType: 'Direct',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 2380, cus: null }],
+        cfm: null,
+        cfmTaxes: null,
+        cfmQuantity: null,
+        iccid: '571025000001002679',
+        amountPendingFinanced: null,
+        amount: '83.00',
+        businessDocumentNumber: '3112014150',
+        taxIdentificationNumber: 'D123800040',
+      },
+      {
+        itemID: '10007676449',
+        itemParentItemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573003',
+        itemParentId: '10007572187',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloqCont',
+        nameOffer: 'Contenido```',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573028',
+        itemParentId: '10007572187',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosEleApp3',
+        nameOffer: 'APP Elegibles - 3',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573054',
+        itemParentId: '10007572187',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosFunBloqDon',
+        nameOffer: 'Donaciones',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573079',
+        itemParentId: '10007572187',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptClaroMusicaInc',
+        nameOffer: 'Claro Música Incluida',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573135',
+        itemParentId: '10007572187',
+        subType: 'Optional Service',
+        idOffer: 'PO_MovPosOptFaFVozProv',
+        nameOffer: 'Familia y Amigos',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573170',
+        itemParentId: '10007572187',
+        subType: 'Service',
+        idOffer: 'PO_MovPosUsoOtros',
+        nameOffer: 'Otros Servicios por Demanda',
+        itemTaxAmount: 0,
+        itemUnitAmount: 0,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        paymentMethods: [],
+      },
+      {
+        itemID: '10007573213',
+        itemParentId: '10007572187',
+        subType: 'SimCard',
+        idOffer: 'PO_SIM7012268',
+        nameOffer: 'USIM NORMAL',
+        itemTaxAmount: 380,
+        itemUnitAmount: 2000,
+        initialPayment: '',
+        installments: '1',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '571025000001080378',
+        liquidationType: 'Direct',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 2380, cus: null }],
+        cfm: null,
+        cfmTaxes: null,
+        cfmQuantity: null,
+        iccid: '571025000001080378',
+        amountPendingFinanced: null,
+        amount: null,
+        businessDocumentNumber: null,
+        taxIdentificationNumber: null,
+      },
+      {
+        itemID: '10007577749',
+        itemParentId: null,
+        subType: 'Telefono',
+        idOffer: 'PO_Equ70030488',
+        nameOffer: 'MOT MOG7P64XT1955 VT',
+        itemTaxAmount: 0,
+        itemUnitAmount: 567520,
+        initialPayment: '',
+        installments: '',
+        clausePermanence: 'NO',
+        permanence: '',
+        serial: '353089052956439',
+        liquidationType: 'Invoice',
+        paymentMethods: [{ paymentMethod: 'cash', amountPayed: 499418, cus: null }],
+        cfm: null,
+        cfmTaxes: null,
+        cfmQuantity: null,
+        iccid: '353089052956439',
+        amountPendingFinanced: '0',
+        amount: null,
+        businessDocumentNumber: null,
+        taxIdentificationNumber: null,
+      },
+    ],
+    __v: 0,
+  },
+];
+
+const allowedSubtypes: String[] = ['Telefono', 'COMPUTADORES', 'VIDEOJUEGOS', 'TELEVISORES', 'INTEROFT'];
+
+const carritosValidos = salesReports.filter(
+  (report) =>
+    // Se obtienen los carritos que tienen productos que son relevantes para el reporte
+    !!report.items.find((item: any) => allowedSubtypes.includes(item.subType) && item.liquidationType === 'Financed')
+);
+
+const productosVendidosQueVanEnElReporte = carritosValidos.map((carrito: any) =>
+  carrito.items
+    // Se filtran los productos relevantes
+    .filter(
+      (itemVendido: any) => allowedSubtypes.includes(itemVendido.subType) && itemVendido.liquidationType === 'Financed'
+    )
+    // Se generan los datos del carrito
+    .map((itemVendido: any) => generarRegistroVentaFirmePorProducto(carrito, itemVendido))
+);
+
+function generarRegistroVentaFirmePorProducto(carrito, itemVendido) {
+  return { itemVendido: itemVendido };
+}
+
+console.log(JSON.stringify(productosVendidosQueVanEnElReporte));
+
+
+
+
+
+/////////////////////////////////
+
+
+import mongoose from 'mongoose';
+import config from '../config/index';
+import { yesterdayDate, setTimeZone } from '../utils/DateUtils';
+import { SalesReport, SalesReportDocument, SalesReportSchema } from '../models/SalesReport';
+import { dateYYYYMMDD } from '../helpers/dates';
+import Client from 'ssh2-sftp-client';
+
+const collection = config[process.env.NODE_ENV || 'development'].collectionName;
+const fileSuffix = config[process.env.NODE_ENV || 'development'].fileSuffix;
+const configFtp = config[process.env.NODE_ENV || 'development'].ftpServer;
+
+const SalesReportModel = mongoose.model<SalesReportDocument>(
+  collection.SalesReportSchema.name,
+  SalesReportSchema,
+  collection.SalesReportSchema.nameCollection
+);
+
+export const csvWriteFirmSales = async (date?: Date) => {
+  try {
+    const currentDate = setTimeZone(date);
+    const yesterday = yesterdayDate(currentDate);
+
+    const salesReports = await getSalesReportData(yesterday, currentDate);
+
+    if (!salesReports.length) return false;
+
+    const carritosValidos = salesReports.filter(
+      (report) =>
+        // Se obtienen los carritos que tienen productos que son relevantes para el reporte
+        !!report.items.find(
+          (item: any) => allowedSubtypes.includes(item.subType) && item.liquidationType === 'Financed'
+        )
+    );
+
+    const productosVendidosQueVanEnElReporte = carritosValidos.map((carrito: any) =>
+      carrito.items
+        // Se filtran los productos relevantes
+        .filter(
+          (itemVendido: any) =>
+            allowedSubtypes.includes(itemVendido.subType) && itemVendido.liquidationType === 'Financed'
+        )
+        // Se generan los datos del carrito
+        .map((itemVendido: any) => generarRegistroVentaFirmePorProducto(carrito, itemVendido))
+    );
+
+    // const reportData = parseSalesReportData(salesReports, productosVendidosQueVanEnElReporte.length);
+
+    // let sftp = new Client();
+    // await sftp.connect(configFtp);
+
+    // const fileRemote = `${configFtp.pathVentaEnFirme}/REPVTAFIRME_${dateYYYYMMDD(yesterday)}${fileSuffix || ''}.csv`;
+    // await sftp.put(Buffer.from(reportData), fileRemote);
+    // await sftp.end();
+
+    return productosVendidosQueVanEnElReporte.length;
+  } catch (error) {
+    console.log(error, 'catch error');
+  }
+};
+
+const generarRegistroVentaFirmePorProducto = (carrito, itemVendido) => {
+  return { itemVendido: itemVendido };
+};
+
+const getSalesReportData = async (date1: Date, date2: Date) => {
+  return await SalesReportModel.find({
+    dateSales: {
+      $gte: date1,
+      $lt: date2,
+    },
+    environment: 'sit',
+    items: { $elemMatch: { subType: 'Telefono' } },
+  }).sort({ $natural: -1 });
+};
+
+// const parseSalesReportData = (reportItems: SalesReportDocument[], itemsReportCount: number) => {
+//   const rows = reportItems.reduce((rows, report) => {
+//     const reportItemsCopies = getReportCopiesForProductItem(report);
+
+//     const newRows = reportItemsCopies
+//       .filter((reportCopy) => reportCopy.items?.[0].liquidationType === 'Financed')
+//       .map((item) => getRawData(item, itemsReportCount));
+//     return rows.concat(newRows);
+//   }, []);
+
+//   return rows.join('\n');
+// };
+
+/**
+ * Crea una copia del reporte para cada item padre.
+ */
+const getReportCopiesForProductItem = (report: SalesReportDocument) => {
+  let reportCopies: SalesReport[] = [];
+
+  const parentItems = report.items.filter((item) => allowedSubtypes.includes(item.subType));
+
+  parentItems.forEach((item) => {
+    const subItems = report.items.filter((subItem) => subItem.itemParentId === item.itemID);
+    reportCopies.push({ ...report.toJSON(), items: [item, ...subItems] } as SalesReport);
+  });
+
+  return reportCopies;
+};
+
+const getRawData = (report: SalesReport, itemsReportCount: number) => {
+  const subtypesTechnology = allowedSubtypes.filter((subtype) => subtype !== 'SimCard' && subtype !== 'Telefono');
+  const dataContract = report.items?.find((item) => item.subType === 'Contract');
+  const dataFinanciamiento = report.items?.find((item) => item.subType === 'Financiamiento');
+
+  const dataItemVenta = report.items?.find((item) => allowedSubtypes.includes(item.subType));
+  const dataFinanced = report.items?.find((item) => item.liquidationType === 'Financed');
+
+  const payments = report.items.reduce(
+    (payments, item) => {
+      item.paymentMethods?.forEach((payment) => {
+        payments[payment.paymentMethod] += payment.amountPayed;
+      });
+
+      return payments;
+    },
+    { cash: 0, voucher: 0, check: 0 }
+  );
+  const totalPayment = payments.cash + payments.voucher + payments.check;
+  const amountPendingFinanced = dataFinanced?.amountPendingFinanced ? +dataFinanced?.amountPendingFinanced : 0;
+  const initialPayment = dataFinanced?.paymentMethods[0]?.amountPayed
+    ? dataFinanced?.paymentMethods.reduce((i, { amountPayed }) => i + amountPayed, 0)
+    : 0;
+  const totalAmount = report.items.reduce((total, item) => (total += item.itemUnitAmount + item.itemTaxAmount), 0);
+
+  const rawData = [
+    // 1 - A. Código de distribuidor
+    report.dealerCode || 0,
+    // 2 - B. Nombre del distribuidor
+    report.dealerName || 0,
+    // 3 - C. Código DANE de la ciudad de la venta
+    report.daneCode || 0,
+    // 4 - D. MIN (Número telefónico del cliente)
+    report.min || 0,
+    // 5 - E. IMEI del terminal vendido
+    dataItemVenta?.iccid || 0,
+    // 6 - F. ICCID de la SIM del plan vendido
+    dataItemVenta?.iccid || 0,
+    // 7 - G. Nombre del cliente
+    report.nameCustomer || 0,
+    // 8 - H. Cuenta principal del cliente
+    report.accountNumber || 0,
+    // 9 - I. Id del carrito
+    report.scID,
+    // 10 - J. Tipo de trámite (El valor puede ser VENTA o REPOSICION según el flujo)
+    'VENTA',
+    // 11 - K. Fecha de activación (Es la misma fecha de venta) con el formato AAAAMMDD
+    report.dateSales ? dateYYYYMMDD(report.dateSales) : 0,
+    // 12 - L. Fecha de ejecución (Es la misma fecha de venta) con el formato AAAAMMDD
+    report.dateSales ? dateYYYYMMDD(report.dateSales) : 0,
+    // 13 - M. Nombre del plan
+    dataItemVenta?.nameOffer || 0,
+    // 14 - N. Número del contrato
+    report.contractNumber || 0,
+    // 15 - O. Número del pagaré
+    0,
+    // 16 - P. Cláusula de permanencia para venta de hogar es SI o NO según aplique. Para planes móviles es NO.
+    dataContract?.clausePermanence || 'NO',
+    // 17 - Q. Número de cuotas si la venta fue financiada
+    dataFinanciamiento?.installments || 0,
+    // 18 - R. Número de meses si hay cláusula, este valor puede ser 00 (Si no hay cláusula), 12, 18 o 24.
+    dataContract?.permanence || '00',
+    // 19 - S. Valor del equipo
+    dataItemVenta.subType == 'Telefono' ? dataItemVenta.itemUnitAmount : 0,
+    // 20 - T. Impuesto del equipo
+    dataItemVenta.subType == 'Telefono' ? dataItemVenta.itemTaxAmount : 0,
+    // 21 - U. Tipo de pago. Los valores pueden ser CONTADO, FINANCIADO, CARGO A LA FACTURA.
+    report.items?.[0].liquidationType ? getPaymentType(report.items[0].liquidationType) : 0,
+    // 22 - V. Valor de la SIM Card
+    dataItemVenta.subType == 'SimCard' ? dataItemVenta.itemUnitAmount : 0,
+    // 23 - W. Impuesto de la SIM Card
+    dataItemVenta.subType == 'SimCard' ? dataItemVenta.itemTaxAmount : 0,
+    // 24 - X. Valor de la tecnología
+    subtypesTechnology.includes(dataItemVenta.subType) ? dataItemVenta.itemUnitAmount : 0,
+    // 25 - Y. Impuesto de la tecnología
+    subtypesTechnology.includes(dataItemVenta.subType) ? dataItemVenta.itemTaxAmount : 0,
+    // 26 - Z. Cargo Fijo Mensual del plan
+    dataItemVenta.subType == 'Plan' ? dataItemVenta.itemUnitAmount : 0,
+    // 27 - AA. Impuesto del Cargo Fijo Mensual del plan
+    dataItemVenta.subType == 'Plan' ? dataItemVenta.itemTaxAmount : 0,
+    // 28 - AB. Valor del pago inicial de una venta financiada
+    initialPayment ? totalPayment - initialPayment : 0,
+    // 29 - AC. Valor del abono inicial por parte del cliente para una venta financiada
+    initialPayment,
+    // 30 - AD. Valor total a pagar (suma de las dos columnas anteriores)
+    totalAmount,
+    // 31 - AE. Saldo a diferir de una venta financiada
+    amountPendingFinanced,
+    // 32 - AF. Número de autorización del Voucher si hubo pago con tarjeta débito o crédito
+    report.items?.[0]?.paymentMethods?.find((p) => p.paymentMethod === 'voucher')?.cus || 0,
+    // 33 - AG. Valor de pago en efectivo
+    payments.cash,
+    // 34 - AH. Valor de pago en cheque
+    payments.check,
+    // 35 - AI. Valor de pago con tarjeta débito o crédito
+    payments.voucher,
+    // 36 - AJ. Valor total del pago (La suma de las columnas 33, 34 y 35)
+    totalPayment,
+    // 37 - AK. Diferencia entre el valor neto a pagar (columna 30) y la suma de los pagos hechos (Columnas 36)
+    totalAmount - totalPayment, //??
+    // 38 - AL. El número de registros que hacen parte del reporte.
+    itemsReportCount,
+    // 39 - AM. Cantidad de unidades por producto.
+    1,
+    // 40 - AN. Código de distribuidor vendedor (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.taxIdentificationNumber || 0,
+    // 41 - AO. Numero de la factura de venta del equipo (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.businessDocumentNumber || 0, //businessDocumentNumber
+    // 42 - AP. Valor con el que se vendió el equipo al distribuidor (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.amount || 0, //amount
+  ];
+
+  return rawData.join(';');
+};
+
+const getPaymentType = (type: string) => {
+  return {
+    Direct: 'CONTADO',
+    Invoice: 'CARGO A LA FACTURA',
+    Financed: 'FINANCIADO',
+  }[type];
+};
+
+const allowedSubtypes: String[] = ['Telefono', 'COMPUTADORES', 'VIDEOJUEGOS', 'TELEVISORES', 'INTEROFT'];
+
+
+
+
+///////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////otro codigo
+
+import mongoose from 'mongoose';
+import config from '../config/index';
+import { yesterdayDate, setTimeZone } from '../utils/DateUtils';
+import { SalesReport, SalesReportDocument, SalesReportSchema, Items } from '../models/SalesReport';
+import { dateYYYYMMDD } from '../helpers/dates';
+import Client from 'ssh2-sftp-client';
+
+const collection = config[process.env.NODE_ENV || 'development'].collectionName;
+const fileSuffix = config[process.env.NODE_ENV || 'development'].fileSuffix;
+const configFtp = config[process.env.NODE_ENV || 'development'].ftpServer;
+
+const SalesReportModel = mongoose.model<SalesReportDocument>(
+  collection.SalesReportSchema.name,
+  SalesReportSchema,
+  collection.SalesReportSchema.nameCollection
+);
+
+export const csvWriteFirmSales = async (date?: Date) => {
+  try {
+    const currentDate = setTimeZone(date);
+    const yesterday = yesterdayDate(currentDate);
+
+    const salesReports = await getSalesReportData(yesterday, currentDate);
+
+    if (!salesReports.length) return false;
+
+    const carritosValidos = salesReports.filter(
+      (report) =>
+        // Se obtienen los carritos que tienen productos que son relevantes para el reporte
+        !!report.items.find(
+          (item: Items) => allowedSubtypes.includes(item.subType) && item.liquidationType === 'Financed'
+        )
+    );
+
+    carritosValidos.map((carrito: SalesReport) =>
+      carrito.items
+        // Se filtran los productos relevantes
+        .filter(
+          (itemVendido: Items) =>
+            allowedSubtypes.includes(itemVendido.subType) && itemVendido.liquidationType === 'Financed'
+        )
+        // Se generan los datos del carrito
+        .map((itemVendido: Items) => generarRegistroVentaFirmePorProducto(carrito, itemVendido))
+    );
+
+    const reportData = parseSalesReportData(carritosValidos, carritosValidos.length);
+
+    let sftp = new Client();
+    await sftp.connect(configFtp);
+
+    const fileRemote = `${configFtp.pathVentaEnFirme}/REPVTAFIRME_${dateYYYYMMDD(yesterday)}${fileSuffix || ''}.csv`;
+    await sftp.put(Buffer.from(reportData), fileRemote);
+    await sftp.end();
+
+    return carritosValidos.length;
+  } catch (error) {
+    console.log(error, 'catch error');
+  }
+};
+
+const productosVendidosQueVanEnElReporte = (carritosValidos) => {
+  const rows: any[] = [];
+  carritosValidos.map((carrito: SalesReport) =>
+    carrito.items
+      // Se filtran los productos relevantes
+      .filter(
+        (itemVendido: Items) =>
+          allowedSubtypes.includes(itemVendido.subType) && itemVendido.liquidationType === 'Financed'
+      )
+      // Se generan los datos del carrito
+      .map((itemVendido: Items) => {
+        const newRows = generarRegistroVentaFirmePorProducto(carrito, itemVendido);
+
+        return rows.concat(newRows);
+      })
+  );
+  console.log(rows);
+  return rows.join('\n');
+};
+
+const generarRegistroVentaFirmePorProducto = (carrito: SalesReport, itemVendido: Items) => {
+  const subtypesTechnology = allowedSubtypes.filter((subtype) => subtype !== 'SimCard' && subtype !== 'Telefono');
+  const dataContract = carrito.items?.find((item) => item.subType === 'Contract');
+  const dataFinanciamiento = carrito.items?.find((item) => item.subType === 'Financiamiento');
+
+  const dataItemVenta = carrito.items?.find((item) => allowedSubtypes.includes(item.subType));
+  const dataFinanced = carrito.items?.find((item) => item.liquidationType === 'Financed');
+
+  const payments = carrito.items.reduce(
+    (payments, item) => {
+      item.paymentMethods?.forEach((payment) => {
+        payments[payment.paymentMethod] += payment.amountPayed;
+      });
+      return payments;
+    },
+    { cash: 0, voucher: 0, check: 0 }
+  );
+  const totalPayment = payments.cash + payments.voucher + payments.check;
+  const amountPendingFinanced = dataFinanced?.amountPendingFinanced ? +dataFinanced?.amountPendingFinanced : 0;
+  const initialPayment = dataFinanced?.paymentMethods[0]?.amountPayed
+    ? dataFinanced?.paymentMethods.reduce((i, { amountPayed }) => i + amountPayed, 0)
+    : 0;
+  const totalAmount = carrito.items.reduce((total, item) => (total += item.itemUnitAmount + item.itemTaxAmount), 0);
+
+  const rawData = [
+    // 1 - A. Código de distribuidor
+    carrito.dealerCode || 0,
+    // 2 - B. Nombre del distribuidor
+    carrito.dealerName || 0,
+    // 3 - C. Código DANE de la ciudad de la venta
+    carrito.daneCode || 0,
+    // 4 - D. MIN (Número telefónico del cliente)
+    carrito.min || 0,
+    // 5 - E. IMEI del terminal vendido
+    dataItemVenta?.iccid || 0,
+    // 6 - F. ICCID de la SIM del plan vendido
+    dataItemVenta?.iccid || 0,
+    // 7 - G. Nombre del cliente
+    carrito.nameCustomer || 0,
+    // 8 - H. Cuenta principal del cliente
+    carrito.accountNumber || 0,
+    // 9 - I. Id del carrito
+    carrito.scID,
+    // 10 - J. Tipo de trámite (El valor puede ser VENTA o REPOSICION según el flujo)
+    'VENTA',
+    // 11 - K. Fecha de activación (Es la misma fecha de venta) con el formato AAAAMMDD
+    carrito.dateSales ? dateYYYYMMDD(carrito.dateSales) : 0,
+    // 12 - L. Fecha de ejecución (Es la misma fecha de venta) con el formato AAAAMMDD
+    carrito.dateSales ? dateYYYYMMDD(carrito.dateSales) : 0,
+    // 13 - M. Nombre del plan
+    dataItemVenta?.nameOffer || 0,
+    // 14 - N. Número del contrato
+    carrito.contractNumber || 0,
+    // 15 - O. Número del pagaré
+    0,
+    // 16 - P. Cláusula de permanencia para venta de hogar es SI o NO según aplique. Para planes móviles es NO.
+    dataContract?.clausePermanence || 'NO',
+    // 17 - Q. Número de cuotas si la venta fue financiada
+    dataFinanciamiento?.installments || 0,
+    // 18 - R. Número de meses si hay cláusula, este valor puede ser 00 (Si no hay cláusula), 12, 18 o 24.
+    dataContract?.permanence || '00',
+    // 19 - S. Valor del equipo
+    dataItemVenta.subType == 'Telefono' ? dataItemVenta.itemUnitAmount : 0,
+    // 20 - T. Impuesto del equipo
+    dataItemVenta.subType == 'Telefono' ? dataItemVenta.itemTaxAmount : 0,
+    // 21 - U. Tipo de pago. Los valores pueden ser CONTADO, FINANCIADO, CARGO A LA FACTURA.
+    carrito.items?.[0].liquidationType ? getPaymentType(carrito.items[0].liquidationType) : 0,
+    // 22 - V. Valor de la SIM Card
+    dataItemVenta.subType == 'SimCard' ? dataItemVenta.itemUnitAmount : 0,
+    // 23 - W. Impuesto de la SIM Card
+    dataItemVenta.subType == 'SimCard' ? dataItemVenta.itemTaxAmount : 0,
+    // 24 - X. Valor de la tecnología
+    subtypesTechnology.includes(dataItemVenta.subType) ? dataItemVenta.itemUnitAmount : 0,
+    // 25 - Y. Impuesto de la tecnología
+    subtypesTechnology.includes(dataItemVenta.subType) ? dataItemVenta.itemTaxAmount : 0,
+    // 26 - Z. Cargo Fijo Mensual del plan
+    dataItemVenta.subType == 'Plan' ? dataItemVenta.itemUnitAmount : 0,
+    // 27 - AA. Impuesto del Cargo Fijo Mensual del plan
+    dataItemVenta.subType == 'Plan' ? dataItemVenta.itemTaxAmount : 0,
+    // 28 - AB. Valor del pago inicial de una venta financiada
+    initialPayment ? totalPayment - initialPayment : 0,
+    // 29 - AC. Valor del abono inicial por parte del cliente para una venta financiada
+    initialPayment,
+    // 30 - AD. Valor total a pagar (suma de las dos columnas anteriores)
+    totalAmount,
+    // 31 - AE. Saldo a diferir de una venta financiada
+    amountPendingFinanced,
+    // 32 - AF. Número de autorización del Voucher si hubo pago con tarjeta débito o crédito
+    carrito.items?.[0]?.paymentMethods?.find((p) => p.paymentMethod === 'voucher')?.cus || 0,
+    // 33 - AG. Valor de pago en efectivo
+    payments.cash,
+    // 34 - AH. Valor de pago en cheque
+    payments.check,
+    // 35 - AI. Valor de pago con tarjeta débito o crédito
+    payments.voucher,
+    // 36 - AJ. Valor total del pago (La suma de las columnas 33, 34 y 35)
+    totalPayment,
+    // 37 - AK. Diferencia entre el valor neto a pagar (columna 30) y la suma de los pagos hechos (Columnas 36)
+    totalAmount - totalPayment, //??
+    // 38 - AL. El número de registros que hacen parte del reporte.
+    9,
+    // 39 - AM. Cantidad de unidades por producto.
+    1,
+    // 40 - AN. Código de distribuidor vendedor (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.taxIdentificationNumber || 0,
+    // 41 - AO. Numero de la factura de venta del equipo (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.businessDocumentNumber || 0, //businessDocumentNumber
+    // 42 - AP. Valor con el que se vendió el equipo al distribuidor (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.amount || 0, //amount
+  ];
+
+  return rawData.join(';');
+};
+
+const getSalesReportData = async (date1: Date, date2: Date) => {
+  return await SalesReportModel.find({
+    dateSales: {
+      $gte: date1,
+      $lt: date2,
+    },
+    environment: 'sit',
+    items: { $elemMatch: { subType: 'Telefono' } },
+  }).sort({ $natural: -1 });
+};
+
+const parseSalesReportData = (reportItems: SalesReportDocument[], itemsReportCount: number) => {
+  const rows = reportItems.reduce((rows, report) => {
+    const reportItemsCopies = getReportCopiesForProductItem(report);
+
+    const newRows = reportItemsCopies
+      .filter((reportCopy) => reportCopy.items?.[0].liquidationType === 'Financed')
+      .map((item) => getRawData(item, itemsReportCount));
+
+    return rows.concat(newRows);
+  }, []);
+
+  return rows.join('\n');
+};
+
+/**
+ * Crea una copia del reporte para cada item padre.
+ */
+const getReportCopiesForProductItem = (report: SalesReportDocument) => {
+  let reportCopies: SalesReport[] = [];
+
+  const parentItems = report.items.filter((item) => allowedSubtypes.includes(item.subType));
+
+  parentItems.forEach((item) => {
+    const subItems = report.items.filter((subItem) => subItem.itemParentId === item.itemID);
+    reportCopies.push({ ...report.toJSON(), items: [item, ...subItems] } as SalesReport);
+  });
+
+  return reportCopies;
+};
+
+const getRawData = (report: SalesReport, itemsReportCount: number) => {
+  const subtypesTechnology = allowedSubtypes.filter((subtype) => subtype !== 'SimCard' && subtype !== 'Telefono');
+  const dataContract = report.items?.find((item) => item.subType === 'Contract');
+  const dataFinanciamiento = report.items?.find((item) => item.subType === 'Financiamiento');
+
+  const dataItemVenta = report.items?.find((item) => allowedSubtypes.includes(item.subType));
+  const dataFinanced = report.items?.find((item) => item.liquidationType === 'Financed');
+
+  const payments = report.items.reduce(
+    (payments, item) => {
+      item.paymentMethods?.forEach((payment) => {
+        payments[payment.paymentMethod] += payment.amountPayed;
+      });
+      return payments;
+    },
+    { cash: 0, voucher: 0, check: 0 }
+  );
+  const totalPayment = payments.cash + payments.voucher + payments.check;
+  const amountPendingFinanced = dataFinanced?.amountPendingFinanced ? +dataFinanced?.amountPendingFinanced : 0;
+  const initialPayment = dataFinanced?.paymentMethods[0]?.amountPayed
+    ? dataFinanced?.paymentMethods.reduce((i, { amountPayed }) => i + amountPayed, 0)
+    : 0;
+  const totalAmount = report.items.reduce((total, item) => (total += item.itemUnitAmount + item.itemTaxAmount), 0);
+
+  const rawData = [
+    // 1 - A. Código de distribuidor
+    report.dealerCode || 0,
+    // 2 - B. Nombre del distribuidor
+    report.dealerName || 0,
+    // 3 - C. Código DANE de la ciudad de la venta
+    report.daneCode || 0,
+    // 4 - D. MIN (Número telefónico del cliente)
+    report.min || 0,
+    // 5 - E. IMEI del terminal vendido
+    dataItemVenta?.iccid || 0,
+    // 6 - F. ICCID de la SIM del plan vendido
+    dataItemVenta?.iccid || 0,
+    // 7 - G. Nombre del cliente
+    report.nameCustomer || 0,
+    // 8 - H. Cuenta principal del cliente
+    report.accountNumber || 0,
+    // 9 - I. Id del carrito
+    report.scID,
+    // 10 - J. Tipo de trámite (El valor puede ser VENTA o REPOSICION según el flujo)
+    'VENTA',
+    // 11 - K. Fecha de activación (Es la misma fecha de venta) con el formato AAAAMMDD
+    report.dateSales ? dateYYYYMMDD(report.dateSales) : 0,
+    // 12 - L. Fecha de ejecución (Es la misma fecha de venta) con el formato AAAAMMDD
+    report.dateSales ? dateYYYYMMDD(report.dateSales) : 0,
+    // 13 - M. Nombre del plan
+    dataItemVenta?.nameOffer || 0,
+    // 14 - N. Número del contrato
+    report.contractNumber || 0,
+    // 15 - O. Número del pagaré
+    0,
+    // 16 - P. Cláusula de permanencia para venta de hogar es SI o NO según aplique. Para planes móviles es NO.
+    dataContract?.clausePermanence || 'NO',
+    // 17 - Q. Número de cuotas si la venta fue financiada
+    dataFinanciamiento?.installments || 0,
+    // 18 - R. Número de meses si hay cláusula, este valor puede ser 00 (Si no hay cláusula), 12, 18 o 24.
+    dataContract?.permanence || '00',
+    // 19 - S. Valor del equipo
+    dataItemVenta.subType == 'Telefono' ? dataItemVenta.itemUnitAmount : 0,
+    // 20 - T. Impuesto del equipo
+    dataItemVenta.subType == 'Telefono' ? dataItemVenta.itemTaxAmount : 0,
+    // 21 - U. Tipo de pago. Los valores pueden ser CONTADO, FINANCIADO, CARGO A LA FACTURA.
+    report.items?.[0].liquidationType ? getPaymentType(report.items[0].liquidationType) : 0,
+    // 22 - V. Valor de la SIM Card
+    dataItemVenta.subType == 'SimCard' ? dataItemVenta.itemUnitAmount : 0,
+    // 23 - W. Impuesto de la SIM Card
+    dataItemVenta.subType == 'SimCard' ? dataItemVenta.itemTaxAmount : 0,
+    // 24 - X. Valor de la tecnología
+    subtypesTechnology.includes(dataItemVenta.subType) ? dataItemVenta.itemUnitAmount : 0,
+    // 25 - Y. Impuesto de la tecnología
+    subtypesTechnology.includes(dataItemVenta.subType) ? dataItemVenta.itemTaxAmount : 0,
+    // 26 - Z. Cargo Fijo Mensual del plan
+    dataItemVenta.subType == 'Plan' ? dataItemVenta.itemUnitAmount : 0,
+    // 27 - AA. Impuesto del Cargo Fijo Mensual del plan
+    dataItemVenta.subType == 'Plan' ? dataItemVenta.itemTaxAmount : 0,
+    // 28 - AB. Valor del pago inicial de una venta financiada
+    initialPayment ? totalPayment - initialPayment : 0,
+    // 29 - AC. Valor del abono inicial por parte del cliente para una venta financiada
+    initialPayment,
+    // 30 - AD. Valor total a pagar (suma de las dos columnas anteriores)
+    totalAmount,
+    // 31 - AE. Saldo a diferir de una venta financiada
+    amountPendingFinanced,
+    // 32 - AF. Número de autorización del Voucher si hubo pago con tarjeta débito o crédito
+    report.items?.[0]?.paymentMethods?.find((p) => p.paymentMethod === 'voucher')?.cus || 0,
+    // 33 - AG. Valor de pago en efectivo
+    payments.cash,
+    // 34 - AH. Valor de pago en cheque
+    payments.check,
+    // 35 - AI. Valor de pago con tarjeta débito o crédito
+    payments.voucher,
+    // 36 - AJ. Valor total del pago (La suma de las columnas 33, 34 y 35)
+    totalPayment,
+    // 37 - AK. Diferencia entre el valor neto a pagar (columna 30) y la suma de los pagos hechos (Columnas 36)
+    totalAmount - totalPayment, //??
+    // 38 - AL. El número de registros que hacen parte del reporte.
+    itemsReportCount,
+    // 39 - AM. Cantidad de unidades por producto.
+    1,
+    // 40 - AN. Código de distribuidor vendedor (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.taxIdentificationNumber || 0,
+    // 41 - AO. Numero de la factura de venta del equipo (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.businessDocumentNumber || 0, //businessDocumentNumber
+    // 42 - AP. Valor con el que se vendió el equipo al distribuidor (Este dato se obtiene del servicio queryByIMEI)
+    dataItemVenta?.amount || 0, //amount
+  ];
+
+  return rawData.join(';');
+};
+
+const getPaymentType = (type: string) => {
+  return {
+    Direct: 'CONTADO',
+    Invoice: 'CARGO A LA FACTURA',
+    Financed: 'FINANCIADO',
+  }[type];
+};
+
+const allowedSubtypes: String[] = ['Telefono', 'COMPUTADORES', 'VIDEOJUEGOS', 'TELEVISORES', 'INTEROFT'];
+
+
